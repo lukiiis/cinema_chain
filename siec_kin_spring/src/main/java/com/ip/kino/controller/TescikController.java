@@ -1,4 +1,4 @@
 package com.ip.kino.controller;
 
-public class TescikController {
+public class TesctController {
 }
