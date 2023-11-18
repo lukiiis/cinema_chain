@@ -10,7 +10,6 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/v1")
 public class ZapowiedziController {
-    int chuj;
     private final ZapowiedziService zapowiedziService;
     @Autowired
     public ZapowiedziController(ZapowiedziService zapowiedziService) {
