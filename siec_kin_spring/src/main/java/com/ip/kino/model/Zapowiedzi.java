@@ -1,21 +1,26 @@
 package com.ip.kino.model;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Zapowiedz {
+@AllArgsConstructor
+@NoArgsConstructor
+public class Zapowiedzi {
     @Id
-    private long id_zapowiedzi;
-    private long id_filmu;
+    private Long id_zapowiedzi;
     private String tytul_zapowiedzi;
     private String opis_zapowiedzi;
     private String obraz_url;
+    @OneToOne
+    @JoinColumn(name = "id_filmu")
+    private Film film;
 
-    public Zapowiedz(long id_filmu, String tytul_zapowiedzi, String opis_zapowiedzi, String obraz_url) {
-        this.id_filmu = id_filmu;
+    public Zapowiedzi(Film film, String tytul_zapowiedzi, String opis_zapowiedzi, String obraz_url) {
+        this.film = film;
         this.tytul_zapowiedzi = tytul_zapowiedzi;
         this.opis_zapowiedzi = opis_zapowiedzi;
         this.obraz_url = obraz_url;
@@ -29,12 +34,12 @@ public class Zapowiedz {
         this.id_zapowiedzi = id_zapowiedzi;
     }
 
-    public long getId_filmu() {
-        return id_filmu;
+    public Film getFilm() {
+        return film;
     }
 
-    public void setId_filmu(long id_filmu) {
-        this.id_filmu = id_filmu;
+    public void setFilm(Film film) {
+        this.film = film;
     }
 
     public String getTytul_zapowiedzi() {
