@@ -13,7 +13,7 @@ import java.time.LocalDate;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Filmy {
+public class Film {
     @Id
     private Long id_filmu;
     private String tytul;

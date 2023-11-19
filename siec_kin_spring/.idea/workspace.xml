@@ -5,12 +5,51 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4e5d65bb-a6af-4cf7-9894-d72f88fb830f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ip/kino/controller/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ip/kino/controller/HelloController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ip/kino/controller/FilmController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ip/kino/controller/KinoController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ip/kino/model/Kino.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ip/kino/repository/FilmRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ip/kino/repository/KinoRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ip/kino/service/FilmService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ip/kino/service/KinoService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ip/kino/controller/FilmController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ip/kino/controller/KinoController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ip/kino/model/Kino.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ip/kino/model/Klient.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ip/kino/model/Uzytkownik.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ip/kino/repository/FilmRepository.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ip/kino/repository/KinoRepository.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ip/kino/repository/UzytkownikRepository.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ip/kino/service/FilmService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/ip/kino/service/KinoService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ip/kino/SiecKinApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ip/kino/SiecKinApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ip/kino/controller/AktualnosciController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ip/kino/controller/AktualnosciController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ip/kino/model/Film.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ip/kino/model/Film.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ip/kino/model/Zapowiedzi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ip/kino/model/Zapowiedzi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ip/kino/controller/AktualnosciController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ip/kino/controller/AktualnosciController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ip/kino/controller/ZapowiedziController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ip/kino/controller/ZapowiedziController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ip/kino/model/Aktualnosci.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ip/kino/model/Aktualnosci.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ip/kino/model/Film.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ip/kino/model/Film.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ip/kino/model/KategoriaFilmu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ip/kino/model/KategoriaFilmu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ip/kino/model/Zapowiedzi.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ip/kino/model/Zapowiedzi.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ip/kino/repository/AktualnosciRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ip/kino/repository/AktualnosciRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ip/kino/repository/ZapowiedziRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ip/kino/repository/ZapowiedziRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ip/kino/service/AktualnosciService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ip/kino/service/AktualnosciService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ip/kino/service/ZapowiedziService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ip/kino/service/ZapowiedziService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -23,23 +62,33 @@
   &quot;associatedIndex&quot;: 3
 }</component>
   <component name="ProjectId" id="2YLpEDDrF422gaG4fR8MyW5cNDB" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "zysio",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;zysio&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration default="true" type="JetRunConfigurationType">
       <module name="siec_kin_spring" />
@@ -72,10 +121,25 @@
       <updated>1700314605577</updated>
       <workItem from="1700314608615" duration="339000" />
       <workItem from="1700314959207" duration="36000" />
+      <workItem from="1700317599429" duration="742000" />
+      <workItem from="1700332554433" duration="10190000" />
+      <workItem from="1700352042459" duration="130000" />
+      <workItem from="1700407336008" duration="472000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

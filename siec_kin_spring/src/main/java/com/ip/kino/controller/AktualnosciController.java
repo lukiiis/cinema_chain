@@ -22,4 +22,5 @@ public class AktualnosciController {
     public List<Aktualnosci> getAllAktualnosci(){
         return aktualnosciService.getAllAktualnosci();
     }
+
 }

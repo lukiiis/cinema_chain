@@ -8,5 +8,4 @@ public class SiecKinApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(SiecKinApplication.class, args);
 	}
-
 }

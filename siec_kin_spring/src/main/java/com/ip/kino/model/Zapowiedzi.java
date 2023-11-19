@@ -34,14 +34,6 @@ public class Zapowiedzi {
         this.id_zapowiedzi = id_zapowiedzi;
     }
 
-    public Film getFilm() {
-        return film;
-    }
-
-    public void setFilm(Film film) {
-        this.film = film;
-    }
-
     public String getTytul_zapowiedzi() {
         return tytul_zapowiedzi;
     }
