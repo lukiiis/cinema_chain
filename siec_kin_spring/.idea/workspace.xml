@@ -5,38 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4e5d65bb-a6af-4cf7-9894-d72f88fb830f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ip/kino/controller/FilmController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ip/kino/controller/KinoController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ip/kino/model/Kino.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ip/kino/repository/FilmRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ip/kino/repository/KinoRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ip/kino/service/FilmService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ip/kino/service/KinoService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/ip/kino/controller/FilmController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/ip/kino/controller/KinoController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/ip/kino/model/Kino.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/ip/kino/model/Klient.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/ip/kino/model/Uzytkownik.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/ip/kino/repository/FilmRepository.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/ip/kino/repository/KinoRepository.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/ip/kino/repository/UzytkownikRepository.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/ip/kino/service/FilmService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/ip/kino/service/KinoService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../siec_kin_react/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../siec_kin_react/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../siec_kin_react/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../siec_kin_react/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../siec_kin_react/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/../siec_kin_react/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../siec_kin_react/src/Pages/Home.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ip/kino/SiecKinApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ip/kino/SiecKinApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ip/kino/controller/AktualnosciController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ip/kino/controller/AktualnosciController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ip/kino/model/Film.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ip/kino/model/Film.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ip/kino/model/Zapowiedzi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ip/kino/model/Zapowiedzi.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ip/kino/controller/AktualnosciController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ip/kino/controller/AktualnosciController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ip/kino/controller/ZapowiedziController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ip/kino/controller/ZapowiedziController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ip/kino/model/Aktualnosci.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ip/kino/model/Aktualnosci.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ip/kino/model/Film.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ip/kino/model/Film.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ip/kino/model/KategoriaFilmu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ip/kino/model/KategoriaFilmu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ip/kino/model/Zapowiedzi.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ip/kino/model/Zapowiedzi.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ip/kino/repository/AktualnosciRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ip/kino/repository/AktualnosciRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ip/kino/repository/ZapowiedziRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ip/kino/repository/ZapowiedziRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ip/kino/service/AktualnosciService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ip/kino/service/AktualnosciService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ip/kino/service/ZapowiedziService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ip/kino/service/ZapowiedziService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ip/kino/controller/FilmController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ip/kino/controller/FilmController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ip/kino/controller/FilmController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ip/kino/controller/FilmController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ip/kino/model/Kino.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ip/kino/model/Kino.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -124,7 +103,8 @@
       <workItem from="1700317599429" duration="742000" />
       <workItem from="1700332554433" duration="10190000" />
       <workItem from="1700352042459" duration="130000" />
-      <workItem from="1700407336008" duration="472000" />
+      <workItem from="1700407336008" duration="3144000" />
+      <workItem from="1700603631007" duration="1803000" />
     </task>
     <servers />
   </component>
