@@ -82,6 +82,11 @@ public class RejestracjaService {
             if(zarejestrowanyUzytkownik.getNr_telefonu() == uzytkownikDTO.getNr_telefonu()){
                 return 4;
             }
+            if(uzytkownikDTO.getLogin().equals("") || uzytkownikDTO.getEmail().equals("") ||
+                    uzytkownikDTO.getImie().equals("") || uzytkownikDTO.getNazwisko().equals("") ||
+                    uzytkownikDTO.getHaslo().equals("") || uzytkownikDTO.getNr_telefonu() == null){
+                return 5;
+            }
         }
 
         //ustawia id uzytkownika na najwyzsze w bazie + 1

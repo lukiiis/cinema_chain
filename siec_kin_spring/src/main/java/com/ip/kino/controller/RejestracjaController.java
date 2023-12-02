@@ -36,6 +36,9 @@ public class RejestracjaController {
         else if(status == 4){
             return ResponseEntity.ok("Podany numer telefonu jest zajęty.");
         }
+        else if(status == 5){
+            return ResponseEntity.ok("Pole w formularzu jest puste.");
+        }
         return (ResponseEntity<String>) ResponseEntity.internalServerError();
     }
 

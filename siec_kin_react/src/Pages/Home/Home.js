@@ -1,22 +1,26 @@
-import FilmCarousel from "../../Components/FilmCarousel";
+// import Zapowiedzi from "../../Components/zapowiedzi/Zapowiedzi.jsx";
+import Aktualnosci from "../../Components/aktualnosci/Aktualnosci.jsx";
+import Navigation from "../../Components/navigation/Navigation.jsx";
+import Footer from "../../Components/footer/Footer.jsx";
+import "./Home.css";
 
-export default function Home(){
-
-    const [movies, setMovies] = useState();
-
-    const getMovies = () =>{
-        axios.get('http://localhost:8090/api/v1/film').then(
-            response => {
-                setMovies(response.data)
-                console.log(response.data)
-            }
-        ).catch(err =>{
-            console.log('nie dziala')
-        })
-    }
+const Home = () => {
     return(
-        <FilmCarousel />
-        <div>
-            <button onClick={getMovies}>poka filmy</button>
-        </div>
+        <>
+            <Navigation active={"home"}/>
+            {/* <Zapowiedzi/> */}
+            <Aktualnosci/>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <Footer/>
+        </>
     )
+}
+export default Home;

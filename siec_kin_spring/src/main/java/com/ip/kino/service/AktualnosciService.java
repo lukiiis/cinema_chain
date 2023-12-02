@@ -19,4 +19,7 @@ public class AktualnosciService {
         System.out.println(aktualnosciRepository.findAll());
         return aktualnosciRepository.findAll();
     }
+    public Aktualnosci getAktualnosciById(Long id){
+        return aktualnosciRepository.findById(id).orElse(null);
+    }
 }

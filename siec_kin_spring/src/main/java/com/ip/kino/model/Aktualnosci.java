@@ -13,7 +13,6 @@ import java.time.LocalDate;
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
 public class Aktualnosci {
     @Id
     private Long id_aktualnosci;
@@ -21,12 +20,33 @@ public class Aktualnosci {
     private String tresc;
     private LocalDate data_dodania;
     private String obraz_url;
+    private String obraz_url_baner;
+    private String tresc_dluga;
 
-    public Aktualnosci(String tytul, String tresc, LocalDate data_dodania, String obraz_url) {
+    public Aktualnosci(Long id_aktualnosci, String tytul, String tresc, LocalDate data_dodania, String obraz_url, String obraz_url_baner, String tresc_dluga) {
+        this.id_aktualnosci = id_aktualnosci;
         this.tytul = tytul;
         this.tresc = tresc;
         this.data_dodania = data_dodania;
         this.obraz_url = obraz_url;
+        this.obraz_url_baner = obraz_url_baner;
+        this.tresc_dluga = tresc_dluga;
+    }
+
+    public String getObraz_url_baner() {
+        return obraz_url_baner;
+    }
+
+    public void setObraz_url_baner(String obraz_url_baner) {
+        this.obraz_url_baner = obraz_url_baner;
+    }
+
+    public String getTresc_dluga() {
+        return tresc_dluga;
+    }
+
+    public void setTresc_dluga(String tresc_dluga) {
+        this.tresc_dluga = tresc_dluga;
     }
 
     public Long getId_aktualnosci() {
@@ -68,4 +88,5 @@ public class Aktualnosci {
     public void setObraz_url(String obraz_url) {
         this.obraz_url = obraz_url;
     }
+
 }

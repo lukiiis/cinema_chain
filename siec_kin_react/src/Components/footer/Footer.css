@@ -1,0 +1,49 @@
+footer{
+    width:100%;
+    background: rgb(214, 214, 214);
+    min-height: 150px;
+    bottom:0;
+    border-top: 2px solid rgb(139, 139, 139);
+    margin-top:auto;
+}
+
+.cinemasHeader{
+ 
+}
+
+.wrapper{
+    max-width:1160px;
+    margin: 0 auto;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    gap:50px;
+}
+
+
+.cinemaList{
+    list-style-type: none;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap:15px;
+    padding: 0;
+    margin: 0;
+    flex-wrap: wrap;
+}
+
+.heading{
+    margin: 15px 0 15px 0;
+}
+
+.link{
+    text-decoration: none;
+    color:black;
+}
+
+.footerSectionCenter{
+    text-align: center;
+    width:100%;
+    margin-bottom: 20px;
+}

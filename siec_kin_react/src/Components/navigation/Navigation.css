@@ -1,0 +1,42 @@
+.nav-bg{
+    background-color: rgb(241, 241, 241);
+}
+
+nav{
+    height:100px;
+}
+
+.logInButtons{
+    display: flex;
+    gap:20px;
+}
+
+.container{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar{
+    border-bottom:2px solid rgb(187, 187, 187);
+    position: sticky;
+    top:0;
+    z-index:2;
+}
+
+.navbar-nav{
+    margin:0 auto;
+}
+
+.navWrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin:0 auto;
+    max-width:1160px;
+    width:100%;
+}
+
+.activeHover{
+    background:red !important;
+}

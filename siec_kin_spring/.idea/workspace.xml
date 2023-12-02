@@ -5,24 +5,51 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1fc0d765-9d67-4b9c-87cd-087432e35c5d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../siec_kin_react/src/Components/filmCarousel/FilmCarousel.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../siec_kin_react/src/Pages/Home/Home.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../siec_kin_react/src/Pages/cd.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../siec_kin_react/src/api/axiosConfig.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ip/kino/config/CorsConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/ip/kino/config/CorsConfig.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_beust_jcommander_1_82.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_security_3_1_5.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_crypto_6_2_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_web_6_2_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_testng_testng_7_7_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_webjars_jquery_3_6_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ip/kino/config/SecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ip/kino/controller/PromocjeController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ip/kino/model/Promocje.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ip/kino/repository/PromocjeRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ip/kino/service/PromocjeService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../siec_kin_react/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../siec_kin_react/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../siec_kin_react/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../siec_kin_react/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../siec_kin_react/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../siec_kin_react/public/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../siec_kin_react/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/../siec_kin_react/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../siec_kin_react/src/Pages/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/../siec_kin_react/src/Components/filmCarousel/FilmCarousel.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ip/kino/controller/FilmController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ip/kino/controller/FilmController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../siec_kin_react/src/Pages/Home/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/../siec_kin_react/src/Pages/Home/Home.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../siec_kin_react/src/Pages/cd.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_crypto_6_1_5.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_config_6_2_0.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kino.iml" beforeDir="false" afterPath="$PROJECT_DIR$/kino.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ip/kino/config/CorsConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ip/kino/config/CorsConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ip/kino/controller/AktualnosciController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ip/kino/controller/AktualnosciController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ip/kino/controller/RejestracjaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ip/kino/controller/RejestracjaController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ip/kino/model/Aktualnosci.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ip/kino/model/Aktualnosci.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ip/kino/service/AktualnosciService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ip/kino/service/AktualnosciService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ip/kino/service/RejestracjaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ip/kino/service/RejestracjaService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ip/kino/config/CorsConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ip/kino/config/CorsConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ip/kino/controller/FilmController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ip/kino/controller/FilmController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ip/kino/controller/RejestracjaController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ip/kino/controller/RejestracjaController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ip/kino/model/Aktualnosci.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ip/kino/model/Aktualnosci.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ip/kino/service/RejestracjaService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ip/kino/service/RejestracjaService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -35,12 +62,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -51,5 +80,15 @@
       <updated>1700684436327</updated>
     </task>
     <servers />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="dependencySupport" implementationName="java:org.springframework:spring-core" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework.security:spring-security-core" />
+    <option featureType="dependencySupport" implementationName="java:jakarta.persistence:jakarta.persistence-api" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework.data:spring-data-commons" />
+    <option featureType="dependencySupport" implementationName="java:org.thymeleaf:thymeleaf" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework.boot:spring-boot" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework:spring-webmvc" />
+    <option featureType="dependencySupport" implementationName="java:org.projectlombok:lombok" />
   </component>
 </project>
