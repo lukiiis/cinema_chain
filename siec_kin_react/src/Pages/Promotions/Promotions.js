@@ -65,7 +65,7 @@ const Promotions = () => {
                                     </div>
                                 </div>
                             </div>
-                        );
+                            );
                         })}
                 </>) : (
                     <p>pobieranie danych</p>

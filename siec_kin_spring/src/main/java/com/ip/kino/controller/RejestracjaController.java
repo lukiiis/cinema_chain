@@ -41,11 +41,4 @@ public class RejestracjaController {
         }
         return (ResponseEntity<String>) ResponseEntity.internalServerError();
     }
-
-    //ZROBIĆ REJESTRACJĘ DLA PRACOWNIKA INNĄ TU I W SERWISIE, BO POTRZEBA TEŻ PRZESŁAĆ W PARAMETRZE OBIEKT KINA LUB ID KINA oraz STANOWISKO
-    @PostMapping("/pracownik")
-    public ResponseEntity<String> zarejestrujPracownika(@RequestBody PracownikDTO pracownikDTO){
-        rejestracjaService.zarejestrujPracownika(pracownikDTO);
-        return ResponseEntity.ok("Pracownik został pomyślnie zarejestrowany.");
-    }
 }

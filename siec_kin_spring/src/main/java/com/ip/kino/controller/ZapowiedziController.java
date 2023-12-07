@@ -15,12 +15,12 @@ public class ZapowiedziController {
     public ZapowiedziController(ZapowiedziService zapowiedziService) {
         this.zapowiedziService = zapowiedziService;
     }
-    @GetMapping("/zapowiedzi")
-    public List<Zapowiedzi> getAllZapowiedzi(){
-        return zapowiedziService.getAllZapowiedzi();
-    }
-    @GetMapping("/zapowiedzi/{id}")
-    public Zapowiedzi getZapowiedzById(@PathVariable Long id){
-        return zapowiedziService.getZapowiedzById(id);
-    }
+//    @GetMapping("/zapowiedzi")
+//    public List<Zapowiedzi> getAllZapowiedzi(){
+//        return zapowiedziService.getAllZapowiedzi();
+//    }
+//    @GetMapping("/zapowiedzi/{id}")
+//    public Zapowiedzi getZapowiedzById(@PathVariable Long id){
+//        return zapowiedziService.getZapowiedzById(id);
+//    }
 }

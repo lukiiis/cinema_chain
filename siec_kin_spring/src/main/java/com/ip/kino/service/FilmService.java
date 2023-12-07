@@ -27,5 +27,8 @@ public class FilmService {
         Collections.sort(LatestFilms, comparator);
         return LatestFilms;
     }
+    public List<Film> getZapowiedzi(){
+        return filmRepository.findZapowiedzi();
+    }
 
 }

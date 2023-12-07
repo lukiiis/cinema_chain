@@ -45,7 +45,7 @@ const News = () => {
                         return (
                             <div
                                 className={`newsContainer ${hovered === index ? 'highlighted' : 'dimmed'} ${index === 0 ? 'highlighted' : ''}`}
-                                key={oneNews.id_promocji} 
+                                key={oneNews.id_aktualnosci} 
                                 style={{ backgroundImage: `linear-gradient(to right, black 27%, transparent 80%), url(${oneNews.obraz_url_baner})` }} 
                                 onMouseEnter={() => setHovered(index)}
                                 onMouseLeave={() => setHovered(false)}

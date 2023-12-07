@@ -1,5 +1,6 @@
 package com.ip.kino.controller;
 
+import com.ip.kino.model.Film;
 import com.ip.kino.service.FilmService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,5 +23,10 @@ public class FilmController {
     @GetMapping("/film")
     public List<com.ip.kino.model.Film> getAllFilmy(){
             return filmService.getLatestFilms();
+    }
+
+    @GetMapping("/zapowiedzi")
+    public List<Film> getZapowiedzi(){
+        return filmService.getZapowiedzi();
     }
 }

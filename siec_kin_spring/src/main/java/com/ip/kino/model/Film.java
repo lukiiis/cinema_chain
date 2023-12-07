@@ -1,10 +1,7 @@
 package com.ip.kino.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.time.LocalDate;
 
@@ -21,9 +18,30 @@ public class Film {
     private String rezyser;
     private LocalDate data_premiery;
     private Long czas_trwania;
+
+    //new
+    private String obraz_url;
+    private String plakat_url;
+
     @ManyToOne
     @JoinColumn(name = "id_kategorii")
     private KategoriaFilmu kategoria;
+
+    public String getObraz_url() {
+        return obraz_url;
+    }
+
+    public void setObraz_url(String obraz_url) {
+        this.obraz_url = obraz_url;
+    }
+
+    public String getPlakat_url() {
+        return plakat_url;
+    }
+
+    public void setPlakat_url(String plakat_url) {
+        this.plakat_url = plakat_url;
+    }
 
     public Long getId_filmu() {
         return id_filmu;

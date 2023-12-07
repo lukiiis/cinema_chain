@@ -5,37 +5,49 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1fc0d765-9d67-4b9c-87cd-087432e35c5d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_beust_jcommander_1_82.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_security_3_1_5.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_crypto_6_2_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_web_6_2_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_testng_testng_7_7_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_webjars_jquery_3_6_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ip/kino/config/SecurityConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ip/kino/controller/PromocjeController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ip/kino/model/Promocje.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ip/kino/repository/PromocjeRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ip/kino/service/PromocjeService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../siec_kin_react/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../siec_kin_react/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../siec_kin_react/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../siec_kin_react/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../siec_kin_react/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../siec_kin_react/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../siec_kin_react/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/../siec_kin_react/src/App.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_jsonwebtoken_jjwt_api_0_11_5.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_jsonwebtoken_jjwt_impl_0_11_5.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_jsonwebtoken_jjwt_jackson_0_11_5.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ip/kino/config/ApplicationConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ip/kino/config/AuthenticationResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ip/kino/config/JwtAuthenticationFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ip/kino/config/JwtService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ip/kino/controller/AuthTestController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ip/kino/controller/AuthenticationController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ip/kino/dto/LoginDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ip/kino/model/Role.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ip/kino/service/AuthenticationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../siec_kin_react/src/Components/aktualnosci/Aktualnosci.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../siec_kin_react/src/Components/aktualnosci/Aktualnosci.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../siec_kin_react/src/Components/navigation/Navigation.css" beforeDir="false" afterPath="$PROJECT_DIR$/../siec_kin_react/src/Components/navigation/Navigation.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../siec_kin_react/src/Components/zapowiedzi/Zapowiedzi.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../siec_kin_react/src/Components/zapowiedzi/Zapowiedzi.jsx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../siec_kin_react/src/Pages/Home/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/../siec_kin_react/src/Pages/Home/Home.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../siec_kin_react/src/Pages/cd.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_crypto_6_1_5.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_config_6_2_0.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../siec_kin_react/src/Pages/News/News.js" beforeDir="false" afterPath="$PROJECT_DIR$/../siec_kin_react/src/Pages/News/News.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../siec_kin_react/src/Pages/News/NewsDetails.js" beforeDir="false" afterPath="$PROJECT_DIR$/../siec_kin_react/src/Pages/News/NewsDetails.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../siec_kin_react/src/Pages/Promotions/Promotions.js" beforeDir="false" afterPath="$PROJECT_DIR$/../siec_kin_react/src/Pages/Promotions/Promotions.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/kino.iml" beforeDir="false" afterPath="$PROJECT_DIR$/kino.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ip/kino/config/CorsConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ip/kino/config/CorsConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ip/kino/controller/AktualnosciController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ip/kino/controller/AktualnosciController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ip/kino/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ip/kino/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ip/kino/controller/FilmController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ip/kino/controller/FilmController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ip/kino/controller/RejestracjaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ip/kino/controller/RejestracjaController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ip/kino/model/Aktualnosci.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ip/kino/model/Aktualnosci.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ip/kino/service/AktualnosciService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ip/kino/service/AktualnosciService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ip/kino/controller/ZapowiedziController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ip/kino/controller/ZapowiedziController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ip/kino/model/Film.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ip/kino/model/Film.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ip/kino/model/Uzytkownik.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ip/kino/model/Uzytkownik.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ip/kino/repository/FilmRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ip/kino/repository/FilmRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ip/kino/repository/UzytkownikRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ip/kino/repository/UzytkownikRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ip/kino/service/FilmService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ip/kino/service/FilmService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ip/kino/service/RejestracjaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ip/kino/service/RejestracjaService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ip/kino/config/CorsConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ip/kino/config/CorsConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ip/kino/config/SecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ip/kino/config/SecurityConfig.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/ip/kino/controller/FilmController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ip/kino/controller/FilmController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/ip/kino/controller/RejestracjaController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ip/kino/controller/RejestracjaController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ip/kino/model/Aktualnosci.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ip/kino/model/Aktualnosci.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ip/kino/controller/ZapowiedziController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ip/kino/controller/ZapowiedziController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ip/kino/model/Film.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ip/kino/model/Film.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ip/kino/model/Uzytkownik.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ip/kino/model/Uzytkownik.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ip/kino/repository/FilmRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ip/kino/repository/FilmRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ip/kino/repository/UzytkownikRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ip/kino/repository/UzytkownikRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ip/kino/service/FilmService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ip/kino/service/FilmService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/ip/kino/service/RejestracjaService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ip/kino/service/RejestracjaService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -47,6 +59,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
+        <option value="Enum" />
         <option value="Class" />
       </list>
     </option>
@@ -70,6 +83,13 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.ip.kino.dto" />
+      <recent name="com.ip.kino.config" />
+      <recent name="com.ip.kino.model" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">

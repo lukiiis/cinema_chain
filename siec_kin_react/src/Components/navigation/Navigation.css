@@ -21,7 +21,7 @@ nav{
     border-bottom:2px solid rgb(187, 187, 187);
     position: sticky;
     top:0;
-    z-index:2;
+    z-index:3;
 }
 
 .navbar-nav{

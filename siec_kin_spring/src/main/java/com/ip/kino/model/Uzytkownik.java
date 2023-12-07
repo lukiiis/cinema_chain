@@ -5,15 +5,21 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import java.time.LocalDate;
+import java.util.Collection;
+import java.util.List;
 
 @Entity
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Uzytkownik {
+@Table(name="Uzytkownik")
+public class Uzytkownik implements UserDetails {
     @Id
     //@GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_uzytkownika;
@@ -25,15 +31,20 @@ public class Uzytkownik {
     private Long nr_telefonu;
     private LocalDate data_utworzenia;
     private Long typ_konta;
-    @OneToOne(mappedBy = "uzytkownik")
-    private Klient klient;
-    @OneToOne(mappedBy = "uzytkownik")
-    private Administrator administrator;
-    @OneToOne(mappedBy = "uzytkownik")
-    private Pracownik pracownik;
+    @Enumerated(EnumType.STRING)
+    private Role role;
+    //----------------------------DANE KLIENTA---------------------------------------------
+    private Long liczba_rezerwacji;
+    private Double portfel;
 
-    //konstruktor klienta
-    public Uzytkownik(String login, String haslo, String email, String imie, String nazwisko, Long nr_telefonu, LocalDate data_utworzenia, Long typ_konta, Klient klient) {
+    //--------------------------DANE PRACOWNIKA--------------------------------------------
+    private String stanowisko;
+    @ManyToOne
+    @JoinColumn(name = "id_kina")
+    private Kino kino;
+
+
+    public Uzytkownik(String login, String haslo, String email, String imie, String nazwisko, Long nr_telefonu, LocalDate data_utworzenia, Long typ_konta, Role role) {
         this.login = login;
         this.haslo = haslo;
         this.email = email;
@@ -42,13 +53,15 @@ public class Uzytkownik {
         this.nr_telefonu = nr_telefonu;
         this.data_utworzenia = data_utworzenia;
         this.typ_konta = typ_konta;
-        this.klient = klient;
-        this.administrator=null;
-        this.pracownik=null;
+        this.role = role;
+        this.liczba_rezerwacji=0L;
+        this.portfel=0.0;
+        this.stanowisko="";
+        this.kino=null;
     }
 
-    //konstruktor pracownika
-    public Uzytkownik(String login, String haslo, String email, String imie, String nazwisko, Long nr_telefonu, LocalDate data_utworzenia, Long typ_konta, Pracownik pracownik) {
+    public Uzytkownik(Long id, String login, String haslo, String email, String imie, String nazwisko, Long nr_telefonu, LocalDate data_utworzenia, Long typ_konta, Role role) {
+        this.id_uzytkownika=id;
         this.login = login;
         this.haslo = haslo;
         this.email = email;
@@ -57,24 +70,11 @@ public class Uzytkownik {
         this.nr_telefonu = nr_telefonu;
         this.data_utworzenia = data_utworzenia;
         this.typ_konta = typ_konta;
-        this.klient = null;
-        this.administrator=null;
-        this.pracownik=pracownik;
-    }
-
-    //konstruktor administratora
-    public Uzytkownik(String login, String haslo, String email, String imie, String nazwisko, Long nr_telefonu, LocalDate data_utworzenia, Long typ_konta, Administrator administrator) {
-        this.login = login;
-        this.haslo = haslo;
-        this.email = email;
-        this.imie = imie;
-        this.nazwisko = nazwisko;
-        this.nr_telefonu = nr_telefonu;
-        this.data_utworzenia = data_utworzenia;
-        this.typ_konta = typ_konta;
-        this.klient = null;
-        this.administrator=administrator;
-        this.pracownik=null;
+        this.role = role;
+        this.liczba_rezerwacji=0L;
+        this.portfel=0.0;
+        this.stanowisko="";
+        this.kino=null;
     }
 
     public String getLogin() {
@@ -139,5 +139,40 @@ public class Uzytkownik {
 
     public void setTyp_konta(Long typ_konta) {
         this.typ_konta = typ_konta;
+    }
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return List.of(new SimpleGrantedAuthority(role.name()));
+    }
+
+    @Override
+    public String getPassword() {
+        return haslo;
+    }
+
+    @Override
+    public String getUsername() {
+        return login;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
     }
 }

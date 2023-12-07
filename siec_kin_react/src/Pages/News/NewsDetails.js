@@ -12,46 +12,45 @@ const NewsDetails = () => {
     const [news, setNews] = useState(null);
 
     useEffect(()=>{
+        async function fetchData(){
+            const url = "http://localhost:8090/api/v1/aktualnosci/" + promo;
+            try{
+                const response = await axios.get(url);
+                setNews(response.data);
+            }
+            catch (error){
+                console.error("Error while fetching data: ", error);
+            }
+        }
         fetchData();
     }, []);
-
-    const fetchData = async () =>{
-        const url = "http://localhost:8090/api/v1/aktualnosci/" + promo;
-        try{
-            const response = await axios.get(url);
-            setNews(response.data);
-        }
-        catch (error){
-            console.error("Error while fetching data: ", error);
-        }
-    }
 
     return (
         <>
             <Navigation/>
             {news ? (
-                <div className="promoDetailsContainer">
+                <div className="newsDetailsContainer">
                     <div 
-                        className="promoTopContainer" 
+                        className="newsTopContainer" 
                         style={{ backgroundImage: `linear-gradient(to top, black 8%, transparent 60%), url(${news.obraz_url_baner})` }}
                     >
-                        <div className="promoDetailsTopWrapper">
-                            <div className="promoInfo">
-                                <div className="promoInfoDate">
+                        <div className="newsDetailsTopWrapper">
+                            <div className="newsInfo">
+                                <div className="newsInfoDate">
                                     <span>{news.data_dodania}</span>
                                 </div>
-                                <div className="promoInfoTitle">
+                                <div className="newsInfoTitle">
                                     <span>{news.tytul}</span>
                                 </div>
-                                <div className="promoInfoShortContent">
+                                <div className="newsInfoShortContent">
                                     <span>{news.tresc}</span>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div className="promoBottomContainer">
-                        <div className="promoDetailsBottomWrapper">
-                            <div className="promoInfoLongContent">
+                    <div className="newsBottomContainer">
+                        <div className="newsDetailsBottomWrapper">
+                            <div className="newsInfoLongContent">
                                 <span>
                                     {news.tresc_dluga}
                                 </span>
