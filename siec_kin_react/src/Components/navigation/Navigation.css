@@ -40,3 +40,33 @@ nav{
 .activeHover{
     background:red !important;
 }
+
+/* -------------USER INFO -------------------- */
+
+.userInfoMenu{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logout{
+    margin-left:30px;
+    border: 1px solid black;
+    padding:8px 20px 8px 20px;
+    cursor: pointer;
+    border-radius: 7px;
+}
+
+.logout:hover{
+    background: rgb(218, 218, 218);
+    transition: ease-in-out 0.2s;
+}
+
+
+.dashboardLink{
+    width: 35px;
+    height: 35px;
+    background: red;
+    border-radius: 100%;
+    margin-right: 10px;
+}

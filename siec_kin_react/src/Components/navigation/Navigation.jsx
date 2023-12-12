@@ -1,7 +1,14 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Navigation.css';
 import { Link } from 'react-router-dom';
+
 function Navigation(props) {
+    
+const logout = () =>{
+    localStorage.clear();
+    window.location.reload(false);
+}
+
     return ( 
             <nav className="navbar navbar-expand-lg navbar-light nav-bg">
                 <div className='navWrapper'>
@@ -12,25 +19,37 @@ function Navigation(props) {
 
                 <div className="collapse navbar-collapse" id="navbarTogglerDemo03">
                     <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
-                    <li className={`nav-item ${props.active === "home" ? 'activeHover' : ''}`}>
-                        <Link to ="/" className='nav-link'>Strona Główna</Link>
-                    </li>
-                    <li className={`nav-item ${props.active === "promotions" ? 'activeHover' : ''}`}>
-                        <Link to ="/promocje" className='nav-link'>Promocje</Link>
-                    </li>
-                    <li className={`nav-item ${props.active === "news" ? 'activeHover' : ''}`}>
-                        <Link to ="/aktualnosci" className='nav-link'>Aktualności</Link>
-                    </li>
-                                                {/* bedzie zaznaczac aktywna strone w css */}
-                    <li className={`nav-item ${props.active === "about" ? 'activeHover' : ''}`}>
-                        <Link to ="/o-nas" className='nav-link'>O nas</Link>
-                    </li>
+                        <li className={`nav-item ${props.active === "home" ? 'activeHover' : ''}`}>
+                            <Link to ="/" className='nav-link'>Strona Główna</Link>
+                        </li>
+                        <li className={`nav-item ${props.active === "promotions" ? 'activeHover' : ''}`}>
+                            <Link to ="/promocje" className='nav-link'>Promocje</Link>
+                        </li>
+                        <li className={`nav-item ${props.active === "news" ? 'activeHover' : ''}`}>
+                            <Link to ="/aktualnosci" className='nav-link'>Aktualności</Link>
+                        </li>
+                                                    {/* bedzie zaznaczac aktywna strone w css */}
+                        <li className={`nav-item ${props.active === "about" ? 'activeHover' : ''}`}>
+                            <Link to ="/o-nas" className='nav-link'>O nas</Link>
+                        </li>
                     </ul>
-                    <div className='logInButtons'>
-                        <Link to="/login" className="btn btn-outline-success my-2 my-sm-0">Zaloguj się</Link>
-                        <Link to="/rejestracja" className="btn my-2 my-sm-0">Zarejestruj się</Link>
-                    </div>
-
+                    {/* info o uzytkowniku jeśli jest zalogowany*/}
+                    {localStorage.getItem('token') ?
+                        <div className='userInfoMenu'>
+                            <Link to="/dashboard" className='dashboardLink'></Link>
+                            <div className='userInfo'>
+                                <span>{localStorage.getItem('name')}  {localStorage.getItem('lastName')}</span>
+                            </div>
+                            <div className='logout' onClick={logout}>
+                                Wyloguj
+                            </div>
+                        </div>
+                    :
+                        <div className='logInButtons'>
+                            <Link to="/login" className="btn btn-outline-success my-2 my-sm-0">Zaloguj się</Link>
+                            <Link to="/rejestracja" className="btn my-2 my-sm-0">Zarejestruj się</Link>
+                        </div>
+                    }
                 </div>
                 </div>
             </nav>

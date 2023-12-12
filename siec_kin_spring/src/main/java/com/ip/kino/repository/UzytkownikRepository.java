@@ -12,4 +12,6 @@ public interface UzytkownikRepository extends JpaRepository<Uzytkownik, Long> {
     Long findMaxIdUzytkownika();
 
     Optional<Uzytkownik> findByLogin(String login);
+    @Query(value = "SELECT * FROM uzytkownik u WHERE u.id_uzytkownika = :id", nativeQuery = true)
+    Optional<Uzytkownik> findByIdUzytkownika(Long id);
 }

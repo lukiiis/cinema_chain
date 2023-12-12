@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class LoginDto {
     private String login;
-    private String haslo;
+    private String password;
 
     public String getLogin() {
         return login;
@@ -17,11 +17,11 @@ public class LoginDto {
         this.login = login;
     }
 
-    public String getHaslo() {
-        return haslo;
+    public String getPassword() {
+        return password;
     }
 
-    public void setHaslo(String haslo) {
-        this.haslo = haslo;
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

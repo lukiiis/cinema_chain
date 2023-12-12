@@ -1,5 +1,6 @@
 package com.ip.kino.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -15,6 +16,7 @@ public class Klient {
     private Long id_klienta;
     private Long liczba_rezerwacji;
     private Double portfel;
+
     @OneToOne
     @JoinColumn(name = "id_uzytkownika")
     private Uzytkownik uzytkownik;

@@ -3,8 +3,10 @@ import "./Register.css";
 import Navigation from "../../Components/navigation/Navigation.jsx";
 import Footer from "../../Components/footer/Footer.jsx";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
+    const navigate = useNavigate();
     const [formData, setFormData] = useState({
         login: '',
         haslo: '',
@@ -14,8 +16,16 @@ const Register = () => {
         nr_telefonu: ''
     })
 
+    const [res, setRes] = useState(null);
 
     const [errors, setErrors] = useState({});
+
+    useEffect(() => {
+        if(localStorage.getItem('token')){
+            navigate("/dashboard");
+        }
+    }, [])
+
     //walidacja danych
     useEffect(() => {
         const validationErrors ={};
@@ -40,9 +50,10 @@ const Register = () => {
 
         if(Object.keys(errors).length === 0){
             try{
-                const response = await axios.post("http://localhost:8090/api/v1/register/uzytkownik", formData);
+                const response = await axios.post("http://localhost:8090/api/v1/public/auth/register", formData);
                 //Tutaj wstawic na fronta wiadomosc od backendu, czy udalo sie zarejestrowac pomyslnie
                 console.log('Server response: ', response.data);
+                setRes(response.data);
             }
             catch (error){
                 console.error('Error while sending data: ', error);
@@ -72,8 +83,6 @@ const Register = () => {
                                     <input type="password" name="haslo" value={formData.haslo} onChange={handleChange}/>
                                     {errors.haslo && <span>{errors.haslo}</span>}
                                 </label>
-
-
                                 <label>
                                     E-mail
                                     <input type="email" name="email" value={formData.email} onChange={handleChange}/>
@@ -84,8 +93,6 @@ const Register = () => {
                                     <input type="number" name="nr_telefonu" value={formData.nr_telefonu} onChange={handleChange}/>
                                     {errors.nr_telefonu && <span>{errors.nr_telefonu}</span>}
                                 </label>
-
-
                                 <label>
                                     Imię
                                     <input type="text" name="imie" value={formData.imie} onChange={handleChange}/>

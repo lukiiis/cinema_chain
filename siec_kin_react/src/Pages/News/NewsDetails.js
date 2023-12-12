@@ -12,7 +12,7 @@ const NewsDetails = () => {
     const [news, setNews] = useState(null);
 
     useEffect(()=>{
-        async function fetchData(){
+        async function fetchData() {
             const url = "http://localhost:8090/api/v1/aktualnosci/" + promo;
             try{
                 const response = await axios.get(url);

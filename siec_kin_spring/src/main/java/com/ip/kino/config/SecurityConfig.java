@@ -50,7 +50,8 @@ public class SecurityConfig {
                 .sessionManagement(httpSecuritySessionManagementConfigurer -> httpSecuritySessionManagementConfigurer
                         .sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers("/api/v1/**","/images/**").permitAll()
+                        .requestMatchers("/api/v1/**","/images/**", "/api/v1/public/**").permitAll()
+                        .requestMatchers("/api/v2/test", "/api/v1/private/**").hasAnyAuthority("USER", "ADMIN", "WORKER") //TUTAJ DAWAĆ ROLE, KTÓRE BĘDĄ MIEĆ DOSTĘP DO DANYCH ENDPOINTÓW
                         .anyRequest().authenticated()
                 )
                 .authenticationProvider(authenticationProvider)

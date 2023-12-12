@@ -10,9 +10,6 @@
         <module name="kino" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="kino" target="19" />
-    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
