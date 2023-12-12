@@ -4,21 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ab6f602b-e4bd-44f1-bd6f-45f76127825c" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/gitignore.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ip/kino/model/Seans.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ip/kino/model/Seans.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ip/kino/service/FilmService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ip/kino/service/FilmService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ip/kino/controller/FilmController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ip/kino/controller/FilmController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ip/kino/model/Film.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ip/kino/model/Film.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ip/kino/model/Kino.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ip/kino/model/Kino.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ip/kino/model/Reservation.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ip/kino/model/Reservation.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ip/kino/model/Seans.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ip/kino/model/Seans.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ip/kino/model/Ticket.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ip/kino/service/FilmService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ip/kino/service/FilmService.class" afterDir="false" />
-    </list>
+    <list default="true" id="ab6f602b-e4bd-44f1-bd6f-45f76127825c" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -41,6 +27,10 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
@@ -70,7 +60,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1702411702223</updated>
-      <workItem from="1702411706412" duration="730000" />
+      <workItem from="1702411706412" duration="1334000" />
     </task>
     <servers />
   </component>
