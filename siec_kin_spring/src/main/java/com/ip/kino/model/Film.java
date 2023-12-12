@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Getter
@@ -19,11 +20,17 @@ public class Film {
     private String tytul;
     private String opis;
     private String rezyser;
+    private String obraz_url;
+    private String plakat_url;
     private LocalDate data_premiery;
     private Long czas_trwania;
     @ManyToOne
     @JoinColumn(name = "id_kategorii")
     private KategoriaFilmu kategoria;
+
+    @OneToMany
+    @JoinColumn(name = "id_seansu")
+    private List<Seans> seanse;
 
     public Long getId_filmu() {
         return id_filmu;

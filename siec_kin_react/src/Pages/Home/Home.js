@@ -1,22 +1,15 @@
-import FilmCarousel from "../../Components/FilmCarousel";
+import FilmCarousel from "../../Components/filmCarousel/FilmCarousel";
+import SearchBar from "../../Components/searchBar/SearchBar";
+import axios from 'axios';
+import { useState, useEffect } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 export default function Home(){
-
-    const [movies, setMovies] = useState();
-
-    const getMovies = () =>{
-        axios.get('http://localhost:8090/api/v1/film').then(
-            response => {
-                setMovies(response.data)
-                console.log(response.data)
-            }
-        ).catch(err =>{
-            console.log('nie dziala')
-        })
-    }
     return(
-        <FilmCarousel />
-        <div>
-            <button onClick={getMovies}>poka filmy</button>
-        </div>
+        <>
+            <FilmCarousel />
+            <SearchBar  />
+        </>
     )
+}

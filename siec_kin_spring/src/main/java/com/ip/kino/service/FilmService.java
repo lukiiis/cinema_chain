@@ -21,6 +21,10 @@ public class FilmService {
         System.out.println(filmRepository.findAll());
         return filmRepository.findAll();
     }
+    public Film getFilmByID(Long id){
+        return filmRepository.findById(id).orElse(null);
+    }
+
     public List<Film> getLatestFilms(){
         LatestFilms = filmRepository.findAll();
         Comparator<Film> comparator = Comparator.comparing(Film::getData_premiery);
