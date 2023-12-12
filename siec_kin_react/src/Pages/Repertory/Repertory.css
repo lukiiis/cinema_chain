@@ -1,0 +1,23 @@
+
+.date-city-bar{
+    display: flex;   
+}
+.repertory-item{
+    display: flex;
+}
+.repertory-image{
+    width: 140px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 3px rgb(168, 163, 163);
+    filter: brightness(1.1);
+}
+.repertory-title{
+    color: rgb(255, 255, 255);
+}
+.repertory-description{
+    color: white;
+    max-width: 850px;
+}
+.repertory-category{
+    color: white;
+}

@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
 
 
 @RestController
@@ -26,7 +28,12 @@ public class FilmController {
     }
 
     @GetMapping("/zapowiedzi")
-    public List<Film> getZapowiedzi(){
+    public List<Film> getZapowiedzi() {
         return filmService.getZapowiedzi();
+    }
+
+    @GetMapping("film/{id}")
+    public Film getFilmById(@PathVariable Long id){
+        return  filmService.getFilmByID(id);
     }
 }

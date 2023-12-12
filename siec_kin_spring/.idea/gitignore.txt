@@ -2,10 +2,21 @@
 /shelf/
 /workspace.xml
 /compiler.xml
+<<<<<<< HEAD
 /modules.xml
 /vcs.xml
+<<<<<<< HEAD:siec_kin_spring/.idea/gitignore.txt
+=======
+=======
+>>>>>>> zysio:siec_kin_spring/.idea/.gitignore
 /encodings.xml
 /jarRepositories.xml
 /misc.xml
 /uiDesigner.xml
 /vcs.xml
+<<<<<<< HEAD:siec_kin_spring/.idea/gitignore.txt
+=======
+
+
+>>>>>>> 7fc299a458ec1bcdde89b541f5a558300f62a8ea
+>>>>>>> zysio:siec_kin_spring/.idea/.gitignore

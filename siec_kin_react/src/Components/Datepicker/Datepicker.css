@@ -1,0 +1,22 @@
+.date-button{
+    width: 220px;
+    height: 38px;
+    border-radius: 5px;
+    border: 1px solid rgb(202, 191, 191);
+    background-color: rgb(25, 25, 51);
+    color: white;
+}
+.react-datepicker__input-container input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    background-color: blanchedalmond;
+    /* Dodaj dowolne niestandardowe stylizacje */
+  }
+  .react-datepicker__input-container input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    background-color: red;
+    /* Dodaj dowolne niestandardowe stylizacje */
+  }

@@ -1,5 +1,4 @@
 package com.ip.kino.model;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
@@ -19,8 +18,6 @@ import java.time.LocalDate;
 public class Seans {
     @Id
     private int id_seansu;
-    //todo przerobić to na private Sala sala, jak już będzie takie entity
-    private int id_sali;
     private String godzina_rozpoczecia;
     private LocalDate data_seansu;
     private String lektor;
@@ -31,4 +28,6 @@ public class Seans {
     @ManyToOne
     @JoinColumn(name="id_kina", referencedColumnName = "id_kina")
     private Kino kino;
+    //todo przerobić to na private Sala sala, jak już będzie takie entity
+    private int id_sali;
 }
