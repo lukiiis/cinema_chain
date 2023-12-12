@@ -9,11 +9,11 @@ import '@fortawesome/fontawesome-svg-core/styles.css';
 import CinemaSelection from '../CinemaSelection/CinemaSelection';
 import SearchItem from '../searchItem/SearchItem';
 
-export default function SearchBar(){
-    return(
-      <div class="searchBar-container">
-          <CinemaSelection />
-          <SearchItem />
-      </div>
-    )
+export default function SearchBar() {
+  return (
+    <div className="searchBar-container">
+      <CinemaSelection />
+      <SearchItem />
+    </div>
+  )
 }

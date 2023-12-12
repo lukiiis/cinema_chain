@@ -19,63 +19,63 @@ const Dashboard = () => {
 
     useEffect(() => {
         //jezeli token istnieje
-        if(!token){
+        if (!token) {
             navigate("/login");
         }
-        else{
+        else {
             fetchUserData();
             fetchReservations();
         }
-    },[])
+    }, [])
 
-    const fetchUserData = async () =>{
-        try{
+    const fetchUserData = async () => {
+        try {
             const url = `http://localhost:8090/api/v1/private/userdetails/${userLogin}`;
             const response = await axios.get(url, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
             })
-            if(response.status===200){
+            if (response.status === 200) {
                 setUserData(response.data);
                 console.log(response.data);
                 console.log("Request succesfull");
             }
-            else if(response.status===403){
+            else if (response.status === 403) {
                 console.log("Access forbidden");
                 navigate("/");
             }
-            else{
+            else {
                 console.log("unexpected error", response.status);
             }
         }
-        catch(error){
+        catch (error) {
             console.error("Error while fetching data", error);
         }
     }
 
     const fetchReservations = async () => {
-        try{
+        try {
             const url = `http://localhost:8090/api/v1/private/reservations/${userLogin}`;
             const response = await axios.get(url, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
             })
-            if(response.status===200){
+            if (response.status === 200) {
                 setReservations(response.data);
                 console.log(response.data);
                 console.log("Request succesfull");
             }
-            else if(response.status===403){
+            else if (response.status === 403) {
                 console.log("Access forbidden");
                 navigate("/");
             }
-            else{
+            else {
                 console.log("unexpected error", response.status);
             }
         }
-        catch(error){
+        catch (error) {
             console.error("Error while fetching data", error);
         }
     }
@@ -86,7 +86,7 @@ const Dashboard = () => {
 
     const renderContent = () => {
 
-        switch(selectedMenuItem) {
+        switch (selectedMenuItem) {
             case "myTickets":
                 return (
                     <div className="myTicketsContent">
@@ -113,7 +113,7 @@ const Dashboard = () => {
                 );
             case "accountSettings":
                 return (
-                    <AccountSettingsContent userData={userData}/>
+                    <AccountSettingsContent userData={userData} />
                 );
             default:
                 return null;
@@ -123,7 +123,7 @@ const Dashboard = () => {
 
     return (
         <>
-            <Navigation/>
+            <Navigation />
             <div className="dashboard">
                 <div className="dashboardWrapper">
                     <h1 className="dashboardTitle">Moje konto</h1>
@@ -140,12 +140,12 @@ const Dashboard = () => {
             </div>
             <div className="dashboardContent">
                 <div className="dashboardContentWrapper">
-                {renderContent()}
+                    {renderContent()}
                 </div>
             </div>
-            <Footer/>
+            <Footer />
         </>
-     );
+    );
 }
 
 export default Dashboard;

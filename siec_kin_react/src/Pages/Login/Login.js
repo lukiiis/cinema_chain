@@ -16,47 +16,47 @@ const Login = () => {
     const [errors, setErrors] = useState({});
     //walidacja danych
     useEffect(() => {
-        const validationErrors ={};
+        const validationErrors = {};
 
-        if(!formData.login){
+        if (!formData.login) {
             validationErrors.login = "Pole wymagane";
         }
-        if(!formData.password){
+        if (!formData.password) {
             validationErrors.password = "Pole wymagane";
         }
-        
+
         setErrors(validationErrors);
     }, [formData]);
 
     useEffect(() => {
-        if(localStorage.getItem('token')){
+        if (localStorage.getItem('token')) {
             navigate("/dashboard");
         }
     }, [])
 
     const handleChange = (e) => {
-        const {name, value} = e.target;
+        const { name, value } = e.target;
         setFormData({
             ...formData,
             [name]: value
         });
     }
-    
+
     const handleSubmit = async (e) => {
         e.preventDefault();
-        if(Object.keys(errors).length === 0){
-            try{
+        if (Object.keys(errors).length === 0) {
+            try {
                 const response = await axios.post("http://localhost:8090/api/v1/public/auth/login", formData);
                 console.log('Server response: ', response.data);
-                
+
                 Object.keys(response.data).forEach(resData => {
-                    if(typeof response.data[resData] === "object"){
-                        Object.keys(response.data[resData]).forEach(resDataInner =>{
-                            localStorage.setItem(""+resDataInner+"",response.data[resData][resDataInner]);
+                    if (typeof response.data[resData] === "object") {
+                        Object.keys(response.data[resData]).forEach(resDataInner => {
+                            localStorage.setItem("" + resDataInner + "", response.data[resData][resDataInner]);
                         })
                     }
-                    else{
-                        localStorage.setItem(""+resData+"",response.data[resData]);
+                    else {
+                        localStorage.setItem("" + resData + "", response.data[resData]);
                     }
 
                 });
@@ -79,43 +79,43 @@ const Login = () => {
 
                 console.log(localStorage);
             }
-            catch(error){
+            catch (error) {
                 console.error('Error while sending data: ', error);
             }
         }
-        else{
+        else {
             console.log('Form is empty');
         }
     }
 
     return (
         <>
-            <Navigation/>
+            <Navigation />
             <div className="loginFormContainer">
                 <h1>Logowanie</h1>
-                    <form className="loginForm" onSubmit={handleSubmit}>
-                        <div className="loginFormWrapper">
-                            <div className="loginFormInputs">
-                                <label>
-                                    Login
-                                    <input type="text" name="login" value={formData.login} onChange={handleChange}/>
-                                    {errors.login && <span>{errors.login}</span>}
-                                </label>
-                                <label>
-                                    Hasło
-                                    <input type="password" name="password" value={formData.password} onChange={handleChange}/>
-                                    {errors.password && <span>{errors.password}</span>}
-                                </label>
-                            </div>
-                            <div className="loginFormButton">
-                                <button type="submit">Zaloguj się</button>
-                            </div>
+                <form className="loginForm" onSubmit={handleSubmit}>
+                    <div className="loginFormWrapper">
+                        <div className="loginFormInputs">
+                            <label>
+                                Login
+                                <input type="text" name="login" value={formData.login} onChange={handleChange} />
+                                {errors.login && <span>{errors.login}</span>}
+                            </label>
+                            <label>
+                                Hasło
+                                <input type="password" name="password" value={formData.password} onChange={handleChange} />
+                                {errors.password && <span>{errors.password}</span>}
+                            </label>
                         </div>
-                    </form>
+                        <div className="loginFormButton">
+                            <button type="submit">Zaloguj się</button>
+                        </div>
+                    </div>
+                </form>
             </div>
-            <Footer/>
+            <Footer />
         </>
-     );
+    );
 }
 
 export default Login;

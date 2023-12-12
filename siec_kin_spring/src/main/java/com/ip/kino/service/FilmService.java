@@ -28,7 +28,7 @@ public class FilmService {
     public List<Film> getLatestFilms(){
         LatestFilms = filmRepository.findAll();
         Comparator<Film> comparator = Comparator.comparing(Film::getData_premiery);
-        Collections.sort(LatestFilms, comparator);
+        LatestFilms.sort(comparator);
         return LatestFilms;
     }
     public List<Film> getZapowiedzi(){

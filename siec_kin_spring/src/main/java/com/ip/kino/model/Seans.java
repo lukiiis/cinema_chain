@@ -1,4 +1,5 @@
 package com.ip.kino.model;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
@@ -22,6 +23,7 @@ public class Seans {
     private LocalDate data_seansu;
     private String lektor;
     private String typ_obrazu;
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name="id_filmu", referencedColumnName = "id_filmu")
     private Film film;

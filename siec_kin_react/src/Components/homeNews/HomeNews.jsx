@@ -9,12 +9,12 @@ const HomeNews = () => {
     const [news, setNews] = useState(null);
 
     useEffect(() => {
-        const fetchData = async () =>{
-            try{
+        const fetchData = async () => {
+            try {
                 const response = await axios.get("http://localhost:8090/api/v1/aktualnosci");
                 setNews(response.data);
             }
-            catch (error){
+            catch (error) {
                 console.error("Error while fetching data: ", error);
             }
         }
@@ -22,17 +22,17 @@ const HomeNews = () => {
     }, [])
 
 
-    return ( 
+    return (
         <div className="homeNews">
-            {news ?(
-                    <div className="homeNewsWrapper">
-                        <h2 className="homeNewsHeader">
-                            Aktualności
-                        </h2>
-                        <div className="homeNewsContainer">
-                            {news.map((oneNews) => {
-                                const newsId = oneNews.id_aktualnosci;
-                                const normalizedTitle = oneNews.tytul
+            {news ? (
+                <div className="homeNewsWrapper">
+                    <h2 className="homeNewsHeader">
+                        Aktualności
+                    </h2>
+                    <div className="homeNewsContainer">
+                        {news.map((oneNews) => {
+                            const newsId = oneNews.id_aktualnosci;
+                            const normalizedTitle = oneNews.tytul
                                 .normalize("NFD") // Normalizacja znaków diakrytycznych
                                 .replace(/[\u0300-\u036f]/g, "") // Usunięcie diakrytyków
                                 .toLowerCase() // Zamiana na małe litery
@@ -41,22 +41,22 @@ const HomeNews = () => {
                                 .join('') //zlaczenie bez wykrzyknika
                                 .split('"')
                                 .join('');
-                                return(
-                                    <Link key={oneNews.id_aktualnosci} className="link" to={`/aktualnosci/${normalizedTitle}`} state={{promo: newsId}}>
-                                        <Card
-                                            title={oneNews.tytul}
-                                            poster={oneNews.obraz_url}
-                                        />
-                                    </Link>
-                                );
-                            })}
-                        </div>
+                            return (
+                                <Link key={oneNews.id_aktualnosci} className="link" to={`/aktualnosci/${normalizedTitle}`} state={{ promo: newsId }}>
+                                    <Card
+                                        title={oneNews.tytul}
+                                        poster={oneNews.obraz_url}
+                                    />
+                                </Link>
+                            );
+                        })}
                     </div>
+                </div>
             ) : (
                 <p>pobieranie danych</p>
             )}
         </div>
-     );
+    );
 }
 
 export default HomeNews;

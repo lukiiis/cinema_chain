@@ -1,30 +1,30 @@
 import { jwtDecode } from "jwt-decode";
 import axios from "axios";
 
-export const authorizedGet = async (token) =>{
+export const authorizedGet = async (token) => {
     const decodedToken = jwtDecode(token);
     const userLogin = decodedToken.sub;
-    try{
+    try {
         const url = `http://localhost:8090/api/v1/private/userdetails/${userLogin}`;
         const response = await axios.get(url, {
             headers: {
                 Authorization: `Bearer ${token}`
             }
         })
-        if(response.status===200){
+        if (response.status === 200) {
             console.log(response.data);
             console.log("Request succesfull");
             return response;
         }
-        else if(response.status===403){
+        else if (response.status === 403) {
             console.log("Access forbidden");
         }
-        else{
+        else {
             console.log("unexpected error", response.status);
         }
         return response;
     }
-    catch(error){
+    catch (error) {
         console.error("Error while fetching data", error);
         return null;
     }

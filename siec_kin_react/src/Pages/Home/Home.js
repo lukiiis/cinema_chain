@@ -8,15 +8,15 @@ import "./Home.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Home = () => {
-    return(
+    return (
         <>
-            <Navigation active={"home"}/>
+            <Navigation active={"home"} />
             <FilmCarousel />
-            <SearchBar  />
+            <SearchBar />
             {/* <Aktualnosci/> */}
-            <HomeNews/>
-            <Teasers/>
-            <Footer/>
+            <HomeNews />
+            <Teasers />
+            <Footer />
         </>
     )
 }

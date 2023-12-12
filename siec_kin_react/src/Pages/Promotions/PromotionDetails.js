@@ -8,32 +8,31 @@ import { useEffect, useState } from "react";
 
 const PromotionDetails = () => {
     const promotionId = useLocation();
-    const {promo} = promotionId.state;
+    const { promo } = promotionId.state;
     const [promotion, setPromotion] = useState(null);
 
-    useEffect(()=>{
+    useEffect(() => {
         fetchData();
     }, []);
 
-    const fetchData = async () =>{
+    const fetchData = async () => {
         const url = "http://localhost:8090/api/v1/promocje/" + promo;
-        try{
+        try {
             const response = await axios.get(url);
             setPromotion(response.data);
         }
-        catch (error){
+        catch (error) {
             console.error("Error while fetching data: ", error);
         }
-
     }
 
     return (
         <>
-            <Navigation/>
+            <Navigation />
             {promotion ? (
                 <div className="promoDetailsContainer">
-                    <div 
-                        className="promoTopContainer" 
+                    <div
+                        className="promoTopContainer"
                         style={{ backgroundImage: `linear-gradient(to top, black 8%, transparent 60%), url(${promotion.obraz_url})` }}
                     >
                         <div className="promoDetailsTopWrapper">
@@ -76,9 +75,9 @@ const PromotionDetails = () => {
             ) : (
                 <p>Pobieranie danych...</p>
             )}
-            <Footer/>
+            <Footer />
         </>
-     );
+    );
 }
 
 export default PromotionDetails;

@@ -8,12 +8,12 @@ const Teasers = () => {
     const [teasers, setTeasers] = useState(null);
 
     useEffect(() => {
-        const fetchData = async () =>{
-            try{
+        const fetchData = async () => {
+            try {
                 const response = await axios.get("http://localhost:8090/api/v1/zapowiedzi");
                 setTeasers(response.data);
             }
-            catch (error){
+            catch (error) {
                 console.error("Error while fetching data: ", error);
             }
         }
@@ -21,32 +21,32 @@ const Teasers = () => {
     }, [])
 
 
-    return ( 
+    return (
         <div className="teasers">
-            {teasers ?(
-                    <div className="teasersWrapper">
-                        <h2 className="teasersHeader">
-                            Zapowiedzi
-                        </h2>
-                        <div className="teasersContainer">
-                            {teasers.map((teaser) => {
+            {teasers ? (
+                <div className="teasersWrapper">
+                    <h2 className="teasersHeader">
+                        Zapowiedzi
+                    </h2>
+                    <div className="teasersContainer">
+                        {teasers.map((teaser) => {
 
-                                return(
-                                    <Card
-                                        title={teaser.tytul}
-                                        releaseDate={teaser.data_premiery}
-                                        poster={teaser.plakat_url}
-                                        key={teaser.id_filmu}
-                                    />
-                                );
-                            })}
-                        </div>
+                            return (
+                                <Card
+                                    title={teaser.tytul}
+                                    releaseDate={teaser.data_premiery}
+                                    poster={teaser.plakat_url}
+                                    key={teaser.id_filmu}
+                                />
+                            );
+                        })}
                     </div>
+                </div>
             ) : (
                 <p>pobieranie danych</p>
             )}
         </div>
-     );
+    );
 }
 
 export default Teasers;

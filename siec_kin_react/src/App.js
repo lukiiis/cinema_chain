@@ -10,43 +10,43 @@ import About from './Pages/About/About';
 import News from './Pages/News/News';
 import NewsDetails from './Pages/News/NewsDetails';
 import Dashboard from './Pages/Dashboard/Dashboard';
-import Movie from  './Pages/Movie/Movie'
+import Movie from './Pages/Movie/Movie'
 import Reportory from './Pages/Repertory/Repertory';
 import { useEffect } from 'react';
 import { jwtDecode } from 'jwt-decode';
 
 function App() {
   //SPRAWDZARKA DO TOKENÓW
-  useEffect(()=>{
+  useEffect(() => {
     const jwtToken = localStorage.getItem('token');
-    if(jwtToken){
-        const decodedJwt = jwtDecode(jwtToken);
-        if(!jwtToken || decodedJwt.exp * 1000 < new Date().getTime()){
-            console.log("Token expired.");
-            localStorage.removeItem('token');
-        }
-        else{
-            console.log("Token valid.");
-        }
+    if (jwtToken) {
+      const decodedJwt = jwtDecode(jwtToken);
+      if (!jwtToken || decodedJwt.exp * 1000 < new Date().getTime()) {
+        console.log("Token expired.");
+        localStorage.removeItem('token');
+      }
+      else {
+        console.log("Token valid.");
+      }
     }
     console.log(localStorage);
-  },[])
+  }, [])
 
   return (
-   <BrowserRouter>
-    <Routes>
-      <Route path="/" element ={<Home />} />
-      <Route path="/rejestracja" element={<Register/>}/>
-      <Route path="/login" element={<Login/>}/>
-      <Route path="/promocje" element={<Promotions/>}/>
-      <Route path="/o-nas" element={<About/>}/>
-      <Route path="/aktualnosci" element={<News/>}/>
-      <Route path="/promotion/:title" element={<PromotionDetails/>}/>
-      <Route path="/aktualnosci/:title" element={<NewsDetails/>}/>
-      <Route path="/dashboard" element={<Dashboard/>}/>
-      <Route path='film/:title' element={<Movie  />}/>
-      <Route path='repertuar' element={<Reportory/>}/>
-    </Routes>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/rejestracja" element={<Register />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/promocje" element={<Promotions />} />
+        <Route path="/o-nas" element={<About />} />
+        <Route path="/aktualnosci" element={<News />} />
+        <Route path="/promotion/:title" element={<PromotionDetails />} />
+        <Route path="/aktualnosci/:title" element={<NewsDetails />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path='/film/:title' element={<Movie />} />
+        <Route path='/repertuar' element={<Reportory />} />
+      </Routes>
     </BrowserRouter>
   );
 }

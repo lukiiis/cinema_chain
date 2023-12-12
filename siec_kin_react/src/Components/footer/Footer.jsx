@@ -12,15 +12,15 @@ const Footer = () => {
     }, []);
 
     const fetchData = async () => {
-        try{
+        try {
             const response = await axios.get("http://localhost:8090/api/v1/kino");
             setKina(response.data);
-        } catch(error){
+        } catch (error) {
             console.error("Error while fetching data: ", error);
         }
     }
 
-    return (  
+    return (
         <footer>
             <div className='wrapper'>
                 <div className='footerSection'>
@@ -34,7 +34,7 @@ const Footer = () => {
                                     const miastoLowerCase = kino.miasto.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
                                     return (
                                         <li key={kino.id_kina}>
-                                            <Link to={`/${miastoLowerCase}`} className='link'>{kino.miasto}</Link>
+                                            <Link to={`/repertuar`} className='link'>{kino.miasto}</Link>
                                         </li>
                                     );
                                 })}
@@ -46,7 +46,7 @@ const Footer = () => {
                 </div>
                 <div className='footerSectionCenter'>
                     <span>Copyright &#169; MultiKina</span>
-                    
+
                 </div>
             </div>
         </footer>
