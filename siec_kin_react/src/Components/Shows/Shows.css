@@ -1,0 +1,85 @@
+.show-body{
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+.show-container{
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    margin-left: 150px;
+    margin-right: 150px;
+}
+.show-block{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    border: solid rgb(52, 13, 126)
+}
+.show-block:hover{
+    cursor: pointer;
+}
+.show-block:hover{
+    background-color: rgb(46, 33, 119);
+}
+.hour-text{
+    color: aliceblue;
+    margin: 0px 10px 0px 10px;
+}
+.dubbing-text{
+    color: aliceblue;
+    font-size: 18px;
+    margin: 0px 10px 10px 10px;
+}
+.custom-dropdown{
+    margin-left: 150px;
+}
+.custom-button{
+    width: 220px;
+    background-color: rgb(25, 25, 51);
+}
+.custom-button:hover{
+    background-color: rgb(38, 38, 97);
+}
+.custom-menu{
+    width: 220px;
+    background-color: rgb(0, 0, 0);
+}
+.custom-item{
+    color: gray;
+    border-bottom: solid gray 1px;
+}
+.custom-item:hover{
+    background-color: black;
+    color: gray;
+    border-bottom: solid white 2px;
+    cursor: pointer;
+}
+.date-container{
+    display: flex;
+    flex-direction: column;
+}
+.show-block-container{
+    display: flex;
+    gap: 45px;
+    flex-wrap: wrap;
+}
+.date-block{
+    display: flex;       
+}
+.today-tomorrow-text{
+    color: white;
+}
+h4{
+    font-size: 24px;
+    color: rgb(167, 166, 166);
+}
+.empty-show-message{
+    margin: 0;
+}
+.empty-show-block{
+    font-size: 20px;
+    color: brown;
+}

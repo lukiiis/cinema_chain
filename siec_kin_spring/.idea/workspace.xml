@@ -4,6 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="fb450842-12fc-489a-b12d-89a8ec8843ef" name="Changes" comment="">
       <change afterPath="$PROJECT_DIR$/../siec_kin_react/src/Pages/Home.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
@@ -182,6 +183,23 @@
       <change beforePath="$PROJECT_DIR$/target/classes/templates/allPatients.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/templates/hello.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/templates/patient.html" beforeDir="false" />
+=======
+    <list default="true" id="4e5d65bb-a6af-4cf7-9894-d72f88fb830f" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../siec_kin_react/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../siec_kin_react/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../siec_kin_react/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../siec_kin_react/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../siec_kin_react/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/../siec_kin_react/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../siec_kin_react/src/Components/filmCarousel/FilmCarousel.css" beforeDir="false" afterPath="$PROJECT_DIR$/../siec_kin_react/src/Components/filmCarousel/FilmCarousel.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../siec_kin_react/src/Components/filmCarousel/FilmCarousel.js" beforeDir="false" afterPath="$PROJECT_DIR$/../siec_kin_react/src/Components/filmCarousel/FilmCarousel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../siec_kin_react/src/Pages/Home/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/../siec_kin_react/src/Pages/Home/Home.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../siec_kin_react/src/api/axiosConfig.js" beforeDir="false" afterPath="$PROJECT_DIR$/../siec_kin_react/src/api/axiosConfig.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ip/kino/controller/FilmController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ip/kino/controller/FilmController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ip/kino/model/Film.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ip/kino/model/Film.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ip/kino/service/FilmService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ip/kino/service/FilmService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ip/kino/controller/FilmController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ip/kino/controller/FilmController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ip/kino/model/Film.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ip/kino/model/Film.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ip/kino/service/FilmService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ip/kino/service/FilmService.class" afterDir="false" />
+>>>>>>> 7fc299a458ec1bcdde89b541f5a558300f62a8ea
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -219,8 +237,19 @@
     &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+<<<<<<< HEAD
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+=======
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;zysio&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Acer/Desktop/kino/projekt_siec_kin/siec_kin_spring&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+>>>>>>> 7fc299a458ec1bcdde89b541f5a558300f62a8ea
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;vcs.Perforce&quot;
@@ -233,7 +262,42 @@
       <created>1700408294096</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
+<<<<<<< HEAD
       <updated>1700408294096</updated>
+=======
+      <updated>1700314605577</updated>
+      <workItem from="1700314608615" duration="339000" />
+      <workItem from="1700314959207" duration="36000" />
+      <workItem from="1700317599429" duration="742000" />
+      <workItem from="1700332554433" duration="10190000" />
+      <workItem from="1700352042459" duration="130000" />
+      <workItem from="1700407336008" duration="3144000" />
+      <workItem from="1700603631007" duration="1803000" />
+      <workItem from="1700642910936" duration="458000" />
+      <workItem from="1700682822948" duration="2516000" />
+      <workItem from="1700753205160" duration="3600000" />
+      <workItem from="1700833138230" duration="73000" />
+      <workItem from="1700859505502" duration="619000" />
+      <workItem from="1701279294929" duration="725000" />
+      <workItem from="1701353763390" duration="3055000" />
+      <workItem from="1701450082421" duration="2415000" />
+      <workItem from="1701527819181" duration="869000" />
+      <workItem from="1701534671722" duration="1649000" />
+      <workItem from="1701546822053" duration="4543000" />
+      <workItem from="1701551834026" duration="1178000" />
+      <workItem from="1701614656895" duration="3494000" />
+      <workItem from="1701699829631" duration="620000" />
+      <workItem from="1701716414287" duration="5680000" />
+      <workItem from="1701963111458" duration="683000" />
+      <workItem from="1701963903225" duration="3103000" />
+      <workItem from="1702043293142" duration="2775000" />
+      <workItem from="1702131509275" duration="127000" />
+      <workItem from="1702131649035" duration="611000" />
+      <workItem from="1702220993536" duration="568000" />
+      <workItem from="1702310656580" duration="2295000" />
+      <workItem from="1702339721053" duration="608000" />
+      <workItem from="1702371245122" duration="1292000" />
+>>>>>>> 7fc299a458ec1bcdde89b541f5a558300f62a8ea
     </task>
     <servers />
   </component>
