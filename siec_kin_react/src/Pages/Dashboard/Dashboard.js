@@ -7,12 +7,13 @@ import Navigation from "../../Components/navigation/Navigation";
 import { jwtDecode } from "jwt-decode";
 import axios from "axios";
 import AccountSettingsContent from "../../Components/accountSettingsContent/AccountSettingsContent";
+import UserReservations from "../../Components/userReservations/UserReservations";
 
 const Dashboard = () => {
     const navigate = useNavigate();
     const [userData, setUserData] = useState(null);
     const [reservations, setReservations] = useState(null);
-    const [selectedMenuItem, setSelectedMenuItem] = useState("Moje bilety"); // domyślny wybór
+    const [selectedMenuItem, setSelectedMenuItem] = useState("myTickets"); // domyślny wybór
     const token = localStorage.getItem('token');
     const decodedToken = jwtDecode(token);
     const userLogin = decodedToken.sub;
@@ -90,7 +91,7 @@ const Dashboard = () => {
             case "myTickets":
                 return (
                     <div className="myTicketsContent">
-                        {/* Treść dotycząca biletów */}
+                        <UserReservations reservations={reservations}/>
                     </div>
                 );
             case "toWatch":

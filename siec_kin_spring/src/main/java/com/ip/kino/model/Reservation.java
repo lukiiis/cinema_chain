@@ -1,6 +1,7 @@
 package com.ip.kino.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -52,7 +53,7 @@ public class Reservation {
     @ManyToOne
     @JoinColumn(name = "ID_KLIENTA", referencedColumnName = "ID_KLIENTA", insertable = false, updatable = false)
     private Klient client;
-
+    //@JsonIgnoreProperties("film")
     @ManyToOne
     @JoinColumn(name = "ID_SEANSU", referencedColumnName = "ID_SEANSU", insertable = false, updatable = false)
     private Seans session;

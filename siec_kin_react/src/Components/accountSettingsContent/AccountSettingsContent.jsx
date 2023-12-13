@@ -79,6 +79,7 @@ const AccountSettingsContent = ({ userData }) => {
                         <input type="password" placeholder="Nowe hasło"></input>
                     </div>
                 </div>
+                <button>Zmień hasło</button>
             </div>
             <div className="userDataContainer">
                 <h5>Usunięcie konta</h5>
