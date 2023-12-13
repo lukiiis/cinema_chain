@@ -4,6 +4,7 @@ import com.ip.kino.model.Aktualnosci;
 import com.ip.kino.service.AktualnosciService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -23,4 +24,8 @@ public class AktualnosciController {
         return aktualnosciService.getAllAktualnosci();
     }
 
+    @GetMapping("/aktualnosci/{id}")
+    public Aktualnosci getAktualnosciById(@PathVariable Long id){
+        return aktualnosciService.getAktualnosciById(id);
+    }
 }

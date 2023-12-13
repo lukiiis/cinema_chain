@@ -8,10 +8,7 @@ import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link } from 'react-router-dom';
 
-
-
-
-const SearchItem = ({movieSetter}) => {
+const SearchItem = ({ movieSetter }) => {
   const [movies, setMovies] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [searchResults, setSearchResults] = useState([]);
@@ -42,7 +39,7 @@ const SearchItem = ({movieSetter}) => {
       <div className="input-group">
         <input
           type="search"
-          placeholder="What're you searching forrrrrrrrrrrrr?"
+          placeholder="Wyszukaj film"
           aria-describedby="button-addon1"
           className="form-control border-0 bg-light"
           value={searchTerm}
@@ -62,17 +59,16 @@ const SearchItem = ({movieSetter}) => {
         <ul>
           {searchResults.map((movie, index) => {
             const movieID = movie.id_filmu;
-            return(
+            return (
               <li key={index}>
-              <img className='search-item-icon' src={movie.obraz_url} alt={`Movie ${index}`} />
-               <Link to={`film/${movie.id_filmu}`}  state={{movie_ID: movieID}} >{movie.tytul}</Link>
+                <img className='search-item-icon' src={movie.obraz_url} alt={`Movie ${index}`} />
+                <Link to={`film/${movie.id_filmu}`} state={{ movie_ID: movieID }} >{movie.tytul}</Link>
               </li>
             )
-            
-            })}
+          })}
         </ul>
       )}
-            </div>
+    </div>
   );
 };
 export default SearchItem;

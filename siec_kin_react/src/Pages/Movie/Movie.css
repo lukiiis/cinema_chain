@@ -1,9 +1,8 @@
-body{
+/* body{
     background-image: url('../../api/Images/background.jpg');
     background-size: cover;
-}
+} */
 .body-container{
-    margin-top: 100px;
     display: flex;
     flex-direction: column;
     gap: 50px;

@@ -4,7 +4,12 @@ import com.ip.kino.model.Film;
 import com.ip.kino.service.FilmService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.*;
+
 
 
 @RestController
@@ -21,6 +26,12 @@ public class FilmController {
     public List<com.ip.kino.model.Film> getAllFilmy(){
             return filmService.getLatestFilms();
     }
+
+    @GetMapping("/zapowiedzi")
+    public List<Film> getZapowiedzi() {
+        return filmService.getZapowiedzi();
+    }
+
     @GetMapping("film/{id}")
     public Film getFilmById(@PathVariable Long id){
         return  filmService.getFilmByID(id);
