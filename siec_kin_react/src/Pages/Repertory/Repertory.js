@@ -87,7 +87,7 @@ export default function Reportory() {
 
     const filteredShows = show.filter((showItem) => showItem.data_seansu === date);
     const moviesWithShowsOnDate = movie.filter((movieItem) =>
-      filteredShows.some((showItem) => showItem.id_filmu === movieItem.id_filmu));
+      filteredShows.some((showItem) => showItem.film.id_filmu === movieItem.id_filmu));
     console.log(filteredShows)
     console.log(moviesWithShowsOnDate)
 

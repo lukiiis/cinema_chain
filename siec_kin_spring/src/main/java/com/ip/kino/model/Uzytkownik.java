@@ -31,6 +31,7 @@ public class Uzytkownik implements UserDetails {
     private String nazwisko;
     private Long nr_telefonu;
     private LocalDate data_utworzenia;
+    private Boolean blokada;
     @Enumerated(EnumType.STRING)
     private Role role;
 

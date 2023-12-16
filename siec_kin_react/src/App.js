@@ -14,6 +14,7 @@ import Movie from './Pages/Movie/Movie'
 import Reportory from './Pages/Repertory/Repertory';
 import { useEffect } from 'react';
 import { jwtDecode } from 'jwt-decode';
+import AdminDashboard from './Pages/AdminDashboard/AdminDashboard';
 
 function App() {
   //SPRAWDZARKA DO TOKENÓW
@@ -44,6 +45,7 @@ function App() {
         <Route path="/promotion/:title" element={<PromotionDetails />} />
         <Route path="/aktualnosci/:title" element={<NewsDetails />} />
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/admin-dashboard" element={<AdminDashboard />} />
         <Route path='/film/:title' element={<Movie />} />
         <Route path='/repertuar' element={<Reportory />} />
       </Routes>

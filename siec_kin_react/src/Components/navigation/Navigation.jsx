@@ -1,12 +1,14 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Navigation.css';
 import { Link } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
-function Navigation(props) {
+const Navigation = (props) => {
+    const navigate = useNavigate();
 
     const logout = () => {
         localStorage.clear();
-        window.location.reload(false);
+        navigate("/");
     }
 
     return (
@@ -36,7 +38,24 @@ function Navigation(props) {
                     {/* info o uzytkowniku jeśli jest zalogowany*/}
                     {localStorage.getItem('token') ?
                         <div className='userInfoMenu'>
-                            <Link to="/dashboard" className='dashboardLink'></Link>
+                            {(()=>{
+                                console.log("ROLAAAAAA", localStorage)
+                                if(localStorage.getItem('role') === "ADMIN"){
+                                    return (
+                                        <Link to="/admin-dashboard" className='dashboardLink'></Link>
+                                    )
+                                }
+                                else if(localStorage.getItem('role') === "USER"){
+                                    return (
+                                        <Link to="/dashboard" className='dashboardLink'></Link>
+                                     )
+                                }
+                                else{
+                                    return(
+                                        <Link to="/worker-dashboard" className='dashboardLink'></Link>
+                                    )
+                                }
+                            })()}
                             <div className='userInfo'>
                                 <span>{localStorage.getItem('name')}  {localStorage.getItem('lastName')}</span>
                             </div>

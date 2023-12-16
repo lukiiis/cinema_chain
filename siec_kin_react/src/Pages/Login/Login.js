@@ -8,12 +8,13 @@ import { useNavigate } from "react-router-dom";
 
 const Login = () => {
     const navigate = useNavigate();
+    const [loginStatus, setLoginStatus] = useState("");
+    const [errors, setErrors] = useState({});
     const [formData, setFormData] = useState({
         login: '',
         password: ''
     })
 
-    const [errors, setErrors] = useState({});
     //walidacja danych
     useEffect(() => {
         const validationErrors = {};
@@ -48,43 +49,68 @@ const Login = () => {
             try {
                 const response = await axios.post("http://localhost:8090/api/v1/public/auth/login", formData);
                 console.log('Server response: ', response.data);
-
-                Object.keys(response.data).forEach(resData => {
-                    if (typeof response.data[resData] === "object") {
-                        Object.keys(response.data[resData]).forEach(resDataInner => {
-                            localStorage.setItem("" + resDataInner + "", response.data[resData][resDataInner]);
-                        })
+                if(response.data.status === "Account is blocked."){
+                    localStorage.clear();
+                    console.log("masz bana huju");
+                    setLoginStatus("Konto jest zablokowane.");
+                }
+                else{
+                    Object.keys(response.data).forEach(resData => {
+                        if (typeof response.data[resData] === "object") {
+                            Object.keys(response.data[resData]).forEach(resDataInner => {
+                                localStorage.setItem("" + resDataInner + "", response.data[resData][resDataInner]);
+                            })
+                        }
+                        else {
+                            localStorage.setItem("" + resData + "", response.data[resData]);
+                        }
+    
+                    });
+                    // const jwtToken = localStorage.getItem('token');
+                    // const decodedJwt = jwtDecode(jwtToken);
+                    // if(!jwtToken && decodedJwt.exp * 1000 < new Date().getTime()){
+                    //     console.log("Token expired.");
+                    //     localStorage.setItem("authenticated", false);
+                    //     localStorage.removeItem('token');
+                    // }
+                    // else{
+                    //     console.log("Token valid.");
+                    //     localStorage.setItem("authenticated", true);
+                    //     //redirect na inną stronę (zapewne na dashboard uzytkownika)
+                    //     navigate("/dashboard");
+                    // }
+                    if(response.data.role === "USER"){
+                        setLoginStatus("Logowanie pomyślne.");
+                        setTimeout(() => {
+                            navigate("/dashboard");
+                        }, 1000);
                     }
-                    else {
-                        localStorage.setItem("" + resData + "", response.data[resData]);
+                    else if(response.data.role === "ADMIN"){
+                        setLoginStatus("Logowanie pomyślne.");
+                        setTimeout(() => {
+                            navigate("/admin-dashboard");
+                        }, 1000);
                     }
-
-                });
-                // const jwtToken = localStorage.getItem('token');
-                // const decodedJwt = jwtDecode(jwtToken);
-                // if(!jwtToken && decodedJwt.exp * 1000 < new Date().getTime()){
-                //     console.log("Token expired.");
-                //     localStorage.setItem("authenticated", false);
-                //     localStorage.removeItem('token');
-                // }
-                // else{
-                //     console.log("Token valid.");
-                //     localStorage.setItem("authenticated", true);
-                //     //redirect na inną stronę (zapewne na dashboard uzytkownika)
-                //     navigate("/dashboard");
-                // }
-                setTimeout(() => {
-                    navigate("/dashboard");
-                }, 1000);
-
+                    else if(response.data.role === "WORKER"){
+                        setLoginStatus("Logowanie pomyślne.");
+                        setTimeout(() => {
+                            navigate("/worker-dashboard");
+                        }, 1000);
+                    }
+                }
                 console.log(localStorage);
             }
             catch (error) {
                 console.error('Error while sending data: ', error);
+                if(error.response.status===403){
+                    console.log("Nie istnieje takie konto");
+                    setLoginStatus("Nie istnieje takie konto");
+                }
             }
         }
         else {
             console.log('Form is empty');
+            setLoginStatus("Niektóre pola są puste");
         }
     }
 
@@ -111,6 +137,7 @@ const Login = () => {
                             <button type="submit">Zaloguj się</button>
                         </div>
                     </div>
+                    {loginStatus && <span>{loginStatus}</span>}
                 </form>
             </div>
             <Footer />

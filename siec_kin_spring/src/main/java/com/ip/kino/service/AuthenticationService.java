@@ -15,6 +15,8 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.NoSuchElementException;
+
 @Service
 @RequiredArgsConstructor
 public class AuthenticationService {
@@ -100,7 +102,12 @@ public class AuthenticationService {
                 )
         );
         var user = uzytkownikRepository.findByLogin(request.getLogin())
-                .orElseThrow();
+                    .orElseThrow();
+
+        if(user.getBlokada()){
+            return new AuthenticationResponse("Account is blocked.");
+        }
+
         var jwtToken = jwtService.generateToken(user);
 
         if(user.getRole() == Role.USER){
@@ -110,7 +117,8 @@ public class AuthenticationService {
                     user.getImie(),
                     user.getNazwisko(),
                     user.getRole(),
-                    new KlientDto(user.getKlient().getId_klienta(),
+                    new KlientDto(
+                            user.getKlient().getId_klienta(),
                             user.getKlient().getLiczba_rezerwacji(),
                             user.getKlient().getPortfel()));
         } else if (user.getRole() == Role.WORKER) {
@@ -120,7 +128,8 @@ public class AuthenticationService {
                     user.getImie(),
                     user.getNazwisko(),
                     user.getRole(),
-                    new PracownikDto(user.getPracownik().getId_pracownika(),
+                    new PracownikDto(
+                            user.getPracownik().getId_pracownika(),
                             user.getPracownik().getKino(),
                             user.getPracownik().getStanowisko()));
         }
@@ -131,6 +140,7 @@ public class AuthenticationService {
                 user.getImie(),
                 user.getNazwisko(),
                 user.getRole(),
-                new AdminDto(user.getAdministrator().getId_administratora()));
+                new AdminDto(
+                        user.getAdministrator().getId_administratora()));
     }
 }

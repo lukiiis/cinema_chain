@@ -15,11 +15,10 @@ const Dashboard = () => {
     const [reservations, setReservations] = useState(null);
     const [selectedMenuItem, setSelectedMenuItem] = useState("myTickets"); // domyślny wybór
     const token = localStorage.getItem('token');
-    const decodedToken = jwtDecode(token);
-    const userLogin = decodedToken.sub;
 
     useEffect(() => {
         //jezeli token istnieje
+        console.log("SIEMANKO", localStorage);
         if (!token) {
             navigate("/login");
         }
@@ -31,6 +30,9 @@ const Dashboard = () => {
 
     const fetchUserData = async () => {
         try {
+            const decodedToken = jwtDecode(token);
+            const userLogin = decodedToken.sub;
+
             const url = `http://localhost:8090/api/v1/private/userdetails/${userLogin}`;
             const response = await axios.get(url, {
                 headers: {
@@ -57,6 +59,9 @@ const Dashboard = () => {
 
     const fetchReservations = async () => {
         try {
+            const decodedToken = jwtDecode(token);
+            const userLogin = decodedToken.sub;
+
             const url = `http://localhost:8090/api/v1/private/reservations/${userLogin}`;
             const response = await axios.get(url, {
                 headers: {
@@ -103,13 +108,20 @@ const Dashboard = () => {
             case "coupons":
                 return (
                     <div className="promotionalCouponsContent">
-                        {/* Treść dotycząca kuponów promocyjnych */}
+                        <h1>Kody promocyjne</h1>
+                        <span>Masz kod promocyjny? Wpisz go w pole poniżej!</span>
+                        <input type="text" placeholder="Wpisz kod promocyjny"></input>
+                        <button type="submit">Zatwierdź</button>
                     </div>
                 );
             case "wallet":
                 return (
                     <div className="walletContent">
-                        {/* Treść dotycząca portfela */}
+                        <h1>Mój portfel</h1>
+                        <div className="walletMain">
+                            <span>Dostępne środki: {userData.klient.portfel} zł</span>
+                            <button>Doładuj konto</button>
+                        </div>
                     </div>
                 );
             case "accountSettings":

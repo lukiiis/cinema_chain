@@ -20,4 +20,8 @@ public class AuthenticationResponse {
     protected String name;
     protected String lastName;
     protected Role role;
+
+    public AuthenticationResponse(String status) {
+        this.status = status;
+    }
 }

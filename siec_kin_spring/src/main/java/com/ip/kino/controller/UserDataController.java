@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -20,5 +21,9 @@ public class UserDataController {
     @GetMapping("/userdetails/{login}")
     ResponseEntity<UserDataDto> getUserByLogin(@PathVariable String login){
         return ResponseEntity.ok(userDataService.getUserByLogin(login));
+    }
+    @GetMapping("/userdetails")
+    ResponseEntity<List<Uzytkownik>> getAllUsers(){
+        return ResponseEntity.ok(userDataService.getAllUsers());
     }
 }

@@ -18,7 +18,6 @@ public class KinoService {
         this.kinoRepository = kinoRepository;
     }
     public List<Kino> getAllKino(){
-        System.out.println(kinoRepository.findAll());
         return kinoRepository.findAll();
     }
 

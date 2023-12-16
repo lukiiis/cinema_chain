@@ -9,6 +9,8 @@ import com.ip.kino.repository.UzytkownikRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -52,5 +54,9 @@ public class UserDataService {
                     pracownikDto
 
             );
+    }
+
+    public List<Uzytkownik> getAllUsers() {
+        return uzytkownikRepository.findAll();
     }
 }

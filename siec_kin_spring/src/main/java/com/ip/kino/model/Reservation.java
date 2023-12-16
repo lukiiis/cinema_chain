@@ -35,7 +35,7 @@ public class Reservation {
     private Long phoneNumber;
 
     @Column(name = "NR_MIEJSCA")
-    private Integer seatNumber;
+    private Long seatNumber;
 
     @Column(name = "RZAD_MIEJSCA")
     private String seatRow;

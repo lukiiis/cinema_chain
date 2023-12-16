@@ -48,11 +48,11 @@ export default function FilmCarousel() {
                         {movies.map((movie, index) => (
                             <Paper key={movie.id_filmu}>
                                 <div className='movie-card-container'>
-                                    <img className='movie-card-poster' src={movie.plakat_url} alt="" />
+                                    <img className='movie-card-poster' src={movie.obraz_url} alt="" />
                                     <div className="movie-card" >
                                         <div className="movie-detail">
                                             <div className="movie-poster">
-                                                <img src={movie.obraz_url} alt="" />
+                                                <img src={movie.plakat_url} alt="" />
                                             </div>
                                             <div className="movie-title">
                                                 <h4>{movie.tytul}</h4>
