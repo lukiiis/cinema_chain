@@ -56,14 +56,17 @@ const SearchItem = ({ movieSetter }) => {
         </div>
       </div>
       {searchTerm && (
-        <ul>
+        <ul className="search-results-list">
           {searchResults.map((movie, index) => {
             const movieID = movie.id_filmu;
             return (
-              <li key={index}>
+                <Link  to={`film/${movie.id_filmu}`} state={{ movie_ID: movieID }} >
+              <li className='search-movie-link' key={index}>
                 <img className='search-item-icon' src={movie.obraz_url} alt={`Movie ${index}`} />
-                <Link to={`film/${movie.id_filmu}`} state={{ movie_ID: movieID }} >{movie.tytul}</Link>
+                <p className='show-movie-title-list'>{movie.tytul}</p>
               </li>
+              </Link>
+              
             )
           })}
         </ul>

@@ -1,23 +1,76 @@
-
+.rep-body{
+    display: flex;
+    flex-direction: column;
+    gap: 70px;
+    
+}
 .date-city-bar{
-    display: flex;   
+    display: flex;
+    margin-left: 100px ;   
+}
+.custom-dropdown{
+    margin: 0;
 }
 .repertory-item{
     display: flex;
+    margin-left: 100px;
+    gap: 40px;
 }
 .repertory-image{
-    width: 140px;
+    width: 180px;
     margin-bottom: 20px;
     box-shadow: 0 0 3px rgb(168, 163, 163);
     filter: brightness(1.1);
 }
 .repertory-title{
-    color: rgb(255, 255, 255);
+    font-size: 30px;
+    color: rgb(3, 3, 3);
 }
 .repertory-description{
-    color: white;
+    color: rgb(0, 0, 0);
     max-width: 850px;
 }
 .repertory-category{
+    color: rgb(0, 0, 0);
+}
+.container-repertory{
+    display: flex;
+    gap: 25px;
+    max-width: 1000px;
+}
+.show-repertory{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    border: solid rgb(52, 13, 126)
+}
+.show-repertory:hover{
+    cursor: pointer;
+}
+.show-repertory:hover{
+    background-color: rgb(46, 33, 119);
+}
+.empty-repertory{
+    color: red;
+    margin-left: 150px;
+}
+.date-button{
+    width: 220px;
+    height: 38px;
+    border-radius: 5px;
+    border: 1px solid rgb(202, 191, 191);
+    background-color: rgb(25, 25, 51);
     color: white;
 }
+.tommorow-date-button{
+    background-color: rgb(25, 25, 51);
+    color: white;
+    border-radius: 5px;
+    height: 38px;
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+  }

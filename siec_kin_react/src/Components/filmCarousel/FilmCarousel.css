@@ -14,7 +14,7 @@
 
 }
 .movie-card-container{
-    height: 750px;
+    height: 600px;
     background-color: black;
     overflow: hidden;
     position: relative;
@@ -38,7 +38,7 @@
 }
 .movie-detail{
     position:absolute;
-    top:350px;
+    top:250px;
     left: 50px;
     display: flex;
     justify-content: space-evenly;
@@ -73,6 +73,9 @@
 .play-button-icon:hover{
     font-size: 4rem;
     color:white;
+}
+.movie-title-carousel{
+    color: white;
 }
 
 @media only screen and (max-width: 800px) {

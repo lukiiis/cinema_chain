@@ -4,11 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-<<<<<<< HEAD
-    <list default="true" id="4e5d65bb-a6af-4cf7-9894-d72f88fb830f" name="Changes" comment="" />
-=======
-    <list default="true" id="ab6f602b-e4bd-44f1-bd6f-45f76127825c" name="Changes" comment="" />
->>>>>>> main
+    <list default="true" id="ab6f602b-e4bd-44f1-bd6f-45f76127825c" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../siec_kin_react/src/Components/Datepicker/Datepicker.js" beforeDir="false" afterPath="$PROJECT_DIR$/../siec_kin_react/src/Components/Datepicker/Datepicker.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../siec_kin_react/src/Components/Shows/Shows.css" beforeDir="false" afterPath="$PROJECT_DIR$/../siec_kin_react/src/Components/Shows/Shows.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../siec_kin_react/src/Components/filmCarousel/FilmCarousel.css" beforeDir="false" afterPath="$PROJECT_DIR$/../siec_kin_react/src/Components/filmCarousel/FilmCarousel.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../siec_kin_react/src/Components/filmCarousel/FilmCarousel.js" beforeDir="false" afterPath="$PROJECT_DIR$/../siec_kin_react/src/Components/filmCarousel/FilmCarousel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../siec_kin_react/src/Components/searchItem/SearchItem.css" beforeDir="false" afterPath="$PROJECT_DIR$/../siec_kin_react/src/Components/searchItem/SearchItem.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../siec_kin_react/src/Components/searchItem/SearchItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/../siec_kin_react/src/Components/searchItem/SearchItem.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../siec_kin_react/src/Pages/Repertory/Repertory.css" beforeDir="false" afterPath="$PROJECT_DIR$/../siec_kin_react/src/Pages/Repertory/Repertory.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../siec_kin_react/src/Pages/Repertory/Repertory.js" beforeDir="false" afterPath="$PROJECT_DIR$/../siec_kin_react/src/Pages/Repertory/Repertory.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ip/kino/model/Seans.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ip/kino/model/Seans.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ip/kino/model/Seans.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ip/kino/model/Seans.class" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -20,34 +30,46 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 3
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 3
+}</component>
   <component name="ProjectId" id="2ZSNoxUmPTTSAuQfbo6KMb6Dabd" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "test",
-    "ignore.virus.scanning.warn.message": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;zysio&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Acer/Desktop/kino/projekt_siec_kin/siec_kin_spring&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType">
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="SiecKinApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="kino" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.ip.kino.SiecKinApplication" />
@@ -63,44 +85,14 @@
       <created>1702411702223</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-<<<<<<< HEAD
-      <updated>1700314605577</updated>
-      <workItem from="1700314608615" duration="339000" />
-      <workItem from="1700314959207" duration="36000" />
-      <workItem from="1700317599429" duration="742000" />
-      <workItem from="1700332554433" duration="10190000" />
-      <workItem from="1700352042459" duration="130000" />
-      <workItem from="1700407336008" duration="3144000" />
-      <workItem from="1700603631007" duration="1803000" />
-      <workItem from="1700642910936" duration="458000" />
-      <workItem from="1700682822948" duration="2516000" />
-      <workItem from="1700753205160" duration="3600000" />
-      <workItem from="1700833138230" duration="73000" />
-      <workItem from="1700859505502" duration="619000" />
-      <workItem from="1701279294929" duration="725000" />
-      <workItem from="1701353763390" duration="3055000" />
-      <workItem from="1701450082421" duration="2415000" />
-      <workItem from="1701527819181" duration="869000" />
-      <workItem from="1701534671722" duration="1649000" />
-      <workItem from="1701546822053" duration="4543000" />
-      <workItem from="1701551834026" duration="1178000" />
-      <workItem from="1701614656895" duration="3494000" />
-      <workItem from="1701699829631" duration="620000" />
-      <workItem from="1701716414287" duration="5680000" />
-      <workItem from="1701963111458" duration="683000" />
-      <workItem from="1701963903225" duration="3103000" />
-      <workItem from="1702043293142" duration="2775000" />
-      <workItem from="1702131509275" duration="127000" />
-      <workItem from="1702131649035" duration="611000" />
-      <workItem from="1702220993536" duration="568000" />
-      <workItem from="1702310656580" duration="2295000" />
-      <workItem from="1702339721053" duration="608000" />
-      <workItem from="1702371245122" duration="1292000" />
-      <workItem from="1702479285501" duration="3000" />
-=======
       <updated>1702411702223</updated>
       <workItem from="1702411706412" duration="1334000" />
->>>>>>> main
+      <workItem from="1702479640177" duration="378000" />
+      <workItem from="1702480049814" duration="123000" />
+      <workItem from="1702480184896" duration="2184000" />
+      <workItem from="1702638666005" duration="10000" />
+      <workItem from="1702638696041" duration="2636000" />
+      <workItem from="1702722924135" duration="5213000" />
     </task>
     <servers />
   </component>

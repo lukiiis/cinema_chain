@@ -1,32 +1,61 @@
-import { useState, forwardRef, useEffect } from 'react';
+import { useState, forwardRef, useEffect} from 'react';
 import './Datepicker.css'
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import { BsFillCalendarFill, BsArrowLeft, BsArrowRight } from 'react-icons/bs';
 
-export default function Datepicker({ onDataReceived }) {
-  const [dataToSend, setDataToSend] = useState('Data from child');
-  const currDate = new Date();
 
-  const [startDate, setStartDate] = useState(new Date());
-  const ExampleCustomInput = forwardRef(({ value, onClick }, ref) => (
-    <button className="date-button" onClick={onClick} ref={ref}>
-      {value}
-    </button>));
+export default function Datepicker({onDataReceived, onDateSend}){
 
-  useEffect(() => {
-    onDataReceived(currDate);
-  }, []);
-  return (
-    <>
-      <DatePicker wrapperClassName='date-picker'
+        const [startDate, setStartDate] = useState(new Date());
+        const [selectedDate, setSelectedDate] = useState(null);
+        const [shouldUpdateDate, setShouldUpdateDate] = useState(true);
+
+
+
+        useEffect(() => {
+          if (onDateSend && shouldUpdateDate) {
+            setSelectedDate(onDateSend());
+            setShouldUpdateDate(true); // Ustawiamy flagę na false po odebraniu daty
+            console.log("2");
+          }
+        }, [onDateSend, shouldUpdateDate]);
+
+
+
+        const setDatePicker = (date) => {
+          setSelectedDate(date.toISOString().split('T')[0]);
+          onDataReceived(date)
+          setShouldUpdateDate(false); // Ustawiamy flagę na false, aby uniknąć nadpisywania daty
+        };
+
+        const ExampleCustomInput = forwardRef(({ value, onClick }, ref) => (
+            
+        <button className="date-button" onClick={onClick} ref={ref}>
+            {selectedDate}
+        </button>)
+        );
+    
+
+    return(
+        <>
+        <DatePicker wrapperClassName='date-picker'
         selected={startDate}
-        onChange={(date) => { onDataReceived(date); setStartDate(date) }}
+          onChange={(date) => {
+          if (onDataReceived) {
+            onDataReceived(date);
+          }
+          if (onDateSend) {
+            onDateSend(date);
+          }
+          setStartDate(date);
+          setDatePicker(date)
+
+          console.log(shouldUpdateDate)
+        }}
         customInput={<ExampleCustomInput />}
         showPreviousDays
         showNextMonths
       />
-      <BsArrowLeft /> {/* Ikona strzałki w lewo */}
-    </>
-  )
+      </>
+    )
 }
