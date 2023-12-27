@@ -7,6 +7,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @Entity
 @Getter
 @Setter
@@ -17,9 +19,10 @@ public class Klient {
     private Long liczba_rezerwacji;
     private Double portfel;
 
-    @OneToOne
-    @JoinColumn(name = "id_uzytkownika")
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_uzytkownika", referencedColumnName = "id_uzytkownika")
     private Uzytkownik uzytkownik;
+
 
     public Klient(Long id_klienta, Long liczba_rezerwacji, Double portfel, Uzytkownik uzytkownik) {
         this.id_klienta = id_klienta;

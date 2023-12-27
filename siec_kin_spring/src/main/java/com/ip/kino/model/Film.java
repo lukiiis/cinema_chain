@@ -29,4 +29,5 @@ public class Film {
     @OneToMany
     @JoinColumn(name = "id_seansu")
     private List<Seans> seanse;
+
 }

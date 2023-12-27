@@ -11,6 +11,7 @@ const AdminDashboard = () => {
     const [modifyUsers, setModifyUsers] = useState(null);
     const [cinemas, setCinemas] = useState(null);
     const [users, setUsers] = useState(null);
+    const [blockId, setBlockId] = useState(null);
 
     const handleMenuItemClick = (menuItem) => {
         setSelectedMenuItem(menuItem); // zmiana elementu menu
@@ -38,16 +39,17 @@ const AdminDashboard = () => {
                 console.log(response.data);
                 console.log("Request succesfull");
             }
-            else if (response.status === 403) {
-                console.log("Access forbidden");
-                navigate("/");
-            }
             else {
                 console.log("unexpected error", response.status);
             }
         }
         catch (error) {
             console.error("Error while fetching data", error);
+            if(error.response.status === 403){
+                console.log("Token expired. Log in to proceed.");
+                localStorage.clear();
+                navigate("/login");
+            }
         }
     }
 
@@ -66,17 +68,46 @@ const AdminDashboard = () => {
                 console.log(response.data);
                 console.log("Request succesfull");
             }
-            else if (response.status === 403) {
-                console.log("Access forbidden");
-                navigate("/");
-            }
             else {
                 console.log("unexpected error", response.status);
             }
         }
         catch (error) {
             console.error("Error while fetching data", error);
+            if(error.response.status === 403){
+                console.log("Token expired. Log in to proceed.");
+                localStorage.clear();
+                navigate("/login");
+            }
         }
+    }
+
+    const blockAccount = async (e) => {
+        e.preventDefault();
+        try{
+            const token = localStorage.getItem('token');
+
+            const url = "http://localhost:8090/api/v1/private/block-unblock/" + blockId;
+            const response = await axios.post(url, {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            })
+            console.log(response);
+            fetchUsers();
+        }
+        catch (error) {
+            console.error("Error while sending data", error);
+            if(error.response.status === 403){
+                console.log("Token expired. Log in to proceed.");
+                localStorage.clear();
+                navigate("/");
+            }
+        }
+    }
+
+    const addUser = async (e) => {
+        e.preventDefault();
     }
 
     useEffect(() => {
@@ -92,11 +123,28 @@ const AdminDashboard = () => {
                 );
             case "ban":
                 return (
-                    <span>Zablokuj skurwysyna</span>
+                    <div className="formContainer">
+                        <form onSubmit={blockAccount}>
+                            <label>
+                                Podaj ID użytkownika, którego chcesz zablokować lub odblokować:
+                                <input 
+                                type="number" 
+                                placeholder="ID użytkownika"
+                                value={blockId}
+                                onChange={(event) => setBlockId(event.target.value)}
+                                />
+                            </label>
+                            <button type="submit">Zablokuj/Odblokuj</button>
+                        </form>
+                    </div>
                 );
             case "add":
                 return(
-                    <span>Dodaj uzytkownika</span>
+                    <div className="formContainer">
+                        <form onSubmit={addUser}>
+
+                        </form>
+                    </div>
                 );
             default:
                 return null;
@@ -166,7 +214,19 @@ const AdminDashboard = () => {
                                                 <td>{user.nr_telefonu}</td>
                                                 <td>{user.data_utworzenia}</td>
                                                 <td>{user.role}</td>
-                                                <td>{user.blokada}</td>
+                                                <td>{(()=>{
+                                                    if(user.blokada === false){
+                                                        return(
+                                                            <span>NIE</span>
+                                                        )
+                                                    }
+                                                    else{
+                                                        return(
+                                                            <span>TAK</span>
+                                                        )
+                                                    }
+                                                    
+                                                })()}</td>
                                             </tr>
                                         )
                                     })}
@@ -175,10 +235,11 @@ const AdminDashboard = () => {
                                 <p>Brak danych</p>
                             )}
                         </table>
-
-                        <button onClick={() => handleUserModification("add")}>Dodaj użytkownika</button>
-                        <button onClick={() => handleUserModification("roles")}>Zmień uprawnienia</button>
-                        <button onClick={() => handleUserModification("ban")}>Zablokuj konto</button>
+                        <div className="buttons">
+                            <button onClick={() => handleUserModification("add")}>Dodaj użytkownika</button>
+                            <button onClick={() => handleUserModification("roles")}>Zmień uprawnienia</button>
+                            <button onClick={() => handleUserModification("ban")}>Zablokuj konto</button>
+                        </div>
                         {renderUserModifyContent()}
                         </>
                 );
@@ -200,7 +261,7 @@ const AdminDashboard = () => {
                 <div className="leftContainer">
                     <ul className="menu">
                         <li onClick={() => handleMenuItemClick("cinemas")}>Kina</li>
-                        <li onClick={() => handleMenuItemClick("users")}>Użytkownicy</li>
+                        <li onClick={() => handleMenuItemClick("users")}>Konta użytkowników</li>
                         <li onClick={() => handleMenuItemClick("placeholder")}>Klienci</li>
                         <li onClick={() => handleMenuItemClick("placeholder")}>Pracownicy</li>
                         <li onClick={() => handleMenuItemClick("placeholder")}>Administratorzy</li>

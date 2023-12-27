@@ -36,16 +36,16 @@ public class Uzytkownik implements UserDetails {
     private Role role;
 
     @JsonIgnoreProperties("uzytkownik")
-    @OneToOne(mappedBy = "uzytkownik")
+    @OneToOne(cascade = CascadeType.ALL, mappedBy = "uzytkownik")
     private Klient klient;
 
     //dzieki temu nie ma nieskonczonej petli
     @JsonIgnoreProperties("uzytkownik")
-    @OneToOne(mappedBy = "uzytkownik")
+    @OneToOne(cascade = CascadeType.ALL, mappedBy = "uzytkownik")
     private Administrator administrator;
 
     @JsonIgnoreProperties("uzytkownik")
-    @OneToOne(mappedBy = "uzytkownik")
+    @OneToOne(cascade = CascadeType.ALL, mappedBy = "uzytkownik")
     private Pracownik pracownik;
 
 

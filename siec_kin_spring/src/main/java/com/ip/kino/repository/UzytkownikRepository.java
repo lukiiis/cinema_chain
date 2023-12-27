@@ -14,4 +14,7 @@ public interface UzytkownikRepository extends JpaRepository<Uzytkownik, Long> {
     Optional<Uzytkownik> findByLogin(String login);
     @Query(value = "SELECT * FROM uzytkownik u WHERE u.id_uzytkownika = :id", nativeQuery = true)
     Optional<Uzytkownik> findByIdUzytkownika(Long id);
+
+    @Query(value = "DELETE FROM uzytkownik u WHERE u.id_uzytkownika = :id", nativeQuery = true)
+    void deleteUser(Long id);
 }

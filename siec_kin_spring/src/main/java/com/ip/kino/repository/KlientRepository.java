@@ -8,4 +8,6 @@ import org.springframework.data.jpa.repository.Query;
 public interface KlientRepository extends JpaRepository<Klient, Long> {
     @Query(value = "SELECT MAX(k.id_klienta) FROM klient k", nativeQuery = true)
     Long findMaxIdKlienta();
+
+//    Klient findByUzytkownik_id_uzytkownika(Long id_uzytkownika);
 }

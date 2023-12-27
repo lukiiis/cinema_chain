@@ -5,7 +5,38 @@ import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import "./AccountSettingsContent.css"
 
-const AccountSettingsContent = ({ userData }) => {
+const AccountSettingsContent = ({ userData, token }) => {
+    const navigate = useNavigate();
+    const deleteAccount = async (e) => {
+        e.preventDefault();
+        try{
+            const id = userData.id_uzytkownika;
+            const url = `http://localhost:8090/api/v1/private/delete-account`;
+            const response = await axios.post(url, null, {
+                params: {
+                    id: id
+                },
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }               
+            });
+            if(response.status === 200){
+                console.log(response.data);
+                console.log("Account has been deleted.");
+                localStorage.clear();
+                navigate("/");
+
+                
+            }
+        }
+        catch (error){
+            if(error.response.status === 403){
+                console.log("Token expired, please log in.");
+                console.log(token);
+                navigate("/login");
+            }
+        }
+    }
 
     return (
         <>
@@ -84,7 +115,7 @@ const AccountSettingsContent = ({ userData }) => {
             <div className="userDataContainer">
                 <h5>Usunięcie konta</h5>
                 <span>Jeśli usuniesz konto, Twoje dane zostaną bezpowrotnie utracone.</span>
-                <button>Usuń konto</button>
+                <button onClick={deleteAccount}>Usuń konto</button>
             </div>
         </>
     );
