@@ -6,6 +6,13 @@
     flex:1;
 }
 
+.loginFormBorder{
+    background: rgb(250, 250, 250);
+    border: 3px solid rgb(0, 18, 82);
+    border-radius: 53px;
+    padding:65px 90px 65px 90px;
+}
+
 .loginFormInputs{
     display: flex;
     align-items: center;

@@ -112,6 +112,21 @@ public class UserDataService {
         }
     }
 
+    public Object changePersonalData(ChangePersonalDataDto changePersonalDataDto) {
+        try{
+            Uzytkownik user = uzytkownikRepository.findByIdUzytkownika(changePersonalDataDto.getId()).orElseThrow();
+            user.setImie(changePersonalDataDto.getName());
+            user.setNazwisko(changePersonalDataDto.getSurname());
+            user.setNr_telefonu(changePersonalDataDto.getPhone());
+            uzytkownikRepository.save(user);
+            return "Data changed succesfully";
+        }
+        catch (Exception ex){
+            ex.printStackTrace();
+            return "Error changing personal data.";
+        }
+    }
+
 //    public String changeRole(Long id, String role) {
 //        Uzytkownik user = uzytkownikRepository.findByIdUzytkownika(id).orElseThrow();
 //        if(user.getRole().toString().equals(role)){

@@ -118,27 +118,29 @@ const Login = () => {
         <>
             <Navigation />
             <div className="loginFormContainer">
-                <h1>Logowanie</h1>
-                <form className="loginForm" onSubmit={handleSubmit}>
-                    <div className="loginFormWrapper">
-                        <div className="loginFormInputs">
-                            <label>
-                                Login
-                                <input type="text" name="login" value={formData.login} onChange={handleChange} />
-                                {errors.login && <span>{errors.login}</span>}
-                            </label>
-                            <label>
-                                Hasło
-                                <input type="password" name="password" value={formData.password} onChange={handleChange} />
-                                {errors.password && <span>{errors.password}</span>}
-                            </label>
+                <div className="loginFormBorder">
+                    <h1>Logowanie</h1>
+                    <form className="loginForm" onSubmit={handleSubmit}>
+                        <div className="loginFormWrapper">
+                            <div className="loginFormInputs">
+                                <label>
+                                    Login
+                                    <input type="text" name="login" value={formData.login} onChange={handleChange} />
+                                    {errors.login && <span>{errors.login}</span>}
+                                </label>
+                                <label>
+                                    Hasło
+                                    <input type="password" name="password" value={formData.password} onChange={handleChange} />
+                                    {errors.password && <span>{errors.password}</span>}
+                                </label>
+                            </div>
+                            <div className="loginFormButton">
+                                <button type="submit">Zaloguj się</button>
+                            </div>
                         </div>
-                        <div className="loginFormButton">
-                            <button type="submit">Zaloguj się</button>
-                        </div>
-                    </div>
-                    {loginStatus && <span>{loginStatus}</span>}
-                </form>
+                        {loginStatus && <span>{loginStatus}</span>}
+                    </form>
+                </div>
             </div>
             <Footer />
         </>

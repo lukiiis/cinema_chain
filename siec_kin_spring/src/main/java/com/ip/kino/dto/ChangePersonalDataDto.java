@@ -9,9 +9,9 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class ChangePasswordDto {
+public class ChangePersonalDataDto {
     private Long id;
-    private String oldPassword;
-    private String newPassword;
-    private String confPassword;
+    private String name;
+    private String surname;
+    private Long phone;
 }

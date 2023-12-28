@@ -1,6 +1,7 @@
 package com.ip.kino.controller;
 
 import com.ip.kino.dto.ChangePasswordDto;
+import com.ip.kino.dto.ChangePersonalDataDto;
 import com.ip.kino.dto.UserDataDto;
 import com.ip.kino.model.Uzytkownik;
 import com.ip.kino.service.UserDataService;
@@ -45,5 +46,10 @@ public class UserDataController {
     @PostMapping("/change-password")
     public ResponseEntity<?> changePassword(@RequestBody ChangePasswordDto changePasswordDto){
         return ResponseEntity.ok(userDataService.changePassword(changePasswordDto));
+    }
+
+    @PostMapping("/change-personal-data")
+    public ResponseEntity<?> changePersonalData(@RequestBody ChangePersonalDataDto changePersonalDataDto){
+        return ResponseEntity.ok(userDataService.changePersonalData(changePersonalDataDto));
     }
 }

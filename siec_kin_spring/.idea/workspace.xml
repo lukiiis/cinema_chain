@@ -5,26 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ab6f602b-e4bd-44f1-bd6f-45f76127825c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ip/kino/dto/ChangePasswordDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ip/kino/model/ToWatch.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ip/kino/dto/ChangePersonalDataDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../siec_kin_react/src/Components/accountSettingsContent/AccountSettingsContent.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../siec_kin_react/src/Components/accountSettingsContent/AccountSettingsContent.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../siec_kin_react/src/Components/navigation/Navigation.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../siec_kin_react/src/Components/navigation/Navigation.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../siec_kin_react/src/Pages/AdminDashboard/AdminDashboard.css" beforeDir="false" afterPath="$PROJECT_DIR$/../siec_kin_react/src/Pages/AdminDashboard/AdminDashboard.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../siec_kin_react/src/Pages/AdminDashboard/AdminDashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/../siec_kin_react/src/Pages/AdminDashboard/AdminDashboard.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../siec_kin_react/src/Pages/Dashboard/Dashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/../siec_kin_react/src/Pages/Dashboard/Dashboard.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ip/kino/controller/UserDataController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ip/kino/controller/UserDataController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ip/kino/model/Film.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ip/kino/model/Film.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ip/kino/model/Klient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ip/kino/model/Klient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ip/kino/model/Uzytkownik.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ip/kino/model/Uzytkownik.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ip/kino/repository/KlientRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ip/kino/repository/KlientRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ip/kino/repository/UzytkownikRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ip/kino/repository/UzytkownikRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ip/kino/dto/ChangePasswordDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ip/kino/dto/ChangePasswordDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ip/kino/service/UserDataService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ip/kino/service/UserDataService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ip/kino/controller/UserDataController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ip/kino/controller/UserDataController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ip/kino/model/Klient.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ip/kino/model/Klient.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ip/kino/model/Uzytkownik.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ip/kino/model/Uzytkownik.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ip/kino/repository/UzytkownikRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ip/kino/repository/UzytkownikRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ip/kino/service/UserDataService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ip/kino/service/UserDataService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,6 +58,11 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.ip.kino.dto" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="SiecKinApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="kino" />
@@ -101,6 +92,8 @@
       <workItem from="1703180538972" duration="7245000" />
       <workItem from="1703677783510" duration="4066000" />
       <workItem from="1703697765952" duration="9620000" />
+      <workItem from="1703710129416" duration="418000" />
+      <workItem from="1703761819671" duration="7358000" />
     </task>
     <servers />
   </component>

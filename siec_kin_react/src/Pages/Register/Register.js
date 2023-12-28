@@ -26,7 +26,7 @@ const Register = () => {
         }
     }, [])
 
-    //walidacja danych
+    //walidacja danych todo
     useEffect(() => {
         const validationErrors = {};
 
@@ -69,46 +69,48 @@ const Register = () => {
         <>
             <Navigation />
             <div className="formContainer">
-                <h1>Rejestracja nowego konta</h1>
-                <form onSubmit={handleSubmit}>
-                    <div className="formWrapper">
-                        <div className="formInputs">
-                            <label>
-                                Login
-                                <input type="text" name="login" value={formData.login} onChange={handleChange} />
-                                {errors.login && <span>{errors.login}</span>}
-                            </label>
-                            <label>
-                                Hasło
-                                <input type="password" name="haslo" value={formData.haslo} onChange={handleChange} />
-                                {errors.haslo && <span>{errors.haslo}</span>}
-                            </label>
-                            <label>
-                                E-mail
-                                <input type="email" name="email" value={formData.email} onChange={handleChange} />
-                                {errors.email && <span>{errors.email}</span>}
-                            </label>
-                            <label>
-                                Numer telefonu
-                                <input type="number" name="nr_telefonu" value={formData.nr_telefonu} onChange={handleChange} />
-                                {errors.nr_telefonu && <span>{errors.nr_telefonu}</span>}
-                            </label>
-                            <label>
-                                Imię
-                                <input type="text" name="imie" value={formData.imie} onChange={handleChange} />
-                                {errors.imie && <span>{errors.imie}</span>}
-                            </label>
-                            <label>
-                                Nazwisko
-                                <input type="text" name="nazwisko" value={formData.nazwisko} onChange={handleChange} />
-                                {errors.nazwisko && <span>{errors.nazwisko}</span>}
-                            </label>
+                <div className="formBorder">
+                    <h1>Rejestracja</h1>
+                    <form onSubmit={handleSubmit}>
+                        <div className="formWrapper">
+                            <div className="formInputs">
+                                <label>
+                                    Login
+                                    <input type="text" name="login" value={formData.login} onChange={handleChange} />
+                                    {errors.login && <span>{errors.login}</span>}
+                                </label>
+                                <label>
+                                    Hasło
+                                    <input type="password" name="haslo" value={formData.haslo} onChange={handleChange} />
+                                    {errors.haslo && <span>{errors.haslo}</span>}
+                                </label>
+                                <label>
+                                    E-mail
+                                    <input type="email" name="email" value={formData.email} onChange={handleChange} />
+                                    {errors.email && <span>{errors.email}</span>}
+                                </label>
+                                <label>
+                                    Numer telefonu
+                                    <input type="number" name="nr_telefonu" value={formData.nr_telefonu} onChange={handleChange} />
+                                    {errors.nr_telefonu && <span>{errors.nr_telefonu}</span>}
+                                </label>
+                                <label>
+                                    Imię
+                                    <input type="text" name="imie" value={formData.imie} onChange={handleChange} />
+                                    {errors.imie && <span>{errors.imie}</span>}
+                                </label>
+                                <label>
+                                    Nazwisko
+                                    <input type="text" name="nazwisko" value={formData.nazwisko} onChange={handleChange} />
+                                    {errors.nazwisko && <span>{errors.nazwisko}</span>}
+                                </label>
+                            </div>
+                            <div className="formButton">
+                                <button type="submit">Zarejestruj się</button>
+                            </div>
                         </div>
-                        <div className="formButton">
-                            <button type="submit">Zarejestruj się</button>
-                        </div>
-                    </div>
-                </form>
+                    </form>
+                </div>
             </div>
             <Footer />
         </>

@@ -17,6 +17,8 @@ const Dashboard = () => {
     const [selectedMenuItem, setSelectedMenuItem] = useState("myTickets"); // domyślny wybór
     const nodeRef = React.useRef(null); // Tworzymy ref
     const token = localStorage.getItem('token');
+    //navbar refresh
+    const [refreshNavigation, setRefreshNavigation] = useState(false);
 
     useEffect(() => {
         //jezeli token istnieje
@@ -122,7 +124,8 @@ const Dashboard = () => {
                 return (
                     <CSSTransition in={selectedMenuItem === "toWatch"} appear={true} timeout={300} classNames="fade" nodeRef={nodeRef}>
                         <div className="toWatchContent" ref={nodeRef}>
-                            {/* Treść dotycząca filmów do obejrzenia */}
+                            
+                            
                         </div>
                     </CSSTransition>
                 );
@@ -152,7 +155,11 @@ const Dashboard = () => {
             case "accountSettings":
                 return (
                     <CSSTransition in={true} appear={true} timeout={300} classNames="fade" nodeRef={nodeRef}>
-                        <AccountSettingsContent userData={userData} token = {token} ref={nodeRef}/>
+                        <AccountSettingsContent 
+                            userData={userData} 
+                            token = {token} 
+                            refreshNavigation={() => setRefreshNavigation(prevState => !prevState)}
+                        />
                     </CSSTransition>
                 );
             default:
@@ -163,7 +170,7 @@ const Dashboard = () => {
 
     return (
         <>
-            <Navigation />
+            <Navigation refresh={refreshNavigation}/>
             <div className="dashboard">
                 <div className="dashboardWrapper">
                     <h1 className="dashboardTitle">Moje konto</h1>
