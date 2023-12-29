@@ -2,7 +2,7 @@ package com.ip.kino.controller;
 
 import com.ip.kino.config.AuthenticationResponse;
 import com.ip.kino.dto.LoginDto;
-import com.ip.kino.dto.UzytkownikDTO;
+import com.ip.kino.dto.RegisterDto;
 import com.ip.kino.service.AuthenticationService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 public class AuthenticationController {
     private final AuthenticationService authenticationService;
     @PostMapping("/register")
-    public ResponseEntity<AuthenticationResponse> register(@RequestBody UzytkownikDTO request){
+    public ResponseEntity<AuthenticationResponse> register(@RequestBody RegisterDto request){
         AuthenticationResponse status = authenticationService.registerUser(request);
         return ResponseEntity.ok(status);
     }

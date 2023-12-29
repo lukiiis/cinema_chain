@@ -204,18 +204,18 @@ const AdminDashboard = () => {
                                     {users.map((user) => {
 
                                         return (
-                                            <tr key={user.id_uzytkownika}>
-                                                <td>{user.id_uzytkownika}</td>
+                                            <tr key={user.userId}>
+                                                <td>{user.userId}</td>
                                                 <td>{user.login}</td>
-                                                <td>{user.haslo}</td>
+                                                <td>{user.passwd}</td>
                                                 <td>{user.email}</td>
-                                                <td>{user.imie}</td>
-                                                <td>{user.nazwisko}</td>
-                                                <td>{user.nr_telefonu}</td>
-                                                <td>{user.data_utworzenia}</td>
+                                                <td>{user.name}</td>
+                                                <td>{user.surname}</td>
+                                                <td>{user.phone}</td>
+                                                <td>{user.createDate}</td>
                                                 <td>{user.role}</td>
                                                 <td>{(()=>{
-                                                    if(user.blokada === false){
+                                                    if(user.blockade === false){
                                                         return(
                                                             <span>NIE</span>
                                                         )

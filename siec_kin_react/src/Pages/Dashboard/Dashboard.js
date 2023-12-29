@@ -22,7 +22,6 @@ const Dashboard = () => {
 
     useEffect(() => {
         //jezeli token istnieje
-        // console.log("SIEMANKO", localStorage);
         if (!token) {
             navigate("/login");
         }
@@ -45,8 +44,6 @@ const Dashboard = () => {
             })
             if (response.status === 200) {
                 setUserData(response.data);
-                 console.log(response.data);
-                // console.log("Request succesfull");
             }
             else if (response.status === 403) {
                 console.log("Access forbidden");
@@ -79,8 +76,6 @@ const Dashboard = () => {
             })
             if (response.status === 200) {
                 setReservations(response.data);
-                // console.log(response.data);
-                // console.log("Request succesfull");
             }
             else if (response.status === 403) {
                 console.log("Access forbidden");
@@ -101,7 +96,7 @@ const Dashboard = () => {
     }
 
     const handleMenuItemClick = (menuItem) => {
-        setSelectedMenuItem(menuItem); // zmiana elementu menu
+        setSelectedMenuItem(menuItem);
     }
 
     const renderContent = () => {
@@ -146,7 +141,7 @@ const Dashboard = () => {
                         <div className="walletContent" ref={nodeRef}>
                             <h1>Mój portfel</h1>
                             <div className="walletMain">
-                                <span>Dostępne środki: {userData.klient.portfel} zł</span>
+                                <span>Dostępne środki: {userData.client.wallet} zł</span>
                                 <button>Doładuj konto</button>
                             </div>
                         </div>

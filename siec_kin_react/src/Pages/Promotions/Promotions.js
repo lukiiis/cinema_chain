@@ -32,32 +32,32 @@ const Promotions = () => {
                 {promotions ? (
                     <>
                         {promotions.map((promotion, index) => {
-                            const promoId = promotion.id_promocji;
-                            const normalizedTitle = promotion.tytul
-                                .normalize("NFD") // Normalizacja znaków diakrytycznych
-                                .replace(/[\u0300-\u036f]/g, "") // Usunięcie diakrytyków
-                                .toLowerCase() // Zamiana na małe litery
-                                .replace(/\s+/g, "-") // Zamiana spacji na pauzy
-                                .split('!') //podzielenie stringa na czesci
-                                .join(''); //zlaczenie bez wykrzyknika
+                            const promoId = promotion.promotionId;
+                            const normalizedTitle = promotion.title
+                                .normalize("NFD")
+                                .replace(/[\u0300-\u036f]/g, "")
+                                .toLowerCase()
+                                .replace(/\s+/g, "-")
+                                .split('!')
+                                .join('');
                             return (
                                 <div
                                     className={`promoContainer ${hovered === index ? 'highlighted' : 'dimmed'} ${index === 0 ? 'highlighted' : ''}`}
-                                    key={promotion.id_promocji}
-                                    style={{ backgroundImage: `linear-gradient(to right, black 27%, transparent 80%), url(${promotion.obraz_url})` }}
+                                    key={promotion.promotionId}
+                                    style={{ backgroundImage: `linear-gradient(to right, black 27%, transparent 80%), url(${promotion.image})` }}
                                     onMouseEnter={() => setHovered(index)}
                                     onMouseLeave={() => setHovered(false)}
                                 >
                                     <div className="promoWrapper">
                                         <div className="promoInfoContainer">
                                             <div className="promoAddDate">
-                                                <span>{promotion.data_dodania}</span>
+                                                <span>{promotion.addDate}</span>
                                             </div>
                                             <div className="promoTitle">
-                                                <h2>{promotion.tytul}</h2>
+                                                <h2>{promotion.title}</h2>
                                             </div>
                                             <div className="promoContent">
-                                                {promotion.tresc}
+                                                {promotion.contents}
                                             </div>
                                             <Link to={`/promotion/${normalizedTitle}`} state={{ promo: promoId }}>
                                                 Więcej informacji
@@ -68,7 +68,7 @@ const Promotions = () => {
                             );
                         })}
                     </>) : (
-                    <p>pobieranie danych</p>
+                    <p>Pobieranie danych...</p>
                 )}
             </div>
             <Footer />

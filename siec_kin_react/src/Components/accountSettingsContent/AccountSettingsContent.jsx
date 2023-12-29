@@ -18,7 +18,7 @@ const AccountSettingsContent = ({ userData, token, refreshNavigation }) => {
     const deleteAccount = async (e) => {
         e.preventDefault();
         try{
-            const id = userData.id_uzytkownika;
+            const id = userData.userId;
             const url = `http://localhost:8090/api/v1/private/delete-account`;
             const response = await axios.post(url, null, {
                 params: {
@@ -48,7 +48,7 @@ const AccountSettingsContent = ({ userData, token, refreshNavigation }) => {
 
     //password change
     const [passwdData, setPasswdData] = useState({
-        id: userData.id_uzytkownika,
+        id: userData.userId,
         oldPassword: '',
         newPassword: '',
         confPassword: ''
@@ -113,20 +113,20 @@ const AccountSettingsContent = ({ userData, token, refreshNavigation }) => {
     const [dataEditResponseStatus, setDataEditResponseStatus] = useState(null);
     const [isEditing, setIsEditing] = useState(false);
     const [editedUserData, setEditedUserData] = useState({
-        id: userData.id_uzytkownika,
-        name: userData.imie,
-        surname: userData.nazwisko,
-        phone: userData.nr_telefonu
+        id: userData.userId,
+        name: userData.name,
+        surname: userData.surname,
+        phone: userData.phone
     });
 
     const handleEditClick = () => {
         setIsEditing(true);
 
         setEditedUserData({
-            id: userData.id_uzytkownika,
-            name: userData.imie,
-            surname: userData.nazwisko,
-            phone: userData.nr_telefonu,
+            id: userData.userId,
+            name: userData.name,
+            surname: userData.surname,
+            phone: userData.phone,
         });
     };
 
@@ -152,9 +152,9 @@ const AccountSettingsContent = ({ userData, token, refreshNavigation }) => {
             if(response.status===200){
                 localStorage.setItem('name', editedUserData.name);
                 localStorage.setItem('lastName', editedUserData.surname);
-                userData.imie = editedUserData.name;
-                userData.nazwisko = editedUserData.surname;
-                userData.nr_telefonu = editedUserData.phone;
+                userData.name = editedUserData.name;
+                userData.surname = editedUserData.surname;
+                userData.phone = editedUserData.phone;
                 refreshNavigation();
             }
             
@@ -183,7 +183,7 @@ const AccountSettingsContent = ({ userData, token, refreshNavigation }) => {
                                     onChange={handleDataInputChange}
                                 />
                             ) : (
-                                userData.imie
+                                userData.name
                             )}
                         </div>
                     </div>
@@ -201,7 +201,7 @@ const AccountSettingsContent = ({ userData, token, refreshNavigation }) => {
                                     onChange={handleDataInputChange}
                                 />
                             ) : (
-                                userData.nazwisko
+                                userData.surname
                             )}
                         </div>
                     </div>
@@ -236,7 +236,7 @@ const AccountSettingsContent = ({ userData, token, refreshNavigation }) => {
                                     onChange={handleDataInputChange}
                                 />
                             ) : (
-                                userData.nr_telefonu
+                                userData.phone
                             )}
                         </div>
                     </div>

@@ -9,11 +9,11 @@ const Register = () => {
     const navigate = useNavigate();
     const [formData, setFormData] = useState({
         login: '',
-        haslo: '',
+        passwd: '',
         email: '',
-        imie: '',
-        nazwisko: '',
-        nr_telefonu: ''
+        name: '',
+        surname: '',
+        phone: ''
     })
 
     const [res, setRes] = useState(null);
@@ -81,8 +81,8 @@ const Register = () => {
                                 </label>
                                 <label>
                                     Hasło
-                                    <input type="password" name="haslo" value={formData.haslo} onChange={handleChange} />
-                                    {errors.haslo && <span>{errors.haslo}</span>}
+                                    <input type="password" name="passwd" value={formData.passwd} onChange={handleChange} />
+                                    {errors.passwd && <span>{errors.passwd}</span>}
                                 </label>
                                 <label>
                                     E-mail
@@ -91,18 +91,18 @@ const Register = () => {
                                 </label>
                                 <label>
                                     Numer telefonu
-                                    <input type="number" name="nr_telefonu" value={formData.nr_telefonu} onChange={handleChange} />
-                                    {errors.nr_telefonu && <span>{errors.nr_telefonu}</span>}
+                                    <input type="number" name="phone" value={formData.phone} onChange={handleChange} />
+                                    {errors.phone && <span>{errors.phone}</span>}
                                 </label>
                                 <label>
                                     Imię
-                                    <input type="text" name="imie" value={formData.imie} onChange={handleChange} />
-                                    {errors.imie && <span>{errors.imie}</span>}
+                                    <input type="text" name="name" value={formData.name} onChange={handleChange} />
+                                    {errors.name && <span>{errors.name}</span>}
                                 </label>
                                 <label>
                                     Nazwisko
-                                    <input type="text" name="nazwisko" value={formData.nazwisko} onChange={handleChange} />
-                                    {errors.nazwisko && <span>{errors.nazwisko}</span>}
+                                    <input type="text" name="surname" value={formData.surname} onChange={handleChange} />
+                                    {errors.surname && <span>{errors.surname}</span>}
                                 </label>
                             </div>
                             <div className="formButton">

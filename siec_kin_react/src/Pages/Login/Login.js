@@ -31,7 +31,7 @@ const Login = () => {
 
     useEffect(() => {
         if (localStorage.getItem('token')) {
-            navigate("/dashboard");
+            navigate("/");
         }
     }, [])
 
@@ -48,10 +48,9 @@ const Login = () => {
         if (Object.keys(errors).length === 0) {
             try {
                 const response = await axios.post("http://localhost:8090/api/v1/public/auth/login", formData);
-                console.log('Server response: ', response.data);
+
                 if(response.data.status === "Account is blocked."){
                     localStorage.clear();
-                    console.log("masz bana huju");
                     setLoginStatus("Konto jest zablokowane.");
                 }
                 else{
@@ -66,19 +65,7 @@ const Login = () => {
                         }
     
                     });
-                    // const jwtToken = localStorage.getItem('token');
-                    // const decodedJwt = jwtDecode(jwtToken);
-                    // if(!jwtToken && decodedJwt.exp * 1000 < new Date().getTime()){
-                    //     console.log("Token expired.");
-                    //     localStorage.setItem("authenticated", false);
-                    //     localStorage.removeItem('token');
-                    // }
-                    // else{
-                    //     console.log("Token valid.");
-                    //     localStorage.setItem("authenticated", true);
-                    //     //redirect na inną stronę (zapewne na dashboard uzytkownika)
-                    //     navigate("/dashboard");
-                    // }
+
                     if(response.data.role === "USER"){
                         setLoginStatus("Logowanie pomyślne.");
                         setTimeout(() => {
@@ -98,19 +85,16 @@ const Login = () => {
                         }, 1000);
                     }
                 }
-                console.log(localStorage);
             }
             catch (error) {
                 console.error('Error while sending data: ', error);
                 if(error.response.status===403){
-                    console.log("Nie istnieje takie konto");
                     setLoginStatus("Nie istnieje takie konto");
                 }
             }
         }
         else {
-            console.log('Form is empty');
-            setLoginStatus("Niektóre pola są puste");
+            setLoginStatus("Niektóre pola formularza są puste");
         }
     }
 

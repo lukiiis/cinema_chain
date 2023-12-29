@@ -3,14 +3,13 @@ package com.ip.kino.controller;
 import com.ip.kino.dto.ChangePasswordDto;
 import com.ip.kino.dto.ChangePersonalDataDto;
 import com.ip.kino.dto.UserDataDto;
-import com.ip.kino.model.Uzytkownik;
+import com.ip.kino.model.User;
 import com.ip.kino.service.UserDataService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequiredArgsConstructor
@@ -22,7 +21,7 @@ public class UserDataController {
         return ResponseEntity.ok(userDataService.getUserByLogin(login));
     }
     @GetMapping("/userdetails")
-    ResponseEntity<List<Uzytkownik>> getAllUsers(){
+    ResponseEntity<List<User>> getAllUsers(){
         return ResponseEntity.ok(userDataService.getAllUsers());
     }
 

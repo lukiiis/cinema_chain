@@ -32,18 +32,18 @@ const NewsDetails = () => {
                 <div className="newsDetailsContainer">
                     <div
                         className="newsTopContainer"
-                        style={{ backgroundImage: `linear-gradient(to top, black 8%, transparent 60%), url(${news.obraz_url_baner})` }}
+                        style={{ backgroundImage: `linear-gradient(to top, black 8%, transparent 60%), url(${news.banner})` }}
                     >
                         <div className="newsDetailsTopWrapper">
                             <div className="newsInfo">
                                 <div className="newsInfoDate">
-                                    <span>{news.data_dodania}</span>
+                                    <span>{news.addDate}</span>
                                 </div>
                                 <div className="newsInfoTitle">
-                                    <span>{news.tytul}</span>
+                                    <span>{news.title}</span>
                                 </div>
                                 <div className="newsInfoShortContent">
-                                    <span>{news.tresc}</span>
+                                    <span>{news.contents}</span>
                                 </div>
                             </div>
                         </div>
@@ -52,7 +52,7 @@ const NewsDetails = () => {
                         <div className="newsDetailsBottomWrapper">
                             <div className="newsInfoLongContent">
                                 <span>
-                                    {news.tresc_dluga}
+                                    {news.contentsLong}
                                 </span>
                             </div>
                         </div>

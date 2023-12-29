@@ -1,12 +1,9 @@
 package com.ip.kino.dto;
 
-import com.ip.kino.model.Administrator;
-import com.ip.kino.model.Klient;
-import com.ip.kino.model.Pracownik;
 import com.ip.kino.model.Role;
-import jakarta.persistence.OneToOne;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
@@ -14,16 +11,17 @@ import java.time.LocalDate;
 @Getter
 @Setter
 @AllArgsConstructor
+@NoArgsConstructor
 public class UserDataDto {
-    private Long id_uzytkownika;
+    private Long userId;
     private String login;
     private String email;
-    private String imie;
-    private String nazwisko;
-    private Long nr_telefonu;
-    private LocalDate data_utworzenia;
+    private String name;
+    private String surname;
+    private Long phone;
+    private LocalDate createDate;
     private Role role;
-    private KlientDto klient;
-    private AdminDto administrator;
-    private PracownikDto pracownik;
+    private ClientDto client;
+    private AdminDto admin;
+    private EmployeeDto employee;
 }

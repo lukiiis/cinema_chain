@@ -31,8 +31,8 @@ const HomeNews = () => {
                     </h2>
                     <div className="homeNewsContainer">
                         {news.map((oneNews) => {
-                            const newsId = oneNews.id_aktualnosci;
-                            const normalizedTitle = oneNews.tytul
+                            const newsId = oneNews.newsId;
+                            const normalizedTitle = oneNews.title
                                 .normalize("NFD") // Normalizacja znaków diakrytycznych
                                 .replace(/[\u0300-\u036f]/g, "") // Usunięcie diakrytyków
                                 .toLowerCase() // Zamiana na małe litery
@@ -42,10 +42,10 @@ const HomeNews = () => {
                                 .split('"')
                                 .join('');
                             return (
-                                <Link key={oneNews.id_aktualnosci} className="link" to={`/aktualnosci/${normalizedTitle}`} state={{ promo: newsId }}>
+                                <Link key={oneNews.newsId} className="link" to={`/aktualnosci/${normalizedTitle}`} state={{ promo: newsId }}>
                                     <Card
-                                        title={oneNews.tytul}
-                                        poster={oneNews.obraz_url}
+                                        title={oneNews.title}
+                                        poster={oneNews.image}
                                     />
                                 </Link>
                             );
