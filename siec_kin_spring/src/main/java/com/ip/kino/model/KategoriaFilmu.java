@@ -6,14 +6,12 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.List;
-
 @Entity
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class KategoriaFilmu {
+public class Kategoria_Filmu {
     @Id
     private Long id_kategorii;
     private String nazwa_gatunku;
