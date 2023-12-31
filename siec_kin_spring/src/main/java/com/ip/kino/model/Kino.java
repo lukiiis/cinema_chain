@@ -1,11 +1,13 @@
 package com.ip.kino.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import java.util.List;
+
+import java.util.List;
 
 @Entity
 @Getter
@@ -20,4 +22,8 @@ public class Kino {
     private String numer_budynku;
     private String kod_pocztowy;
     private Float budzet;
+
+    @OneToMany
+    @JoinColumn(name = "id_kina")
+    private List<Sala> sale;
 }

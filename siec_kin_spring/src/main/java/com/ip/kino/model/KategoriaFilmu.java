@@ -11,7 +11,8 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Kategoria_Filmu {
+@Table(name = "Kategoria_Filmu")
+public class KategoriaFilmu {
     @Id
     private Long id_kategorii;
     private String nazwa_gatunku;

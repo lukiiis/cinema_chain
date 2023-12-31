@@ -5,24 +5,42 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ab6f602b-e4bd-44f1-bd6f-45f76127825c" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../siec_kin_react/src/Components/Datepicker/Datepicker.js" beforeDir="false" afterPath="$PROJECT_DIR$/../siec_kin_react/src/Components/Datepicker/Datepicker.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../siec_kin_react/src/Components/Shows/Shows.css" beforeDir="false" afterPath="$PROJECT_DIR$/../siec_kin_react/src/Components/Shows/Shows.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../siec_kin_react/src/Components/filmCarousel/FilmCarousel.css" beforeDir="false" afterPath="$PROJECT_DIR$/../siec_kin_react/src/Components/filmCarousel/FilmCarousel.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../siec_kin_react/src/Components/filmCarousel/FilmCarousel.js" beforeDir="false" afterPath="$PROJECT_DIR$/../siec_kin_react/src/Components/filmCarousel/FilmCarousel.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../siec_kin_react/src/Components/searchItem/SearchItem.css" beforeDir="false" afterPath="$PROJECT_DIR$/../siec_kin_react/src/Components/searchItem/SearchItem.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../siec_kin_react/src/Components/searchItem/SearchItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/../siec_kin_react/src/Components/searchItem/SearchItem.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../siec_kin_react/src/Pages/Repertory/Repertory.css" beforeDir="false" afterPath="$PROJECT_DIR$/../siec_kin_react/src/Pages/Repertory/Repertory.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../siec_kin_react/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/../siec_kin_react/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../siec_kin_react/src/Pages/Repertory/Repertory.js" beforeDir="false" afterPath="$PROJECT_DIR$/../siec_kin_react/src/Pages/Repertory/Repertory.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ip/kino/controller/FilmController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ip/kino/controller/FilmController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ip/kino/controller/SeansController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ip/kino/controller/SeansController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ip/kino/model/Film.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ip/kino/model/Film.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ip/kino/model/KategoriaFilmu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ip/kino/model/KategoriaFilmu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ip/kino/model/Kino.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ip/kino/model/Kino.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ip/kino/model/Seans.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ip/kino/model/Seans.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ip/kino/repository/FilmRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ip/kino/repository/FilmRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ip/kino/repository/SeansRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ip/kino/repository/SeansRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ip/kino/service/FilmService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ip/kino/service/FilmService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ip/kino/service/SeansService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ip/kino/service/SeansService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ip/kino/controller/FilmController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ip/kino/controller/FilmController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ip/kino/controller/SeansController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ip/kino/controller/SeansController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ip/kino/model/Film.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ip/kino/model/Film.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ip/kino/model/KategoriaFilmu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ip/kino/model/KategoriaFilmu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ip/kino/model/Kino.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ip/kino/model/Kino.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/ip/kino/model/Seans.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ip/kino/model/Seans.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ip/kino/repository/FilmRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ip/kino/repository/FilmRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ip/kino/repository/SeansRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ip/kino/repository/SeansRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ip/kino/service/FilmService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ip/kino/service/FilmService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ip/kino/service/SeansService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ip/kino/service/SeansService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -55,6 +73,7 @@
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -92,11 +111,33 @@
       <workItem from="1702480184896" duration="2184000" />
       <workItem from="1702638666005" duration="10000" />
       <workItem from="1702638696041" duration="2636000" />
-      <workItem from="1702722924135" duration="5213000" />
+      <workItem from="1702722924135" duration="5215000" />
+      <workItem from="1703103745109" duration="623000" />
+      <workItem from="1703114520435" duration="443000" />
+      <workItem from="1703154432119" duration="1216000" />
+      <workItem from="1703173527177" duration="4552000" />
+      <workItem from="1703631599615" duration="2324000" />
+      <workItem from="1703696081974" duration="1298000" />
+      <workItem from="1703750117912" duration="2423000" />
+      <workItem from="1703931351585" duration="6101000" />
+      <workItem from="1703940241250" duration="14391000" />
+      <workItem from="1704014788770" duration="624000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="com.ip.kino.dto.SeansDto" memberName="data_seansu" />
+      </pinned-members>
+    </pin-to-top-manager>
+    <watches-manager>
+      <configuration name="SpringBootApplicationConfigurationType">
+        <watch expression="request.data_seansu" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>

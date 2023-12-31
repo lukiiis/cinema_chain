@@ -25,6 +25,7 @@ export default function Reportory() {
         axios.get('http://localhost:8090/api/v1/kino').then(
           response => {
             setCinema(response.data)
+            console.log(response.data)
           }
         ).catch(err => {
           console.log('nie dziala')
@@ -39,6 +40,7 @@ export default function Reportory() {
         axios.get(url).then(
           response => {
             setMovie(response.data)
+            console.log(response.data)
           }
         ).catch(err => {
           console.log('nie dziala', err)
@@ -80,7 +82,7 @@ export default function Reportory() {
 
     const filteredShows = show.filter((showItem) => showItem.data_seansu === date);
     const moviesWithShowsOnDate = movie.filter((movieItem) =>
-      filteredShows.some((showItem) => showItem.film.id_filmu === movieItem.id_filmu));
+      filteredShows.some((showItem) => showItem.film.id_filmu === movieItem.id_filmu)); 
 
     const ExampleCustomInput = forwardRef(({ value, onClick }, ref) => (    
       <button className="date-button" onClick={onClick} ref={ref}>{date}</button>));
@@ -107,7 +109,7 @@ export default function Reportory() {
             </div>
               <DatePicker wrapperClassName='date-picker'
                 selected={today}
-                  onChange={(date) => {setDate(date.toISOString().split('T')[0])}}
+                onChange={(date) => {setDate(date.toISOString().split('T')[0])}}
                 customInput={<ExampleCustomInput />}
                 showPreviousDays
                 showNextMonths
