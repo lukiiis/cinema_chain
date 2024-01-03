@@ -55,7 +55,7 @@ export default function FilmCarousel() {
                                                 <img src={movie.plakat_url} alt="" />
                                             </div>
                                             <div className="movie-title">
-                                                <h4>{movie.tytul}</h4>
+                                                <h4 className='movie-title-carousel'>{movie.tytul}</h4>
                                             </div>
                                             <div className="movie-buttons-container">
                                                 <Link to={`/Trailer/${movie.obraz_url.substring(movie.obraz_url.length - 11)}`}>
