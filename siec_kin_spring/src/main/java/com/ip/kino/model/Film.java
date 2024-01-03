@@ -26,8 +26,7 @@ public class Film {
     @JoinColumn(name = "id_kategorii")
     private KategoriaFilmu kategoria;
 
-    @OneToMany
-    @JoinColumn(name = "id_seansu")
+    @OneToMany(mappedBy = "film")
     private List<Seans> seanse;
 
 }
