@@ -238,7 +238,7 @@ const AdminDashboard = () => {
                         <div className="buttons">
                             <button onClick={() => handleUserModification("add")}>Dodaj użytkownika</button>
                             <button onClick={() => handleUserModification("roles")}>Zmień uprawnienia</button>
-                            <button onClick={() => handleUserModification("ban")}>Zablokuj konto</button>
+                            <button onClick={() => handleUserModification("ban")}>Zablokuj lub odblokuj konto</button>
                         </div>
                         {renderUserModifyContent()}
                         </>
