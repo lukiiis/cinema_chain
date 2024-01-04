@@ -7,18 +7,15 @@ import Navigation from "../../Components/navigation/Navigation";
 import { jwtDecode } from "jwt-decode";
 import axios from "axios";
 import AccountSettingsContent from "../../Components/accountSettingsContent/AccountSettingsContent";
-import UserReservations from "../../Components/userReservations/UserReservations";
-import { CSSTransition } from "react-transition-group";
 
 const Dashboard = () => {
     const navigate = useNavigate();
     const [userData, setUserData] = useState(null);
     const [reservations, setReservations] = useState(null);
-    const [selectedMenuItem, setSelectedMenuItem] = useState("myTickets"); // domyślny wybór
-    const nodeRef = React.useRef(null); // Tworzymy ref
+    const [selectedMenuItem, setSelectedMenuItem] = useState("Moje bilety"); // domyślny wybór
     const token = localStorage.getItem('token');
-    //navbar refresh
-    const [refreshNavigation, setRefreshNavigation] = useState(false);
+    const decodedToken = jwtDecode(token);
+    const userLogin = decodedToken.sub;
 
     useEffect(() => {
         //jezeli token istnieje
@@ -33,9 +30,6 @@ const Dashboard = () => {
 
     const fetchUserData = async () => {
         try {
-            const decodedToken = jwtDecode(token);
-            const userLogin = decodedToken.sub;
-
             const url = `http://localhost:8090/api/v1/private/userdetails/${userLogin}`;
             const response = await axios.get(url, {
                 headers: {
@@ -44,6 +38,8 @@ const Dashboard = () => {
             })
             if (response.status === 200) {
                 setUserData(response.data);
+                console.log(response.data);
+                console.log("Request succesfull");
             }
             else if (response.status === 403) {
                 console.log("Access forbidden");
@@ -55,19 +51,11 @@ const Dashboard = () => {
         }
         catch (error) {
             console.error("Error while fetching data", error);
-            if(error.response.status === 403){
-                console.log("Token expired. Log in to proceed.");
-                localStorage.clear();
-                navigate("/login");
-            }
         }
     }
 
     const fetchReservations = async () => {
         try {
-            const decodedToken = jwtDecode(token);
-            const userLogin = decodedToken.sub;
-
             const url = `http://localhost:8090/api/v1/private/reservations/${userLogin}`;
             const response = await axios.get(url, {
                 headers: {
@@ -76,6 +64,8 @@ const Dashboard = () => {
             })
             if (response.status === 200) {
                 setReservations(response.data);
+                console.log(response.data);
+                console.log("Request succesfull");
             }
             else if (response.status === 403) {
                 console.log("Access forbidden");
@@ -87,16 +77,11 @@ const Dashboard = () => {
         }
         catch (error) {
             console.error("Error while fetching data", error);
-            if(error.response.status === 403){
-                console.log("Token expired. Log in to proceed.");
-                localStorage.clear();
-                navigate("/login");
-            }
         }
     }
 
     const handleMenuItemClick = (menuItem) => {
-        setSelectedMenuItem(menuItem);
+        setSelectedMenuItem(menuItem); // zmiana elementu menu
     }
 
     const renderContent = () => {
@@ -104,58 +89,31 @@ const Dashboard = () => {
         switch (selectedMenuItem) {
             case "myTickets":
                 return (
-                    <CSSTransition in={true} appear={true} timeout={300} classNames={{
-                        enter: 'fade-enter',
-                        enterActive: 'fade-enter-active',
-                        exit: 'fade-exit',
-                        exitActive: 'fade-exit-active'
-                    }} nodeRef={nodeRef}>
-                        <div className="myTicketsContent" ref={nodeRef}>
-                            <UserReservations reservations={reservations}/>
-                        </div>
-                    </CSSTransition>
+                    <div className="myTicketsContent">
+                        {/* Treść dotycząca biletów */}
+                    </div>
                 );
             case "toWatch":
                 return (
-                    <CSSTransition in={selectedMenuItem === "toWatch"} appear={true} timeout={300} classNames="fade" nodeRef={nodeRef}>
-                        <div className="toWatchContent" ref={nodeRef}>
-                            
-                            
-                        </div>
-                    </CSSTransition>
+                    <div className="toWatchContent">
+                        {/* Treść dotycząca filmów do obejrzenia */}
+                    </div>
                 );
             case "coupons":
                 return (
-                    <CSSTransition in={true} appear={true} timeout={300} classNames="fade" nodeRef={nodeRef}>
-                        <div className="promotionalCouponsContent" ref={nodeRef}>
-                            <h1>Kody promocyjne</h1>
-                            <span>Masz kod promocyjny? Wpisz go w pole poniżej!</span>
-                            <input type="text" placeholder="Wpisz kod promocyjny"></input>
-                            <button type="submit">Zatwierdź</button>
-                        </div>
-                    </CSSTransition>
+                    <div className="promotionalCouponsContent">
+                        {/* Treść dotycząca kuponów promocyjnych */}
+                    </div>
                 );
             case "wallet":
                 return (
-                    <CSSTransition in={true} appear={true} timeout={300} classNames="fade" nodeRef={nodeRef}>
-                        <div className="walletContent" ref={nodeRef}>
-                            <h1>Mój portfel</h1>
-                            <div className="walletMain">
-                                <span>Dostępne środki: {userData.client.wallet} zł</span>
-                                <button>Doładuj konto</button>
-                            </div>
-                        </div>
-                    </CSSTransition>
+                    <div className="walletContent">
+                        {/* Treść dotycząca portfela */}
+                    </div>
                 );
             case "accountSettings":
                 return (
-                    <CSSTransition in={true} appear={true} timeout={300} classNames="fade" nodeRef={nodeRef}>
-                        <AccountSettingsContent 
-                            userData={userData} 
-                            token = {token} 
-                            refreshNavigation={() => setRefreshNavigation(prevState => !prevState)}
-                        />
-                    </CSSTransition>
+                    <AccountSettingsContent userData={userData} />
                 );
             default:
                 return null;
@@ -165,7 +123,7 @@ const Dashboard = () => {
 
     return (
         <>
-            <Navigation refresh={refreshNavigation}/>
+            <Navigation />
             <div className="dashboard">
                 <div className="dashboardWrapper">
                     <h1 className="dashboardTitle">Moje konto</h1>

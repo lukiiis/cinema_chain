@@ -8,13 +8,12 @@ import { useNavigate } from "react-router-dom";
 
 const Login = () => {
     const navigate = useNavigate();
-    const [loginStatus, setLoginStatus] = useState("");
-    const [errors, setErrors] = useState({});
     const [formData, setFormData] = useState({
         login: '',
         password: ''
     })
 
+    const [errors, setErrors] = useState({});
     //walidacja danych
     useEffect(() => {
         const validationErrors = {};
@@ -31,7 +30,7 @@ const Login = () => {
 
     useEffect(() => {
         if (localStorage.getItem('token')) {
-            navigate("/");
+            navigate("/dashboard");
         }
     }, [])
 
@@ -48,53 +47,44 @@ const Login = () => {
         if (Object.keys(errors).length === 0) {
             try {
                 const response = await axios.post("http://localhost:8090/api/v1/public/auth/login", formData);
+                console.log('Server response: ', response.data);
 
-                if(response.data.status === "Account is blocked."){
-                    localStorage.clear();
-                    setLoginStatus("Konto jest zablokowane.");
-                }
-                else{
-                    Object.keys(response.data).forEach(resData => {
-                        if (typeof response.data[resData] === "object") {
-                            Object.keys(response.data[resData]).forEach(resDataInner => {
-                                localStorage.setItem("" + resDataInner + "", response.data[resData][resDataInner]);
-                            })
-                        }
-                        else {
-                            localStorage.setItem("" + resData + "", response.data[resData]);
-                        }
-    
-                    });
+                Object.keys(response.data).forEach(resData => {
+                    if (typeof response.data[resData] === "object") {
+                        Object.keys(response.data[resData]).forEach(resDataInner => {
+                            localStorage.setItem("" + resDataInner + "", response.data[resData][resDataInner]);
+                        })
+                    }
+                    else {
+                        localStorage.setItem("" + resData + "", response.data[resData]);
+                    }
 
-                    if(response.data.role === "USER"){
-                        setLoginStatus("Logowanie pomyślne.");
-                        setTimeout(() => {
-                            navigate("/dashboard");
-                        }, 1000);
-                    }
-                    else if(response.data.role === "ADMIN"){
-                        setLoginStatus("Logowanie pomyślne.");
-                        setTimeout(() => {
-                            navigate("/admin-dashboard");
-                        }, 1000);
-                    }
-                    else if(response.data.role === "WORKER"){
-                        setLoginStatus("Logowanie pomyślne.");
-                        setTimeout(() => {
-                            navigate("/worker-dashboard");
-                        }, 1000);
-                    }
-                }
+                });
+                // const jwtToken = localStorage.getItem('token');
+                // const decodedJwt = jwtDecode(jwtToken);
+                // if(!jwtToken && decodedJwt.exp * 1000 < new Date().getTime()){
+                //     console.log("Token expired.");
+                //     localStorage.setItem("authenticated", false);
+                //     localStorage.removeItem('token');
+                // }
+                // else{
+                //     console.log("Token valid.");
+                //     localStorage.setItem("authenticated", true);
+                //     //redirect na inną stronę (zapewne na dashboard uzytkownika)
+                //     navigate("/dashboard");
+                // }
+                setTimeout(() => {
+                    navigate("/dashboard");
+                }, 1000);
+
+                console.log(localStorage);
             }
             catch (error) {
                 console.error('Error while sending data: ', error);
-                if(error.response.status===403){
-                    setLoginStatus("Nie istnieje takie konto");
-                }
             }
         }
         else {
-            setLoginStatus("Niektóre pola formularza są puste");
+            console.log('Form is empty');
         }
     }
 
@@ -102,29 +92,26 @@ const Login = () => {
         <>
             <Navigation />
             <div className="loginFormContainer">
-                <div className="loginFormBorder">
-                    <h1>Logowanie</h1>
-                    <form className="loginForm" onSubmit={handleSubmit}>
-                        <div className="loginFormWrapper">
-                            <div className="loginFormInputs">
-                                <label>
-                                    Login
-                                    <input type="text" name="login" value={formData.login} onChange={handleChange} />
-                                    {errors.login && <span>{errors.login}</span>}
-                                </label>
-                                <label>
-                                    Hasło
-                                    <input type="password" name="password" value={formData.password} onChange={handleChange} />
-                                    {errors.password && <span>{errors.password}</span>}
-                                </label>
-                            </div>
-                            <div className="loginFormButton">
-                                <button type="submit">Zaloguj się</button>
-                            </div>
+                <h1>Logowanie</h1>
+                <form className="loginForm" onSubmit={handleSubmit}>
+                    <div className="loginFormWrapper">
+                        <div className="loginFormInputs">
+                            <label>
+                                Login
+                                <input type="text" name="login" value={formData.login} onChange={handleChange} />
+                                {errors.login && <span>{errors.login}</span>}
+                            </label>
+                            <label>
+                                Hasło
+                                <input type="password" name="password" value={formData.password} onChange={handleChange} />
+                                {errors.password && <span>{errors.password}</span>}
+                            </label>
                         </div>
-                        {loginStatus && <span>{loginStatus}</span>}
-                    </form>
-                </div>
+                        <div className="loginFormButton">
+                            <button type="submit">Zaloguj się</button>
+                        </div>
+                    </div>
+                </form>
             </div>
             <Footer />
         </>

@@ -3,6 +3,7 @@ package com.ip.kino.controller;
 import com.ip.kino.config.AuthenticationResponse;
 import com.ip.kino.config.MovieResponse;
 import com.ip.kino.dto.FilmDto;
+import com.ip.kino.dto.UzytkownikDTO;
 import com.ip.kino.model.Film;
 import com.ip.kino.service.FilmService;
 import java.util.List;

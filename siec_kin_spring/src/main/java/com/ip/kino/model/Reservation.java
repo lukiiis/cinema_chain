@@ -34,7 +34,7 @@ public class Reservation {
     private Long phoneNumber;
 
     @Column(name = "NR_MIEJSCA")
-    private Long seatNumber;
+    private Integer seatNumber;
 
     @Column(name = "RZAD_MIEJSCA")
     private String seatRow;
@@ -51,10 +51,13 @@ public class Reservation {
     @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "ID_KLIENTA", referencedColumnName = "ID_KLIENTA", insertable = false, updatable = false)
-    private Client client;
+    private Klient client;
 
-    //@JsonIgnoreProperties("film")
     @ManyToOne
     @JoinColumn(name = "ID_SEANSU", referencedColumnName = "ID_SEANSU", insertable = false, updatable = false)
     private Seans session;
+
+//    @ManyToOne
+//    @JoinColumn(name = "ID_BILETU", referencedColumnName = "ID_BILETU", insertable = false, updatable = false)
+//    private Ticket ticket;
 }

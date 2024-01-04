@@ -47,13 +47,13 @@ const Movie = (() => {
             <div className='body-container'>
                 <div className='poster-information-container'>
                     <div className='trailer-container'
-                        style={{ backgroundImage: `url("${movie.obraz_url}")` }}
+                        style={{ backgroundImage: `url("${movie.plakat_url}")` }}
                     >
 
                     </div>
                     <div className='information-container'>
                         <div className='poster-container'>
-                            <img className='small-poster' src={movie.plakat_url}></img>
+                            <img className='small-poster' src={movie.obraz_url}></img>
                             <div className='movie-information'>
                                 <h1 className='information-text-title'>Premiera</h1>
                                 <p className='information-text'>{movie.data_premiery}</p>

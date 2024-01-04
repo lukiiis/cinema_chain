@@ -33,18 +33,18 @@ const PromotionDetails = () => {
                 <div className="promoDetailsContainer">
                     <div
                         className="promoTopContainer"
-                        style={{ backgroundImage: `linear-gradient(to top, black 8%, transparent 60%), url(${promotion.image})` }}
+                        style={{ backgroundImage: `linear-gradient(to top, black 8%, transparent 60%), url(${promotion.obraz_url})` }}
                     >
                         <div className="promoDetailsTopWrapper">
                             <div className="promoInfo">
                                 <div className="promoInfoDate">
-                                    <span>{promotion.addDate}</span>
+                                    <span>{promotion.data_dodania}</span>
                                 </div>
                                 <div className="promoInfoTitle">
-                                    <span>{promotion.title}</span>
+                                    <span>{promotion.tytul}</span>
                                 </div>
                                 <div className="promoInfoShortContent">
-                                    <span>{promotion.contents}</span>
+                                    <span>{promotion.tresc}</span>
                                 </div>
                             </div>
                         </div>
@@ -54,8 +54,8 @@ const PromotionDetails = () => {
                             <div className="promoInfoLongContent">
                                 <span>
                                     {(() => {
-                                        if (promotion && promotion.contentsLong) {
-                                            const sentences = promotion.contentsLong.split('. ');
+                                        if (promotion && promotion.tresc_dluga) {
+                                            const sentences = promotion.tresc_dluga.split('. ');
                                             const newText = sentences.map((sentence, index) => {
                                                 if (index === 0) {
                                                     return <React.Fragment key={index}>{sentence}<br /></React.Fragment>;

@@ -24,9 +24,4 @@ public class KinoController {
     public List<Kino> getAllKino(){
         return kinoService.getAllKino();
     }
-
-    @GetMapping("/private/cinemas")
-    public List<Kino> getAllCinemas(){
-        return kinoService.getAllKino();
-    }
 }

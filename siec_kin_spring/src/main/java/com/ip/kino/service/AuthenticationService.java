@@ -2,11 +2,11 @@ package com.ip.kino.service;
 
 import com.ip.kino.config.*;
 import com.ip.kino.dto.*;
-import com.ip.kino.model.Client;
+import com.ip.kino.model.Klient;
 import com.ip.kino.model.Role;
-import com.ip.kino.model.User;
-import com.ip.kino.repository.ClientRepository;
-import com.ip.kino.repository.UserRepository;
+import com.ip.kino.model.Uzytkownik;
+import com.ip.kino.repository.KlientRepository;
+import com.ip.kino.repository.UzytkownikRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -15,19 +15,18 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.List;
-
 @Service
 @RequiredArgsConstructor
 public class AuthenticationService {
-    private final UserRepository userRepository;
-    private final ClientRepository clientRepository;
+    private final UzytkownikRepository uzytkownikRepository;
+    private final KlientRepository klientRepository;
     private final PasswordEncoder passwordEncoder;
     private final JwtService jwtService;
     private final AuthenticationManager authenticationManager;
-    public AuthenticationResponse registerUser(RegisterDto request) {
+    public AuthenticationResponse registerUser(UzytkownikDTO request) {
         //Sprawdzacz, czy istnieje w bazie uzytkownik o takim samym loginie lub emailu jak uzytkownik probujacy sie zarejestrowac
-        List<User> usersList = userRepository.findAll();
-        for (User registeredUser:usersList) {
+        List<Uzytkownik> usersList = uzytkownikRepository.findAll();
+        for (Uzytkownik registeredUser:usersList) {
             if(registeredUser.getLogin().equals(request.getLogin()) && registeredUser.getEmail().equals(request.getEmail())){
                 return AuthenticationResponse.builder()
                         .status("Podany adres e-mail oraz login są zajęte.")
@@ -45,14 +44,14 @@ public class AuthenticationService {
                         .status("Podany adres e-mail jest zajęty.")
                         .build();
             }
-            if(registeredUser.getPhone() == request.getPhone()){
+            if(registeredUser.getNr_telefonu() == request.getNr_telefonu()){
                 return AuthenticationResponse.builder()
                         .status("Podany numer telefonu jest zajęty.")
                         .build();
             }
             if(request.getLogin().equals("") || request.getEmail().equals("") ||
-                    request.getName().equals("") || request.getSurname().equals("") ||
-                    request.getPasswd().equals("") || request.getPhone() == null){
+                    request.getImie().equals("") || request.getNazwisko().equals("") ||
+                    request.getHaslo().equals("") || request.getNr_telefonu() == null){
                 return AuthenticationResponse.builder()
                         .status("Pole w formularzu jest puste.")
                         .build();
@@ -60,36 +59,36 @@ public class AuthenticationService {
         }
 
         //ustawia id uzytkownika na najwyzsze w bazie + 1
-        Long id_uzytkownika = userRepository.findMaxUserId();
+        Long id_uzytkownika = uzytkownikRepository.findMaxIdUzytkownika();
         if(id_uzytkownika==null)
             id_uzytkownika = 1L;
         else
             id_uzytkownika += 1;
 
-        User user = new User(id_uzytkownika,request.getLogin(),passwordEncoder.encode(request.getPasswd()),
-                request.getEmail(),request.getName(),request.getSurname(),request.getPhone(),
+        Uzytkownik uzytkownik = new Uzytkownik(id_uzytkownika,request.getLogin(),passwordEncoder.encode(request.getHaslo()),
+                request.getEmail(),request.getImie(),request.getNazwisko(),request.getNr_telefonu(),
                 LocalDate.now(), Role.USER, null);
 
-        userRepository.save(user);
+        uzytkownikRepository.save(uzytkownik);
 
-        Long id_klienta = clientRepository.findMaxClientId();
+        Long id_klienta = klientRepository.findMaxIdKlienta();
         if(id_klienta == null)
             id_klienta = 1L;
         else
             id_klienta += 1;
 
-        Client client = new Client(id_klienta,0L, 0.0, user); // Utwórz obiekt Klienta
-        clientRepository.save(client); // Zapisz Klienta
-        user.setClient(client);   //Ustawienie uzytkownikowi klienta
+        Klient klient = new Klient(id_klienta,0L, 0.0, uzytkownik); // Utwórz obiekt Klienta
+        klientRepository.save(klient); // Zapisz Klienta
+        uzytkownik.setKlient(klient);   //Ustawienie uzytkownikowi klienta
 
-        userRepository.save(user);
-        var jwtToken = jwtService.generateToken(user);
+        uzytkownikRepository.save(uzytkownik);
+        var jwtToken = jwtService.generateToken(uzytkownik);
         return AuthenticationResponse.builder()
                 .status("Rejestracja przebiegła pomyślnie.")
-                .name(user.getName())
-                .lastName(user.getSurname())
+                .name(uzytkownik.getImie())
+                .lastName(uzytkownik.getNazwisko())
                 .token(jwtToken)
-                .role(user.getRole())
+                .role(uzytkownik.getRole())
                 .build();
     }
 
@@ -100,46 +99,38 @@ public class AuthenticationService {
                         request.getPassword()
                 )
         );
-        var user = userRepository.findByLogin(request.getLogin())
-                    .orElseThrow();
-
-        if(user.getBlockade()){
-            return new AuthenticationResponse("Account is blocked.");
-        }
-
+        var user = uzytkownikRepository.findByLogin(request.getLogin())
+                .orElseThrow();
         var jwtToken = jwtService.generateToken(user);
 
         if(user.getRole() == Role.USER){
             return new AuthenticationResponseClient(
                     "Logowanie pomyslne, kliencie.",
                     jwtToken,
-                    user.getName(),
-                    user.getSurname(),
+                    user.getImie(),
+                    user.getNazwisko(),
                     user.getRole(),
-                    new ClientDto(
-                            user.getClient().getClientId(),
-                            user.getClient().getReservationCount(),
-                            user.getClient().getWallet()));
+                    new KlientDto(user.getKlient().getId_klienta(),
+                            user.getKlient().getLiczba_rezerwacji(),
+                            user.getKlient().getPortfel()));
         } else if (user.getRole() == Role.WORKER) {
             return new AuthenticationResponseWorker(
                     "Logowanie pomyslne, pracowniku.",
                     jwtToken,
-                    user.getName(),
-                    user.getSurname(),
+                    user.getImie(),
+                    user.getNazwisko(),
                     user.getRole(),
-                    new EmployeeDto(
-                            user.getEmployee().getEmployeeId(),
-                            user.getEmployee().getKino(),
-                            user.getEmployee().getPosition()));
+                    new PracownikDto(user.getPracownik().getId_pracownika(),
+                            user.getPracownik().getKino(),
+                            user.getPracownik().getStanowisko()));
         }
 
         return new AuthenticationResponseAdmin(
                 "Logowanie pomyslne, adminie.",
                 jwtToken,
-                user.getName(),
-                user.getSurname(),
+                user.getImie(),
+                user.getNazwisko(),
                 user.getRole(),
-                new AdminDto(
-                        user.getAdmin().getAdminId()));
+                new AdminDto(user.getAdministrator().getId_administratora()));
     }
 }

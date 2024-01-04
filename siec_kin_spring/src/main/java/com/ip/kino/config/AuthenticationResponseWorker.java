@@ -1,6 +1,6 @@
 package com.ip.kino.config;
 
-import com.ip.kino.dto.EmployeeDto;
+import com.ip.kino.dto.PracownikDto;
 import com.ip.kino.model.Role;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -10,10 +10,10 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class AuthenticationResponseWorker extends AuthenticationResponse {
-    private EmployeeDto employeeDto;
+    private PracownikDto pracownikDto;
 
-    public AuthenticationResponseWorker(String status, String token, String name, String lastName, Role role, EmployeeDto employeeDto) {
+    public AuthenticationResponseWorker(String status, String token, String name, String lastName, Role role, PracownikDto pracownikDto) {
         super(status, token, name, lastName, role);
-        this.employeeDto = employeeDto;
+        this.pracownikDto = pracownikDto;
     }
 }

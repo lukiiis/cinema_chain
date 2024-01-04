@@ -29,7 +29,6 @@ public class Seans {
     @ManyToOne
     @JoinColumn(name="id_filmu", referencedColumnName = "id_filmu")
     private Film film;
-
     @ManyToOne
     @JoinColumn(name="id_kina", referencedColumnName = "id_kina")
     private Kino kino;

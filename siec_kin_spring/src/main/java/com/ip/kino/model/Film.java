@@ -22,14 +22,20 @@ public class Film {
     private LocalDate data_premiery;
     private Long czas_trwania;
 
-    @OneToMany(mappedBy = "film")
+
+
+    @OneToMany
+    @JoinColumn(name = "id_filmu")
     private List<Seans> seanse;
 
-    @ManyToOne
-    @JoinColumn(name = "id_kategorii")
-    private KategoriaFilmu kategoria;
+   @ManyToOne
+   @JoinColumn(name = "id_kategorii")
+   private KategoriaFilmu kategoria;
 
-    public Film(Long id_filmu, String tytul, String opis, String rezyser, String obraz_url, String plakat_url, LocalDate data_premiery, Long czas_trwania, KategoriaFilmu kategoria) {
+    public Film(Long id_filmu, String tytul, String opis, String rezyser,
+                String obraz_url, String plakat_url, LocalDate data_premiery,
+                Long czas_trwania, KategoriaFilmu kategoria)
+    {
         this.id_filmu = id_filmu;
         this.tytul = tytul;
         this.opis = opis;

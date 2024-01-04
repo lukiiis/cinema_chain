@@ -1,38 +1,19 @@
-.repertoryWrapper{
-    max-width: 1100px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-    margin:0 auto;
-    gap:90px;
-}
-
-.repertory-items-container{
-    display: flex;
-    flex-direction: column;
-    gap:70px;
-}
-
 .rep-body{
     display: flex;
     flex-direction: column;
-    gap: 90px;
+    gap: 70px;
     
 }
 .date-city-bar{
     display: flex;
-    align-items: center;
-    justify-content: center;
-    width:100%;
-    margin-top: 40px;
-    gap:30px;
+    margin-left: 100px ;   
 }
 .custom-dropdown{
     margin: 0;
 }
 .repertory-item{
     display: flex;
+    margin-left: 100px;
     gap: 40px;
 }
 .repertory-image{
@@ -47,8 +28,7 @@
 }
 .repertory-description{
     color: rgb(0, 0, 0);
-    max-width: 950px;
-    text-align: justify;
+    max-width: 850px;
 }
 .repertory-category{
     color: rgb(0, 0, 0);
@@ -63,19 +43,18 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    color:black;
     width: 150px;
     border: solid rgb(52, 13, 126)
 }
 .show-repertory:hover{
     cursor: pointer;
+}
+.show-repertory:hover{
     background-color: rgb(46, 33, 119);
 }
-
 .empty-repertory{
     color: red;
-    width: 100%;
-    text-align: center;
+    margin-left: 150px;
 }
 .date-button{
     width: 220px;
@@ -93,6 +72,5 @@
     max-width: 300px;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 80px;
-    margin-bottom: 40px;
+    margin-top: auto;
   }

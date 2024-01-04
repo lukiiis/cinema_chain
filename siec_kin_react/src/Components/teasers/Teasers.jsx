@@ -3,7 +3,6 @@ import "./Teasers.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Card from "../card/Card";
-import { Link } from "react-router-dom";
 
 const Teasers = () => {
     const [teasers, setTeasers] = useState(null);
@@ -33,14 +32,12 @@ const Teasers = () => {
                         {teasers.map((teaser) => {
 
                             return (
-                                <Link to={`/film/${teaser.id_filmu}`} state={{ movie_ID: teaser.id_filmu }} key={teaser.id_filmu}>
-                                    <Card
-                                        title={teaser.tytul}
-                                        releaseDate={teaser.data_premiery}
-                                        poster={teaser.plakat_url}
-                                        key={teaser.id_filmu}
-                                    />
-                                </Link>
+                                <Card
+                                    title={teaser.tytul}
+                                    releaseDate={teaser.data_premiery}
+                                    poster={teaser.plakat_url}
+                                    key={teaser.id_filmu}
+                                />
                             );
                         })}
                     </div>
