@@ -27,11 +27,11 @@ const Teasers = () => {
             {teasers ? (
                 <div className="teasersWrapper">
                     <h2 className="teasersHeader">
+                        <span className="break"></span>
                         Zapowiedzi
                     </h2>
                     <div className="teasersContainer">
                         {teasers.map((teaser) => {
-
                             return (
                                 <Link to={`/film/${teaser.id_filmu}`} state={{ movie_ID: teaser.id_filmu }} key={teaser.id_filmu}>
                                     <Card

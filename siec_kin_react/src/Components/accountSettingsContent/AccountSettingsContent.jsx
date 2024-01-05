@@ -167,7 +167,8 @@ const AccountSettingsContent = ({ userData, token, refreshNavigation }) => {
     return (
         <>
             <div className="userDataContainer">
-                <h5>Dane osobowe</h5>
+                <span className="break"></span>
+                <h3>Dane osobowe</h3>
                 <div className="userDataInfo">
                     <div className="dataRow gap">
                         <div className="dataName">
@@ -243,7 +244,7 @@ const AccountSettingsContent = ({ userData, token, refreshNavigation }) => {
                 </div>
                 {isEditing ? (
                     <>
-                    <div style={{display:"flex"}}>
+                    <div className="openedButtons">
                         <button onClick={editPersonalData}>Zapisz</button>
                         <button onClick={() => {setIsEditing(false)}}>Wróć</button>
                     </div>
@@ -254,7 +255,8 @@ const AccountSettingsContent = ({ userData, token, refreshNavigation }) => {
                 )} 
             </div>
             <div className="userDataContainer">
-                <h5>Zmiana hasła</h5>
+                <span className="break"></span>
+                <h3>Zmiana hasła</h3>
                 <form onSubmit={changePassword}>
                     <div className="userDataInfo flexColumn">
                         <div className="dataRowPasswd">
@@ -290,7 +292,8 @@ const AccountSettingsContent = ({ userData, token, refreshNavigation }) => {
                 </form>
             </div>
             <div className="userDataContainer">
-                <h5>Usunięcie konta</h5>
+                <span className="break"></span>
+                <h3>Usunięcie konta</h3>
                 <span>Jeśli usuniesz konto, Twoje dane zostaną bezpowrotnie utracone.</span>
                 <button onClick={togglePopup}>Usuń konto</button>
                 {/* popup */}
@@ -300,8 +303,10 @@ const AccountSettingsContent = ({ userData, token, refreshNavigation }) => {
                             <div className="popup-content">
                                 <h2>Usuń konto</h2>
                                 <p>Twoje dane zostaną bezpowrotnie utracone, kontynuować?</p>
-                                <button onClick={deleteAccount}>Usuń konto</button>
-                                <button onClick={togglePopup}>Anuluj</button>
+                                <div className="popupButtons">
+                                    <button onClick={deleteAccount}>Usuń konto</button>
+                                    <button onClick={togglePopup}>Anuluj</button>
+                                </div>
                             </div>
                         </div>
                     </div>

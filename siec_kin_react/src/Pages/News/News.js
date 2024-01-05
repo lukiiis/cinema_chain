@@ -56,6 +56,7 @@ const News = () => {
                                                 <span>{oneNews.addDate}</span>
                                             </div>
                                             <div className="newsTitle">
+                                                <span className="break"></span>
                                                 <h2>{oneNews.title}</h2>
                                             </div>
                                             <div className="newsContent">

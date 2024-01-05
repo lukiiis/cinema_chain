@@ -16,7 +16,7 @@
 
 }
 .movie-card-container{
-    height: 600px;
+    height: 700px;
     background-color: black;
     overflow: hidden;
     position: relative;
@@ -24,11 +24,8 @@
 .movie-card-poster{
     height: 100%;
     width: 100%;
-    object-fit: cover;
+    object-fit:cover;
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
 }
 
 .movie-card{

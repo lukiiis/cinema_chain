@@ -32,14 +32,16 @@ const NewsDetails = () => {
                 <div className="newsDetailsContainer">
                     <div
                         className="newsTopContainer"
-                        style={{ backgroundImage: `linear-gradient(to top, black 8%, transparent 60%), url(${news.banner})` }}
+                        style={{ backgroundImage: `linear-gradient(to top, black 10%, transparent 95%), url(${news.banner})` }}
                     >
                         <div className="newsDetailsTopWrapper">
                             <div className="newsInfo">
                                 <div className="newsInfoDate">
                                     <span>{news.addDate}</span>
                                 </div>
+                                
                                 <div className="newsInfoTitle">
+                                    <span className="break"></span>
                                     <span>{news.title}</span>
                                 </div>
                                 <div className="newsInfoShortContent">

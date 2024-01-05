@@ -16,7 +16,7 @@ const Register = () => {
         phone: ''
     })
 
-    const [res, setRes] = useState(null);
+    const [registerStatus, setRegisterStatus] = useState(null);
 
     const [errors, setErrors] = useState({});
 
@@ -53,7 +53,7 @@ const Register = () => {
                 const response = await axios.post("http://localhost:8090/api/v1/public/auth/register", formData);
                 //Tutaj wstawic na fronta wiadomosc od backendu, czy udalo sie zarejestrowac pomyslnie
                 console.log('Server response: ', response.data);
-                setRes(response.data);
+                setRegisterStatus("Rejestracja pomyślna, teraz możesz się zalogować.");
             }
             catch (error) {
                 console.error('Error while sending data: ', error);
@@ -108,6 +108,9 @@ const Register = () => {
                             <div className="formButton">
                                 <button type="submit">Zarejestruj się</button>
                             </div>
+                        </div>
+                        <div className="registerStatus">
+                                {registerStatus && <span>{registerStatus}</span>}
                         </div>
                     </form>
                 </div>

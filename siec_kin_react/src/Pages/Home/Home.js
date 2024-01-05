@@ -10,13 +10,14 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 const Home = () => {
     return (
         <>
-            <Navigation active={"home"} />
-            <FilmCarousel />
-            <SearchBar />
-            {/* <Aktualnosci/> */}
-            <HomeNews />
-            <Teasers />
-            <Footer />
+            <div className="back-ground">
+                <Navigation active={"home"} />
+                <FilmCarousel />
+                <SearchBar />
+                <HomeNews />
+                <Teasers />
+                <Footer />
+            </div>
         </>
     )
 }

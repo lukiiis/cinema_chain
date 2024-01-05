@@ -10,21 +10,55 @@ ul{
     padding: 0;
     margin: 0;
     position: absolute;
-    background-color: #fff;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     z-index: 1;
     max-height: 400px;
     overflow: auto;
+    width: 309px;
+    background-color: black;
   }
   .search-movie-link{
     display: flex;
     justify-content: start;
     align-items: center;
     gap: 10px;
-    margin-right: 10px;
+    width: 100%;
   }
 
 .search-movie-link:hover{
     background-color: gray;
 }
   
+
+/* -------------- luki -------------- */
+.search-item-icon{
+  color:black;
+}
+
+.search-results-list a{
+  color:black;
+}
+
+.searchInput{
+  width: 350px;
+}
+
+.searchInput input{
+  height: 50px;
+}
+
+.search-movie-link{
+
+}
+
+.show-movie-title-list{
+  margin: 0;
+  
+}
+
+.resList{
+  background-color: black;
+  gap:8px;
+  display: flex;
+  flex-direction: column;
+}

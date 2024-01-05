@@ -50,11 +50,11 @@ public class Reservation {
 
     @JsonIgnore
     @ManyToOne
-    @JoinColumn(name = "ID_KLIENTA", referencedColumnName = "ID_KLIENTA", insertable = false, updatable = false)
+    @JoinColumn(name = "ID_KLIENTA", referencedColumnName = "ID_KLIENTA")
     private Client client;
 
     //@JsonIgnoreProperties("film")
     @ManyToOne
-    @JoinColumn(name = "ID_SEANSU", referencedColumnName = "ID_SEANSU", insertable = false, updatable = false)
+    @JoinColumn(name = "ID_SEANSU", referencedColumnName = "ID_SEANSU")
     private Seans session;
 }

@@ -19,8 +19,4 @@ public class Admin {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_uzytkownika", referencedColumnName = "id_uzytkownika")
     private User user;
-
-    public Admin(User user) {
-        this.user = user;
-    }
 }

@@ -12,12 +12,12 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "DO_OBEJRZENIA")
-public class ToWatch {
+@Table(name = "OCENA")
+public class Rating {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ID")
-    private Long toWatchId;
+    @Column(name = "ID_OCENY")
+    private Long ratingId;
 
     @JsonIgnoreProperties("user")
     @ManyToOne
@@ -29,4 +29,6 @@ public class ToWatch {
     @JoinColumn(name = "ID_FILMU", referencedColumnName = "ID_FILMU")
     private Film movie;
 
+    @Column(name = "OCENA")
+    private Long rating;
 }

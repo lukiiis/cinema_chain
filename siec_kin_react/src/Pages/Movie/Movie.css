@@ -7,15 +7,16 @@
     flex-direction: column;
     gap: 50px;
     flex-wrap: wrap;
+    background: black;
+    flex:1;
 }
 .poster-information-container{
     display: flex;
-    opacity: 1;
 }
 .trailer-container{
     display: flex;
     flex: 1;
-    width: 62%;
+    width: 55%;
     height: 700px;
     overflow: hidden;
     background-size:cover ;
@@ -23,25 +24,29 @@
     filter: brightness(0.8);
 }
 .information-container{
-    width: 38%;
-    display: flex;
-    height: 700px;
-    justify-content: space-evenly;
-    background-color: rgba(0, 0, 0, 0.5);
-}
-.poster-container{
-    margin-top: 100px;
+    width: 45%;
     display: flex;
     flex-direction: column;
+    height: 700px;
+    justify-content: space-between;
+    background-color: rgb(35, 35, 35);
+    background-image: linear-gradient(to top, black 4%, transparent 40%);
+}
+.poster-container{
+    margin-top: 70px;
+    display: flex;
+    flex-direction: column;
+    margin-left: 15px;
 }
 .description-container{
-    max-width: 450px;
+    max-width: 400px;
+    margin-right: 30px;
 }
 .information{
     display: flex;
     gap: 25px;
     flex-direction: column;
-    margin-top: 100px;
+    margin-top: 70px;
 }
 
 .big-poster{
@@ -55,7 +60,7 @@
     width: 140px;
     margin-bottom: 20px;
     box-shadow: 0 0 10px rgb(168, 163, 163);
-    filter: brightness(1.3);
+    filter: brightness(1);
 }
 .movie-information{
     margin: 0;
@@ -69,14 +74,47 @@
 .title-text{
     color: aliceblue;
 }
+.play-button{
+    position: relative;
+    z-index: 2;
+}
+
+
+/* ------------------------------ luki ----------------- */
+
+.movies-show-wrapper{
+    max-width: 1060px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    margin:0 auto;    
+}
+
 .description-text{
-    color: rgb(109, 112, 112);
+    color: rgb(255, 255, 255);
+    font-size: 16px;
+    max-height: 300px;
+    max-width: 450px;
+    text-align: justify;
 }
 .information-text{
     color: rgb(121, 120, 120);
     font-size: 14px;
 }
-.play-button{
-    position: relative;
-    z-index: 2;
+
+.movies-show-container{
+    padding-bottom: 60px;
+    color: rgb(241, 241, 241);
+    background: linear-gradient(to bottom right, rgb(5, 5, 5) 50%, rgb(15, 15, 15) 50%);
+}
+
+.movies-show-wrapper span{
+    font-size: 40px;
+    margin-bottom: 50px;
+}
+
+.information-part{
+    display: flex;
+    gap:30px;
 }

@@ -5,6 +5,7 @@
     flex-direction: column;
     width:100%;
     background: black;
+    min-height: 600px;
 }
 
 .promoContainer{
@@ -46,6 +47,16 @@
     gap:18px;
 }
 
+.promoInfoContainer a{
+    color:rgb(219, 6, 6);
+    transition: all 0.3s ease;
+    font-size: 19px;
+}
+
+.promoInfoContainer a:hover{
+    color:rgb(212, 153, 153);
+}
+
 .promoAddDate span{
     font-size: 13px;
 }
@@ -58,6 +69,7 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    background: linear-gradient(to bottom right, rgb(247, 247, 247) 50%, rgb(243, 243, 243) 50%);
 }
 
 .promoTopContainer{
@@ -98,4 +110,19 @@
     margin-top: 3rem;
     max-width:640px;
     width:100%;
+    text-align: justify;
+    font-size: 20px;
+}
+
+.promoInfoDate span{
+    font-size: 14px;
+}
+
+.promoInfoTitle span{
+    font-size:36px;
+    margin: 0;
+}
+
+.promoInfoShortContent span{
+    font-size:20px;
 }

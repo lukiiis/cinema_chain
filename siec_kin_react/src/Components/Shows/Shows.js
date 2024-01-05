@@ -57,6 +57,7 @@ export default function Shows({ filmID }) {
     });
     return (
       <div className='show-body'>
+        <h5>WYBIERZ SWOJE KINO:</h5>
         <div className="dropdown custom-dropdown">
           <button className="btn btn-secondary dropdown-toggle custom-button" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
             {city}
@@ -93,8 +94,8 @@ export default function Shows({ filmID }) {
                   {show ? (
                     show.map((show, showIndex) => date === show.data_seansu && (
                       <div className="show-block" key={show.id_seansu}>
-                        <h2 className="hour-text">{show.godzina_rozpoczecia}</h2>
-                        <h1 className="dubbing-text">{show.lektor}, {show.typ_obrazu}</h1>
+                        <h2 className="hour-text-shows">{show.godzina_rozpoczecia}</h2>
+                        <h1 className="dubbing-text-shows">{show.lektor}, {show.typ_obrazu}</h1>
                       </div>
                     ))
                   ) : null}

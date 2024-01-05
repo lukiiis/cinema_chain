@@ -54,6 +54,7 @@ const Promotions = () => {
                                                 <span>{promotion.addDate}</span>
                                             </div>
                                             <div className="promoTitle">
+                                                <span className="break"></span>
                                                 <h2>{promotion.title}</h2>
                                             </div>
                                             <div className="promoContent">

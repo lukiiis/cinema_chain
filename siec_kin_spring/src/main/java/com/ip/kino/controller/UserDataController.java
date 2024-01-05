@@ -20,16 +20,11 @@ public class UserDataController {
     ResponseEntity<UserDataDto> getUserByLogin(@PathVariable String login){
         return ResponseEntity.ok(userDataService.getUserByLogin(login));
     }
+
     @GetMapping("/userdetails")
     ResponseEntity<List<User>> getAllUsers(){
         return ResponseEntity.ok(userDataService.getAllUsers());
     }
-
-//    @PostMapping("/change-role/{id}/{role}")
-//    ResponseEntity<String> changeRole(@PathVariable Long id, @PathVariable String role){
-//        String status = userDataService.changeRole(id, role);
-//        return ResponseEntity.ok(status);
-//    }
 
     @PostMapping("/block-unblock/{id}")
     ResponseEntity<String> blockOrUnblockAccount(@PathVariable Long id){
@@ -51,4 +46,10 @@ public class UserDataController {
     public ResponseEntity<?> changePersonalData(@RequestBody ChangePersonalDataDto changePersonalDataDto){
         return ResponseEntity.ok(userDataService.changePersonalData(changePersonalDataDto));
     }
+
+    //    @PostMapping("/change-role/{id}/{role}")
+    //    ResponseEntity<String> changeRole(@PathVariable Long id, @PathVariable String role){
+    //        String status = userDataService.changeRole(id, role);
+    //        return ResponseEntity.ok(status);
+    //    }
 }

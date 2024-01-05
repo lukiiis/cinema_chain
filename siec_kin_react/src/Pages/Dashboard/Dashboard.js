@@ -111,6 +111,7 @@ const Dashboard = () => {
                         exitActive: 'fade-exit-active'
                     }} nodeRef={nodeRef}>
                         <div className="myTicketsContent" ref={nodeRef}>
+                            <h2>MOJE BILETY</h2>
                             <UserReservations reservations={reservations}/>
                         </div>
                     </CSSTransition>
@@ -139,7 +140,7 @@ const Dashboard = () => {
                 return (
                     <CSSTransition in={true} appear={true} timeout={300} classNames="fade" nodeRef={nodeRef}>
                         <div className="walletContent" ref={nodeRef}>
-                            <h1>Mój portfel</h1>
+                            <h2>PORTFEL</h2>
                             <div className="walletMain">
                                 <span>Dostępne środki: {userData.client.wallet} zł</span>
                                 <button>Doładuj konto</button>
@@ -168,7 +169,7 @@ const Dashboard = () => {
             <Navigation refresh={refreshNavigation}/>
             <div className="dashboard">
                 <div className="dashboardWrapper">
-                    <h1 className="dashboardTitle">Moje konto</h1>
+                    <h1 className="dashboardTitle">MOJE KONTO</h1>
                     <div className="dashboardMenu">
                         <ul className="menuList">
                             <li onClick={() => handleMenuItemClick("myTickets")}>Moje bilety</li>

@@ -5,6 +5,7 @@ const UserReservations = ({ reservations }) => {
         <>
             {reservations ? (
                 <>
+                
                     {reservations.map((reservation) => {
 
                         return (

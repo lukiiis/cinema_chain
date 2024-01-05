@@ -45,42 +45,56 @@ const Movie = (() => {
         <>
             <Navigation />
             <div className='body-container'>
-                <div className='poster-information-container'>
+                <div className='poster-information-container'
+                    style = {{ background: `linear-gradient(to top, black 4%, transparent 40%)` }}
+                >
                     <div className='trailer-container'
-                        style={{ backgroundImage: `url("${movie.obraz_url}")` }}
+                        style={{ backgroundImage: `linear-gradient(to top, black 4%, transparent 40%), url("${movie.obraz_url}")` }}
                     >
 
                     </div>
                     <div className='information-container'>
-                        <div className='poster-container'>
-                            <img className='small-poster' src={movie.plakat_url}></img>
-                            <div className='movie-information'>
-                                <h1 className='information-text-title'>Premiera</h1>
-                                <p className='information-text'>{movie.data_premiery}</p>
+                        <div className='information-part'>
+                            <div className='poster-container'>
+                                <img className='small-poster' src={movie.plakat_url}></img>
+                                <div className='movie-information'>
+                                    <h1 className='information-text-title'>Premiera</h1>
+                                    <p className='information-text'>{movie.data_premiery}</p>
+                                </div>
+                                <div className='movie-information'>
+                                    <h1 className='information-text-title'>Czas Trwania</h1>
+                                    <p className='information-text'>{movie.czas_trwania}</p>
+                                </div>
+                                <div className='movie-information'>
+                                    <h1 className='information-text-title'>Reżyseria</h1>
+                                    <p className='information-text'>{movie.rezyser}</p>
+                                </div>
                             </div>
-                            <div className='movie-information'>
-                                <h1 className='information-text-title'>Czas Trwania</h1>
-                                <p className='information-text'>{movie.czas_trwania}</p>
-                            </div>
-                            <div className='movie-information'>
-                                <h1 className='information-text-title'>Reżyseria</h1>
-                                <p className='information-text'>{movie.rezyser}</p>
+                            <div className='information'>
+                                <div>
+                                    <h2 className='title-text'>{movie.tytul}</h2>
+                                </div>
+                                <div className='description-container'>
+                                    <div className='description-text'>
+                                        {movie.opis}
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div className='information'>
-                            <div>
-                                <h2 className='title-text'>{movie.tytul}</h2>
-                            </div>
-                            <div className='description-container'>
-                                <h3 className='description-text'>{movie.opis}</h3>
+                        <div className='grades-towatch'>
+                            <div className='towatch-container'>
+
                             </div>
                         </div>
                     </div>
                 </div>
                 <div className='movies-show-container'>
-                    <Shows
-                        filmID={movie.id_filmu}
-                    ></Shows>
+                    <div className='movies-show-wrapper'>
+                        <span>NAJBLIŻSZE SEANSE</span>
+                        <Shows
+                            filmID={movie.id_filmu}
+                        ></Shows>
+                    </div>
                 </div>
             </div>
             <Footer />

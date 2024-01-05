@@ -1,17 +1,48 @@
 .userDataContainer{
-    width: 100%;
-    border-bottom: 1px solid black;
-    padding-bottom: 60px;
-    padding-top: 30px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-    gap:20px;
+  width: 100%;
+  border-bottom: 1px solid rgb(189, 189, 189);
+  padding-bottom: 60px;
+  padding-top: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap:20px;
+}
+
+.userDataContainer h3{
+  text-transform: uppercase;
+  margin-top: 0;
+}
+
+.userDataContainer .break{
+  margin:0;
+}
+
+ .userDataContainer button{
+  background-color: rgb(240, 240, 240);
+  color:rgb(2, 2, 2);
+  padding: 5px 10px 5px 10px;
+  font-size: 19px;
+  transition: all 0.3s ease;
+  min-width: 120px;
+}
+
+ .userDataContainer button:hover{
+  background-color: rgb(192, 36, 36);
+  color: white;
 }
 
 .userDataInfo{
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+}
+
+.openedButtons{
+  display: flex;
+  gap:15px;
 }
 
 .flexColumn{
@@ -19,13 +50,13 @@
     justify-content: space-between;
     align-items: flex-start;
     flex-direction: column;
-    gap:30px;
 }
 
 .dataRow{
     display: flex;
     align-items: center;
     justify-content: flex-start;
+    min-height: 28px;
 }
 
 .dataRowPasswd{
@@ -88,9 +119,16 @@
   .popup {
     position: relative;
     background-color: white;
-    padding: 20px;
+    padding: 55px 40px 55px 40px;
     border: 1px solid #ccc;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  .popupButtons{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap:20px;
   }
   
   .popup-content {
@@ -98,5 +136,5 @@
   }
   
   .popup button {
-    margin-top: 10px;
+    margin-top: 5px;
   }

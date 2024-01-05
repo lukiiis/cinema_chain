@@ -4,6 +4,7 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    background: linear-gradient(to bottom right, rgb(253, 253, 253) 50%, rgb(249, 249, 249) 50%);
 }
 
 .aboutTopContainer{
@@ -32,11 +33,14 @@
     display: flex;
     flex-direction: column;
     gap:30px;
+    
 }
 
 .aboutBottomContainer{
     width: 100%;
     min-height: 600px;
+    color:black;
+    text-align: justify;
 }
 
 .aboutBottomWrapper{
@@ -45,4 +49,8 @@
     max-width:640px;
     width:100%;
     margin-bottom: 3rem;
+}
+
+.aboutInfoLongContent h2{
+    margin-bottom:40px;
 }

@@ -27,6 +27,7 @@ const HomeNews = () => {
             {news ? (
                 <div className="homeNewsWrapper">
                     <h2 className="homeNewsHeader">
+                        <span className="break"></span>
                         Aktualności
                     </h2>
                     <div className="homeNewsContainer">

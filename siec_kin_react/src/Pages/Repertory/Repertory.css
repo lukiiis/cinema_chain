@@ -18,7 +18,8 @@
     display: flex;
     flex-direction: column;
     gap: 90px;
-    
+    background: linear-gradient(to bottom right, rgb(253, 253, 253) 50%, rgb(247, 247, 247) 50%);
+    flex:1;
 }
 .date-city-bar{
     display: flex;
@@ -63,13 +64,34 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    color:black;
     width: 150px;
-    border: solid rgb(52, 13, 126)
+    border: solid rgb(52, 13, 126);
+    color:white !important;
 }
 .show-repertory:hover{
     cursor: pointer;
     background-color: rgb(46, 33, 119);
+    color:white !important;
+}
+
+.hour-text{
+    color:rgb(0, 0, 0);
+    font-size: 28px;
+    margin: 0px 10px 10px 10px;
+}
+
+.hour-text:hover{
+    color:white;
+}
+
+.dubbing-text{
+    color:black;
+    font-size: 18px;
+    margin: 0px 10px 10px 10px;
+}
+
+.dubbing-text:hover{
+    color:white;
 }
 
 .empty-repertory{
@@ -78,8 +100,8 @@
     text-align: center;
 }
 .date-button{
-    width: 220px;
-    height: 38px;
+    min-width: 220px;
+    min-height: 50px;
     border-radius: 5px;
     border: 1px solid rgb(202, 191, 191);
     background-color: rgb(25, 25, 51);
@@ -95,4 +117,8 @@
     margin-right: auto;
     margin-top: 80px;
     margin-bottom: 40px;
+  }
+
+  .custom-button{
+    margin: 0;
   }

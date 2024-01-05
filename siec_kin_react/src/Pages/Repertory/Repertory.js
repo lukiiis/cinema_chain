@@ -151,8 +151,9 @@ export default function Reportory() {
             {filteredShows && filteredShows.filter(showItem => date === showItem.data_seansu).length === 0 && (
                     <h2 className='empty-repertory'>Brak seansow na ten dzien</h2>)}
           </div>
+          <button className='tommorow-date-button' onClick={() => {setTomorrow(date)}}>Sprawdź seanse na jutro</button>
         </div>
-        <button className='tommorow-date-button' onClick={() => {setTomorrow(date)}}>Sprawdź seanse na jutro</button>
+        
         <Footer />
       </>
     )

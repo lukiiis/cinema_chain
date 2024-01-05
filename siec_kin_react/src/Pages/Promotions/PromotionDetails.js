@@ -33,7 +33,7 @@ const PromotionDetails = () => {
                 <div className="promoDetailsContainer">
                     <div
                         className="promoTopContainer"
-                        style={{ backgroundImage: `linear-gradient(to top, black 8%, transparent 60%), url(${promotion.image})` }}
+                        style={{ backgroundImage: `linear-gradient(to top, black 10%, transparent 95%), url(${promotion.image})` }}
                     >
                         <div className="promoDetailsTopWrapper">
                             <div className="promoInfo">
@@ -41,6 +41,7 @@ const PromotionDetails = () => {
                                     <span>{promotion.addDate}</span>
                                 </div>
                                 <div className="promoInfoTitle">
+                                    <span className="break"></span>
                                     <span>{promotion.title}</span>
                                 </div>
                                 <div className="promoInfoShortContent">
