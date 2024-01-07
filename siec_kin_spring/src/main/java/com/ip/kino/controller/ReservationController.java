@@ -25,6 +25,4 @@ public class ReservationController {
     public ResponseEntity<List<Reservation>> getReservationsByLogin(@PathVariable String login){
         return ResponseEntity.ok(reservationService.getAllReservationsByLogin(login));
     }
-
-
 }

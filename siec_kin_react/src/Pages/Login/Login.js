@@ -63,7 +63,6 @@ const Login = () => {
                         else {
                             localStorage.setItem("" + resData + "", response.data[resData]);
                         }
-    
                     });
 
                     if(response.data.role === "USER"){
@@ -81,7 +80,7 @@ const Login = () => {
                     else if(response.data.role === "WORKER"){
                         setLoginStatus("Logowanie pomyślne.");
                         setTimeout(() => {
-                            navigate("/worker-dashboard");
+                            navigate("/employee-dashboard");
                         }, 1000);
                     }
                 }

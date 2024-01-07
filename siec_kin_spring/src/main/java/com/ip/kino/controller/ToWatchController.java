@@ -26,4 +26,9 @@ public class ToWatchController {
     public ResponseEntity<?> addToWatch(@RequestParam("login") String login, @RequestParam("movieId") Long movieId){
         return ResponseEntity.ok(toWatchService.addToWatch(login, movieId));
     }
+
+    @PostMapping("/delete-towatch")
+    public ResponseEntity<?> deleteToWatch(@RequestParam("login") String login, @RequestParam("movieId") Long movieId){
+        return ResponseEntity.ok(toWatchService.deleteToWatch(login, movieId));
+    }
 }

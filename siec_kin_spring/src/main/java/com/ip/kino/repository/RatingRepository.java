@@ -12,4 +12,7 @@ public interface RatingRepository extends JpaRepository<Rating, Long> {
 
     @Query(value = "SELECT o.* FROM OCENA o INNER JOIN KLIENT k ON (o.id_klienta = k.id_klienta) INNER JOIN UZYTKOWNIK u ON (k.id_uzytkownika = u.id_uzytkownika) WHERE u.login = :login AND o.id_filmu = :movieId", nativeQuery = true)
     Rating findRatingByLoginAndMovieId(String login, Long movieId);
+
+    @Query(value = "SELECT o.* FROM OCENA o WHERE o.id_filmu = :movieId", nativeQuery = true)
+    List<Rating> findAllRatingsByMovieId(Long movieId);
 }

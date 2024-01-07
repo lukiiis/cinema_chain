@@ -1,4 +1,4 @@
-.formContainer{
+.registerFormContainer{
     display:flex;
     align-items: center;
     justify-content: center;
@@ -64,7 +64,7 @@ form{
     gap:30px;
 }
 
-.formContainer h1{
+.registerFormContainer h1{
     text-transform: uppercase;
     padding: 0;
     margin-bottom: 60px;

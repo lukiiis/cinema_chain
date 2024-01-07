@@ -1,30 +1,32 @@
-.search-item-icon{
-    max-width: 50px;
-    max-height: 100px;
+.search-item-icon {
+  max-width: 50px;
+  max-height: 100px;
 }
-ul{
-    list-style-type: none;
-}
-.search-results-list {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    position: absolute;
-    background-color: #fff;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-    max-height: 400px;
-    overflow: auto;
-  }
-  .search-movie-link{
-    display: flex;
-    justify-content: start;
-    align-items: center;
-    gap: 10px;
-    margin-right: 10px;
-  }
 
-.search-movie-link:hover{
-    background-color: gray;
+ul {
+  list-style-type: none;
 }
-  
+
+.search-results-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  background-color: #fff;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  max-height: 400px;
+  overflow: auto;
+}
+
+.search-movie-link {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 10px;
+  margin-right: 10px;
+}
+
+.search-movie-link:hover {
+  background-color: gray;
+}

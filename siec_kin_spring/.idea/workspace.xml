@@ -5,64 +5,49 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cdf93604-6282-4d69-8790-2f0ffae61d7b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ip/kino/controller/RatingController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ip/kino/controller/ToWatchController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ip/kino/model/Rating.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ip/kino/repository/RatingRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ip/kino/repository/ToWatchRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ip/kino/service/RatingService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ip/kino/service/ToWatchService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../siec_kin_react/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../siec_kin_react/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../siec_kin_react/src/Components/CinemaSelection/CinemaSelection.css" beforeDir="false" afterPath="$PROJECT_DIR$/../siec_kin_react/src/Components/CinemaSelection/CinemaSelection.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../siec_kin_react/src/Components/CinemaSelection/CinemaSelection.js" beforeDir="false" afterPath="$PROJECT_DIR$/../siec_kin_react/src/Components/CinemaSelection/CinemaSelection.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../siec_kin_react/src/Components/Shows/Shows.css" beforeDir="false" afterPath="$PROJECT_DIR$/../siec_kin_react/src/Components/Shows/Shows.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ip/kino/dto/RegisterEmployeeDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../siec_kin_react/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/../siec_kin_react/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../siec_kin_react/src/Components/Shows/Shows.js" beforeDir="false" afterPath="$PROJECT_DIR$/../siec_kin_react/src/Components/Shows/Shows.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../siec_kin_react/src/Components/accountSettingsContent/AccountSettingsContent.css" beforeDir="false" afterPath="$PROJECT_DIR$/../siec_kin_react/src/Components/accountSettingsContent/AccountSettingsContent.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../siec_kin_react/src/Components/accountSettingsContent/AccountSettingsContent.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../siec_kin_react/src/Components/accountSettingsContent/AccountSettingsContent.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../siec_kin_react/src/Components/card/Card.css" beforeDir="false" afterPath="$PROJECT_DIR$/../siec_kin_react/src/Components/card/Card.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../siec_kin_react/src/Components/filmCarousel/FilmCarousel.css" beforeDir="false" afterPath="$PROJECT_DIR$/../siec_kin_react/src/Components/filmCarousel/FilmCarousel.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../siec_kin_react/src/Components/filmCarousel/FilmCarousel.js" beforeDir="false" afterPath="$PROJECT_DIR$/../siec_kin_react/src/Components/filmCarousel/FilmCarousel.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../siec_kin_react/src/Components/footer/Footer.css" beforeDir="false" afterPath="$PROJECT_DIR$/../siec_kin_react/src/Components/footer/Footer.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../siec_kin_react/src/Components/homeNews/HomeNews.css" beforeDir="false" afterPath="$PROJECT_DIR$/../siec_kin_react/src/Components/homeNews/HomeNews.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../siec_kin_react/src/Components/homeNews/HomeNews.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../siec_kin_react/src/Components/homeNews/HomeNews.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../siec_kin_react/src/Components/navigation/Navigation.css" beforeDir="false" afterPath="$PROJECT_DIR$/../siec_kin_react/src/Components/navigation/Navigation.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../siec_kin_react/src/Components/navigation/Navigation.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../siec_kin_react/src/Components/navigation/Navigation.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../siec_kin_react/src/Components/searchItem/SearchItem.css" beforeDir="false" afterPath="$PROJECT_DIR$/../siec_kin_react/src/Components/searchItem/SearchItem.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../siec_kin_react/src/Components/searchItem/SearchItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/../siec_kin_react/src/Components/searchItem/SearchItem.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../siec_kin_react/src/Components/teasers/Teasers.css" beforeDir="false" afterPath="$PROJECT_DIR$/../siec_kin_react/src/Components/teasers/Teasers.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../siec_kin_react/src/Components/teasers/Teasers.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../siec_kin_react/src/Components/teasers/Teasers.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../siec_kin_react/src/Components/userReservations/UserReservations.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../siec_kin_react/src/Components/userReservations/UserReservations.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../siec_kin_react/src/Pages/About/About.css" beforeDir="false" afterPath="$PROJECT_DIR$/../siec_kin_react/src/Pages/About/About.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../siec_kin_react/src/Pages/About/About.js" beforeDir="false" afterPath="$PROJECT_DIR$/../siec_kin_react/src/Pages/About/About.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../siec_kin_react/src/Components/userReservations/UserReservations.css" beforeDir="false" afterPath="$PROJECT_DIR$/../siec_kin_react/src/Components/userReservations/UserReservations.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../siec_kin_react/src/Pages/AdminDashboard/AdminDashboard.css" beforeDir="false" afterPath="$PROJECT_DIR$/../siec_kin_react/src/Pages/AdminDashboard/AdminDashboard.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../siec_kin_react/src/Pages/AdminDashboard/AdminDashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/../siec_kin_react/src/Pages/AdminDashboard/AdminDashboard.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../siec_kin_react/src/Pages/Dashboard/Dashboard.css" beforeDir="false" afterPath="$PROJECT_DIR$/../siec_kin_react/src/Pages/Dashboard/Dashboard.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../siec_kin_react/src/Pages/Dashboard/Dashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/../siec_kin_react/src/Pages/Dashboard/Dashboard.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../siec_kin_react/src/Pages/Home/Home.css" beforeDir="false" afterPath="$PROJECT_DIR$/../siec_kin_react/src/Pages/Home/Home.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../siec_kin_react/src/Pages/Home/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/../siec_kin_react/src/Pages/Home/Home.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../siec_kin_react/src/Pages/Login/Login.css" beforeDir="false" afterPath="$PROJECT_DIR$/../siec_kin_react/src/Pages/Login/Login.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../siec_kin_react/src/Pages/Login/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/../siec_kin_react/src/Pages/Login/Login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../siec_kin_react/src/Pages/EmployeeDashboard/EmployeeDashboard.css" beforeDir="false" afterPath="$PROJECT_DIR$/../siec_kin_react/src/Pages/EmployeeDashboard/EmployeeDashboard.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../siec_kin_react/src/Pages/EmployeeDashboard/EmployeeDashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/../siec_kin_react/src/Pages/EmployeeDashboard/EmployeeDashboard.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../siec_kin_react/src/Pages/Movie/Movie.css" beforeDir="false" afterPath="$PROJECT_DIR$/../siec_kin_react/src/Pages/Movie/Movie.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../siec_kin_react/src/Pages/Movie/Movie.js" beforeDir="false" afterPath="$PROJECT_DIR$/../siec_kin_react/src/Pages/Movie/Movie.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../siec_kin_react/src/Pages/News/News.css" beforeDir="false" afterPath="$PROJECT_DIR$/../siec_kin_react/src/Pages/News/News.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../siec_kin_react/src/Pages/News/News.js" beforeDir="false" afterPath="$PROJECT_DIR$/../siec_kin_react/src/Pages/News/News.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../siec_kin_react/src/Pages/News/NewsDetails.js" beforeDir="false" afterPath="$PROJECT_DIR$/../siec_kin_react/src/Pages/News/NewsDetails.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../siec_kin_react/src/Pages/Promotions/PromotionDetails.js" beforeDir="false" afterPath="$PROJECT_DIR$/../siec_kin_react/src/Pages/Promotions/PromotionDetails.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../siec_kin_react/src/Pages/Promotions/Promotions.css" beforeDir="false" afterPath="$PROJECT_DIR$/../siec_kin_react/src/Pages/Promotions/Promotions.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../siec_kin_react/src/Pages/Promotions/Promotions.js" beforeDir="false" afterPath="$PROJECT_DIR$/../siec_kin_react/src/Pages/Promotions/Promotions.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../siec_kin_react/src/Pages/Register/Register.css" beforeDir="false" afterPath="$PROJECT_DIR$/../siec_kin_react/src/Pages/Register/Register.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../siec_kin_react/src/Pages/Register/Register.js" beforeDir="false" afterPath="$PROJECT_DIR$/../siec_kin_react/src/Pages/Register/Register.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../siec_kin_react/src/Pages/Repertory/Repertory.css" beforeDir="false" afterPath="$PROJECT_DIR$/../siec_kin_react/src/Pages/Repertory/Repertory.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../siec_kin_react/src/Pages/Repertory/Repertory.js" beforeDir="false" afterPath="$PROJECT_DIR$/../siec_kin_react/src/Pages/Repertory/Repertory.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ip/kino/config/ApplicationConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ip/kino/config/ApplicationConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ip/kino/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ip/kino/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ip/kino/controller/RatingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ip/kino/controller/RatingController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ip/kino/controller/ReservationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ip/kino/controller/ReservationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ip/kino/controller/ToWatchController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ip/kino/controller/ToWatchController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ip/kino/controller/UserDataController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ip/kino/controller/UserDataController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ip/kino/model/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ip/kino/model/Admin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ip/kino/model/Reservation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ip/kino/model/Reservation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ip/kino/model/ToWatch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ip/kino/model/ToWatch.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ip/kino/repository/FilmRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ip/kino/repository/FilmRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ip/kino/model/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ip/kino/model/Employee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ip/kino/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ip/kino/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ip/kino/repository/KinoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ip/kino/repository/KinoRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ip/kino/repository/RatingRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ip/kino/repository/RatingRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ip/kino/service/AuthenticationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ip/kino/service/AuthenticationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ip/kino/service/RatingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ip/kino/service/RatingService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ip/kino/service/ToWatchService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ip/kino/service/ToWatchService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ip/kino/service/UserDataService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ip/kino/service/UserDataService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ip/kino/controller/RatingController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ip/kino/controller/RatingController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ip/kino/controller/ToWatchController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ip/kino/controller/ToWatchController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/ip/kino/controller/UserDataController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ip/kino/controller/UserDataController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ip/kino/model/Admin.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ip/kino/model/Admin.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ip/kino/model/Reservation.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ip/kino/model/Reservation.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ip/kino/model/ToWatch.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ip/kino/model/ToWatch.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ip/kino/model/Employee.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ip/kino/model/Employee.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ip/kino/repository/RatingRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ip/kino/repository/RatingRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ip/kino/service/AuthenticationService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ip/kino/service/AuthenticationService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ip/kino/service/RatingService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ip/kino/service/RatingService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ip/kino/service/ToWatchService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ip/kino/service/ToWatchService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ip/kino/service/UserDataService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ip/kino/service/UserDataService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,23 +76,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;luki&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "luki",
+    "ignore.virus.scanning.warn.message": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="SiecKinApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="kino" />
@@ -131,7 +117,8 @@
       <workItem from="1704407909655" duration="736000" />
       <workItem from="1704458369788" duration="1549000" />
       <workItem from="1704487906504" duration="390000" />
-      <workItem from="1704488500757" duration="5446000" />
+      <workItem from="1704488500757" duration="8437000" />
+      <workItem from="1704539663655" duration="22844000" />
     </task>
     <servers />
   </component>

@@ -33,6 +33,7 @@
     justify-content: space-between;
     list-style-type: none;
     height: 80px;
+    text-transform: uppercase;
 }
 
 .menuList li{
@@ -57,6 +58,10 @@
     gap:30px;
 }
 
+.dashboardContentWrapper .break{
+    margin-top: 40px;
+}
+
 .myTicketsContent{
     width: 100%;
     display: flex;
@@ -65,22 +70,14 @@
     flex-direction: column;
 }
 
-.myTicketsContent h2{
-    margin-top: 40px;
-}
-
 .walletContent{
     width:100%;
     display: flex;
     align-items: flex-start;
     justify-content: flex-start;
     flex-direction: column;
-    gap:40px;
 }
 
-.walletContent > h2{
-    margin-top: 40px;
-}
 
 .walletMain{
     display: flex;
@@ -88,24 +85,46 @@
     align-items: center;
     gap:30px;
     width: 100%;
+    margin-top: 40px;;
+}
+
+.walletMain span{
+    font-size: 28px;
+}
+
+.walletMain button{
+    padding: 10px 15px 10px 15px;
 }
 
 .promotionalCouponsContent{
     width: 100%;
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.promotionalCouponsMain{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    justify-content: space-between;
-    gap:30px;
-    padding-top: 50px;
+    gap:40px;
+    margin: 0 auto;
+    margin-top: 50px;
 }
 
-.promotionalCouponsContent > h1{
-    margin: 0 auto;
+.promotionalCouponsMain span{
+    font-size: 26px;
 }
 
-.promotionalCouponsContent span{
-    margin: 0 auto;
+.promotionalCouponsMain input{
+    height:50px;
+    width: 370px;
+}
+
+.promotionalCouponsMain button{
+    padding: 10px 15px 10px 15px;
 }
 
 .fade-enter {
@@ -124,4 +143,27 @@
   .fade-exit-active {
     opacity: 0;
     transition: opacity 300ms ease-in-out;
+  }
+
+  /* to watch */
+  .toWatchContent{
+    width: 100%;
+  }
+
+
+  .movie-cards{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap:50px;
+    flex-wrap: wrap;
+    margin-top: 40px;
+  }
+
+  .movie-cards .cardTitle{
+    color:black;
+  }
+
+  .movie-cards .cardContainer{
+
   }

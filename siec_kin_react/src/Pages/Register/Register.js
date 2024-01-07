@@ -52,8 +52,10 @@ const Register = () => {
             try {
                 const response = await axios.post("http://localhost:8090/api/v1/public/auth/register", formData);
                 //Tutaj wstawic na fronta wiadomosc od backendu, czy udalo sie zarejestrowac pomyslnie
-                console.log('Server response: ', response.data);
-                setRegisterStatus("Rejestracja pomyślna, teraz możesz się zalogować.");
+                console.log('Server response: ', response);
+                if(response.status===200){
+                    setRegisterStatus("Rejestracja pomyślna, teraz możesz się zalogować.");
+                }
             }
             catch (error) {
                 console.error('Error while sending data: ', error);
@@ -62,13 +64,14 @@ const Register = () => {
         else {
             //tutaj wyslac cos na ekran, ze dane bledne
             console.log('Form has errors, cannot submit.');
+            setRegisterStatus("Formularz zawiera błędy.");
         }
     }
 
     return (
         <>
             <Navigation />
-            <div className="formContainer">
+            <div className="registerFormContainer">
                 <div className="formBorder">
                     <h1>Rejestracja</h1>
                     <form onSubmit={handleSubmit}>

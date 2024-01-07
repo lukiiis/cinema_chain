@@ -17,7 +17,6 @@ export default function Shows({ filmID }) {
         axios.get('http://localhost:8090/api/v1/kino').then(
           response => {
             setCinema(response.data)
-            console.log(response.data)
           }
         ).catch(err => {
           console.log('nie dziala')
@@ -32,13 +31,10 @@ export default function Shows({ filmID }) {
 
     const handleShow = async (kinoID) => {
       const url = 'http://localhost:8090/api/v1/seans/' + kinoID + '/' + filmID;
-      console.log(url)
       const getShow = () => {
         axios.get(url).then(
           response => {
-
             setShow(response.data)
-            console.log(response.data)
           }
         ).catch(err => {
           console.log('nie dzialaaaaaaaaaaaa', err)

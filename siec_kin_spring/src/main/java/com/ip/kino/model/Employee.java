@@ -14,23 +14,18 @@ import lombok.Setter;
 @Table(name = "pracownik")
 public class Employee {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID_PRACOWNIKA")
     private Long employeeId;
 
     @Column(name = "STANOWISKO")
     private String position;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "id_uzytkownika", referencedColumnName = "id_uzytkownika")
     private User user;
 
     @ManyToOne
     @JoinColumn(name = "id_kina", referencedColumnName = "id_kina")
-    private Kino kino;
-
-    public Employee(String position, User user, Kino kino) {
-        this.position = position;
-        this.user = user;
-        this.kino = kino;
-    }
+    private Kino cinema;
 }

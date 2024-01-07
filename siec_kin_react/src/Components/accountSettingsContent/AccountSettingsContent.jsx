@@ -17,7 +17,7 @@ const AccountSettingsContent = ({ userData, token, refreshNavigation }) => {
 
     const deleteAccount = async (e) => {
         e.preventDefault();
-        try{
+        try {
             const id = userData.userId;
             const url = `http://localhost:8090/api/v1/private/delete-account`;
             const response = await axios.post(url, null, {
@@ -26,19 +26,19 @@ const AccountSettingsContent = ({ userData, token, refreshNavigation }) => {
                 },
                 headers: {
                     Authorization: `Bearer ${token}`
-                }               
+                }
             });
-            if(response.status === 200){
+            if (response.status === 200) {
                 console.log(response.data);
                 console.log("Account has been deleted.");
                 localStorage.clear();
                 navigate("/");
 
-                
+
             }
         }
-        catch (error){
-            if(error.response.status === 403){
+        catch (error) {
+            if (error.response.status === 403) {
                 console.log("Token expired, please log in.");
                 console.log(token);
                 navigate("/login");
@@ -58,8 +58,8 @@ const AccountSettingsContent = ({ userData, token, refreshNavigation }) => {
 
     const changePassword = async (e) => {
         e.preventDefault();
-        if(Object.keys(passwdChangeErrors).length === 0){
-            try{
+        if (Object.keys(passwdChangeErrors).length === 0) {
+            try {
                 const token = localStorage.getItem('token');
                 const url = "http://localhost:8090/api/v1/private/change-password";
                 const response = await axios.post(url, passwdData, {
@@ -69,11 +69,11 @@ const AccountSettingsContent = ({ userData, token, refreshNavigation }) => {
                 })
                 setPasswdChangeStatus(response.data);
             }
-            catch(error){
+            catch (error) {
                 console.error('Error while sending data: ', error);
             }
         }
-        else{
+        else {
             console.log("Form has errors.");
         }
     }
@@ -140,7 +140,7 @@ const AccountSettingsContent = ({ userData, token, refreshNavigation }) => {
 
     const editPersonalData = async (e) => {
         e.preventDefault();
-        try{
+        try {
             const token = localStorage.getItem('token');
             const url = "http://localhost:8090/api/v1/private/change-personal-data";
             const response = await axios.post(url, editedUserData, {
@@ -149,7 +149,7 @@ const AccountSettingsContent = ({ userData, token, refreshNavigation }) => {
                 }
             })
             setDataEditResponseStatus(response.data);
-            if(response.status===200){
+            if (response.status === 200) {
                 localStorage.setItem('name', editedUserData.name);
                 localStorage.setItem('lastName', editedUserData.surname);
                 userData.name = editedUserData.name;
@@ -157,9 +157,9 @@ const AccountSettingsContent = ({ userData, token, refreshNavigation }) => {
                 userData.phone = editedUserData.phone;
                 refreshNavigation();
             }
-            
+
         }
-        catch (error){
+        catch (error) {
             console.error("Error while sending data: ", error);
         }
     }
@@ -244,15 +244,15 @@ const AccountSettingsContent = ({ userData, token, refreshNavigation }) => {
                 </div>
                 {isEditing ? (
                     <>
-                    <div className="openedButtons">
-                        <button onClick={editPersonalData}>Zapisz</button>
-                        <button onClick={() => {setIsEditing(false)}}>Wróć</button>
-                    </div>
-                    {dataEditResponseStatus && <span>{dataEditResponseStatus}</span>}
+                        <div className="openedButtons">
+                            <button onClick={editPersonalData}>Zapisz</button>
+                            <button onClick={() => { setIsEditing(false) }}>Wróć</button>
+                        </div>
+                        {dataEditResponseStatus && <span>{dataEditResponseStatus}</span>}
                     </>
                 ) : (
                     <button onClick={handleEditClick}>Edytuj</button>
-                )} 
+                )}
             </div>
             <div className="userDataContainer">
                 <span className="break"></span>
@@ -281,11 +281,11 @@ const AccountSettingsContent = ({ userData, token, refreshNavigation }) => {
                     {/* {passwdChangeErrors.confPassword && <span>{passwdChangeErrors.confPassword}</span>}
                     {passwdChangeErrors.newPassword && <span>{passwdChangeErrors.newPassword}</span>} */}
                     {passwdChangeErrors.length > 0 && (
-                    <>
-                        {passwdChangeErrors.map((error, index) => (
-                            <span key={index}>{error}</span>
-                        ))}
-                    </>
+                        <>
+                            {passwdChangeErrors.map((error, index) => (
+                                <span key={index}>{error}</span>
+                            ))}
+                        </>
                     )}
                     <button type="submit">Zmień hasło</button>
                     {passwdChangeStatus && <span>{passwdChangeStatus}</span>}

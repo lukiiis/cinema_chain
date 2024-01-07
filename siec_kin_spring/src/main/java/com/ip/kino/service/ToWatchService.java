@@ -46,4 +46,23 @@ public class ToWatchService {
             return "Error while adding movie to 'To Watch' list";
         }
     }
+
+    public Object deleteToWatch(String login, Long movieId) {
+        try{
+            User user = userRepository.findByLogin(login).orElseThrow();
+            Film movie = filmRepository.findMovieByMovieId(movieId).orElseThrow();
+
+            ToWatch toWatch = toWatchRepository.findToWatchByLoginAndMovieId(login, movieId);
+            if(toWatch == null){
+                return "Movie is not on the list";
+            }
+            toWatchRepository.delete(toWatch);
+
+            return "Movie successfully deleted from 'To Watch' list";
+        }
+        catch (Exception ex){
+            ex.printStackTrace();
+            return "Error while deleting movie from 'To Watch' list";
+        }
+    }
 }

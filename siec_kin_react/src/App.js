@@ -31,7 +31,6 @@ function App() {
         console.log("Token valid.");
       }
     }
-    console.log(localStorage);
   }, [])
 
   return (
@@ -49,7 +48,7 @@ function App() {
         <Route path="/admin-dashboard" element={<AdminDashboard />} />
         <Route path='/film/:title' element={<Movie />} />
         <Route path='/repertuar' element={<Reportory />} />
-        <Route path='/employeeDashboard' element={<EmployeeDashboard />}/>
+        <Route path='/employee-dashboard' element={<EmployeeDashboard />}/>
       </Routes>
     </BrowserRouter>
   );

@@ -9,12 +9,16 @@ import axios from "axios";
 import AccountSettingsContent from "../../Components/accountSettingsContent/AccountSettingsContent";
 import UserReservations from "../../Components/userReservations/UserReservations";
 import { CSSTransition } from "react-transition-group";
+import { Link } from "react-router-dom";
+import Card from "../../Components/card/Card";
 
 const Dashboard = () => {
     const navigate = useNavigate();
     const [userData, setUserData] = useState(null);
     const [reservations, setReservations] = useState(null);
+    const [toWatch, setToWatch] = useState(null);
     const [selectedMenuItem, setSelectedMenuItem] = useState("myTickets"); // domyślny wybór
+    const [active, setActive] = useState()
     const nodeRef = React.useRef(null); // Tworzymy ref
     const token = localStorage.getItem('token');
     //navbar refresh
@@ -25,9 +29,13 @@ const Dashboard = () => {
         if (!token) {
             navigate("/login");
         }
+        else if(localStorage.getItem('role') !== "USER"){
+            navigate("/");
+        }
         else {
             fetchUserData();
             fetchReservations();
+            fetchToWatch();
         }
     }, [])
 
@@ -55,7 +63,7 @@ const Dashboard = () => {
         }
         catch (error) {
             console.error("Error while fetching data", error);
-            if(error.response.status === 403){
+            if (error.response.status === 403) {
                 console.log("Token expired. Log in to proceed.");
                 localStorage.clear();
                 navigate("/login");
@@ -87,8 +95,37 @@ const Dashboard = () => {
         }
         catch (error) {
             console.error("Error while fetching data", error);
-            if(error.response.status === 403){
+            if (error.response.status === 403) {
                 console.log("Token expired. Log in to proceed.");
+                localStorage.clear();
+                navigate("/login");
+            }
+        }
+    }
+
+    const fetchToWatch = async () => {
+        try {
+            const decodedToken = jwtDecode(token);
+            const userLogin = decodedToken.sub;
+
+            const url = `http://localhost:8090/api/v1/private/to-watch/${userLogin}`;
+            const response = await axios.get(url, {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            })
+            if(response.status===200){
+                setToWatch(response.data);
+                console.log(response.data);
+            }
+            else{
+                console.log("Unexpected error.");
+            }
+        }
+        catch (error) {
+            console.error("Error while fetching data", error);
+            if (error.response.status === 403) {
+                console.log("Access denied.");
                 localStorage.clear();
                 navigate("/login");
             }
@@ -111,8 +148,9 @@ const Dashboard = () => {
                         exitActive: 'fade-exit-active'
                     }} nodeRef={nodeRef}>
                         <div className="myTicketsContent" ref={nodeRef}>
+                            <span className="break"></span>
                             <h2>MOJE BILETY</h2>
-                            <UserReservations reservations={reservations}/>
+                            <UserReservations reservations={reservations} />
                         </div>
                     </CSSTransition>
                 );
@@ -120,8 +158,27 @@ const Dashboard = () => {
                 return (
                     <CSSTransition in={selectedMenuItem === "toWatch"} appear={true} timeout={300} classNames="fade" nodeRef={nodeRef}>
                         <div className="toWatchContent" ref={nodeRef}>
-                            
-                            
+                            <span className="break"></span>
+                            <h2>DO OBEJRZENIA</h2>
+                            <div className="movie-cards">
+                                {toWatch? (
+                                    <>
+                                        {toWatch.map((watch) => {
+                                            const movieID = watch.movie.id_filmu;
+                                            return (
+                                                <Link key={watch.toWatchId} className="link" to={`/film/${watch.movie.id_filmu}`} state={{ movie_ID: movieID }}>
+                                                    <Card
+                                                        title={watch.movie.tytul}
+                                                        poster={watch.movie.plakat_url}
+                                                    />
+                                                </Link>
+                                            );
+                                        })}
+                                    </>
+                                ) : (
+                                    <p>pobieranie danych</p>
+                                )}
+                            </div>
                         </div>
                     </CSSTransition>
                 );
@@ -129,10 +186,13 @@ const Dashboard = () => {
                 return (
                     <CSSTransition in={true} appear={true} timeout={300} classNames="fade" nodeRef={nodeRef}>
                         <div className="promotionalCouponsContent" ref={nodeRef}>
-                            <h1>Kody promocyjne</h1>
-                            <span>Masz kod promocyjny? Wpisz go w pole poniżej!</span>
-                            <input type="text" placeholder="Wpisz kod promocyjny"></input>
-                            <button type="submit">Zatwierdź</button>
+                            <span className="break"></span>
+                            <h2>KODY PROMOCYJNE</h2>
+                            <div className="promotionalCouponsMain">
+                                <span>Masz kod promocyjny? Wpisz go w pole poniżej!</span>
+                                <input type="text" placeholder="Wpisz kod promocyjny"></input>
+                                <button type="submit">Zatwierdź</button>
+                            </div>
                         </div>
                     </CSSTransition>
                 );
@@ -140,6 +200,7 @@ const Dashboard = () => {
                 return (
                     <CSSTransition in={true} appear={true} timeout={300} classNames="fade" nodeRef={nodeRef}>
                         <div className="walletContent" ref={nodeRef}>
+                            <span className="break"></span>
                             <h2>PORTFEL</h2>
                             <div className="walletMain">
                                 <span>Dostępne środki: {userData.client.wallet} zł</span>
@@ -151,9 +212,9 @@ const Dashboard = () => {
             case "accountSettings":
                 return (
                     <CSSTransition in={true} appear={true} timeout={300} classNames="fade" nodeRef={nodeRef}>
-                        <AccountSettingsContent 
-                            userData={userData} 
-                            token = {token} 
+                        <AccountSettingsContent
+                            userData={userData}
+                            token={token}
                             refreshNavigation={() => setRefreshNavigation(prevState => !prevState)}
                         />
                     </CSSTransition>
@@ -166,17 +227,17 @@ const Dashboard = () => {
 
     return (
         <>
-            <Navigation refresh={refreshNavigation}/>
+            <Navigation refresh={refreshNavigation} />
             <div className="dashboard">
                 <div className="dashboardWrapper">
                     <h1 className="dashboardTitle">MOJE KONTO</h1>
                     <div className="dashboardMenu">
                         <ul className="menuList">
-                            <li onClick={() => handleMenuItemClick("myTickets")}>Moje bilety</li>
-                            <li onClick={() => handleMenuItemClick("toWatch")}>Do obejrzenia</li>
-                            <li onClick={() => handleMenuItemClick("coupons")}>Kupony promocyjne</li>
-                            <li onClick={() => handleMenuItemClick("wallet")}>Portfel</li>
-                            <li onClick={() => handleMenuItemClick("accountSettings")}>Ustawienia konta</li>
+                            <li className={`${selectedMenuItem === "myTickets" ? 'activeHover' : ''}`} onClick={() => handleMenuItemClick("myTickets")}>Moje bilety</li>
+                            <li className={`${selectedMenuItem === "toWatch" ? 'activeHover' : ''}`} onClick={() => handleMenuItemClick("toWatch")}>Do obejrzenia</li>
+                            <li className={`${selectedMenuItem === "coupons" ? 'activeHover' : ''}`} onClick={() => handleMenuItemClick("coupons")}>Kupony promocyjne</li>
+                            <li className={`${selectedMenuItem === "wallet" ? 'activeHover' : ''}`} onClick={() => handleMenuItemClick("wallet")}>Portfel</li>
+                            <li className={`${selectedMenuItem === "accountSettings" ? 'activeHover' : ''}`} onClick={() => handleMenuItemClick("accountSettings")}>Ustawienia konta</li>
                         </ul>
                     </div>
                 </div>
