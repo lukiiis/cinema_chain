@@ -16,7 +16,7 @@ const PromotionDetails = () => {
     }, []);
 
     const fetchData = async () => {
-        const url = "http://localhost:8090/api/v1/promocje/" + promo;
+        const url = "http://localhost:8090/api/v1/public/promotion/" + promo;
         try {
             const response = await axios.get(url);
             setPromotion(response.data);

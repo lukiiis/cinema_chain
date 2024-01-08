@@ -29,18 +29,14 @@ const AccountSettingsContent = ({ userData, token, refreshNavigation }) => {
                 }
             });
             if (response.status === 200) {
-                console.log(response.data);
-                console.log("Account has been deleted.");
                 localStorage.clear();
                 navigate("/");
-
-
             }
         }
         catch (error) {
             if (error.response.status === 403) {
-                console.log("Token expired, please log in.");
-                console.log(token);
+                console.log("Acces denied.");
+                localStorage.clear();
                 navigate("/login");
             }
         }
@@ -160,7 +156,11 @@ const AccountSettingsContent = ({ userData, token, refreshNavigation }) => {
 
         }
         catch (error) {
-            console.error("Error while sending data: ", error);
+            if (error.response.status === 403) {
+                console.log("Acces denied.");
+                localStorage.clear();
+                navigate("/login");
+            }
         }
     }
 
@@ -287,7 +287,7 @@ const AccountSettingsContent = ({ userData, token, refreshNavigation }) => {
                             ))}
                         </>
                     )}
-                    <button type="submit">Zmień hasło</button>
+                    <button className="passwdButton" type="submit">Zmień hasło</button>
                     {passwdChangeStatus && <span>{passwdChangeStatus}</span>}
                 </form>
             </div>

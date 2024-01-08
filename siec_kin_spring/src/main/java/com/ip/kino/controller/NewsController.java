@@ -12,14 +12,16 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api/v1")
+@RequestMapping("/api/v1/public")
 public class NewsController {
     private final NewsService newsService;
-    @GetMapping("/aktualnosci")
+
+    @GetMapping("/news")
     public List<News> getAllNews(){
         return newsService.getAllNews();
     }
-    @GetMapping("/aktualnosci/{id}")
+
+    @GetMapping("/new/{id}")
     public News getNewsById(@PathVariable Long id){
         return newsService.getNewsById(id);
     }

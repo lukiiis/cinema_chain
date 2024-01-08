@@ -60,6 +60,7 @@ export default function Reportory() {
       axios.get(url).then(
         response => {
           setShow(response.data)
+          console.log("SEANSE", response.data);
         }
       ).catch(err => {
         console.log('nie dzialaaaaaaaaaaaa', err)

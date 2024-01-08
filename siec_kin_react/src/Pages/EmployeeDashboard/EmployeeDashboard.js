@@ -302,7 +302,7 @@ const AdminDashboard = () => {
                                             <tr key={movie.id_filmu}>
                                                 <td>{movie.id_filmu}</td>
                                                 <td>{movie.tytul}</td>
-                                                <td>{movie.opis}</td>
+                                                <td style={{maxWidth:'120px', overflow:'hidden', textOverflow:'ellipsis'}}>{movie.opis}</td>
                                                 <td>{movie.rezyser}</td>
                                                 <td>{movie.data_premiery}</td>
                                                 <td>{movie.czas_trwania}</td>

@@ -10,15 +10,16 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api/v1")
+@RequestMapping("/api/v1/public")
 public class PromotionController {
-
     private final PromotionService promotionService;
-    @GetMapping("/promocje")
+
+    @GetMapping("/promotions")
     public List<Promotion> getAllValidPromotions(){
         return promotionService.getAllValidPromotions();
     }
-    @GetMapping("/promocje/{id}")
+
+    @GetMapping("/promotion/{id}")
     public Promotion getPromotionById(@PathVariable Long id){
         return promotionService.getPromotionById(id);
     }

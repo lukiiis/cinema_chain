@@ -13,7 +13,7 @@ const NewsDetails = () => {
 
     useEffect(() => {
         async function fetchData() {
-            const url = "http://localhost:8090/api/v1/aktualnosci/" + promo;
+            const url = "http://localhost:8090/api/v1/public/new/" + promo;
             try {
                 const response = await axios.get(url);
                 setNews(response.data);

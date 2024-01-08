@@ -85,10 +85,6 @@ const Dashboard = () => {
             if (response.status === 200) {
                 setReservations(response.data);
             }
-            else if (response.status === 403) {
-                console.log("Access forbidden");
-                navigate("/");
-            }
             else {
                 console.log("unexpected error", response.status);
             }
@@ -96,12 +92,14 @@ const Dashboard = () => {
         catch (error) {
             console.error("Error while fetching data", error);
             if (error.response.status === 403) {
-                console.log("Token expired. Log in to proceed.");
+                console.log("Access denied.");
                 localStorage.clear();
                 navigate("/login");
             }
         }
     }
+
+    
 
     const fetchToWatch = async () => {
         try {
@@ -147,11 +145,16 @@ const Dashboard = () => {
                         exit: 'fade-exit',
                         exitActive: 'fade-exit-active'
                     }} nodeRef={nodeRef}>
-                        <div className="myTicketsContent" ref={nodeRef}>
-                            <span className="break"></span>
-                            <h2>MOJE BILETY</h2>
-                            <UserReservations reservations={reservations} />
-                        </div>
+                        {reservations ? (
+                            <div className="myTicketsContent" ref={nodeRef}>
+                                <span className="break"></span>
+                                <h2>MOJE BILETY</h2>
+                                <UserReservations reservations={reservations} />
+                            </div>
+                        ) : (
+                            <p>pobieranie danych</p>
+                        )}
+
                     </CSSTransition>
                 );
             case "toWatch":
