@@ -168,12 +168,12 @@ const AdminDashboard = () => {
                                     {cinemas.map((cinema) => {
 
                                         return (
-                                            <tr key={cinema.id_kina}>
-                                                <td>{cinema.id_kina}</td>
-                                                <td>{cinema.miasto}</td>
-                                                <td>{cinema.ulica}</td>
-                                                <td>{cinema.numer_budynku}</td>
-                                                <td>{cinema.kod_pocztowy}</td>
+                                            <tr key={cinema.cinemaId}>
+                                                <td>{cinema.cinemaId}</td>
+                                                <td>{cinema.city}</td>
+                                                <td>{cinema.street}</td>
+                                                <td>{cinema.building_number}</td>
+                                                <td>{cinema.zip_code}</td>
                                             </tr>
                                         )
                                     })}

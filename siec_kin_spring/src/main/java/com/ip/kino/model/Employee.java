@@ -26,11 +26,11 @@ public class Employee {
 
     @ManyToOne
     @JoinColumn(name = "id_kina", referencedColumnName = "id_kina")
-    private Kino kino;
+    private Cinema cinema;
 
-    public Employee(String position, User user, Kino kino) {
+    public Employee(String position, User user, Cinema kino) {
         this.position = position;
         this.user = user;
-        this.kino = kino;
+        this.cinema = kino;
     }
 }

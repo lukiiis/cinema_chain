@@ -1,14 +1,16 @@
 footer{
     width:100%;
-    background: rgb(214, 214, 214);
+    background: rgb(24, 24, 24);
     min-height: 150px;
     bottom:0;
-    border-top: 2px solid rgb(139, 139, 139);
+    border-top: 2px solid rgb(32, 32, 32);
     margin-top:auto;
+    color:white;
+    text-transform: uppercase;
 }
 
 .cinemasHeader{
- 
+    margin-top: 30px;
 }
 
 .wrapper{
@@ -31,6 +33,13 @@ footer{
     padding: 0;
     margin: 0;
     flex-wrap: wrap;
+    color:white;
+    text-decoration: none;
+}
+
+.cinemaList li{
+    color: white;
+    text-decoration: none;
 }
 
 .heading{
@@ -39,7 +48,7 @@ footer{
 
 .link{
     text-decoration: none;
-    color:black;
+    color:rgb(167, 166, 166);
 }
 
 .footerSectionCenter{

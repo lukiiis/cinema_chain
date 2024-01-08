@@ -1,0 +1,143 @@
+.reservation-body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(to bottom right, rgb(5, 5, 5) 50%, rgb(27, 27, 27) 50%);
+    flex: 1;
+}
+.hall-ticket-container{
+    margin-top: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 60px;
+    max-width: 1800px;
+}
+.cinema-hall{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3px;
+    font-size: 15px;
+    max-width: 55%;
+}
+.seat-block{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background-color: rgb(105, 105, 105);
+    border: 1px solid rgb(0, 0, 0);
+}
+.row-block{
+    display: flex;
+    flex-direction:row;
+    color: wheat;
+}
+.path{
+    margin-right: 20px;
+}
+.selected{
+    background-color: rgb(35, 163, 63);
+}
+.selected-price{
+    background-color: rgb(105, 33, 33);
+}
+.ticket-type label{
+    display: flex;
+    height: 35px;
+    width: 100px;
+    justify-content: center;
+    align-items: center;
+}
+.ticket-type{
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+}
+.reserved{
+    background-color: rgb(179, 39, 39);
+}
+.payment-container{
+    display: flex;
+    justify-content: center;
+}
+.payment-methods{
+    font-size: 20px;
+    display: flex;
+    gap: 40px;
+}
+.chosenMethod{
+    font-size: 20px;
+}
+
+input#option1.btn-check.ticket-type-button + label.btn.btn-secondary.ticket-type-button {
+    border: solid white 1px;
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    width: 100px;
+    height: 40px;
+  }
+  /* Dla etykiety normalnej - niekliknięta */
+  input#option2.btn-check.ticket-type-button + label.btn.btn-secondary.ticket-type-button {
+    background-color: rgb(0, 0, 0);
+    border: solid white 1px;
+    color: rgb(255, 255, 255);
+    width: 100px;
+    height: 40px;
+  }
+input#option1.btn-check.ticket-type-button:checked + label.btn.btn-secondary.ticket-type-button {
+    border: solid rgb(13, 247, 13);
+    width: 100px;
+    height: 40px;
+  }
+  input#option2.btn-check.ticket-type-button:checked + label.btn.btn-secondary.ticket-type-button {
+    border: solid rgb(13, 247, 13);
+    width: 100px;
+    height: 40px;
+  }
+  .sum-price{
+    color: rgb(255, 255, 255);
+    margin-top: 35px;
+    margin-bottom: 35px;
+  }
+  .button-ready{
+    color:rgb(255, 255, 255);
+    border: solid white 1px;
+    margin: 0;
+    width: 250px;
+    height: 40px;
+    border-radius: 5px;
+    background-color: rgb(0, 0, 0);
+  }
+
+  .ReservationformWrapper{
+    margin-top: 70px;
+    color: white;
+    max-width: 700px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap:45px;
+    margin-bottom: 50px;
+  }
+  .input-reservation{
+    background-color: rgb(216, 215, 213);
+    margin-right: 50px;
+  }
+  .makePaymentButton{
+    color:rgb(255, 255, 255);
+    border: solid white 1px;
+    margin: 0;
+    width: 250px;
+    height: 40px;
+    border-radius: 5px;
+    background-color: rgb(0, 0, 0);
+  }
+  .headlineText{
+    font-size: 50px;
+  }

@@ -129,7 +129,7 @@ public class AuthenticationService {
                     user.getRole(),
                     new EmployeeDto(
                             user.getEmployee().getEmployeeId(),
-                            user.getEmployee().getKino(),
+                            user.getEmployee().getCinema(),
                             user.getEmployee().getPosition()));
         }
 

@@ -13,24 +13,24 @@ const UserReservations = ({ reservations }) => {
                                 key={reservation.reservationId}
                             >
                                 <div className="left">
-                                    <img src={reservation.session.film.obraz_url}></img>
+                                    <img src={reservation.session.movie.picture_url}></img>
                                 </div>
                                 <div className="mid">
                                     <div className="movieTitle">
-                                        <h5>{reservation.session.film.tytul}</h5>
+                                        <h5>{reservation.session.movie.title}</h5>
                                     </div>
                                     <div className="">
-                                        Data seansu: {reservation.session.data_seansu}
+                                        Data seansu: {reservation.session.showDate}
                                     </div>
                                     <div className="">
-                                        Godzina: {reservation.session.godzina_rozpoczecia}
+                                        Godzina: {reservation.session.startTime}
                                     </div>
                                     <div className="">
                                         Miejsce: {reservation.seatRow}{reservation.seatNumber}
                                     </div>
                                     <div className="">
                                         {/* JAK BĘDZIE MODEL SALA TO ZMIENIĆ NA NAZWĘ SALI */}
-                                        Sala: {reservation.session.id_sali}
+                                        Sala: {reservation.session.screeningRoomId}
                                     </div>
                                 </div>
                                 <div className="right">
@@ -38,7 +38,7 @@ const UserReservations = ({ reservations }) => {
                                         {reservation.purchaseDate}
                                     </div>
                                     <div className="">
-                                        Kino: {reservation.session.kino.miasto}
+                                        Kino: {reservation.session.cinema.city}
                                     </div>
                                     <div className="">
                                         Cena biletu: {reservation.price}

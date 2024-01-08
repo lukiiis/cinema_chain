@@ -112,6 +112,10 @@ const AdminDashboard = () => {
       useEffect(() => {
         const fetchData = async () => {
           try {
+            console.log(cinemaID)
+            console.log(formDataShow.id_sali)
+            console.log(formDataShow.data_seansu)
+            console.log(cinemaHalls)
             if (cinemaID !== null && formDataShow.id_sali !== null && formDataShow.data_seansu !== null) {
               const url = `http://localhost:8090/api/v1/seans/${cinemaID}/${formDataShow.id_sali}/${formDataShow.data_seansu}`;
               console.log(url);
@@ -120,7 +124,7 @@ const AdminDashboard = () => {
               console.log(response.data);
               if (response.data != null) {
                 console.log("filtruje se");
-                const unavailableHours = response.data.map(seans => seans.godzina_rozpoczecia);
+                const unavailableHours = response.data.map(seans => seans.startTime);
                 const filtered = availableHours.filter(hour => !unavailableHours.includes(hour));
                 setFilteredHours(filtered);
               }
@@ -136,8 +140,9 @@ const AdminDashboard = () => {
       useEffect(() => {
         if (cinema) {
           cinema.forEach((cinemaItem) => {
-            if (cinemaID === cinemaItem.id_kina) {
-              setCinemaHalls(cinemaItem.sale); // pobieranie listy sal
+            if (cinemaID === cinemaItem.cinemaId) {
+              setCinemaHalls(cinemaItem.screeningrooms);
+              console.log(cinemaItem) // pobieranie listy sal
             }
           });
         }
@@ -200,7 +205,7 @@ const AdminDashboard = () => {
         useEffect(() => {
             if(movies){
                 const results = movies.filter(movie =>
-                    movie.tytul.toLowerCase().includes(searchTerm.toLowerCase())
+                    movie.title.toLowerCase().includes(searchTerm.toLowerCase())
                   );
                   setSearchResults(results);
             }
@@ -292,13 +297,13 @@ const AdminDashboard = () => {
                                     {movies.map((movie) => {
 
                                         return (
-                                            <tr key={movie.id_filmu}>
-                                                <td>{movie.id_filmu}</td>
-                                                <td>{movie.tytul}</td>
-                                                <td>{movie.opis}</td>
-                                                <td>{movie.rezyser}</td>
-                                                <td>{movie.data_premiery}</td>
-                                                <td>{movie.czas_trwania}</td>
+                                            <tr key={movie.movieId}>
+                                                <td>{movie.movieId}</td>
+                                                <td>{movie.title}</td>
+                                                <td>{movie.description}</td>
+                                                <td>{movie.directior}</td>
+                                                <td>{movie.release_date}</td>
+                                                <td>{movie.duration}</td>
                                                 
                                             </tr>
                                         )
@@ -332,9 +337,9 @@ const AdminDashboard = () => {
                                     <ul className="search-results-list">
                                         {searchResults.map((movie, index) => (
                                             <li className="search-movie-link" key={index}
-                                            onClick={() => {handleResultClick(movie.tytul); handleChangeShow('id_filmu', movie.id_filmu)}}>
-                                                <img className="search-item-icon" src={movie.obraz_url} alt={`Film ${index}`} />
-                                                <p className="show-movie-title-list">{movie.tytul}</p>
+                                            onClick={() => {handleResultClick(movie.title); handleChangeShow('id_filmu', movie.movieId)}}>
+                                                <img className="search-item-icon" src={movie.picture_url} alt={`Film ${index}`} />
+                                                <p className="show-movie-title-list">{movie.title}</p>
                                             </li>))}
                                     </ul>
                                 )}

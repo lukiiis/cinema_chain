@@ -4,14 +4,22 @@ import './Shows.css'
 import '@fortawesome/fontawesome-svg-core/styles.css';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
-
+import { useNavigate  } from 'react-router-dom';
 
 export default function Shows({ filmID }) {
     const [cinema, setCinema] = useState();
     const [show, setShow] = useState();
     let defaultCinemaID = 1;
     let [city, setCity] = useState("Krakow");
+    const navigate = useNavigate();
 
+    const handleRedirect = (seansID) => {
+      // Tutaj możesz umieścić dowolną logikę generowania nowej ścieżki
+      const newPath = '/reservation';
+      
+      // Przekazanie danych do nowej strony
+      navigate(newPath, { state: { seansID: seansID } });
+    };
     useEffect(() => {
       const getCinema = () => {
         axios.get('http://localhost:8090/api/v1/kino').then(
@@ -64,8 +72,8 @@ export default function Shows({ filmID }) {
           <div className="dropdown-menu custom-menu" aria-labelledby="dropdownMenuButton">
             {cinema ? (
               cinema.map((cinema, index) => (
-                <a key={cinema.id_kina} className="dropdown-item custom-item" onClick={() => { handleShow(cinema.id_kina); setCinemaCity(cinema.miasto) }}>
-                  {cinema.miasto}
+                <a key={cinema.cinemaId} className="dropdown-item custom-item" onClick={() => { handleShow(cinema.cinemaId); setCinemaCity(cinema.city) }}>
+                  {cinema.city}
                 </a>
               ))
             ) : null}
@@ -91,15 +99,15 @@ export default function Shows({ filmID }) {
                 </div>
                 <div className='show-block-container'>
                   {show ? (
-                    show.map((show, showIndex) => date === show.data_seansu && (
-                      <div className="show-block" key={show.id_seansu}>
-                        <h2 className="hour-text">{show.godzina_rozpoczecia}</h2>
-                        <h1 className="dubbing-text">{show.lektor}, {show.typ_obrazu}</h1>
+                    show.map((show, showIndex) => date === show.showDate && (
+                      <div className="show-block" key={show.showId} onClick={() => handleRedirect(show.showId)}>
+                        <h2 className="hour-text">{show.startTime}</h2>
+                        <h1 className="dubbing-text">{show.lector}, {show.movieFormat}</h1>
                       </div>
                     ))
                   ) : null}
                 </div>
-                {show && show.filter(showItem => date === showItem.data_seansu).length === 0 && (
+                {show && show.filter(showItem => date === showItem.showDate).length === 0 && (
                   <h2 className='empty-show-block'>Brak seansow na ten dzien</h2>
                 )
                 }

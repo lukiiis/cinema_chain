@@ -8,6 +8,7 @@ import axios from 'axios';
 import { useState, useEffect, forwardRef } from 'react';
 import Navigation from '../../Components/navigation/Navigation';
 import Footer from '../../Components/footer/Footer';
+import { useNavigate  } from 'react-router-dom';
 
 
 
@@ -19,6 +20,15 @@ export default function Reportory() {
     let defaultCinemaID = 1;
     let today = new Date();
     let [city, setCity] = useState("Krakow");
+    const navigate = useNavigate();
+
+    const handleRedirect = (seansID) => {
+      // Tutaj możesz umieścić dowolną logikę generowania nowej ścieżki
+      const newPath = '/reservation';
+      
+      // Przekazanie danych do nowej strony
+      navigate(newPath, { state: { seansID: seansID } });
+    };
 
     useEffect(() => {
       const getCinema = () => {
@@ -80,9 +90,9 @@ export default function Reportory() {
         setDate(nextDayFormatted)
     }
 
-    const filteredShows = show.filter((showItem) => showItem.data_seansu === date);
+    const filteredShows = show.filter((showItem) => showItem.showDate === date);
     const moviesWithShowsOnDate = movie.filter((movieItem) =>
-      filteredShows.some((showItem) => showItem.film.id_filmu === movieItem.id_filmu)); 
+      filteredShows.some((showItem) => showItem.movie.movieId === movieItem.movieId)); 
 
     const ExampleCustomInput = forwardRef(({ value, onClick }, ref) => (    
       <button className="date-button" onClick={onClick} ref={ref}>{date}</button>));
@@ -101,8 +111,8 @@ export default function Reportory() {
                 <div className="dropdown-menu custom-menu" aria-labelledby="dropdownMenuButton">
                   {cinema ? (
                     cinema.map((cinema, index) => (
-                      <a key={cinema.id_kina} className="dropdown-item custom-item" onClick={() => { handleShow(cinema.id_kina); setCinemaCity(cinema.miasto) }}>
-                        {cinema.miasto}
+                      <a key={cinema.cinemaId} className="dropdown-item custom-item" onClick={() => { handleShow(cinema.cinemaId); setCinemaCity(cinema.city) }}>
+                        {cinema.city}
                       </a>
                     ))
                   ) : null}
@@ -121,25 +131,26 @@ export default function Reportory() {
                 moviesWithShowsOnDate.map((movie, movieIndex) => (
                   <div className='repertory-item'>
                     <div className='repertory-image-container'>
-                      <img className='repertory-image' src={movie.plakat_url}></img>
+                      <img className='repertory-image' src={movie.poster_url}></img>
                     </div>
                     <div className='repertory-information-container'>
                       <div className='movie-title-conatiner'>
-                        <p className='repertory-title'>{movie.tytul}</p>
+                        <p className='repertory-title'>{movie.title}</p>
                       </div>
                       <div className='movie-cos'>
-                        <p className='repertory-category'>{movie.kategoria.nazwa_gatunku}</p>
+                        <p className='repertory-category'>{movie.category.movie_genre}</p>
                       </div>
                       <div className='movie-description-container'>
-                        <p className='repertory-description'>{movie.opis}</p>
+                        <p className='repertory-description'>{movie.description}</p>
                       </div>
                       <div className='container-repertory'>
                       {filteredShows ? (
-                      filteredShows.map((show, showIndex) => movie.id_filmu === show.film.id_filmu && (
-                        <div className="show-repertory" key={show.id_seansu}>
-                          <h2 className="hour-text">{show.godzina_rozpoczecia}</h2>
-                          <h1 className="dubbing-text">{show.lektor}, {show.typ_obrazu}</h1>
-                        </div>
+                      filteredShows.map((show, showIndex) => movie.movieId === show.movie.movieId && (
+                          <div className="show-repertory" key={show.showId} onClick={() => handleRedirect(show.showId)}>
+                            <h2 className="hour-text">{show.startTime}</h2>
+                            <h1 className="dubbing-text">{show.lector}, {show.movieFormat}</h1>
+                          </div>
+                        
                       ))
                     ) : null}
                       </div>
@@ -148,7 +159,7 @@ export default function Reportory() {
                 ))
               ) : null}
             </div>
-            {filteredShows && filteredShows.filter(showItem => date === showItem.data_seansu).length === 0 && (
+            {filteredShows && filteredShows.filter(showItem => date === showItem.showDate).length === 0 && (
                     <h2 className='empty-repertory'>Brak seansow na ten dzien</h2>)}
           </div>
         </div>

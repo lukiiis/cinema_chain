@@ -50,11 +50,25 @@ public class Reservation {
 
     @JsonIgnore
     @ManyToOne
-    @JoinColumn(name = "ID_KLIENTA", referencedColumnName = "ID_KLIENTA", insertable = false, updatable = false)
+    @JoinColumn(name = "ID_KLIENTA", referencedColumnName = "ID_KLIENTA")
     private Client client;
 
     //@JsonIgnoreProperties("film")
     @ManyToOne
-    @JoinColumn(name = "ID_SEANSU", referencedColumnName = "ID_SEANSU", insertable = false, updatable = false)
-    private Seans session;
+    @JoinColumn(name = "ID_SEANSU", referencedColumnName = "ID_SEANSU")
+    private Show session;
+
+    public Reservation(String firstName, String lastName, String email, Long phoneNumber, Long seatNumber, String seatRow, LocalDate purchaseDate, String ticketType, Double price, Client client, Show session) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+        this.seatNumber = seatNumber;
+        this.seatRow = seatRow;
+        this.purchaseDate = purchaseDate;
+        this.ticketType = ticketType;
+        this.price = price;
+        this.client = client;
+        this.session = session;
+    }
 }

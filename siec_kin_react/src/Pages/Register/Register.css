@@ -41,7 +41,7 @@ form{
     gap:45px;
 }
 
-label{
+.formInputs label{
     display: flex;
     align-items: flex-start;
     flex-direction: column;

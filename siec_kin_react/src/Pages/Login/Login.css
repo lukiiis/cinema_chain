@@ -40,7 +40,7 @@
     gap:45px;
 }
 
-label{
+.login-lbl{
     display: flex;
     align-items: flex-start;
     flex-direction: column;

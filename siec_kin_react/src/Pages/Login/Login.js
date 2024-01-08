@@ -107,12 +107,12 @@ const Login = () => {
                     <form className="loginForm" onSubmit={handleSubmit}>
                         <div className="loginFormWrapper">
                             <div className="loginFormInputs">
-                                <label>
+                                <label className="login-lbl">
                                     Login
                                     <input type="text" name="login" value={formData.login} onChange={handleChange} />
                                     {errors.login && <span>{errors.login}</span>}
                                 </label>
-                                <label>
+                                <label className="login-lbl">
                                     Hasło
                                     <input type="password" name="password" value={formData.password} onChange={handleChange} />
                                     {errors.password && <span>{errors.password}</span>}

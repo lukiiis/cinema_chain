@@ -31,10 +31,10 @@ const Footer = () => {
                         {kina ? (
                             <ul className='cinemaList'>
                                 {kina.map((kino) => {
-                                    const miastoLowerCase = kino.miasto.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+                                    const miastoLowerCase = kino.city.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
                                     return (
                                         <li key={kino.id_kina}>
-                                            <Link to={`/repertuar`} className='link'>{kino.miasto}</Link>
+                                            <Link to={`/repertuar`} className='link'>{kino.city}</Link>
                                         </li>
                                     );
                                 })}

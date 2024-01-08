@@ -31,8 +31,8 @@ export default function CinemaSelection() {
       <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
         {cinema ? (
           cinema.map((cinema, index) => (
-            <a key={cinema.id_kina} className="dropdown-item" href={cinema.miasto}>
-              {cinema.miasto}
+            <a key={cinema.cinemaId} className="dropdown-item" href={cinema.city}>
+              {cinema.city}
             </a>
           ))
         ) : null}

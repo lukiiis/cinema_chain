@@ -47,39 +47,39 @@ const Movie = (() => {
             <div className='body-container'>
                 <div className='poster-information-container'>
                     <div className='trailer-container'
-                        style={{ backgroundImage: `url("${movie.obraz_url}")` }}
+                        style={{ backgroundImage: `url("${movie.poster_url}")` }}
                     >
 
                     </div>
                     <div className='information-container'>
                         <div className='poster-container'>
-                            <img className='small-poster' src={movie.plakat_url}></img>
+                            <img className='small-poster' src={movie.poster_url}></img>
                             <div className='movie-information'>
                                 <h1 className='information-text-title'>Premiera</h1>
-                                <p className='information-text'>{movie.data_premiery}</p>
+                                <p className='information-text'>{movie.release_date}</p>
                             </div>
                             <div className='movie-information'>
                                 <h1 className='information-text-title'>Czas Trwania</h1>
-                                <p className='information-text'>{movie.czas_trwania}</p>
+                                <p className='information-text'>{movie.duration}</p>
                             </div>
                             <div className='movie-information'>
                                 <h1 className='information-text-title'>Reżyseria</h1>
-                                <p className='information-text'>{movie.rezyser}</p>
+                                <p className='information-text'>{movie.director}</p>
                             </div>
                         </div>
                         <div className='information'>
                             <div>
-                                <h2 className='title-text'>{movie.tytul}</h2>
+                                <h2 className='title-text'>{movie.title}</h2>
                             </div>
                             <div className='description-container'>
-                                <h3 className='description-text'>{movie.opis}</h3>
+                                <h3 className='description-text'>{movie.description}</h3>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div className='movies-show-container'>
                     <Shows
-                        filmID={movie.id_filmu}
+                        filmID={movie.movieId}
                     ></Shows>
                 </div>
             </div>

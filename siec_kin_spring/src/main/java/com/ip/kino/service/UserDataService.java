@@ -39,7 +39,7 @@ public class UserDataService {
         } else if (user.getEmployee() != null) {
             employeeDto.setEmployeeId(user.getEmployee().getEmployeeId());
             employeeDto.setPosition(user.getEmployee().getPosition());
-            employeeDto.setKino(user.getEmployee().getKino());
+            employeeDto.setKino(user.getEmployee().getCinema());
             clientDto = null;
             adminDto=null;
         }

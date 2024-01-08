@@ -12,6 +12,7 @@ import NewsDetails from './Pages/News/NewsDetails';
 import Dashboard from './Pages/Dashboard/Dashboard';
 import Movie from './Pages/Movie/Movie'
 import Reportory from './Pages/Repertory/Repertory';
+import Reservation from './Pages/Reservation/Reservation';
 import EmployeeDashboard from './Pages/EmployeeDashboard/EmployeeDashboard';
 import { useEffect } from 'react';
 import { jwtDecode } from 'jwt-decode';
@@ -50,6 +51,7 @@ function App() {
         <Route path='/film/:title' element={<Movie />} />
         <Route path='/repertuar' element={<Reportory />} />
         <Route path='/employeeDashboard' element={<EmployeeDashboard />}/>
+        <Route path='/Reservation' element={<Reservation />}/>
       </Routes>
     </BrowserRouter>
   );
