@@ -9,11 +9,11 @@ const Register = () => {
     const navigate = useNavigate();
     const [formData, setFormData] = useState({
         login: '',
-        haslo: '',
+        passwd: '',
         email: '',
-        imie: '',
-        nazwisko: '',
-        nr_telefonu: ''
+        name: '',
+        surname: '',
+        phone: ''
     })
 
     const [registerStatus, setRegisterStatus] = useState(null);
@@ -26,12 +26,22 @@ const Register = () => {
         }
     }, [])
 
-    //walidacja danych
+    //walidacja danych todo
+    function hasSpecialCharacter(password) {
+        const regex = /[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]+/;
+        return regex.test(password);
+    }
     useEffect(() => {
-        const validationErrors = {};
+        const validationErrors = [];
 
         if (!formData.login) {
             validationErrors.login = "Pole wymagane";
+        }
+        if (formData.passwd.length < 8) {
+            validationErrors.push("Hasło ma mniej niż 8 znaków.");
+        }
+        if (!hasSpecialCharacter(formData.passwd)) {
+            validationErrors.push("Hasło nie zawiera znaku specjalnego.");
         }
 
         setErrors(validationErrors);
@@ -54,7 +64,7 @@ const Register = () => {
                 //Tutaj wstawic na fronta wiadomosc od backendu, czy udalo sie zarejestrowac pomyslnie
                 console.log('Server response: ', response);
                 if(response.status===200){
-                    setRegisterStatus(response.data.status);
+                    setRegisterStatus("Rejestracja pomyślna, teraz możesz się zalogować.");
                 }
             }
             catch (error) {
@@ -78,34 +88,35 @@ const Register = () => {
                         <div className="formWrapper">
                             <div className="formInputs">
                                 <label>
-                                    Login
+                                    Login*
                                     <input type="text" name="login" value={formData.login} onChange={handleChange} />
-                                    {errors.login && <span>{errors.login}</span>}
                                 </label>
                                 <label>
-                                    Hasło
+                                    Hasło*
                                     <input type="password" name="passwd" value={formData.passwd} onChange={handleChange} />
-                                    {errors.passwd && <span>{errors.passwd}</span>}
+                                    {errors.length > 0 && (
+                                        <div className="passwdErrors">
+                                            {errors.map((error, index) => (
+                                                <span key={index}>{error}</span>
+                                            ))}
+                                        </div>
+                                    )}
                                 </label>
                                 <label>
-                                    E-mail
+                                    E-mail*
                                     <input type="email" name="email" value={formData.email} onChange={handleChange} />
-                                    {errors.email && <span>{errors.email}</span>}
                                 </label>
                                 <label>
-                                    Numer telefonu
+                                    Numer telefonu*
                                     <input type="number" name="phone" value={formData.phone} onChange={handleChange} />
-                                    {errors.phone && <span>{errors.phone}</span>}
                                 </label>
                                 <label>
-                                    Imię
+                                    Imię*
                                     <input type="text" name="name" value={formData.name} onChange={handleChange} />
-                                    {errors.name && <span>{errors.name}</span>}
                                 </label>
                                 <label>
-                                    Nazwisko
+                                    Nazwisko*
                                     <input type="text" name="surname" value={formData.surname} onChange={handleChange} />
-                                    {errors.surname && <span>{errors.surname}</span>}
                                 </label>
                             </div>
                             <div className="formButton">

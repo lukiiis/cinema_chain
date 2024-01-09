@@ -2,6 +2,7 @@
     background-color: rgb(24, 24, 24);
 }
 
+
 .nav-link{
     color:white;
 }
@@ -29,6 +30,7 @@ nav{
     padding:8px 8px 8px 8px;
     text-decoration: none;
     text-transform: uppercase;
+    transition: all 0.3s ease;
 }
 
 .navColor:hover{
@@ -83,7 +85,12 @@ nav{
 
 .navbar-company{
     color:rgb(199, 49, 49);
-    font-size: 30px;
+    font-size: 32px;
+    transition: all 0.5s ease;
+}
+
+.navbar-company:hover{
+    color:gold;
 }
 
 /* -------------USER INFO -------------------- */

@@ -54,6 +54,7 @@ const Login = () => {
                 if(response.data.status === "Account is blocked."){
                     localStorage.clear();
                     setLoginStatus("Konto jest zablokowane.");
+                    return;
                 }
                 else{
                     Object.keys(response.data).forEach(resData => {
@@ -88,11 +89,13 @@ const Login = () => {
                 }
             }
             catch (error) {
-                console.error('Error while sending data: ', error);
+                if(error.response.status===403){
+                    setLoginStatus("Nie istnieje takie konto");
+                }
             }
         }
         else {
-            console.log('Form is empty');
+            setLoginStatus("Niektóre pola formularza są puste");
         }
     }
 

@@ -17,12 +17,15 @@ function Navigation(props) {
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
-                <Link to ="/"><span className="navbar-company">MultiKina</span></Link>
+                <Link to ="/"><span className="navbar-company">WieloKino</span></Link>
 
                 <div className="collapse navbar-collapse" id="navbarTogglerDemo03">
                     <ul className="navbar-nav mr-auto mt-2 mt-lg-0 navColor">
                         <li className={`nav-item ${props.active === "home" ? 'activeHover' : ''}`}>
                             <Link to="/" className={`navColor ${props.active === "home" ? 'activeHover' : ''}`}>Strona Główna</Link>
+                        </li>
+                        <li className={`nav-item ${props.active === "repertory" ? 'activeHover' : ''}`}>
+                            <Link to="/repertuar" state={{ cinek: 1 }} className={`navColor ${props.active === "repertory" ? 'activeHover' : ''}`}>Repertuar</Link>
                         </li>
                         <li className={`nav-item ${props.active === "promotions" ? 'activeHover' : ''}`}>
                             <Link to="/promocje" className={`navColor ${props.active === "promotions" ? 'activeHover' : ''}`}>Promocje</Link>

@@ -12,6 +12,7 @@
     background: rgb(250, 250, 250);
     border-radius: 53px;
     padding:55px 65px 55px 65px;
+    min-width: 700px;
     overflow: hidden;
 }
 
@@ -22,6 +23,10 @@
     flex-direction: row;
     flex-wrap: wrap;
     column-gap:50px;
+}
+
+.formInputs input{
+    padding: 4px;
 }
 
 .formInputs label{
@@ -46,7 +51,7 @@
     color: white;
 }
 
-form{
+.formBorder form{
     margin:0 auto;
     width:100%;
     display: flex;
@@ -76,7 +81,11 @@ form{
     height: 20px;
 }
 
-
+.passwdErrors{
+    display: flex;
+    flex-direction: column;
+    font-size: 10px;
+}
 
 
 

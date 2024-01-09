@@ -116,7 +116,7 @@ export default function Reportory() {
 
   return (
     <>
-      <Navigation />
+      <Navigation active={"repertory"}/>
 
       <div className='rep-body'>
         <div className='repertoryWrapper'>
