@@ -18,10 +18,9 @@ export default function FilmCarousel() {
             axios.get('http://localhost:8090/api/v1/film').then(
                 response => {
                     setMovies(response.data)
-                    console.log(response.data)
                 }
             ).catch(err => {
-                console.log('nie dziala')
+                console.log('Error while fetching data')
             })
         }
         getMovies();
@@ -31,8 +30,8 @@ export default function FilmCarousel() {
         <div>
             {movies ? (
                 <div>
-                    <Carousel
-                        navButtonsProps={{          // Change the colors and radius of the actual buttons. THIS STYLES BOTH BUTTONS
+                    <Carousel 
+                        navButtonsProps={{
                             style: {
                                 borderRadius: 0,
                                 color: 'yellow'
@@ -46,30 +45,32 @@ export default function FilmCarousel() {
 
                     >
                         {movies.map((movie, index) => (
-                            <Paper key={movie.movieId}>
-                                <div className='movie-card-container'>
-                                    <img className='movie-card-poster' src={movie.picture_url} alt="" />
-                                    <div className="movie-card" >
-                                        <div className="movie-detail">
-                                            <div className="movie-poster">
-                                                <img src={movie.poster_url} alt="" />
-                                            </div>
-                                            <div className="movie-title">
-                                                <h4 className='movie-title-carousel'>{movie.title}</h4>
-                                            </div>
-                                            <div className="movie-buttons-container">
-                                                <Link to={`/Trailer/${movie.picture_url.substring(movie.picture_url.length - 11)}`}>
-                                                    <div className="play-button-icon-container">
-                                                        <FontAwesomeIcon className="play-button-icon"
-                                                            icon={faCirclePlay}
-                                                        />
-                                                    </div>
-                                                </Link>
+                            <Link to={`/film/${movie.movieId}`} state={{ movie_ID: movie.movieId }} key={movie.movieId}>
+                                <Paper>
+                                    <div className='movie-card-container'>
+                                        <img className='movie-card-poster' src={movie.picture_url} alt="" />
+                                        <div className="movie-card" >
+                                            <div className="movie-detail">
+                                                <div className="movie-poster">
+                                                    <img src={movie.poster_url} alt="" />
+                                                </div>
+                                                <div className="movie-title">
+                                                    <h4 className='movie-title-carousel'>{movie.title}</h4>
+                                                </div>
+                                                <div className="movie-buttons-container">
+                                                    
+                                                        <div className="play-button-icon-container">
+                                                            <FontAwesomeIcon className="play-button-icon"
+                                                                icon={faCirclePlay}
+                                                            />
+                                                        </div>
+                                                    
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            </Paper>
+                                </Paper>
+                            </Link>
                         ))}
                     </Carousel>
                 </div>

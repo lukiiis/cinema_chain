@@ -15,10 +15,9 @@ export default function CinemaSelection() {
       axios.get('http://localhost:8090/api/v1/kino').then(
         response => {
           setCinema(response.data)
-          console.log(response.data)
         }
       ).catch(err => {
-        console.log('nie dziala')
+        console.log('Error while fetching data')
       })
     }
     getCinema();
@@ -26,7 +25,7 @@ export default function CinemaSelection() {
 
   return (
     <div className="dropdown">
-      <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+      <button className="btn btn-secondary dropdown-toggle dropdawn" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
         SPRAWDŹ REPERTUAR
       </button>
       <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">

@@ -33,7 +33,7 @@ const UserReservations = ({ reservations }) => {
                                 key={reservation.reservationId}
                             >
                                 <div className="left">
-                                    <img src={reservation.session.movie.picture_url}></img>
+                                    <img src={reservation.session.movie.poster_url}></img>
                                 </div>
                                 <div className="mid">
                                     <div className="movieTitle">
@@ -55,13 +55,13 @@ const UserReservations = ({ reservations }) => {
                                 </div>
                                 <div className="right">
                                     <div className="boughtDate">
-                                        {reservation.purchaseDate}
+                                        Data zakupu: {reservation.purchaseDate}
                                     </div>
                                     <div className="">
                                         Kino: {reservation.session.cinema.city}
                                     </div>
                                     <div className="">
-                                        Cena biletu: {reservation.price}
+                                        Cena: {reservation.price} zł
                                     </div>
                                 </div>
                             </div>

@@ -19,7 +19,6 @@ import { jwtDecode } from 'jwt-decode';
 import AdminDashboard from './Pages/AdminDashboard/AdminDashboard';
 
 function App() {
-  //SPRAWDZARKA DO TOKENÓW
   useEffect(() => {
     const jwtToken = localStorage.getItem('token');
     if (jwtToken) {
@@ -27,9 +26,6 @@ function App() {
       if (!jwtToken || decodedJwt.exp * 1000 < new Date().getTime()) {
         console.log("Token expired.");
         localStorage.removeItem('token');
-      }
-      else {
-        console.log("Token valid.");
       }
     }
   }, [])

@@ -15,7 +15,7 @@ export default function Datepicker({onDataReceived, onDateSend}){
         useEffect(() => {
           if (onDateSend && shouldUpdateDate) {
             setSelectedDate(onDateSend());
-            setShouldUpdateDate(true); // Ustawiamy flagę na false po odebraniu daty
+            setShouldUpdateDate(true); // set flag to false
             console.log("2");
           }
         }, [onDateSend, shouldUpdateDate]);
@@ -25,7 +25,7 @@ export default function Datepicker({onDataReceived, onDateSend}){
         const setDatePicker = (date) => {
           setSelectedDate(date.toISOString().split('T')[0]);
           onDataReceived(date)
-          setShouldUpdateDate(false); // Ustawiamy flagę na false, aby uniknąć nadpisywania daty
+          setShouldUpdateDate(false); //  flag to false, avoid overwriting date
         };
 
         const ExampleCustomInput = forwardRef(({ value, onClick }, ref) => (

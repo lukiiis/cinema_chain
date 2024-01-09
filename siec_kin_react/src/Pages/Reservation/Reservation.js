@@ -57,11 +57,6 @@ export default function Reservation() {
 
       if (response.status === 200) {
         setUserID(response.data.client.clientId);
-        console.log(response.data.client.clientId)
-      }
-      else if (response.status === 403) {
-        console.log("Access forbidden");
-        navigate("/");
       }
       else {
         console.log("unexpected error", response.status);
@@ -70,7 +65,7 @@ export default function Reservation() {
     catch (error) {
       console.error("Error while fetching data", error);
       if (error.response.status === 403) {
-        console.log("Token expired. Log in to proceed.");
+        console.log("Access denied.");
         localStorage.clear();
         navigate("/login");
       }
@@ -99,10 +94,9 @@ export default function Reservation() {
       axios.get(url).then(
         response => {
           setShow(response.data)
-          console.log(response.data)
         }
       ).catch(err => {
-        console.log('nie dziala')
+        console.log('Access denied')
       })
     }
     getShow();
@@ -114,10 +108,9 @@ export default function Reservation() {
       axios.get(url).then(
         response => {
           setReservedSeats(response.data)
-          console.log(response.data)
         }
       ).catch(err => {
-        console.log('nie dziala')
+        console.log('Access denied')
       })
     }
     getReservedSeats();
@@ -128,7 +121,6 @@ export default function Reservation() {
   useEffect(() => {
     if (show) {
       show.cinema.screeningRooms.forEach(element => {
-        console.log(element)
         if (element.screeningRoomId == show.screeningRoomId) {
           setSeats(element.seats)
         }
@@ -137,7 +129,6 @@ export default function Reservation() {
   }, [show])
 
   const handleChange = async (name, value) => {
-    console.log(name, value);
     await setFormData((prevFormData) => {
       return {
         ...prevFormData,
@@ -156,9 +147,13 @@ export default function Reservation() {
 
 
   const handleSubmit = async (e) => {
+    if(localStorage.getItem('role') === "ADMIN" || localStorage.getItem('role') === "WORKER"){
+      console.log('Tylko klienci mogą rezerwować bilety');
+      return;
+    }
+
     e.preventDefault();
     for (const element of clickedSeats) {
-      console.log(element)
       const formDataToSend = {
         email: formData.email,
         firstName: formData.firstName,
@@ -181,22 +176,17 @@ export default function Reservation() {
   };
 
   const sendData = async (data) => {
-    console.log(data)
     if (data.seatNumber != null) {
       if (Object.keys(errors).length === 0) {
         try {
           const response = await axios.post("http://localhost:8090/api/v1/public/addReservation", data);
-          //Tutaj wstawic na fronta wiadomosc od backendu, czy udalo sie zarejestrowac pomyslnie
-          console.log('Server response: ', response.data);
           setRes(response.data);
-          // window.location.reload()
         }
         catch (error) {
           console.error('Error while sending data: ', error);
         }
       }
       else {
-        //tutaj wyslac cos na ekran, ze dane bledne
         console.log('Form has errors, cannot submit.');
       }
     }
@@ -204,7 +194,7 @@ export default function Reservation() {
 
 
 
-  // Grupujemy miejsca według rzędów
+  // grupuje miejsca wg rzędów
   const rowSeats = seats.reduce((acc, seat) => {
     const row = seat.row;
 
@@ -260,7 +250,6 @@ export default function Reservation() {
 
 
   const handleButtonClick = () => {
-    console.log(clickedSeats)
     if (clickedSeats.length > 0) {
 
       setMovieModifyContentVisible(true);
@@ -276,44 +265,42 @@ export default function Reservation() {
 
   const handleButtonPayment = (method) => {
     setPaymentMethod(method)
-    console.log(paymentMethod)
   }
 
   const renderMovieModifyContent = () => {
-    console.log("ah")
     return (
       <div className="ReservationformWrapper">
-        <h4>Wypelnij dane by kontynuowac</h4>
+        <h4>Wypełnij dane by kontynuować</h4>
         <div className="formInputs">
           <label >
-            imie
+            Imię
             <input className="input-reservation" type="text" name="firstName" value={formData.firstName} onChange={(e) => { handleChangeInput(e) }} />
             {errors.login && <span>{errors.login}</span>}
           </label>
           <label>
-            nazwisko
+            Nazwisko
             <input className="input-reservation" type="text" name="lastName" value={formData.lastName} onChange={(e) => { handleChangeInput(e) }} />
             {errors.haslo && <span>{errors.haslo}</span>}
           </label>
           <label>
-            nr telefonu
+            Nr telefonu
             <input className="input-reservation" type="text" name="phoneNumber" value={formData.phoneNumber} onChange={(e) => { handleChangeInput(e) }} />
             {errors.email && <span>{errors.email}</span>}
           </label>
           <label>
-            email
+            Email
             <input className="input-reservation" type="email" name="email" value={formData.email} onChange={(e) => { handleChangeInput(e) }} />
             {errors.nr_telefonu && <span>{errors.nr_telefonu}</span>}
           </label>
         </div>
         <div className="payment-methods">
           <div>
-          Wybierz metode płatności:
+          Wybierz metodę płatności:
           <div className="paymentMethod" onClick={() => handleButtonPayment("Blik")}>BLIK</div>
           <div onClick={() => handleButtonPayment("Przelew")}>Przelew</div>
           </div>
           <div>
-          <h2 className="chosenMethod">Wybrana metoda platnosci:</h2>
+          <h2 className="chosenMethod">Wybrana metoda platności:</h2>
           <h2> {paymentMethod}</h2>
           </div>
 
@@ -355,7 +342,7 @@ export default function Reservation() {
                           (reservedPlace) =>
                             reservedPlace.seatId === miejsce.seatId
                         )
-                          ? 'reserved' // dodaj klasę 'reserved' dla zarezerwowanych miejsc
+                          ? 'reserved'
                           : ''
                         }`}
                       onClick={() => {
@@ -383,34 +370,33 @@ export default function Reservation() {
             <input type="radio" class="btn-check ticket-type-button" name="options" id="option1" autocomplete="off" checked={formData.ticketType === 'ulgowy'}
               onChange={() => { handleChange('ticketType', 'ulgowy') }}
               defaultChecked={formData.ticketType === 'ulgowy'} />
-            <label class="btn btn-secondary ticket-type-button" for="option1" >ulgowy</label>
+            <label class="btn btn-secondary ticket-type-button" for="option1" >Ulgowy</label>
 
             <input type="radio" class="btn-check ticket-type-button" name="options" id="option2" autocomplete="off"
               checked={formData.ticketType === 'normalny'}
               onChange={() => { handleChange('ticketType', 'normalny'); }}
               defaultChecked={formData.ticketType === 'normalny'}
             />
-            <label class="btn btn-secondary ticket-type-button" for="option2" >normalny</label>
+            <label class="btn btn-secondary ticket-type-button" for="option2" >Normalny</label>
           </div>
-          <h1 className="sum-price">{Price}</h1>
+          <h1 className="sum-price">Cena: {Price} zł</h1>
           <button className="button-ready" onClick={() => handleButtonClick()}>Gotowe</button>
         </div>
       </div>
       <div class="payment-container">
         {isMovieModifyContentVisible === true && renderMovieModifyContent()}
       </div>
-
       {/* popup */}
       {isPopupOpen && (
-                    <div className="overlay">
-                        <div className="popup">
-                            <div className="popup-content">
-                                <p>Dziekujemy za zakup bilety zostały wysłane na pocztę email, przejdź do strony głównej</p>
-                                <button onClick={handleRedirect}>Przejdź</button>
-                            </div>
-                        </div>
-                    </div>
-                )}
+        <div className="overlay">
+            <div className="popup">
+                <div className="popup-content">
+                    <p>Dziekujemy za zakup, bilety zostały wysłane na adres email podany podczas zakupu biletów</p>
+                    <button onClick={handleRedirect}>Strona główna</button>
+                </div>
+            </div>
+        </div>
+    )}
     </div>
     <Footer />
     </>

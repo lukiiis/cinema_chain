@@ -2,6 +2,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './Navigation.css';
 import { Link } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
+import {ReactComponent as SettingsSvg} from './settings.svg';
 
 function Navigation(props) {
     const navigate = useNavigate();
@@ -17,7 +18,7 @@ function Navigation(props) {
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
-                <Link to ="/"><span className="navbar-company">WieloKino</span></Link>
+                <Link to ="/"><span className="navbar-company">TurboKino</span></Link>
 
                 <div className="collapse navbar-collapse" id="navbarTogglerDemo03">
                     <ul className="navbar-nav mr-auto mt-2 mt-lg-0 navColor">
@@ -45,21 +46,21 @@ function Navigation(props) {
                                 if(localStorage.getItem('role') === "ADMIN"){
                                     return (
                                         <Link to="/admin-dashboard" className='dashboardLink'>
-                                            <img src='http://localhost:3000/static/media/user-gear.3f58436e0da6510255f1.png'></img>
+                                            <SettingsSvg/>
                                         </Link>
                                     )
                                 }
                                 else if(localStorage.getItem('role') === "USER"){
                                     return (
                                         <Link to="/dashboard" className='dashboardLink'>
-                                            <img src='http://localhost:3000/static/media/user-gear.3f58436e0da6510255f1.png'></img>
+                                            <SettingsSvg/>
                                         </Link>
                                      )
                                 }
                                 else if(localStorage.getItem('role') === "WORKER"){
                                     return(
                                         <Link to="/employee-dashboard" className='dashboardLink'>
-                                            <img src='http://localhost:3000/static/media/user-gear.3f58436e0da6510255f1.png'></img>
+                                            <SettingsSvg/>
                                         </Link>
                                     )
                                 }
@@ -74,7 +75,7 @@ function Navigation(props) {
                         :
                         <div className='logInButtons'>
                             <Link to="/login" className="btn btn-outline-success my-2 my-sm-0 logButton">Zaloguj się</Link>
-                            <Link to="/rejestracja" className="btn my-2 my-sm-0 regButton">Zarejestruj się</Link>
+                            <Link to="/rejestracja" className=" my-2 my-sm-0 regButton">Zarejestruj się</Link>
                         </div>
                     }
                 </div>

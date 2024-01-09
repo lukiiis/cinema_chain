@@ -16,7 +16,6 @@ const Login = () => {
     })
 
     const [errors, setErrors] = useState({});
-    //walidacja danych
     useEffect(() => {
         const validationErrors = {};
 
@@ -49,8 +48,6 @@ const Login = () => {
         if (Object.keys(errors).length === 0) {
             try {
                 const response = await axios.post("http://localhost:8090/api/v1/public/auth/login", formData);
-                console.log('Server response: ', response.data);
-
                 if(response.data.status === "Account is blocked."){
                     localStorage.clear();
                     setLoginStatus("Konto jest zablokowane.");

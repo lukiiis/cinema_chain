@@ -25,12 +25,6 @@ ul{
     width: 100%;
   }
 
-.search-movie-link:hover{
-    background-color: gray;
-}
-  
-
-/* -------------- luki -------------- */
 .search-item-icon{
   color:black;
 }
@@ -40,15 +34,18 @@ ul{
 }
 
 .searchInput{
-  width: 350px;
+  width: 310px;
+  
+}
+
+.glass{
+  background-color: rgb(226, 226, 226);
+  border-left: 1px solid black;
+  border-radius: 7px;
 }
 
 .searchInput input{
   height: 50px;
-}
-
-.search-movie-link{
-
 }
 
 .show-movie-title-list{
@@ -57,8 +54,27 @@ ul{
 }
 
 .resList{
-  background-color: black;
-  gap:8px;
+  background-color: rgb(245, 245, 245);
   display: flex;
   flex-direction: column;
+}
+
+.resList a{
+  padding: 6px 0 6px 6px;
+  border-bottom: 1px solid rgb(107, 107, 107);
+}
+
+.resList a:hover{
+  background-color: rgb(211, 211, 211);
+}
+
+.resList a:last-child{
+  border-bottom: none;
+}
+
+.my-search-movie-link{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap:13px;
 }

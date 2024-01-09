@@ -17,7 +17,7 @@
 }
 
 .movie-card-container {
-    height: 700px;
+    height: 650px;
     background-color: black;
     overflow: hidden;
     position: relative;
@@ -27,7 +27,7 @@
     height: 100%;
     width: 100%;
     object-fit: cover;
-    position: absolute;
+    object-position: top;
 }
 
 .movie-card {
@@ -51,6 +51,7 @@
     color: white;
     display: flex;
     align-items: center;
+    width: 300px;
 }
 
 .movie-buttons-container {
@@ -81,6 +82,11 @@
 }
 
 .movie-title-carousel {
+    background-color: rgb(19, 19, 19, 0.4);
+    border-radius: 16px;
+    font-size: 27px;
+    text-transform: uppercase;
+    padding:10px;
     color: white;
 }
 
@@ -91,3 +97,4 @@
         top: 20px;
     }
 }
+

@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 
 const AdminDashboard = () => {
     const navigate = useNavigate();
-    const [selectedMenuItem, setSelectedMenuItem] = useState("cinemas"); // domyślny wybór
+    const [selectedMenuItem, setSelectedMenuItem] = useState("cinemas");
     const [modifyUsers, setModifyUsers] = useState(null);
     const [cinemas, setCinemas] = useState(null);
     const [users, setUsers] = useState(null);
@@ -18,13 +18,13 @@ const AdminDashboard = () => {
     const [blockStatus, setBlockStatus] = useState('');
 
     const handleMenuItemClick = (menuItem) => {
-        setSelectedMenuItem(menuItem); // zmiana elementu menu
+        setSelectedMenuItem(menuItem);
     }
     const handleUserModification = (menuItem) => {
         if (modifyUsers === menuItem) {
-            setModifyUsers(null); // Jeśli klikniesz drugi raz to ukryj
+            setModifyUsers(null);
         } else {
-            setModifyUsers(menuItem); // Jeśli klikniesz pierwszy raz to pokaż
+            setModifyUsers(menuItem);
         }
     }
 
@@ -204,12 +204,23 @@ const AdminDashboard = () => {
     const [addEmployeeStatus, setAddEmployeeStatus] = useState('');
 
     const [errors, setErrors] = useState({});
-    //walidacja danych todo
+    
+    function hasSpecialCharacter(password) {
+        const regex = /[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]+/;
+        return regex.test(password);
+    }
+
     useEffect(() => {
-        const validationErrors = {};
+        const validationErrors = [];
 
         if (!addEmployeeData.login) {
             validationErrors.login = "Pole wymagane";
+        }
+        if (addEmployeeData.passwd.length < 8) {
+            validationErrors.push("Hasło ma mniej niż 8 znaków.");
+        }
+        if (!hasSpecialCharacter(addEmployeeData.passwd)) {
+            validationErrors.push("Hasło nie zawiera znaku specjalnego.");
         }
 
         setErrors(validationErrors);
@@ -226,6 +237,7 @@ const AdminDashboard = () => {
                     }
                 });
                 if(response.status===200){
+                    
                     if(response.data === "Podany adres e-mail oraz login są zajęte."){
                         setAddEmployeeStatus(response.data);
                     }
@@ -307,7 +319,7 @@ const AdminDashboard = () => {
             case "add":
                 return(
                     <div className="formContainer">
-                        <form onSubmit={addEmployee}>
+                        <form className="adminForm" onSubmit={addEmployee}>
                         <div className="formInputs">
                                 <label>
                                     Login
@@ -316,6 +328,13 @@ const AdminDashboard = () => {
                                 <label>
                                     Hasło
                                     <input type="password" name="passwd" value={addEmployeeData.passwd} onChange={handleChange} />
+                                    {errors.length > 0 && (
+                                        <div className="passwdErrors">
+                                            {errors.map((error, index) => (
+                                                <span key={index}>{error}</span>
+                                            ))}
+                                        </div>
+                                    )}
                                 </label>
                                 <label>
                                     E-mail

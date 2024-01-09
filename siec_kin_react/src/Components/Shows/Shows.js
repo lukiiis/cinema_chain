@@ -14,10 +14,8 @@ export default function Shows({ filmID }) {
     const navigate = useNavigate();
 
     const handleRedirect = (seansID) => {
-      // Tutaj możesz umieścić dowolną logikę generowania nowej ścieżki
       const newPath = '/reservation';
       
-      // Przekazanie danych do nowej strony
       navigate(newPath, { state: { seansID: seansID } });
     };
     useEffect(() => {

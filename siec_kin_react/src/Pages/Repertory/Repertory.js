@@ -26,13 +26,10 @@ export default function Reportory() {
     const cinemaId = useLocation();
     const { cinek } = cinemaId.state;
     const defaultCinemaID = cinek;
-    console.log(defaultCinemaID)
     
     const handleRedirect = (seansID) => {
-      // Tutaj możesz umieścić dowolną logikę generowania nowej ścieżki
       const newPath = '/reservation';
       
-      // Przekazanie danych do nowej strony
       navigate(newPath, { state: { seansID: seansID } });
     };
 
@@ -41,10 +38,9 @@ export default function Reportory() {
       axios.get('http://localhost:8090/api/v1/kino').then(
         response => {
           setCinema(response.data)
-          console.log(response.data)
         }
       ).catch(err => {
-        console.log('nie dziala')
+        console.log('Error while fetching data')
       })
     }
     getCinema()
@@ -58,7 +54,7 @@ export default function Reportory() {
         }
       })
     }
-  }, cinema)
+  }, [cinema])
 
   useEffect(() => {
     const url = 'http://localhost:8090/api/v1/film';
@@ -66,10 +62,9 @@ export default function Reportory() {
       axios.get(url).then(
         response => {
           setMovie(response.data)
-          console.log(response.data)
         }
       ).catch(err => {
-        console.log('nie dziala', err)
+        console.log('Error while fetching data', err)
       })
     }
     getMovie();
@@ -86,10 +81,9 @@ export default function Reportory() {
       axios.get(url).then(
         response => {
           setShow(response.data)
-          console.log("SEANSE", response.data);
         }
       ).catch(err => {
-        console.log('nie dzialaaaaaaaaaaaa', err)
+        console.log('Error while fetching data', err)
       })
     }
     getShow();
@@ -122,7 +116,7 @@ export default function Reportory() {
         <div className='repertoryWrapper'>
           <div className='date-city-bar'>
             <div className="dropdown custom-dropdown">
-              <button className="btn btn-secondary dropdown-toggle custom-button" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+              <button className="btn btn-secondary dropdown-toggle custom-button custom-button-repertory" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
                 {city}
               </button>
               <div className="dropdown-menu custom-menu" aria-labelledby="dropdownMenuButton">
@@ -134,19 +128,19 @@ export default function Reportory() {
                   ))
                 ) : null}
               </div>
+              <DatePicker wrapperClassName='date-picker'
+                selected={today}
+                onChange={(date) => { setDate(date.toISOString().split('T')[0]) }}
+                customInput={<ExampleCustomInput />}
+                showPreviousDays
+                showNextMonths
+              />
             </div>
-            <DatePicker wrapperClassName='date-picker'
-              selected={today}
-              onChange={(date) => { setDate(date.toISOString().split('T')[0]) }}
-              customInput={<ExampleCustomInput />}
-              showPreviousDays
-              showNextMonths
-            />
           </div>
           <div className='repertory-items-container'>
             {moviesWithShowsOnDate ? (
               moviesWithShowsOnDate.map((movie, movieIndex) => (
-                <div className='repertory-item'>
+                <div className='repertory-item' key={movie.movieId}>
                   <div className='repertory-image-container'>
                     <img className='repertory-image' src={movie.poster_url}></img>
                   </div>

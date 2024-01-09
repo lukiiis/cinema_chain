@@ -42,6 +42,7 @@
     align-items: flex-end;
     justify-content: space-between;
     flex-direction: column;
+    gap:30px;
 }
 
 .paginationButtons{

@@ -45,7 +45,7 @@ const SearchItem = ({ movieSetter }) => {
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
         />
-        <div className="input-group-append">
+        <div className="input-group-append glass">
           <button
             id="button-addon1"
             type="submit"
@@ -60,11 +60,11 @@ const SearchItem = ({ movieSetter }) => {
           {searchResults.map((movie, index) => {
             const movieID = movie.movieId;
             return (
-                <Link  to={`film/${movie.movieId}`} state={{ movie_ID: movieID }} >
-              <li className='search-movie-link' key={index}>
-                <img className='search-item-icon' src={movie.poster_url} alt={`Movie ${index}`} />
-                <p className='show-movie-title-list'>{movie.title}</p>
-              </li>
+              <Link to={`film/${movie.movieId}`} state={{ movie_ID: movieID }} >
+                <li className='my-search-movie-link' key={index}>
+                  <img className='search-item-icon' src={movie.poster_url} alt={`Movie ${index}`} />
+                  <p className='show-movie-title-list'>{movie.title}</p>
+                </li>
               </Link>
             )
           })}

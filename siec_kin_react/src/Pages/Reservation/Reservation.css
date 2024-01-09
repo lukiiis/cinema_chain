@@ -141,3 +141,20 @@ input#option1.btn-check.ticket-type-button:checked + label.btn.btn-secondary.tic
   .headlineText{
     font-size: 50px;
   }
+
+  .reservation-body .popup-content button{
+    background-color: rgb(240, 240, 240);
+    color:rgb(2, 2, 2);
+    padding: 5px 10px 5px 10px;
+    font-size: 19px;
+    transition: all 0.3s ease;
+    min-width: 120px;
+  }
+  .reservation-body .popup{
+    border-radius: 30px;
+  }
+
+  .reservation-body .popup-content button:hover{
+    background-color: rgb(192, 36, 36);
+    color: white;
+  }

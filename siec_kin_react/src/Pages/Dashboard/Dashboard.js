@@ -17,15 +17,13 @@ const Dashboard = () => {
     const [userData, setUserData] = useState(null);
     const [reservations, setReservations] = useState(null);
     const [toWatch, setToWatch] = useState(null);
-    const [selectedMenuItem, setSelectedMenuItem] = useState("myTickets"); // domyślny wybór
-    const [active, setActive] = useState()
-    const nodeRef = React.useRef(null); // Tworzymy ref
+    const [selectedMenuItem, setSelectedMenuItem] = useState("myTickets");
+    const nodeRef = React.useRef(null);
     const token = localStorage.getItem('token');
     //navbar refresh
     const [refreshNavigation, setRefreshNavigation] = useState(false);
 
     useEffect(() => {
-        //jezeli token istnieje
         if (!token) {
             navigate("/login");
         }
@@ -114,7 +112,6 @@ const Dashboard = () => {
             })
             if(response.status===200){
                 setToWatch(response.data);
-                console.log(response.data);
             }
             else{
                 console.log("Unexpected error.");
@@ -163,9 +160,9 @@ const Dashboard = () => {
                         <div className="toWatchContent" ref={nodeRef}>
                             <span className="break"></span>
                             <h2>DO OBEJRZENIA</h2>
-                            <div className="movie-cards">
-                                {toWatch? (
-                                    <>
+                            
+                                {toWatch.length > 0 ? (
+                                    <div className="movie-cards">
                                         {toWatch.map((watch) => {
                                             const movieID = watch.movie.movieId;
                                             return (
@@ -177,11 +174,11 @@ const Dashboard = () => {
                                                 </Link>
                                             );
                                         })}
-                                    </>
+                                    </div>
                                 ) : (
-                                    <p>pobieranie danych</p>
+                                    <p>Brak filmów do wyświetlenia.</p>
                                 )}
-                            </div>
+                            
                         </div>
                     </CSSTransition>
                 );
@@ -238,7 +235,7 @@ const Dashboard = () => {
                         <ul className="menuList">
                             <li className={`${selectedMenuItem === "myTickets" ? 'activeHover' : ''}`} onClick={() => handleMenuItemClick("myTickets")}>Moje bilety</li>
                             <li className={`${selectedMenuItem === "toWatch" ? 'activeHover' : ''}`} onClick={() => handleMenuItemClick("toWatch")}>Do obejrzenia</li>
-                            <li className={`${selectedMenuItem === "coupons" ? 'activeHover' : ''}`} onClick={() => handleMenuItemClick("coupons")}>Kupony promocyjne</li>
+                            <li className={`${selectedMenuItem === "coupons" ? 'activeHover' : ''}`} onClick={() => handleMenuItemClick("coupons")}>Kody promocyjne</li>
                             <li className={`${selectedMenuItem === "wallet" ? 'activeHover' : ''}`} onClick={() => handleMenuItemClick("wallet")}>Portfel</li>
                             <li className={`${selectedMenuItem === "accountSettings" ? 'activeHover' : ''}`} onClick={() => handleMenuItemClick("accountSettings")}>Ustawienia konta</li>
                         </ul>

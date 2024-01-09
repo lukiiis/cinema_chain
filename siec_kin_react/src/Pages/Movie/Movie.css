@@ -1,7 +1,3 @@
-/* body{
-    background-image: url('../../api/Images/background.jpg');
-    background-size: cover;
-} */
 .body-container {
     display: flex;
     flex-direction: column;
@@ -58,15 +54,10 @@
 
 .big-poster {
     width: 150%;
-    /* Ustawia szerokość obrazu na 200%, aby był powiększony i wystarczająco szeroki */
     height: 100%;
-    /* Ustawia wysokość obrazu na 100%, aby zachować proporcje */
     object-fit: cover;
-    /* Dopasowuje obraz, aby pokryć cały obszar, bez deformacji */
     object-position: center;
-    /* Wyśrodkowuje obraz zarówno poziomo, jak i pionowo */
     transform: translateX(-15%);
-    /* Przesuwa obraz w lewo o 50% jego szerokości, aby wyśrodkować */
 }
 
 .small-poster {
@@ -97,7 +88,7 @@
 }
 
 
-/* ------------------------------ luki ----------------- */
+
 
 .movies-show-wrapper {
     max-width: 1060px;
@@ -144,8 +135,16 @@
 .grades-towatch-container{
     margin-left: 15px;
     display: flex;
-    flex-direction: column;
-    gap:20px;
+    justify-content: flex-start;
+    align-items: flex-end;
+    gap:42px;
+}
+
+.ratingStatus{
+    height: 20px;
+    display: block;
+    color:rgb(143, 22, 22);
+    transition: all 0.5s ease;
 }
 
 .towatch-container button{
@@ -154,12 +153,8 @@
     transition: all 0.3s ease;
     min-width: 120px;
     border-radius: 4px;
+    margin-bottom: 8px;
 }
-
-/* .towatch-container button:hover{
-    background-color: rgb(192, 36, 36);
-    color: white;
-} */
 
 .towatch-container .button-active{
     background-color: rgb(192, 36, 36);
@@ -202,14 +197,14 @@
   }
   
   .star {
-    color: grey; /* Kolor pustych gwiazdek */
-    transition: color 0.3s ease; /* Płynna zmiana koloru */
+    color: grey;
+    transition: color 0.3s ease;
     cursor: pointer;
     font-size: 2.5rem;
   }
   
   .filled {
-    color: gold; /* Kolor wypełnionych gwiazdek */
+    color: gold;
   }
 
   .rating-text{

@@ -3,18 +3,9 @@ import './Footer.css';
 import { useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import { useNavigate  } from 'react-router-dom';
-const Footer = () => {
-    const [kina, setKina] = useState(null);
-    const navigate = useNavigate();
 
-    const handleRedirect = (cinemaId) => {
-        // Tutaj możesz umieścić dowolną logikę generowania nowej ścieżki
-        const newPath = '/repertory';
-        
-        // Przekazanie danych do nowej strony
-        navigate(newPath, { state: { cinemaId: cinemaId } });
-      };
+const Footer = () => {
+    const [cinemas, setCinemas] = useState(null);
 
     useEffect(() => {
         fetchData();
@@ -23,7 +14,7 @@ const Footer = () => {
     const fetchData = async () => {
         try {
             const response = await axios.get("http://localhost:8090/api/v1/kino");
-            setKina(response.data);
+            setCinemas(response.data);
         } catch (error) {
             console.error("Error while fetching data: ", error);
         }
@@ -37,14 +28,14 @@ const Footer = () => {
                         <h3 className='heading'>Nasze kina</h3>
                     </div>
                     <div className='cinemaListContainer'>
-                        {kina ? (
+                        {cinemas ? (
                             <ul className='cinemaList'>
-                                {kina.map((kino) => {
-                                    const cinemaId = kino.cinemaId;
-                                    const miastoLowerCase = kino.city.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+                                {cinemas.map((cinema) => {
+                                    const cinemaId = cinema.cinemaId;
+                                    const miastoLowerCase = cinema.city.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
                                     return (
-                                        <li key={kino.cinemaId}>
-                                            <Link className='link' to ={`/repertuar`} state={{ cinek: cinemaId }}>{kino.city}</Link>
+                                        <li key={cinema.cinemaId}>
+                                            <Link className='link' to ={`/repertuar`} state={{ cinek: cinemaId }}>{cinema.city}</Link>
                                         </li>
                                     );
                                 })}
@@ -55,7 +46,7 @@ const Footer = () => {
                     </div>
                 </div>
                 <div className='footerSectionCenter'>
-                    <span>Copyright &#169; MultiKina</span>
+                    <span>Copyright &#169; TurboKino</span>
 
                 </div>
             </div>

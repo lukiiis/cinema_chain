@@ -26,7 +26,7 @@ const Register = () => {
         }
     }, [])
 
-    //walidacja danych todo
+    //walidacja danych
     function hasSpecialCharacter(password) {
         const regex = /[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]+/;
         return regex.test(password);
@@ -61,8 +61,6 @@ const Register = () => {
         if (Object.keys(errors).length === 0) {
             try {
                 const response = await axios.post("http://localhost:8090/api/v1/public/auth/register", formData);
-                //Tutaj wstawic na fronta wiadomosc od backendu, czy udalo sie zarejestrowac pomyslnie
-                console.log('Server response: ', response);
                 if(response.status===200){
                     setRegisterStatus("Rejestracja pomyślna, teraz możesz się zalogować.");
                 }
@@ -72,7 +70,6 @@ const Register = () => {
             }
         }
         else {
-            //tutaj wyslac cos na ekran, ze dane bledne
             console.log('Form has errors, cannot submit.');
             setRegisterStatus("Formularz zawiera błędy.");
         }

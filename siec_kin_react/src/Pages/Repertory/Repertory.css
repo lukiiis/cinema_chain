@@ -31,6 +31,16 @@
 }
 .custom-dropdown{
     margin: 0;
+    display: flex;
+    align-items: center;
+}
+
+.rep-body .custom-dropdown .date-button{
+    margin-right: 10px;
+}
+
+.rep-body .custom-dropdown .date-button:last-child{
+    margin-left: 10px;
 }
 .repertory-item{
     display: flex;
@@ -119,6 +129,7 @@
     margin-bottom: 40px;
   }
 
-  .custom-button{
+  .custom-button-repertory{
     margin: 0;
+    width: 220px;
   }

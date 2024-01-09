@@ -50,7 +50,7 @@ const AccountSettingsContent = ({ userData, token, refreshNavigation }) => {
         confPassword: ''
     });
 
-    const [passwdChangeStatus, setPasswdChangeStatus] = useState(null);
+    const [passwdChangeStatus, setPasswdChangeStatus] = useState('');
 
     const changePassword = async (e) => {
         e.preventDefault();
@@ -261,34 +261,38 @@ const AccountSettingsContent = ({ userData, token, refreshNavigation }) => {
                     <div className="userDataInfo flexColumn">
                         <div className="dataRowPasswd">
                             <div className="passwordText">
-                                Aktualne hasło
+                                Aktualne hasło:
                             </div>
                             <input type="password" name="oldPassword" value={passwdData.oldPassword} onChange={handlePasswdChange} placeholder="Aktualne hasło"></input>
                         </div>
                         <div className="dataRowPasswd">
                             <div className="passwordText">
-                                Nowe hasło
+                                Nowe hasło:
                             </div>
                             <input type="password" name="newPassword" value={passwdData.newPassword} onChange={handlePasswdChange} placeholder="Nowe hasło"></input>
                         </div>
                         <div className="dataRowPasswd">
                             <div className="passwordText">
-                                Powtórz hasło
+                                Powtórz hasło:
                             </div>
                             <input type="password" name="confPassword" value={passwdData.confPassword} onChange={handlePasswdChange} placeholder="Powtórz hasło"></input>
                         </div>
                     </div>
                     {/* {passwdChangeErrors.confPassword && <span>{passwdChangeErrors.confPassword}</span>}
                     {passwdChangeErrors.newPassword && <span>{passwdChangeErrors.newPassword}</span>} */}
-                    {passwdChangeErrors.length > 0 && (
-                        <>
-                            {passwdChangeErrors.map((error, index) => (
-                                <span key={index}>{error}</span>
-                            ))}
-                        </>
-                    )}
-                    <button className="passwdButton" type="submit">Zmień hasło</button>
-                    {passwdChangeStatus && <span>{passwdChangeStatus}</span>}
+                    <div className="passwdChangeStatus">
+                        {passwdChangeErrors.length > 0 && (
+                            <>
+                                {passwdChangeErrors.map((error, index) => (
+                                    <span key={index}>{error}</span>
+                                ))}
+                            </>
+                        )}
+                    </div>
+                    <div className="flexColumn passwdSpan">
+                        <button className="passwdButton" type="submit">Zmień hasło</button>
+                        <span>{passwdChangeStatus}</span>
+                    </div>
                 </form>
             </div>
             <div className="userDataContainer">

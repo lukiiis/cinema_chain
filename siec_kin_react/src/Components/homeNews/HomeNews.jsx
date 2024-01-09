@@ -34,12 +34,12 @@ const HomeNews = () => {
                         {news.map((oneNews) => {
                             const newsId = oneNews.newsId;
                             const normalizedTitle = oneNews.title
-                                .normalize("NFD") // Normalizacja znaków diakrytycznych
-                                .replace(/[\u0300-\u036f]/g, "") // Usunięcie diakrytyków
-                                .toLowerCase() // Zamiana na małe litery
-                                .replace(/\s+/g, "-") // Zamiana spacji na pauzy
-                                .split('!') //podzielenie stringa na czesci
-                                .join('') //zlaczenie bez wykrzyknika
+                                .normalize("NFD")
+                                .replace(/[\u0300-\u036f]/g, "")
+                                .toLowerCase()
+                                .replace(/\s+/g, "-")
+                                .split('!')
+                                .join('')
                                 .split('"')
                                 .join('');
                             return (

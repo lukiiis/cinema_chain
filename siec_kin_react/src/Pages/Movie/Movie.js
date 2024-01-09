@@ -17,6 +17,8 @@ const Movie = (() => {
     const movieID = useLocation();
     const { movie_ID } = movieID.state;
     const [movie, setMovie] = useState(null);
+    const [ratingStatus, setRatingStatus] = useState('');
+    const [toWatchStatus, setToWatchStatus] = useState('');
 
     const token = localStorage.getItem('token');
 
@@ -83,8 +85,7 @@ const Movie = (() => {
     const handleToWatchAdd = async () => {
         try{
             if(!token){
-                //wyswietlic, ze trzeba sie zalogowac itp
-                console.log("Zaloguj sie!");
+                setToWatchStatus("Zaloguj się, by dodać film do listy");
                 return;
             }
             if(localStorage.getItem('role') === "ADMIN"){
@@ -122,8 +123,10 @@ const Movie = (() => {
                     })
                     if(addResponse.status === 200){
                         if(addResponse.data === "Movie successfully added to 'To Watch' list"){
-                            //todo wyswietlanie info o dodaniu do listy, zmiana serduszka svg
-                            console.log("Movie added to To Watch list");
+                            setToWatchStatus("Film dodany do listy w twoim panelu!")
+                            setTimeout(() => {
+                                setToWatchStatus('');
+                            }, 2000);
                             setHeartFill('svg-active');
                             setButtonStyle('button-active');
                         }
@@ -133,14 +136,16 @@ const Movie = (() => {
                     }
                 }
                 else if(deleteResponse.data === "Movie successfully deleted from 'To Watch' list"){
-                    console.log("Movie deleted from To Watch list.");
+                    setToWatchStatus("Film usunięty z listy w twoim panelu!")
+                    setTimeout(() => {
+                        setToWatchStatus('');
+                    }, 2000);
                     setHeartFill('svg-inactive');
                     setButtonStyle('button-inactive');
                 }
             }
             else{
                 console.log("Error deleting to-watch.");
-                //todo zrobic wyswietlanie statusu w html
             }
         }
         catch(error){
@@ -220,9 +225,21 @@ const Movie = (() => {
     //DODAWANIE LUB USUWANIE OCENY
     const handleRatingClick = async (value) => {
         try{
+            const today = new Date();
+            const month = today.getMonth() + 1;
+            const day = today.getDate();
+            const year = today.getFullYear();
+            const todayDateString = `${year}-${month}-${day}`;
+
+            const movieRelease = new Date(movie.release_date);
+            const todayDate = new Date(todayDateString);
+
+            
             if(!token){
-                //wyswietlic, ze trzeba sie zalogowac itp
-                console.log("Zaloguj sie!");
+                setRatingStatus("Zaloguj się, by móc ocenić film");
+                setTimeout(() => {
+                    setRatingStatus('');
+                }, 2000);
                 return;
             }
             if(localStorage.getItem('role') === "ADMIN"){
@@ -231,6 +248,14 @@ const Movie = (() => {
             if(localStorage.getItem('role') === "WORKER"){
                 return;
             }
+            if(movieRelease > todayDate){
+                setRatingStatus("Film jeszcze nie miał premiery");
+                setTimeout(() => {
+                    setRatingStatus('');
+                }, 2000);
+                return;
+            }
+
 
             setRating(value);
             const decodedToken = jwtDecode(token);
@@ -263,8 +288,10 @@ const Movie = (() => {
                         })
                         if(addResponse.status === 200){
                             if(addResponse.data === "Rating added successfully"){
-                                //todo wyswietlanie info o dodaniu do listy, zmiana serduszka svg
-                                console.log("Rating added successfullyyyyy.");
+                                setRatingStatus("Ocena filmu dodana!");
+                                setTimeout(() => {
+                                    setRatingStatus('');
+                                }, 2000);
                                 getRating();
                             }
                         }
@@ -273,7 +300,10 @@ const Movie = (() => {
                         }
                     }
                     else if(deleteResponse.data === "Rating deleted successfully"){
-                        console.log("Rating deleted successfullyyyyy.");
+                        setRatingStatus("Ocena filmu usunięta")
+                        setTimeout(() => {
+                            setRatingStatus('');
+                        }, 2000);
                         getRating();
                         setHoverRating(0);
                         setRating(0);
@@ -281,7 +311,6 @@ const Movie = (() => {
                 }
                 else{
                     console.log("Error deleting rating.");
-                    //todo zrobic wyswietlanie statusu w html
                 }
             }
             else if(userRating.rating === value){
@@ -297,7 +326,10 @@ const Movie = (() => {
                 });
                 if(deleteResponse.status===200){
                     if(deleteResponse.data === "Rating deleted successfully"){
-                        console.log("Rating deleted successfullyyyyy.");
+                        setRatingStatus("Ocena filmu usunięta")
+                        setTimeout(() => {
+                            setRatingStatus('');
+                        }, 2000);
                         getRating();
                         setHoverRating(0);
                     }
@@ -322,7 +354,10 @@ const Movie = (() => {
                     if(updateResponse.data === "Rating updated successfully"){
                         setHoverRating(value);
                         setRating(value);
-                        console.log("Rating updated successfullyyyyyyyyyyy.")
+                        setRatingStatus("Ocena filmu zaktualizowana.")
+                        setTimeout(() => {
+                            setRatingStatus('');
+                        }, 2000);
                         getRating();
                     }
                     else{
@@ -346,7 +381,7 @@ const Movie = (() => {
     };
 
     if (!movie) {
-        return <div>Movie not found</div>
+        return <div style={{background:'black', height:'500px'}}>Movie not found</div>
     }
     return (
         <>
@@ -410,11 +445,12 @@ const Movie = (() => {
                                         </span>
                                     ))}
                                 </div>
-                                {/* <span>Moja ocena: {hoverRating || rating}</span> */}
+                                <span className='ratingStatus'>{ratingStatus}</span>
                             </div>
                             <div className='towatch-container'>
-                                <button className={`${buttonStyle}`} onClick={handleToWatchAdd}>DO OBEJRZENIA</button>
+                                <button className={`${buttonStyle}`} onClick={handleToWatchAdd}>CHCĘ OBEJRZEĆ</button>
                                 <HeartSvg className={`svg-heart ${heartFill}`}/>
+                                <span className='ratingStatus'>{toWatchStatus}</span>
                             </div>
                         </div>
                     </div>

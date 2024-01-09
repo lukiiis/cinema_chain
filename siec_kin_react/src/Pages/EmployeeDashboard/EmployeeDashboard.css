@@ -11,19 +11,25 @@ ul {
   list-style-type: none;
 }
 
-.search-results-list {
+.sessions .search-results-list {
   list-style-type: none;
   padding: 0;
   margin: 0;
   position: absolute;
-  background-color: #fff;
+  background-color: #2c2c2c;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   z-index: 1;
   max-height: 400px;
   overflow: auto;
+  margin-top: 40px;
+  width:290px;
 }
 
-.search-movie-link {
+.serc{
+  width: 290px;
+}
+
+.sessions .search-movie-link {
   display: flex;
   justify-content: start;
   align-items: center;
@@ -31,6 +37,45 @@ ul {
   margin-right: 10px;
 }
 
-.search-movie-link:hover {
+.sessions .search-movie-link:hover {
   background-color: gray;
+}
+.empInputs input{
+  width: 190px;
+}
+
+.emp-button{
+  background-color: rgb(240, 240, 240);
+  color:rgb(2, 2, 2);
+  padding: 5px 10px 5px 10px;
+  font-size: 19px;
+  transition: all 0.3s ease;
+  min-width: 120px;
+  margin-bottom: 30px;
+}
+
+.emp-button:hover{
+  background-color: rgb(192, 36, 36);
+  color: white;
+}
+
+.formEmp button{
+margin-bottom: 30px;
+top:0;
+}
+
+.formEmp{
+  gap:0;
+}
+
+.sessions{
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  gap:30px;
+}
+
+.inputGroup{
+  background-color: black;
 }

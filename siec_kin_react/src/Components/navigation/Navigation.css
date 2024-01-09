@@ -13,6 +13,7 @@ nav{
 
 .logInButtons{
     display: flex;
+    align-items: center;
     gap:20px;
 }
 
@@ -63,6 +64,7 @@ nav{
 
 .regButton{
     color:white;
+    font-size: 13px;
     text-transform: uppercase;
 }
 
@@ -85,8 +87,14 @@ nav{
 
 .navbar-company{
     color:rgb(199, 49, 49);
+    display: block;
     font-size: 32px;
     transition: all 0.5s ease;
+    
+}
+
+.navbar-company::first-letter{
+    color:rgb(255, 60, 0);
 }
 
 .navbar-company:hover{

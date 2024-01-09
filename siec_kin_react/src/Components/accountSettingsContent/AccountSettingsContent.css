@@ -28,6 +28,10 @@
   min-width: 120px;
 }
 
+.userDataContainer form{
+  width: 100%;
+}
+
  .userDataContainer button:hover{
   background-color: rgb(192, 36, 36);
   color: white;
@@ -142,3 +146,14 @@
   .passwdButton{
     margin-top: 30px;
   }
+
+  .passwdChangeStatus{
+    display: flex;
+    flex-direction: column;
+    font-size:11px;
+    margin-top: 17px;
+  }
+
+.passwdSpan span{
+  height: 22px;
+}

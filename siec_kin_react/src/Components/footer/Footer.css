@@ -37,9 +37,12 @@ footer{
     text-decoration: none;
 }
 
-.cinemaList li{
-    color: white;
-    text-decoration: none;
+.cinemaList a{
+    transition: all 0.4s ease;
+}
+
+.cinemaList a:hover{
+    color: rgb(172, 13, 13);
 }
 
 .heading{

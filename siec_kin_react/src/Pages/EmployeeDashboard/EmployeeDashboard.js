@@ -12,7 +12,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 const EmployeeDashboard = () => {
     const token = localStorage.getItem('token');
     const navigate = useNavigate()
-    const [selectedMenuItem, setSelectedMenuItem] = useState("cinemas") // domyślny wybór
+    const [selectedMenuItem, setSelectedMenuItem] = useState("movies")
     const [modifyUsers, setModifyUsers] = useState(null);
 
     const [movies, setMovies] = useState(null) // lista filmow
@@ -29,7 +29,7 @@ const EmployeeDashboard = () => {
     const [searchResults, setSearchResults] = useState([]); // wyniki wyswietlane w wyszukiwarce
     const [isListVisible, setListVisible] = useState(true); // stan do śledzenia widoczności listy
 
-    let today = new Date(); // dzisiejsza data
+    let today = new Date();
 
     let cinemaID = 1; // tu bedzie id kina pobrane od pracownika
 
@@ -57,13 +57,13 @@ const EmployeeDashboard = () => {
     })
 
     const handleMenuItemClick = (menuItem) => {
-        setSelectedMenuItem(menuItem); // zmiana elementu menu
+        setSelectedMenuItem(menuItem);
     }
     const handleMovieModification = (menuItem) => {
         if (modifyUsers === menuItem) {
-            setModifyUsers(null); // Jeśli klikniesz drugi raz to ukryj
+            setModifyUsers(null);
         } else {
-            setModifyUsers(menuItem); // Jeśli klikniesz pierwszy raz to pokaż
+            setModifyUsers(menuItem);
         }
     }
 
@@ -93,7 +93,6 @@ const EmployeeDashboard = () => {
             axios.get('http://localhost:8090/api/v1/film').then(
                 response => {
                     setMovies(response.data)
-                    console.log(response.data)
                 }
             ).catch(err => {
                 console.log('nie dziala')
@@ -107,7 +106,6 @@ const EmployeeDashboard = () => {
             axios.get('http://localhost:8090/api/v1/kino').then(
                 response => {
                     setCinema(response.data)
-                    console.log(response.data)
                 }
             ).catch(err => {
                 console.log('nie dziala')
@@ -119,18 +117,11 @@ const EmployeeDashboard = () => {
     useEffect(() => {
         const fetchData = async () => {
           try {
-            console.log(cinemaID)
-            console.log(formDataShow.id_sali)
-            console.log(formDataShow.data_seansu)
-            console.log(cinemaHalls)
             if (cinemaID !== null && formDataShow.id_sali !== null && formDataShow.data_seansu !== null) {
               const url = `http://localhost:8090/api/v1/seans/${cinemaID}/${formDataShow.id_sali}/${formDataShow.data_seansu}`;
-              console.log(url);
               const response = await axios.get(url);
               setShows(response.data);
-              console.log(response.data);
               if (response.data != null) {
-                console.log("filtruje se");
                 const unavailableHours = response.data.map(seans => seans.startTime);
                 const filtered = availableHours.filter(hour => !unavailableHours.includes(hour));
                 setFilteredHours(filtered);
@@ -138,7 +129,7 @@ const EmployeeDashboard = () => {
             }
         }
      catch (err) {
-      console.log('Błąd podczas pobierania seansów:', err);
+      console.log('Error while fetching data:', err);
     }
         };
 
@@ -150,7 +141,6 @@ const EmployeeDashboard = () => {
           cinema.forEach((cinemaItem) => {
             if (cinemaID === cinemaItem.cinemaId) {
               setCinemaHalls(cinemaItem.screeningrooms);
-              console.log(cinemaItem) // pobieranie listy sal
             }
           });
         }
@@ -161,8 +151,6 @@ const EmployeeDashboard = () => {
         if (Object.keys(errors).length === 0) {
             try {
                 const response = await axios.post("http://localhost:8090/api/v1/addMovie", formData);
-                //Tutaj wstawic na fronta wiadomosc od backendu, czy udalo sie zarejestrowac pomyslnie
-                console.log('Server response: ', response.data);
                 setRes(response.data);
             }
             catch (error) {
@@ -170,7 +158,6 @@ const EmployeeDashboard = () => {
             }
         }
         else {
-            //tutaj wyslac cos na ekran, ze dane bledne
             console.log('Form has errors, cannot submit.');
         }
     }
@@ -181,8 +168,6 @@ const EmployeeDashboard = () => {
         if (Object.keys(errors).length === 0) {
             try {
                 const response = await axios.post("http://localhost:8090/api/v1/addShow", formDataShow);
-                //Tutaj wstawic na fronta wiadomosc od backendu, czy udalo sie zarejestrowac pomyslnie
-                console.log('Server response: ', response.data);
                 setRes(response.data);
             }
             catch (error) {
@@ -190,7 +175,6 @@ const EmployeeDashboard = () => {
             }
         }
         else {
-            //tutaj wyslac cos na ekran, ze dane bledne
             console.log('Form has errors, cannot submit.');
         }
         setFormDataShow({
@@ -220,7 +204,6 @@ const EmployeeDashboard = () => {
           }, [searchTerm, movies]);
 
     const handleResultClick = (clickedTerm) => {
-        // Obsłuż kliknięcie w wynik wyszukiwania
         setSearchTerm(clickedTerm);
         setListVisible(false);
     };
@@ -230,51 +213,43 @@ const EmployeeDashboard = () => {
             case "add":
                 return (
                     <form onSubmit={handleSubmit}>
-                        <div className="formWrapper">
-                            <div className="formInputs">
+                        <div className="formWrapper formEmp">
+                            <div className="formInputs empInputs">
                                 <label>
-                                    Tytul
+                                    Tytuł
                                     <input type="text" name="tytul" value={formData.tytul} onChange={handleChange} />
-                                    {errors.login && <span>{errors.login}</span>}
                                 </label>
                                 <label>
                                     Opis
                                     <input type="text" name="opis" value={formData.opis} onChange={handleChange} />
-                                    {errors.haslo && <span>{errors.haslo}</span>}
                                 </label>
                                 <label>
                                     Data Premiery
                                     <input type="date" name="data_premiery" value={formData.data_premiery} onChange={handleChange} />
-                                    {errors.email && <span>{errors.email}</span>}
                                 </label>
                                 <label>
                                     Kategoria
                                     <input type="text" name="id_kategorii" value={formData.id_kategorii} onChange={handleChange} />
-                                    {errors.nr_telefonu && <span>{errors.nr_telefonu}</span>}
                                 </label>
                                 <label>
                                     Obraz
                                     <input type="text" name="obraz_url" value={formData.obraz_url} onChange={handleChange} />
-                                    {errors.imie && <span>{errors.imie}</span>}
                                 </label>
                                 <label>
                                     Plakat
                                     <input type="text" name="plakat_url" value={formData.plakat_url} onChange={handleChange} />
-                                    {errors.nazwisko && <span>{errors.nazwisko}</span>}
                                 </label>
                                 <label>
                                     Czas trwania
                                     <input type="text" name="czas_trwania" value={formData.czas_trwania} onChange={handleChange} />
-                                    {errors.nazwisko && <span>{errors.nazwisko}</span>}
                                 </label>
                                 <label>
-                                    Rezyser
+                                    Reżyser
                                     <input type="text" name="rezyser" value={formData.rezyser} onChange={handleChange} />
-                                    {errors.nazwisko && <span>{errors.nazwisko}</span>}
                                 </label>
                             </div>
                             <div className="formButton">
-                                <button type="submit">Dodaj Film</button>
+                                <button type="submit">Dodaj</button>
                             </div>
                         </div>
                     </form>
@@ -289,7 +264,7 @@ const EmployeeDashboard = () => {
             case "movies":
                 return (
                     <>
-                        <button onClick={() => handleMovieModification("add")}>Dodaj film</button>
+                        <button className="emp-button" onClick={() => handleMovieModification("add")}>Dodaj film</button>
                         {renderMovieModifyContent()}
                         <table>
                             <tr>
@@ -303,12 +278,16 @@ const EmployeeDashboard = () => {
                             {movies ? (
                                 <>
                                     {movies.map((movie) => {
-
+                                        const description = movie.description.split('. ')[0];
                                         return (
-                                            <tr key={movie.movieId}>
+                                            <tr key={movie.movieId} style={{height:'30px'}}>
                                                 <td>{movie.movieId}</td>
                                                 <td>{movie.title}</td>
-                                                <td>{movie.description}</td>
+                                                <td style={{ maxWidth: '120px', maxHeight: '30px', overflow: 'hidden', whiteSpace: 'nowrap' }}>
+                                                    <div style={{ textOverflow: 'ellipsis', overflow: 'hidden' }}>
+                                                        {description}
+                                                    </div>
+                                                </td>
                                                 <td>{movie.director}</td>
                                                 <td>{movie.release_date}</td>
                                                 <td>{movie.duration} min</td>
@@ -326,14 +305,14 @@ const EmployeeDashboard = () => {
             case "show":
                 return (
 
-                    <div>
+                    <div className="sessions">
                         <div>
                             <div className="input-group">
                                 <input
                                     type="search"
                                     placeholder="Wyszukaj film"
                                     aria-describedby="button-addon1"
-                                    className="form-control border-0 bg-light"
+                                    className=" serc"
                                     value={searchTerm}
                                     onChange={(e) => setSearchTerm(e.target.value)}
                                     onFocus={() => setListVisible(true)}
@@ -346,23 +325,12 @@ const EmployeeDashboard = () => {
                                         {searchResults.map((movie, index) => (
                                             <li className="search-movie-link" key={index}
                                             onClick={() => {handleResultClick(movie.title); handleChangeShow('id_filmu', movie.movieId)}}>
-                                                <img className="search-item-icon" src={movie.picture_url} alt={`Film ${index}`} />
+                                                <img className="search-item-icon" src={movie.poster_url} />
                                                 <p className="show-movie-title-list">{movie.title}</p>
                                             </li>))}
                                     </ul>
                                 )}
                             </div>
-                            {isListVisible && searchTerm && (
-                                <ul className="search-results-list">
-                                    {searchResults.map((movie, index) => (
-                                        <li className="search-movie-link" key={index}
-                                            onClick={() => { handleResultClick(movie.tytul); handleChangeShow('id_filmu', movie.id_filmu) }}>
-                                            <img className="search-item-icon" src={movie.obraz_url} alt={`Film ${index}`} />
-                                            <p className="show-movie-title-list">{movie.tytul}</p>
-                                        </li>
-                                    ))}
-                                </ul>
-                            )}
                         </div>
 
 
@@ -375,7 +343,6 @@ const EmployeeDashboard = () => {
                                     ...prevFormData,
                                     data_seansu: date.toISOString().split('T')[0]
                                 }));
-                                console.log("data")
                             }}
                             customInput={<ExampleCustomInput />} showPreviousDays showNextMonths />
 
@@ -432,7 +399,8 @@ const EmployeeDashboard = () => {
                         </div>
 
 
-                        <button onClick={handleSubmitShow}>dodaj madafakin seans</button>
+                        <button className="emp-button" onClick={handleSubmitShow}>Dodaj seans</button>
+                        <span>{res.status}</span>
                     </div>
 
                 );
