@@ -167,12 +167,12 @@ const Dashboard = () => {
                                 {toWatch? (
                                     <>
                                         {toWatch.map((watch) => {
-                                            const movieID = watch.movie.id_filmu;
+                                            const movieID = watch.movie.movieId;
                                             return (
-                                                <Link key={watch.toWatchId} className="link" to={`/film/${watch.movie.id_filmu}`} state={{ movie_ID: movieID }}>
+                                                <Link key={watch.toWatchId} className="link" to={`/film/${watch.movie.movieId}`} state={{ movie_ID: movieID }}>
                                                     <Card
-                                                        title={watch.movie.tytul}
-                                                        poster={watch.movie.plakat_url}
+                                                        title={watch.movie.title}
+                                                        poster={watch.movie.poster_url}
                                                     />
                                                 </Link>
                                             );

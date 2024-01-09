@@ -27,7 +27,7 @@ public class Rating {
     @JsonIgnoreProperties("seanse")
     @ManyToOne
     @JoinColumn(name = "ID_FILMU", referencedColumnName = "ID_FILMU")
-    private Film movie;
+    private Movie movie;
 
     @Column(name = "OCENA")
     private Long rating;

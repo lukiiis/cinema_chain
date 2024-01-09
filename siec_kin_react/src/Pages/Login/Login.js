@@ -7,14 +7,15 @@ import { jwtDecode } from "jwt-decode";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+
+    const [loginStatus, setLoginStatus] = useState("")
     const navigate = useNavigate();
-    const [loginStatus, setLoginStatus] = useState("");
-    const [errors, setErrors] = useState({});
     const [formData, setFormData] = useState({
         login: '',
         password: ''
     })
 
+    const [errors, setErrors] = useState({});
     //walidacja danych
     useEffect(() => {
         const validationErrors = {};
@@ -31,7 +32,7 @@ const Login = () => {
 
     useEffect(() => {
         if (localStorage.getItem('token')) {
-            navigate("/");
+            navigate("/dashboard");
         }
     }, [])
 
@@ -48,6 +49,7 @@ const Login = () => {
         if (Object.keys(errors).length === 0) {
             try {
                 const response = await axios.post("http://localhost:8090/api/v1/public/auth/login", formData);
+                console.log('Server response: ', response.data);
 
                 if(response.data.status === "Account is blocked."){
                     localStorage.clear();
@@ -87,13 +89,10 @@ const Login = () => {
             }
             catch (error) {
                 console.error('Error while sending data: ', error);
-                if(error.response.status===403){
-                    setLoginStatus("Nie istnieje takie konto");
-                }
             }
         }
         else {
-            setLoginStatus("Niektóre pola formularza są puste");
+            console.log('Form is empty');
         }
     }
 

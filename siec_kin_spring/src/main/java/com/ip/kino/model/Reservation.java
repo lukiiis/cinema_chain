@@ -56,5 +56,20 @@ public class Reservation {
     //@JsonIgnoreProperties("film")
     @ManyToOne
     @JoinColumn(name = "ID_SEANSU", referencedColumnName = "ID_SEANSU")
-    private Seans session;
+    private Show session;
+
+    public Reservation(String firstName, String lastName, String email, Long phoneNumber, Long seatNumber, String seatRow, LocalDate purchaseDate, String ticketType, Double price, Client client, Show session) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+        this.seatNumber = seatNumber;
+        this.seatRow = seatRow;
+        this.purchaseDate = purchaseDate;
+        this.ticketType = ticketType;
+        this.price = price;
+        this.client = client;
+        this.session = session;
+    }
+
 }

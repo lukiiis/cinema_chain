@@ -2,7 +2,11 @@
   max-width: 50px;
   max-height: 100px;
 }
-
+.mainContainer{
+  display: flex;
+  min-height: 100vh;
+  background: linear-gradient(to bottom right, rgb(56, 56, 56) 50%, rgb(54, 54, 54) 50%);
+}
 ul {
   list-style-type: none;
 }

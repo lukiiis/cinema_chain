@@ -27,5 +27,13 @@ public class Employee {
 
     @ManyToOne
     @JoinColumn(name = "id_kina", referencedColumnName = "id_kina")
-    private Kino cinema;
+
+    private Cinema cinema;
+
+    public Employee(String position, User user, Cinema kino) {
+        this.position = position;
+        this.user = user;
+        this.cinema = kino;
+    }
+
 }

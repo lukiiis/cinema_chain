@@ -1,6 +1,6 @@
 package com.ip.kino.dto;
 
-import com.ip.kino.model.Kino;
+import com.ip.kino.model.Cinema;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -12,6 +12,6 @@ import lombok.Setter;
 @NoArgsConstructor
 public class EmployeeDto {
     private Long employeeId;
-    private Kino kino;
+    private Cinema kino;
     private String position;
 }

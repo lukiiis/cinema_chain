@@ -31,11 +31,14 @@ export default function CinemaSelection() {
       </button>
       <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
         {cinema ? (
-          cinema.map((cinema, index) => (
-            <Link key={cinema.id_kina} className="dropdown-item" to="/repertuar">
-              {cinema.miasto}
+          cinema.map((cinema, index) => {
+            const cinemaId = cinema.cinemaId;
+          
+          return (
+            <Link key={cinema.cinemaId} className="dropdown-item" to ={`/repertuar`} state={{ cinek: cinemaId }}>
+              {cinema.city}
             </Link>
-          ))
+          )})
         ) : null}
       </div>
     </div>

@@ -30,7 +30,7 @@ const SearchItem = ({ movieSetter }) => {
 
   useEffect(() => {
     const results = movies.filter(movie =>
-      movie.tytul.toLowerCase().includes(searchTerm.toLowerCase())
+      movie.title.toLowerCase().includes(searchTerm.toLowerCase())
     );
     setSearchResults(results);
   }, [searchTerm, movies]);
@@ -58,13 +58,13 @@ const SearchItem = ({ movieSetter }) => {
       {searchTerm && (
         <ul className="search-results-list resList">
           {searchResults.map((movie, index) => {
-            const movieID = movie.id_filmu;
+            const movieID = movie.movieId;
             return (
-              <Link to={`film/${movie.id_filmu}`} state={{ movie_ID: movieID }} >
-                <li className='search-movie-link' key={index}>
-                  <img className='search-item-icon' src={movie.plakat_url} alt={`Movie ${index}`} />
-                  <p className='show-movie-title-list'>{movie.tytul}</p>
-                </li>
+                <Link  to={`film/${movie.movieId}`} state={{ movie_ID: movieID }} >
+              <li className='search-movie-link' key={index}>
+                <img className='search-item-icon' src={movie.poster_url} alt={`Movie ${index}`} />
+                <p className='show-movie-title-list'>{movie.title}</p>
+              </li>
               </Link>
             )
           })}

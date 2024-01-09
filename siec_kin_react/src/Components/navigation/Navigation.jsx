@@ -3,7 +3,7 @@ import './Navigation.css';
 import { Link } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
 
-const Navigation = (props) => {
+function Navigation(props) {
     const navigate = useNavigate();
 
     const logout = () => {
@@ -53,9 +53,9 @@ const Navigation = (props) => {
                                         </Link>
                                      )
                                 }
-                                else{
+                                else if(localStorage.getItem('role') === "WORKER"){
                                     return(
-                                        <Link to="/worker-dashboard" className='dashboardLink'>
+                                        <Link to="/employee-dashboard" className='dashboardLink'>
                                             <img src='http://localhost:3000/static/media/user-gear.3f58436e0da6510255f1.png'></img>
                                         </Link>
                                     )

@@ -1,10 +1,10 @@
 package com.ip.kino.service;
 
 import com.ip.kino.model.Client;
-import com.ip.kino.model.Film;
+import com.ip.kino.model.Movie;
 import com.ip.kino.model.Rating;
 import com.ip.kino.model.User;
-import com.ip.kino.repository.FilmRepository;
+import com.ip.kino.repository.MovieRepository;
 import com.ip.kino.repository.RatingRepository;
 import com.ip.kino.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -17,7 +17,7 @@ import java.util.List;
 public class RatingService {
     private final RatingRepository ratingRepository;
     private final UserRepository userRepository;
-    private final FilmRepository filmRepository;
+    private final MovieRepository filmRepository;
 
     public List<Rating> getAllRatingsByLogin(String login){
         return ratingRepository.findAllRatingsByLogin(login);
@@ -30,7 +30,7 @@ public class RatingService {
     public Object addRating(String login, Long movieId, Long rating) {
         try{
             User user = userRepository.findByLogin(login).orElseThrow();
-            Film movie = filmRepository.findMovieByMovieId(movieId).orElseThrow();
+            Movie movie = filmRepository.findMovieByMovieId(movieId).orElseThrow();
             Client client = user.getClient();
 
             Rating newRating = new Rating();
@@ -68,7 +68,7 @@ public class RatingService {
     public Object deleteRating(String login, Long movieId) {
         try{
             User user = userRepository.findByLogin(login).orElseThrow();
-            Film movie = filmRepository.findMovieByMovieId(movieId).orElseThrow();
+            Movie movie = filmRepository.findMovieByMovieId(movieId).orElseThrow();
 
             Rating rating = ratingRepository.findRatingByLoginAndMovieId(login, movieId);
             if(rating == null){

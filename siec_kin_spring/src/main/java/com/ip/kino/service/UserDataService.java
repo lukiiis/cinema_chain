@@ -19,7 +19,7 @@ public class UserDataService {
     private final ClientRepository clientRepository;
     private final EmployeeRepository employeeRepository;
     private final AdminRepository adminRepository;
-    private final KinoRepository kinoRepository;
+    private final CinemaRepository kinoRepository;
 
     public UserDataDto getUserByLogin(String login){
         User user = userRepository.findByLogin(login).orElseThrow();
@@ -168,7 +168,7 @@ public class UserDataService {
 
         userRepository.save(user);
 
-        Kino cinema = kinoRepository.getCinemaByCinemaId(request.getCinemaId());
+        Cinema cinema = kinoRepository.getCinemaByCinemaId(request.getCinemaId());
 
         Employee employee = new Employee();
 

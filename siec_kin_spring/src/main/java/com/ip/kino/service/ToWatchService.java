@@ -1,10 +1,10 @@
 package com.ip.kino.service;
 
 import com.ip.kino.model.Client;
-import com.ip.kino.model.Film;
+import com.ip.kino.model.Movie;
 import com.ip.kino.model.ToWatch;
 import com.ip.kino.model.User;
-import com.ip.kino.repository.FilmRepository;
+import com.ip.kino.repository.MovieRepository;
 import com.ip.kino.repository.ToWatchRepository;
 import com.ip.kino.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -17,7 +17,7 @@ import java.util.List;
 public class ToWatchService {
     private final ToWatchRepository toWatchRepository;
     private final UserRepository userRepository;
-    private final FilmRepository filmRepository;
+    private final MovieRepository filmRepository;
 
     public List<ToWatch> getAllToWatchByLogin(String login){
         return toWatchRepository.findAllToWatchByLogin(login);
@@ -30,7 +30,7 @@ public class ToWatchService {
     public Object addToWatch(String login, Long movieId) {
         try{
             User user = userRepository.findByLogin(login).orElseThrow();
-            Film movie = filmRepository.findMovieByMovieId(movieId).orElseThrow();
+            Movie movie = filmRepository.findMovieByMovieId(movieId).orElseThrow();
             Client client = user.getClient();
 
             ToWatch toWatch = new ToWatch();
@@ -50,7 +50,7 @@ public class ToWatchService {
     public Object deleteToWatch(String login, Long movieId) {
         try{
             User user = userRepository.findByLogin(login).orElseThrow();
-            Film movie = filmRepository.findMovieByMovieId(movieId).orElseThrow();
+            Movie movie = filmRepository.findMovieByMovieId(movieId).orElseThrow();
 
             ToWatch toWatch = toWatchRepository.findToWatchByLoginAndMovieId(login, movieId);
             if(toWatch == null){

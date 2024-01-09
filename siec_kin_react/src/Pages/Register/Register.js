@@ -9,11 +9,11 @@ const Register = () => {
     const navigate = useNavigate();
     const [formData, setFormData] = useState({
         login: '',
-        passwd: '',
+        haslo: '',
         email: '',
-        name: '',
-        surname: '',
-        phone: ''
+        imie: '',
+        nazwisko: '',
+        nr_telefonu: ''
     })
 
     const [registerStatus, setRegisterStatus] = useState(null);
@@ -26,7 +26,7 @@ const Register = () => {
         }
     }, [])
 
-    //walidacja danych todo
+    //walidacja danych
     useEffect(() => {
         const validationErrors = {};
 
@@ -54,7 +54,7 @@ const Register = () => {
                 //Tutaj wstawic na fronta wiadomosc od backendu, czy udalo sie zarejestrowac pomyslnie
                 console.log('Server response: ', response);
                 if(response.status===200){
-                    setRegisterStatus("Rejestracja pomyślna, teraz możesz się zalogować.");
+                    setRegisterStatus(response.data.status);
                 }
             }
             catch (error) {

@@ -44,9 +44,6 @@ const PromotionDetails = () => {
                                     <span className="break"></span>
                                     <span>{promotion.title}</span>
                                 </div>
-                                <div className="promoInfoShortContent">
-                                    <span>{promotion.contents}</span>
-                                </div>
                             </div>
                         </div>
                     </div>

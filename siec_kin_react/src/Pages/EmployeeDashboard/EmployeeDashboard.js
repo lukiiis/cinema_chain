@@ -9,7 +9,7 @@ import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 
-const AdminDashboard = () => {
+const EmployeeDashboard = () => {
     const token = localStorage.getItem('token');
     const navigate = useNavigate()
     const [selectedMenuItem, setSelectedMenuItem] = useState("cinemas") // domyślny wybór
@@ -118,23 +118,28 @@ const AdminDashboard = () => {
 
     useEffect(() => {
         const fetchData = async () => {
-            try {
-                if (cinemaID !== null && formDataShow.id_sali !== null && formDataShow.data_seansu !== null) {
-                    const url = `http://localhost:8090/api/v1/seans/${cinemaID}/${formDataShow.id_sali}/${formDataShow.data_seansu}`;
-                    console.log(url);
-                    const response = await axios.get(url);
-                    setShows(response.data);
-                    console.log(response.data);
-                    if (response.data != null) {
-                        console.log("filtruje se");
-                        const unavailableHours = response.data.map(seans => seans.godzina_rozpoczecia);
-                        const filtered = availableHours.filter(hour => !unavailableHours.includes(hour));
-                        setFilteredHours(filtered);
-                    }
-                }
-            } catch (err) {
-                console.log('Błąd podczas pobierania seansów:', err);
+          try {
+            console.log(cinemaID)
+            console.log(formDataShow.id_sali)
+            console.log(formDataShow.data_seansu)
+            console.log(cinemaHalls)
+            if (cinemaID !== null && formDataShow.id_sali !== null && formDataShow.data_seansu !== null) {
+              const url = `http://localhost:8090/api/v1/seans/${cinemaID}/${formDataShow.id_sali}/${formDataShow.data_seansu}`;
+              console.log(url);
+              const response = await axios.get(url);
+              setShows(response.data);
+              console.log(response.data);
+              if (response.data != null) {
+                console.log("filtruje se");
+                const unavailableHours = response.data.map(seans => seans.startTime);
+                const filtered = availableHours.filter(hour => !unavailableHours.includes(hour));
+                setFilteredHours(filtered);
+              }
             }
+        }
+     catch (err) {
+      console.log('Błąd podczas pobierania seansów:', err);
+    }
         };
 
         fetchData();
@@ -142,11 +147,12 @@ const AdminDashboard = () => {
 
     useEffect(() => {
         if (cinema) {
-            cinema.forEach((cinemaItem) => {
-                if (cinemaID === cinemaItem.id_kina) {
-                    setCinemaHalls(cinemaItem.sale); // pobieranie listy sal
-                }
-            });
+          cinema.forEach((cinemaItem) => {
+            if (cinemaID === cinemaItem.cinemaId) {
+              setCinemaHalls(cinemaItem.screeningrooms);
+              console.log(cinemaItem) // pobieranie listy sal
+            }
+          });
         }
     }, [cinema, cinemaID]);
     const handleSubmit = async (e) => {
@@ -204,14 +210,14 @@ const AdminDashboard = () => {
     const ExampleCustomInput = forwardRef(({ value, onClick }, ref) => (
         <button className="date-button" onClick={onClick} ref={ref}>{date}</button>));
 
-    useEffect(() => {
-        if (movies) {
-            const results = movies.filter(movie =>
-                movie.tytul.toLowerCase().includes(searchTerm.toLowerCase())
-            );
-            setSearchResults(results);
-        }
-    }, [searchTerm, movies]);
+        useEffect(() => {
+            if(movies){
+                const results = movies.filter(movie =>
+                    movie.title.toLowerCase().includes(searchTerm.toLowerCase())
+                  );
+                  setSearchResults(results);
+            }
+          }, [searchTerm, movies]);
 
     const handleResultClick = (clickedTerm) => {
         // Obsłuż kliknięcie w wynik wyszukiwania
@@ -299,14 +305,14 @@ const AdminDashboard = () => {
                                     {movies.map((movie) => {
 
                                         return (
-                                            <tr key={movie.id_filmu}>
-                                                <td>{movie.id_filmu}</td>
-                                                <td>{movie.tytul}</td>
-                                                <td style={{maxWidth:'120px', overflow:'hidden', textOverflow:'ellipsis'}}>{movie.opis}</td>
-                                                <td>{movie.rezyser}</td>
-                                                <td>{movie.data_premiery}</td>
-                                                <td>{movie.czas_trwania}</td>
-
+                                            <tr key={movie.movieId}>
+                                                <td>{movie.movieId}</td>
+                                                <td>{movie.title}</td>
+                                                <td>{movie.description}</td>
+                                                <td>{movie.director}</td>
+                                                <td>{movie.release_date}</td>
+                                                <td>{movie.duration} min</td>
+                                                
                                             </tr>
                                         )
                                     })}
@@ -335,6 +341,16 @@ const AdminDashboard = () => {
                                 <div className="input-group-append">
                                     <button id="button-addon1" type="submit" className="btn btn-link text-primary"> <FontAwesomeIcon icon={faMagnifyingGlass} /></button>
                                 </div>
+                                {isListVisible && searchTerm && (
+                                    <ul className="search-results-list">
+                                        {searchResults.map((movie, index) => (
+                                            <li className="search-movie-link" key={index}
+                                            onClick={() => {handleResultClick(movie.title); handleChangeShow('id_filmu', movie.movieId)}}>
+                                                <img className="search-item-icon" src={movie.picture_url} alt={`Film ${index}`} />
+                                                <p className="show-movie-title-list">{movie.title}</p>
+                                            </li>))}
+                                    </ul>
+                                )}
                             </div>
                             {isListVisible && searchTerm && (
                                 <ul className="search-results-list">
@@ -442,9 +458,9 @@ const AdminDashboard = () => {
                     </div>
                 </div>
             </div>
-            <Footer />
+
         </>
     );
 }
 
-export default AdminDashboard;
+export default EmployeeDashboard;

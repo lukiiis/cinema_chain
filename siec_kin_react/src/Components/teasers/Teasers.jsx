@@ -33,12 +33,12 @@ const Teasers = () => {
                     <div className="teasersContainer">
                         {teasers.map((teaser) => {
                             return (
-                                <Link to={`/film/${teaser.id_filmu}`} state={{ movie_ID: teaser.id_filmu }} key={teaser.id_filmu}>
+                                <Link to={`/film/${teaser.movieId}`} state={{ movie_ID: teaser.movieId }} key={teaser.movieId}>
                                     <Card
-                                        title={teaser.tytul}
-                                        releaseDate={teaser.data_premiery}
-                                        poster={teaser.plakat_url}
-                                        key={teaser.id_filmu}
+                                        title={teaser.title}
+                                        releaseDate={teaser.release_date}
+                                        poster={teaser.poster_url}
+                                        key={teaser.movieId}
                                     />
                                 </Link>
                             );

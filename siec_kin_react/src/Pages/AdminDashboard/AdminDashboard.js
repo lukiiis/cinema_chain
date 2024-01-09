@@ -271,6 +271,8 @@ const AdminDashboard = () => {
 
     useEffect(() => {
         if(localStorage.getItem('role') !== "ADMIN"){
+            console.log("guwno")
+            console.log(localStorage.getItem('role'))
             navigate("/");
         }
         else{
@@ -367,12 +369,12 @@ const AdminDashboard = () => {
                                     {cinemas.map((cinema) => {
 
                                         return (
-                                            <tr key={cinema.id_kina}>
-                                                <td>{cinema.id_kina}</td>
-                                                <td>{cinema.miasto}</td>
-                                                <td>{cinema.ulica}</td>
-                                                <td>{cinema.numer_budynku}</td>
-                                                <td>{cinema.kod_pocztowy}</td>
+                                            <tr key={cinema.cinemaId}>
+                                                <td>{cinema.cinemaId}</td>
+                                                <td>{cinema.city}</td>
+                                                <td>{cinema.street}</td>
+                                                <td>{cinema.building_number}</td>
+                                                <td>{cinema.zip_code}</td>
                                             </tr>
                                         )
                                     })}
@@ -497,7 +499,7 @@ const AdminDashboard = () => {
                                             <td>{emp.user.email}</td>
                                             <td>{emp.user.phone}</td>
                                             <td>{emp.position}</td>
-                                            <td>{emp.cinema.miasto}, {emp.cinema.ulica}</td>
+                                            <td>{emp.cinema.city}, {emp.cinema.street}</td>
                                         </tr>
                                     )
                                 })}

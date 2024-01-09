@@ -1,6 +1,6 @@
 .mainContainer{
     display: flex;
-    height: 100vh;
+    min-height: 100vh;
     background: linear-gradient(to bottom right, rgb(56, 56, 56) 50%, rgb(54, 54, 54) 50%);
 }
 
