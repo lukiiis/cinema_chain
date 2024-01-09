@@ -25,7 +25,6 @@ export default function Shows({ filmID }) {
         axios.get('http://localhost:8090/api/v1/kino').then(
           response => {
             setCinema(response.data)
-            console.log(response.data)
           }
         ).catch(err => {
           console.log('nie dziala')
@@ -40,13 +39,10 @@ export default function Shows({ filmID }) {
 
     const handleShow = async (kinoID) => {
       const url = 'http://localhost:8090/api/v1/seans/' + kinoID + '/' + filmID;
-      console.log(url)
       const getShow = () => {
         axios.get(url).then(
           response => {
-
             setShow(response.data)
-            console.log(response.data)
           }
         ).catch(err => {
           console.log('nie dzialaaaaaaaaaaaa', err)
@@ -65,6 +61,7 @@ export default function Shows({ filmID }) {
     });
     return (
       <div className='show-body'>
+        <h5>WYBIERZ SWOJE KINO:</h5>
         <div className="dropdown custom-dropdown">
           <button className="btn btn-secondary dropdown-toggle custom-button" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
             {city}
@@ -101,8 +98,8 @@ export default function Shows({ filmID }) {
                   {show ? (
                     show.map((show, showIndex) => date === show.showDate && (
                       <div className="show-block" key={show.showId} onClick={() => handleRedirect(show.showId)}>
-                        <h2 className="hour-text">{show.startTime}</h2>
-                        <h1 className="dubbing-text">{show.lector}, {show.movieFormat}</h1>
+                        <h2 className="hour-text-shows">{show.startTime}</h2>
+                        <h1 className="dubbing-text-shows">{show.lector}, {show.movieFormat}</h1>
                       </div>
                     ))
                   ) : null}

@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface MovieRepository extends JpaRepository<Movie, Long> {
@@ -19,4 +20,9 @@ public interface MovieRepository extends JpaRepository<Movie, Long> {
 
     @Query("SELECT k FROM MovieCategory k WHERE k.categoryId = :id")
     MovieCategory findKategoriaById(@Param("id") Long id);
+
+
+    @Query(value = "SELECT f.* FROM FILM f WHERE f.id_filmu = :movieId", nativeQuery = true)
+    Optional<Movie> findMovieByMovieId(Long movieId);
+
 }

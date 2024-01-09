@@ -16,13 +16,12 @@ const Promotions = () => {
 
     const fetchData = async () => {
         try {
-            const response = await axios.get("http://localhost:8090/api/v1/promocje");
+            const response = await axios.get("http://localhost:8090/api/v1/public/promotions");
             setPromotions(response.data);
         }
         catch (error) {
             console.error("Error while fetching data: ", error);
         }
-
     }
 
     return (
@@ -34,12 +33,12 @@ const Promotions = () => {
                         {promotions.map((promotion, index) => {
                             const promoId = promotion.promotionId;
                             const normalizedTitle = promotion.title
-                                .normalize("NFD")
-                                .replace(/[\u0300-\u036f]/g, "")
-                                .toLowerCase()
-                                .replace(/\s+/g, "-")
-                                .split('!')
-                                .join('');
+                                .normalize("NFD") // Normalizacja znaków diakrytycznych
+                                .replace(/[\u0300-\u036f]/g, "") // Usunięcie diakrytyków
+                                .toLowerCase() // Zamiana na małe litery
+                                .replace(/\s+/g, "-") // Zamiana spacji na pauzy
+                                .split('!') //podzielenie stringa na czesci
+                                .join(''); //zlaczenie bez wykrzyknika
                             return (
                                 <div
                                     className={`promoContainer ${hovered === index ? 'highlighted' : 'dimmed'} ${index === 0 ? 'highlighted' : ''}`}
@@ -54,6 +53,7 @@ const Promotions = () => {
                                                 <span>{promotion.addDate}</span>
                                             </div>
                                             <div className="promoTitle">
+                                                <span className="break"></span>
                                                 <h2>{promotion.title}</h2>
                                             </div>
                                             <div className="promoContent">
@@ -68,7 +68,7 @@ const Promotions = () => {
                             );
                         })}
                     </>) : (
-                    <p>Pobieranie danych...</p>
+                    <p>pobieranie danych</p>
                 )}
             </div>
             <Footer />

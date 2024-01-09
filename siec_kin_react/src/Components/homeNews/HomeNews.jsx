@@ -11,7 +11,7 @@ const HomeNews = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get("http://localhost:8090/api/v1/aktualnosci");
+                const response = await axios.get("http://localhost:8090/api/v1/public/news");
                 setNews(response.data);
             }
             catch (error) {
@@ -27,6 +27,7 @@ const HomeNews = () => {
             {news ? (
                 <div className="homeNewsWrapper">
                     <h2 className="homeNewsHeader">
+                        <span className="break"></span>
                         Aktualności
                     </h2>
                     <div className="homeNewsContainer">

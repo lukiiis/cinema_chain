@@ -36,10 +36,10 @@ const SearchItem = ({ movieSetter }) => {
   }, [searchTerm, movies]);
   return (
     <div>
-      <div className="input-group">
+      <div className="input-group searchInput">
         <input
           type="search"
-          placeholder="Wyszukaj film"
+          placeholder="WYSZUKAJ FILM"
           aria-describedby="button-addon1"
           className="form-control border-0 bg-light"
           value={searchTerm}
@@ -56,17 +56,16 @@ const SearchItem = ({ movieSetter }) => {
         </div>
       </div>
       {searchTerm && (
-        <ul className="search-results-list">
+        <ul className="search-results-list resList">
           {searchResults.map((movie, index) => {
             const movieID = movie.movieId;
             return (
                 <Link  to={`film/${movie.movieId}`} state={{ movie_ID: movieID }} >
               <li className='search-movie-link' key={index}>
-                <img className='search-item-icon' src={movie.picture_url} alt={`Movie ${index}`} />
+                <img className='search-item-icon' src={movie.poster_url} alt={`Movie ${index}`} />
                 <p className='show-movie-title-list'>{movie.title}</p>
               </li>
               </Link>
-              
             )
           })}
         </ul>

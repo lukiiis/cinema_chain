@@ -4,6 +4,7 @@ import './CinemaSelection.css'
 import '@fortawesome/fontawesome-svg-core/styles.css';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 
 export default function CinemaSelection() {
@@ -26,15 +27,18 @@ export default function CinemaSelection() {
   return (
     <div className="dropdown">
       <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-        Wybierz swoje miasto
+        SPRAWDŹ REPERTUAR
       </button>
       <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
         {cinema ? (
-          cinema.map((cinema, index) => (
-            <a key={cinema.cinemaId} className="dropdown-item" href={cinema.city}>
+          cinema.map((cinema, index) => {
+            const cinemaId = cinema.cinemaId;
+          
+          return (
+            <Link key={cinema.cinemaId} className="dropdown-item" to ={`/repertuar`} state={{ cinek: cinemaId }}>
               {cinema.city}
-            </a>
-          ))
+            </Link>
+          )})
         ) : null}
       </div>
     </div>

@@ -32,7 +32,6 @@ function App() {
         console.log("Token valid.");
       }
     }
-    console.log(localStorage);
   }, [])
 
   return (
@@ -47,10 +46,10 @@ function App() {
         <Route path="/promotion/:title" element={<PromotionDetails />} />
         <Route path="/aktualnosci/:title" element={<NewsDetails />} />
         <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/admin-dashboard" element={<AdminDashboard />} />
         <Route path='/film/:title' element={<Movie />} />
         <Route path='/repertuar' element={<Reportory />} />
-        <Route path='/employeeDashboard' element={<EmployeeDashboard />}/>
+        <Route path='/employee-dashboard' element={<EmployeeDashboard />}/>
+        <Route path='/admin-dashboard' element={<AdminDashboard/>}/>
         <Route path='/Reservation' element={<Reservation />}/>
       </Routes>
     </BrowserRouter>

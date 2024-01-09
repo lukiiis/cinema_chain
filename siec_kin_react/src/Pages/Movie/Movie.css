@@ -2,81 +2,217 @@
     background-image: url('../../api/Images/background.jpg');
     background-size: cover;
 } */
-.body-container{
+.body-container {
     display: flex;
     flex-direction: column;
     gap: 50px;
     flex-wrap: wrap;
+    background: black;
+    flex: 1;
 }
-.poster-information-container{
+
+.poster-information-container {
     display: flex;
-    opacity: 1;
 }
-.trailer-container{
+
+.trailer-container {
     display: flex;
     flex: 1;
-    width: 62%;
+    width: 55%;
     height: 700px;
     overflow: hidden;
-    background-size:cover ;
+    background-size: cover;
     background-position: center;
     filter: brightness(0.8);
 }
-.information-container{
-    width: 38%;
-    display: flex;
-    height: 700px;
-    justify-content: space-evenly;
-    background-color: rgba(0, 0, 0, 0.5);
-}
-.poster-container{
-    margin-top: 100px;
+
+.information-container {
+    width: 45%;
     display: flex;
     flex-direction: column;
+    height: 700px;
+    justify-content: center;
+    gap:20px;
+    background-color: rgb(35, 35, 35);
+    background-image: linear-gradient(to top, black 4%, transparent 40%);
 }
-.description-container{
-    max-width: 450px;
+
+.poster-container {
+    margin-top: 70px;
+    display: flex;
+    flex-direction: column;
+    margin-left: 15px;
 }
-.information{
+
+.description-container {
+    max-width: 420px;
+    margin-right: 30px;
+}
+
+.information {
     display: flex;
     gap: 25px;
     flex-direction: column;
-    margin-top: 100px;
+    margin-top: 70px;
 }
 
-.big-poster{
-    width: 150%; /* Ustawia szerokość obrazu na 200%, aby był powiększony i wystarczająco szeroki */
-    height: 100%; /* Ustawia wysokość obrazu na 100%, aby zachować proporcje */
-    object-fit: cover; /* Dopasowuje obraz, aby pokryć cały obszar, bez deformacji */
-    object-position: center; /* Wyśrodkowuje obraz zarówno poziomo, jak i pionowo */
-    transform: translateX(-15%); /* Przesuwa obraz w lewo o 50% jego szerokości, aby wyśrodkować */
+.big-poster {
+    width: 150%;
+    /* Ustawia szerokość obrazu na 200%, aby był powiększony i wystarczająco szeroki */
+    height: 100%;
+    /* Ustawia wysokość obrazu na 100%, aby zachować proporcje */
+    object-fit: cover;
+    /* Dopasowuje obraz, aby pokryć cały obszar, bez deformacji */
+    object-position: center;
+    /* Wyśrodkowuje obraz zarówno poziomo, jak i pionowo */
+    transform: translateX(-15%);
+    /* Przesuwa obraz w lewo o 50% jego szerokości, aby wyśrodkować */
 }
-.small-poster{
+
+.small-poster {
     width: 140px;
     margin-bottom: 20px;
     box-shadow: 0 0 10px rgb(168, 163, 163);
-    filter: brightness(1.3);
+    filter: brightness(1);
 }
-.movie-information{
+
+.movie-information {
     margin: 0;
     padding: 0;
 }
-.information-text-title{
+
+.information-text-title {
     color: aliceblue;
     margin: 0;
     font-size: 18px;
 }
-.title-text{
+
+.title-text {
     color: aliceblue;
 }
-.description-text{
-    color: rgb(109, 112, 112);
-}
-.information-text{
-    color: rgb(121, 120, 120);
-    font-size: 14px;
-}
-.play-button{
+
+.play-button {
     position: relative;
     z-index: 2;
 }
+
+
+/* ------------------------------ luki ----------------- */
+
+.movies-show-wrapper {
+    max-width: 1060px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.movies-show-wrapper .break{
+    margin-bottom: 3px;
+}
+
+.description-text {
+    color: rgb(255, 255, 255);
+    font-size: 16px;
+    max-height: 300px;
+    max-width: 450px;
+    text-align: justify;
+}
+
+.information-text {
+    color: rgb(121, 120, 120);
+    font-size: 14px;
+}
+
+.movies-show-container {
+    padding-bottom: 60px;
+    color: rgb(241, 241, 241);
+    background: linear-gradient(to bottom right, rgb(5, 5, 5) 50%, rgb(15, 15, 15) 50%);
+}
+
+.movies-show-wrapper span {
+    font-size: 40px;
+    margin-bottom: 50px;
+}
+
+.information-part {
+    display: flex;
+    gap: 30px;
+}
+
+.grades-towatch-container{
+    margin-left: 15px;
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+}
+
+.towatch-container button{
+    padding: 7px 14px 7px 14px;
+    font-size: 19px;
+    transition: all 0.3s ease;
+    min-width: 120px;
+    border-radius: 4px;
+}
+
+/* .towatch-container button:hover{
+    background-color: rgb(192, 36, 36);
+    color: white;
+} */
+
+.towatch-container .button-active{
+    background-color: rgb(192, 36, 36);
+    color: white;
+}
+
+.towatch-container .button-active:hover{
+    background-color: gray;
+    color:rgb(2, 2, 2);
+}
+
+.towatch-container .button-inactive{
+    background-color: gray;
+    color:rgb(2, 2, 2);
+}
+
+.towatch-container .button-inactive:hover{
+    background-color: rgb(192, 36, 36);
+    color: white;
+}
+
+.svg-heart{
+    height: 45px;
+    width: 45px;
+    transition: all 0.3s ease;
+}
+
+.svg-inactive{
+    fill:gray;
+}
+
+.svg-active{
+    fill:red;
+}
+
+/* --------------- OCENY ------------------ */
+.ratings-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .star {
+    color: grey; /* Kolor pustych gwiazdek */
+    transition: color 0.3s ease; /* Płynna zmiana koloru */
+    cursor: pointer;
+    font-size: 2.5rem;
+  }
+  
+  .filled {
+    color: gold; /* Kolor wypełnionych gwiazdek */
+  }
+
+  .rating-text{
+    font-size: 20px;
+    color: white;
+  }

@@ -3,9 +3,18 @@ import './Footer.css';
 import { useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-
+import { useNavigate  } from 'react-router-dom';
 const Footer = () => {
     const [kina, setKina] = useState(null);
+    const navigate = useNavigate();
+
+    const handleRedirect = (cinemaId) => {
+        // Tutaj możesz umieścić dowolną logikę generowania nowej ścieżki
+        const newPath = '/repertory';
+        
+        // Przekazanie danych do nowej strony
+        navigate(newPath, { state: { cinemaId: cinemaId } });
+      };
 
     useEffect(() => {
         fetchData();
@@ -31,10 +40,11 @@ const Footer = () => {
                         {kina ? (
                             <ul className='cinemaList'>
                                 {kina.map((kino) => {
+                                    const cinemaId = kino.cinemaId;
                                     const miastoLowerCase = kino.city.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
                                     return (
-                                        <li key={kino.id_kina}>
-                                            <Link to={`/repertuar`} className='link'>{kino.city}</Link>
+                                        <li key={kino.cinemaId}>
+                                            <Link className='link' to ={`/repertuar`} state={{ cinek: cinemaId }}>{kino.city}</Link>
                                         </li>
                                     );
                                 })}

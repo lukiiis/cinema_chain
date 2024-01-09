@@ -1,15 +1,14 @@
 package com.ip.kino.service;
 
+import com.ip.kino.config.AuthenticationResponse;
 import com.ip.kino.dto.*;
-import com.ip.kino.model.User;
-import com.ip.kino.repository.AdminRepository;
-import com.ip.kino.repository.ClientRepository;
-import com.ip.kino.repository.EmployeeRepository;
-import com.ip.kino.repository.UserRepository;
+import com.ip.kino.model.*;
+import com.ip.kino.repository.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -20,6 +19,7 @@ public class UserDataService {
     private final ClientRepository clientRepository;
     private final EmployeeRepository employeeRepository;
     private final AdminRepository adminRepository;
+    private final CinemaRepository kinoRepository;
 
     public UserDataDto getUserByLogin(String login){
         User user = userRepository.findByLogin(login).orElseThrow();
@@ -63,6 +63,18 @@ public class UserDataService {
         return userRepository.findAll();
     }
 
+    public List<Client> getAllClients(){
+        return clientRepository.findAll();
+    }
+
+    public List<Employee> getAllEmployees(){
+        return employeeRepository.findAll();
+    }
+
+    public List<Admin> getAllAdmins(){
+        return adminRepository.findAll();
+    }
+
     public String blockOrUnblockAccount(Long id) {
         User user = userRepository.findByUserId(id).orElseThrow();
         if(user.getBlockade()){
@@ -77,13 +89,11 @@ public class UserDataService {
 
     public String deleteAccount(Long id) {
         try {
-//            uzytkownikRepository.deleteUser(id);
             User user = userRepository.findByUserId(id).orElseThrow();
             System.out.println(user.getUserId());
             userRepository.delete(user);
             return "Account has been deleted.";
         } catch (Exception ex) {
-            // Obsługa ewentualnych błędów
             ex.printStackTrace();
             return "Error deleting account.";
         }
@@ -120,6 +130,59 @@ public class UserDataService {
             ex.printStackTrace();
             return "Error changing personal data.";
         }
+    }
+
+    public Object registerEmployee(RegisterEmployeeDto request) {
+        List<User> usersList = userRepository.findAll();
+        for (User registeredUser:usersList) {
+            if(registeredUser.getLogin().equals(request.getLogin()) && registeredUser.getEmail().equals(request.getEmail())){
+                return "Podany adres e-mail oraz login są zajęte.";
+            }
+            if(registeredUser.getLogin().equals(request.getLogin())){
+                //zwracam 1 i obsluguje w kontrolerze
+                return "Podany login jest zajęty";
+            }
+            if(registeredUser.getEmail().equals(request.getEmail())){
+                //zwracam 2 i obsluguje w kontrolerze
+                return "Podany adres e-mail jest zajęty.";
+            }
+            if(registeredUser.getPhone() == request.getPhone()){
+                return "Podany numer telefonu jest zajęty.";
+            }
+            if(request.getLogin().equals("") || request.getEmail().equals("") ||
+                    request.getName().equals("") || request.getSurname().equals("") ||
+                    request.getPasswd().equals("") || request.getPhone() == null){
+                return "Pole w formularzu jest puste.";
+            }
+        }
+
+        Long id_uzytkownika = userRepository.findMaxUserId();
+        if(id_uzytkownika==null)
+            id_uzytkownika = 1L;
+        else
+            id_uzytkownika += 1;
+
+        User user = new User(id_uzytkownika,request.getLogin(),passwordEncoder.encode(request.getPasswd()),
+                request.getEmail(),request.getName(),request.getSurname(),request.getPhone(),
+                LocalDate.now(),false , Role.WORKER, null, null, null);
+
+        userRepository.save(user);
+
+        Cinema cinema = kinoRepository.getCinemaByCinemaId(request.getCinemaId());
+
+        Employee employee = new Employee();
+
+        employee.setUser(user);
+        employee.setPosition(request.getPosition());
+        employee.setCinema(cinema);
+
+        employeeRepository.save(employee);
+
+        user.setEmployee(employee);
+
+        userRepository.save(user);
+
+        return "Employee registered succesfully";
     }
 
 //    public String changeRole(Long id, String role) {

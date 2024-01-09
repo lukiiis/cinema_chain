@@ -132,7 +132,6 @@ public class AuthenticationService {
                             user.getEmployee().getCinema(),
                             user.getEmployee().getPosition()));
         }
-
         return new AuthenticationResponseAdmin(
                 "Logowanie pomyslne, adminie.",
                 jwtToken,

@@ -7,14 +7,15 @@ import { jwtDecode } from "jwt-decode";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+
+    const [loginStatus, setLoginStatus] = useState("")
     const navigate = useNavigate();
-    const [loginStatus, setLoginStatus] = useState("");
-    const [errors, setErrors] = useState({});
     const [formData, setFormData] = useState({
         login: '',
         password: ''
     })
 
+    const [errors, setErrors] = useState({});
     //walidacja danych
     useEffect(() => {
         const validationErrors = {};
@@ -31,7 +32,7 @@ const Login = () => {
 
     useEffect(() => {
         if (localStorage.getItem('token')) {
-            navigate("/");
+            navigate("/dashboard");
         }
     }, [])
 
@@ -48,6 +49,7 @@ const Login = () => {
         if (Object.keys(errors).length === 0) {
             try {
                 const response = await axios.post("http://localhost:8090/api/v1/public/auth/login", formData);
+                console.log('Server response: ', response.data);
 
                 if(response.data.status === "Account is blocked."){
                     localStorage.clear();
@@ -63,7 +65,6 @@ const Login = () => {
                         else {
                             localStorage.setItem("" + resData + "", response.data[resData]);
                         }
-    
                     });
 
                     if(response.data.role === "USER"){
@@ -81,51 +82,53 @@ const Login = () => {
                     else if(response.data.role === "WORKER"){
                         setLoginStatus("Logowanie pomyślne.");
                         setTimeout(() => {
-                            navigate("/worker-dashboard");
+                            navigate("/employee-dashboard");
                         }, 1000);
                     }
                 }
             }
             catch (error) {
                 console.error('Error while sending data: ', error);
-                if(error.response.status===403){
-                    setLoginStatus("Nie istnieje takie konto");
-                }
             }
         }
         else {
-            setLoginStatus("Niektóre pola formularza są puste");
+            console.log('Form is empty');
         }
     }
 
     return (
         <>
             <Navigation />
+
             <div className="loginFormContainer">
                 <div className="loginFormBorder">
-                    <h1>Logowanie</h1>
-                    <form className="loginForm" onSubmit={handleSubmit}>
-                        <div className="loginFormWrapper">
-                            <div className="loginFormInputs">
-                                <label className="login-lbl">
-                                    Login
-                                    <input type="text" name="login" value={formData.login} onChange={handleChange} />
-                                    {errors.login && <span>{errors.login}</span>}
-                                </label>
-                                <label className="login-lbl">
-                                    Hasło
-                                    <input type="password" name="password" value={formData.password} onChange={handleChange} />
-                                    {errors.password && <span>{errors.password}</span>}
-                                </label>
+                    
+                        <h1>Logowanie</h1>
+                        <form className="loginForm" onSubmit={handleSubmit}>
+                            <div className="loginFormWrapper">
+                                <div className="loginFormInputs">
+                                    <label>
+                                        Login
+                                        <input type="text" name="login" value={formData.login} onChange={handleChange} /> 
+                                    </label>
+                                    <label>
+                                        Hasło
+                                        <input type="password" name="password" value={formData.password} onChange={handleChange} />
+                                    </label>
+                                </div>
+                                <div className="loginFormButton">
+                                    <button type="submit">Zaloguj się</button>
+                                </div>
+                                
                             </div>
-                            <div className="loginFormButton">
-                                <button type="submit">Zaloguj się</button>
+                            <div className="loginStatus">
+                                {loginStatus && <span>{loginStatus}</span>}
                             </div>
-                        </div>
-                        {loginStatus && <span>{loginStatus}</span>}
-                    </form>
+                        </form>
+
                 </div>
             </div>
+
             <Footer />
         </>
     );

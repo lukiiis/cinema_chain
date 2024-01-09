@@ -12,10 +12,8 @@ import SearchItem from '../searchItem/SearchItem';
 export default function SearchBar() {
   return (
     <div className="searchBar-container">
-      <div className='searchBar-wrapper'>
-        <CinemaSelection />
-        <SearchItem />
-      </div>
+      <CinemaSelection />
+      <SearchItem />
     </div>
   )
 }

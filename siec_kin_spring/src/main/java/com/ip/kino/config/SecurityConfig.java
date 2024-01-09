@@ -23,25 +23,6 @@ import javax.sql.DataSource;
 public class SecurityConfig {
     private final JwtAuthenticationFilter jwtAuthFilter;
     private final AuthenticationProvider authenticationProvider;
-//    @Bean
-//    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-//        http
-//                .authorizeRequests(authorize -> authorize
-//                        .requestMatchers("/login","/api/v1/**","/images/**").permitAll() // Allow access to login page
-//                        .anyRequest().authenticated()    // Require authentication for other endpoints
-//                )
-//                .formLogin(form -> form
-//                        .loginPage("http://localhost:3000/login")              // Set custom login page URL
-//                        .defaultSuccessUrl("/dashboard")  // Redirect to dashboard after successful login
-//                )
-//                .logout(logout -> logout
-//                        .logoutUrl("/logout")            // Set custom logout URL
-//                        .logoutSuccessUrl("/login")      // Redirect to login page after logout
-//                );
-//
-//        return http.build();
-//    }
-
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
         http
@@ -51,15 +32,11 @@ public class SecurityConfig {
                         .sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(authorize -> authorize
                         .requestMatchers("/api/v1/**","/images/**", "/api/v1/public/**").permitAll()
-                        .requestMatchers("/api/v2/test", "/api/v1/private/**").hasAnyAuthority("USER", "ADMIN", "WORKER") //TUTAJ DAWAĆ ROLE, KTÓRE BĘDĄ MIEĆ DOSTĘP DO DANYCH ENDPOINTÓW
+                        .requestMatchers("/api/v1/private/**").hasAnyAuthority("USER", "ADMIN", "WORKER")
                         .anyRequest().authenticated()
                 )
                 .authenticationProvider(authenticationProvider)
                 .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
-
-
-
         return http.build();
     }
-
 }

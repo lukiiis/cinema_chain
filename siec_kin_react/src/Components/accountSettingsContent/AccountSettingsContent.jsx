@@ -17,7 +17,7 @@ const AccountSettingsContent = ({ userData, token, refreshNavigation }) => {
 
     const deleteAccount = async (e) => {
         e.preventDefault();
-        try{
+        try {
             const id = userData.userId;
             const url = `http://localhost:8090/api/v1/private/delete-account`;
             const response = await axios.post(url, null, {
@@ -26,21 +26,17 @@ const AccountSettingsContent = ({ userData, token, refreshNavigation }) => {
                 },
                 headers: {
                     Authorization: `Bearer ${token}`
-                }               
+                }
             });
-            if(response.status === 200){
-                console.log(response.data);
-                console.log("Account has been deleted.");
+            if (response.status === 200) {
                 localStorage.clear();
                 navigate("/");
-
-                
             }
         }
-        catch (error){
-            if(error.response.status === 403){
-                console.log("Token expired, please log in.");
-                console.log(token);
+        catch (error) {
+            if (error.response.status === 403) {
+                console.log("Acces denied.");
+                localStorage.clear();
                 navigate("/login");
             }
         }
@@ -58,8 +54,8 @@ const AccountSettingsContent = ({ userData, token, refreshNavigation }) => {
 
     const changePassword = async (e) => {
         e.preventDefault();
-        if(Object.keys(passwdChangeErrors).length === 0){
-            try{
+        if (Object.keys(passwdChangeErrors).length === 0) {
+            try {
                 const token = localStorage.getItem('token');
                 const url = "http://localhost:8090/api/v1/private/change-password";
                 const response = await axios.post(url, passwdData, {
@@ -69,11 +65,11 @@ const AccountSettingsContent = ({ userData, token, refreshNavigation }) => {
                 })
                 setPasswdChangeStatus(response.data);
             }
-            catch(error){
+            catch (error) {
                 console.error('Error while sending data: ', error);
             }
         }
-        else{
+        else {
             console.log("Form has errors.");
         }
     }
@@ -140,7 +136,7 @@ const AccountSettingsContent = ({ userData, token, refreshNavigation }) => {
 
     const editPersonalData = async (e) => {
         e.preventDefault();
-        try{
+        try {
             const token = localStorage.getItem('token');
             const url = "http://localhost:8090/api/v1/private/change-personal-data";
             const response = await axios.post(url, editedUserData, {
@@ -149,7 +145,7 @@ const AccountSettingsContent = ({ userData, token, refreshNavigation }) => {
                 }
             })
             setDataEditResponseStatus(response.data);
-            if(response.status===200){
+            if (response.status === 200) {
                 localStorage.setItem('name', editedUserData.name);
                 localStorage.setItem('lastName', editedUserData.surname);
                 userData.name = editedUserData.name;
@@ -157,17 +153,22 @@ const AccountSettingsContent = ({ userData, token, refreshNavigation }) => {
                 userData.phone = editedUserData.phone;
                 refreshNavigation();
             }
-            
+
         }
-        catch (error){
-            console.error("Error while sending data: ", error);
+        catch (error) {
+            if (error.response.status === 403) {
+                console.log("Acces denied.");
+                localStorage.clear();
+                navigate("/login");
+            }
         }
     }
 
     return (
         <>
             <div className="userDataContainer">
-                <h5>Dane osobowe</h5>
+                <span className="break"></span>
+                <h3>Dane osobowe</h3>
                 <div className="userDataInfo">
                     <div className="dataRow gap">
                         <div className="dataName">
@@ -243,18 +244,19 @@ const AccountSettingsContent = ({ userData, token, refreshNavigation }) => {
                 </div>
                 {isEditing ? (
                     <>
-                    <div style={{display:"flex"}}>
-                        <button onClick={editPersonalData}>Zapisz</button>
-                        <button onClick={() => {setIsEditing(false)}}>Wróć</button>
-                    </div>
-                    {dataEditResponseStatus && <span>{dataEditResponseStatus}</span>}
+                        <div className="openedButtons">
+                            <button onClick={editPersonalData}>Zapisz</button>
+                            <button onClick={() => { setIsEditing(false) }}>Wróć</button>
+                        </div>
+                        {dataEditResponseStatus && <span>{dataEditResponseStatus}</span>}
                     </>
                 ) : (
                     <button onClick={handleEditClick}>Edytuj</button>
-                )} 
+                )}
             </div>
             <div className="userDataContainer">
-                <h5>Zmiana hasła</h5>
+                <span className="break"></span>
+                <h3>Zmiana hasła</h3>
                 <form onSubmit={changePassword}>
                     <div className="userDataInfo flexColumn">
                         <div className="dataRowPasswd">
@@ -279,18 +281,19 @@ const AccountSettingsContent = ({ userData, token, refreshNavigation }) => {
                     {/* {passwdChangeErrors.confPassword && <span>{passwdChangeErrors.confPassword}</span>}
                     {passwdChangeErrors.newPassword && <span>{passwdChangeErrors.newPassword}</span>} */}
                     {passwdChangeErrors.length > 0 && (
-                    <>
-                        {passwdChangeErrors.map((error, index) => (
-                            <span key={index}>{error}</span>
-                        ))}
-                    </>
+                        <>
+                            {passwdChangeErrors.map((error, index) => (
+                                <span key={index}>{error}</span>
+                            ))}
+                        </>
                     )}
-                    <button type="submit">Zmień hasło</button>
+                    <button className="passwdButton" type="submit">Zmień hasło</button>
                     {passwdChangeStatus && <span>{passwdChangeStatus}</span>}
                 </form>
             </div>
             <div className="userDataContainer">
-                <h5>Usunięcie konta</h5>
+                <span className="break"></span>
+                <h3>Usunięcie konta</h3>
                 <span>Jeśli usuniesz konto, Twoje dane zostaną bezpowrotnie utracone.</span>
                 <button onClick={togglePopup}>Usuń konto</button>
                 {/* popup */}
@@ -300,8 +303,10 @@ const AccountSettingsContent = ({ userData, token, refreshNavigation }) => {
                             <div className="popup-content">
                                 <h2>Usuń konto</h2>
                                 <p>Twoje dane zostaną bezpowrotnie utracone, kontynuować?</p>
-                                <button onClick={deleteAccount}>Usuń konto</button>
-                                <button onClick={togglePopup}>Anuluj</button>
+                                <div className="popupButtons">
+                                    <button onClick={deleteAccount}>Usuń konto</button>
+                                    <button onClick={togglePopup}>Anuluj</button>
+                                </div>
                             </div>
                         </div>
                     </div>

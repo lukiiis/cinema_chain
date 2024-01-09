@@ -74,7 +74,7 @@ export default function FilmCarousel() {
                     </Carousel>
                 </div>
             ) : (
-                <p>Pobieranie danych...</p>
+                <div style={{ height: `600px` }}>Pobieranie danych...</div>
             )}
         </div>
     );

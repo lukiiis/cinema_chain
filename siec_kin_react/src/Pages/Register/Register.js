@@ -9,14 +9,14 @@ const Register = () => {
     const navigate = useNavigate();
     const [formData, setFormData] = useState({
         login: '',
-        passwd: '',
+        haslo: '',
         email: '',
-        name: '',
-        surname: '',
-        phone: ''
+        imie: '',
+        nazwisko: '',
+        nr_telefonu: ''
     })
 
-    const [res, setRes] = useState(null);
+    const [registerStatus, setRegisterStatus] = useState(null);
 
     const [errors, setErrors] = useState({});
 
@@ -26,7 +26,7 @@ const Register = () => {
         }
     }, [])
 
-    //walidacja danych todo
+    //walidacja danych
     useEffect(() => {
         const validationErrors = {};
 
@@ -52,8 +52,10 @@ const Register = () => {
             try {
                 const response = await axios.post("http://localhost:8090/api/v1/public/auth/register", formData);
                 //Tutaj wstawic na fronta wiadomosc od backendu, czy udalo sie zarejestrowac pomyslnie
-                console.log('Server response: ', response.data);
-                setRes(response.data);
+                console.log('Server response: ', response);
+                if(response.status===200){
+                    setRegisterStatus(response.data.status);
+                }
             }
             catch (error) {
                 console.error('Error while sending data: ', error);
@@ -62,13 +64,14 @@ const Register = () => {
         else {
             //tutaj wyslac cos na ekran, ze dane bledne
             console.log('Form has errors, cannot submit.');
+            setRegisterStatus("Formularz zawiera błędy.");
         }
     }
 
     return (
         <>
             <Navigation />
-            <div className="formContainer">
+            <div className="registerFormContainer">
                 <div className="formBorder">
                     <h1>Rejestracja</h1>
                     <form onSubmit={handleSubmit}>
@@ -108,6 +111,9 @@ const Register = () => {
                             <div className="formButton">
                                 <button type="submit">Zarejestruj się</button>
                             </div>
+                        </div>
+                        <div className="registerStatus">
+                                {registerStatus && <span>{registerStatus}</span>}
                         </div>
                     </form>
                 </div>

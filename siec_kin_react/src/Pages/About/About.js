@@ -27,10 +27,9 @@ const About = () => {
                 <div className="aboutBottomContainer">
                     <div className="aboutBottomWrapper">
                         <div className="aboutInfoLongContent">
+                            <span className="break"></span>
                             <h2>Multikino to dużo więcej niż tylko kino</h2>
                             <div className="aboutText">
-                                Informacje o spółce Multikino:<br /><br />
-
                                 Multikino, należące do Grupy Vue International – lidera na europejskim rynku kinowym, to pierwszy operator, który w 1998 roku uruchomił w Polsce multipleks. Od tego czasu wyznacza najwyższe standardy w budowie i prowadzeniu kin w Europie i na świecie. Obecnie w spółce Multikino pod szyldem Multikino działa 45 kin w 37 miastach z łączną liczbą 323 ekranów.
                                 <br /><br />
                                 Flagowe kino sieci zlokalizowane jest w centrum handlowym Złote Tarasy w Warszawie. Obiekt składa się z 8 sal, w tym Sali Premierowej na 788 osób. W marcu 2022r. uruchomione zostało wyjątkowe kino w Galerii Gemini Park w Tychach. Obiekt składa się z 7 sal wyposażonych w projektory laserowe oraz skórzane, elektrycznie rozkładane fotele, dzięki którym widz ogląda filmy w pozycji półleżącej. W rozkładane fotele tego typu w pełni wyposażone są także warszawskie Multikino w Galerii Młociny, Multikino Koszalin oraz poznańskie Multikina: Stary Browar i Malta.

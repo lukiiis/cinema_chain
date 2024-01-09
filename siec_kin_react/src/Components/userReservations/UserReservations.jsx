@@ -1,12 +1,32 @@
+import React, { useState } from "react";
 import "./UserReservations.css";
 
 const UserReservations = ({ reservations }) => {
+    const [currentPage, setCurrentPage] = useState(1);
+    const reservationsPerPage = 3;
+
+    const indexOfLastReservation = currentPage * reservationsPerPage;
+    const indexOfFirstReservation = indexOfLastReservation - reservationsPerPage;
+    const currentReservations = reservations.slice(
+        indexOfFirstReservation,
+        indexOfLastReservation
+    );
+
+    const totalPages = Math.ceil(reservations.length / reservationsPerPage);
+
+    const nextPage = () => {
+        setCurrentPage((prevPage) => prevPage + 1);
+    };
+
+    const prevPage = () => {
+        setCurrentPage((prevPage) => prevPage - 1);
+    };
+
     return (
         <>
-            {reservations ? (
+            {currentReservations.length > 0 ? (
                 <>
-                    {reservations.map((reservation) => {
-
+                    {currentReservations.map((reservation) => {
                         return (
                             <div
                                 className="reservationContainer"
@@ -47,12 +67,26 @@ const UserReservations = ({ reservations }) => {
                             </div>
                         );
                     })}
+                    <div className="paginationButtons">
+                        <button
+                            onClick={prevPage}
+                            disabled={currentPage === 1}
+                        >
+                            &#9664;
+                        </button>
+                        <button
+                            onClick={nextPage}
+                            disabled={currentPage === totalPages}
+                        >
+                             &#9654;
+                        </button>
+                    </div>
                 </>
             ) : (
-                <p>pobieranie danych</p>
+                <p>Brak rezerwacji do wyświetlenia.</p>
             )}
         </>
     );
-}
+};
 
 export default UserReservations;
