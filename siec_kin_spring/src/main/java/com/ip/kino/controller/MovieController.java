@@ -29,6 +29,11 @@ public class MovieController {
             return filmService.getLatestFilms();
     }
 
+    @GetMapping("/slider-movies")
+    public List<Movie> getSliderMovies(){
+        return filmService.getSliderMovies();
+    }
+
     @GetMapping("/zapowiedzi")
     public List<Movie> getZapowiedzi() {
         return filmService.getZapowiedzi();

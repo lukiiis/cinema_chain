@@ -95,7 +95,7 @@ const EmployeeDashboard = () => {
                     setMovies(response.data)
                 }
             ).catch(err => {
-                console.log('nie dziala')
+                console.log('Acces denied')
             })
         }
         getMovies();
@@ -108,7 +108,7 @@ const EmployeeDashboard = () => {
                     setCinema(response.data)
                 }
             ).catch(err => {
-                console.log('nie dziala')
+                console.log('Acces denied')
             })
         }
         getCinema();

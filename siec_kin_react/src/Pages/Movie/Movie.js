@@ -31,7 +31,7 @@ const Movie = (() => {
                     setMovie(response.data)
                 }
             ).catch(err => {
-                console.log('nie dziala', err)
+                console.log('Acces denied', err);
             })
         }
         getMovie();
@@ -86,6 +86,9 @@ const Movie = (() => {
         try{
             if(!token){
                 setToWatchStatus("Zaloguj się, by dodać film do listy");
+                setTimeout(() => {
+                    setToWatchStatus('');
+                }, 2000);
                 return;
             }
             if(localStorage.getItem('role') === "ADMIN"){
@@ -405,7 +408,7 @@ const Movie = (() => {
                                 </div>
                                 <div className='movie-information'>
                                     <h1 className='information-text-title'>Czas Trwania</h1>
-                                    <p className='information-text'>{movie.duration}</p>
+                                    <p className='information-text'>{movie.duration} min</p>
                                 </div>
                                 <div className='movie-information'>
                                     <h1 className='information-text-title'>Reżyseria</h1>

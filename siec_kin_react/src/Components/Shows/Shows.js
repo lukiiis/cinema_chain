@@ -25,7 +25,7 @@ export default function Shows({ filmID }) {
             setCinema(response.data)
           }
         ).catch(err => {
-          console.log('nie dziala')
+          console.log('Acces denied')
         })
       }
       getCinema();
@@ -43,7 +43,7 @@ export default function Shows({ filmID }) {
             setShow(response.data)
           }
         ).catch(err => {
-          console.log('nie dzialaaaaaaaaaaaa', err)
+          console.log('Acces denied', err)
         })
       }
       getShow();

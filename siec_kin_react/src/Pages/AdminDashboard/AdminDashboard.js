@@ -278,12 +278,8 @@ const AdminDashboard = () => {
         });
     }
 
-
-
-
     useEffect(() => {
         if(localStorage.getItem('role') !== "ADMIN"){
-            console.log("guwno")
             console.log(localStorage.getItem('role'))
             navigate("/");
         }

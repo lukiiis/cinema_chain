@@ -1,6 +1,7 @@
 package com.ip.kino.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -29,6 +30,7 @@ public class Cinema {
 
 
     @OneToMany
+//    @JsonIgnoreProperties("seats")
     @JoinColumn(name = "id_kina")
     private List<ScreeningRoom> screeningRooms;
 }

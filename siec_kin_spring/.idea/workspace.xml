@@ -4,11 +4,43 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d0b32825-2b5b-4b61-a6ee-5dddefcd478d" name="Changes" comment="" />
+    <list default="true" id="d0b32825-2b5b-4b61-a6ee-5dddefcd478d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ip/kino/dto/ShowWithoutSeatsDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../siec_kin_react/src/Components/Datepicker/Datepicker.js" beforeDir="false" afterPath="$PROJECT_DIR$/../siec_kin_react/src/Components/Datepicker/Datepicker.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../siec_kin_react/src/Components/Shows/Shows.js" beforeDir="false" afterPath="$PROJECT_DIR$/../siec_kin_react/src/Components/Shows/Shows.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../siec_kin_react/src/Components/filmCarousel/FilmCarousel.css" beforeDir="false" afterPath="$PROJECT_DIR$/../siec_kin_react/src/Components/filmCarousel/FilmCarousel.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../siec_kin_react/src/Components/filmCarousel/FilmCarousel.js" beforeDir="false" afterPath="$PROJECT_DIR$/../siec_kin_react/src/Components/filmCarousel/FilmCarousel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../siec_kin_react/src/Components/searchBar/SearchBar.css" beforeDir="false" afterPath="$PROJECT_DIR$/../siec_kin_react/src/Components/searchBar/SearchBar.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../siec_kin_react/src/Components/searchItem/SearchItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/../siec_kin_react/src/Components/searchItem/SearchItem.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../siec_kin_react/src/Pages/AdminDashboard/AdminDashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/../siec_kin_react/src/Pages/AdminDashboard/AdminDashboard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../siec_kin_react/src/Pages/EmployeeDashboard/EmployeeDashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/../siec_kin_react/src/Pages/EmployeeDashboard/EmployeeDashboard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../siec_kin_react/src/Pages/Movie/Movie.css" beforeDir="false" afterPath="$PROJECT_DIR$/../siec_kin_react/src/Pages/Movie/Movie.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../siec_kin_react/src/Pages/Movie/Movie.js" beforeDir="false" afterPath="$PROJECT_DIR$/../siec_kin_react/src/Pages/Movie/Movie.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../siec_kin_react/src/Pages/Repertory/Repertory.js" beforeDir="false" afterPath="$PROJECT_DIR$/../siec_kin_react/src/Pages/Repertory/Repertory.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../siec_kin_react/src/Pages/Reservation/Reservation.js" beforeDir="false" afterPath="$PROJECT_DIR$/../siec_kin_react/src/Pages/Reservation/Reservation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ip/kino/controller/MovieController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ip/kino/controller/MovieController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ip/kino/model/Cinema.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ip/kino/model/Cinema.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ip/kino/repository/MovieRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ip/kino/repository/MovieRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ip/kino/service/MovieService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ip/kino/service/MovieService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ip/kino/controller/MovieController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ip/kino/controller/MovieController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ip/kino/model/Cinema.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ip/kino/model/Cinema.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ip/kino/repository/MovieRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ip/kino/repository/MovieRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ip/kino/service/MovieService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ip/kino/service/MovieService.class" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -34,7 +66,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;luki&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -61,11 +93,27 @@
       <option name="presentableId" value="Default" />
       <updated>1704761663947</updated>
       <workItem from="1704761674103" duration="1492000" />
-      <workItem from="1704817487988" duration="5160000" />
+      <workItem from="1704817487988" duration="6503000" />
+      <workItem from="1704912717316" duration="861000" />
+      <workItem from="1705158888265" duration="9000" />
+      <workItem from="1705399205042" duration="1237000" />
+      <workItem from="1705754537256" duration="3200000" />
+      <workItem from="1705867075098" duration="2134000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

@@ -43,8 +43,9 @@
     top: 250px;
     left: 50px;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     width: 100%;
+    gap:150px;
 }
 
 .movie-title {
@@ -52,6 +53,7 @@
     display: flex;
     align-items: center;
     width: 300px;
+    left:0;
 }
 
 .movie-buttons-container {
@@ -94,6 +96,7 @@
     .movie-detail {
         flex-direction: column;
         align-items: center;
+        justify-content: center;
         top: 20px;
     }
 }

@@ -79,4 +79,8 @@ public class MovieService {
                 .build();
 
     }
+
+    public List<Movie> getSliderMovies() {
+        return filmRepository.findSliderMovies();
+    }
 }

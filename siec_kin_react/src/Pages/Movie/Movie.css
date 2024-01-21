@@ -180,6 +180,7 @@
     height: 45px;
     width: 45px;
     transition: all 0.3s ease;
+    fill:white;
 }
 
 .svg-inactive{

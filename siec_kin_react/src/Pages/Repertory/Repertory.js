@@ -10,6 +10,7 @@ import Navigation from '../../Components/navigation/Navigation';
 import Footer from '../../Components/footer/Footer';
 import { useNavigate  } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
 export default function Reportory() {
@@ -22,9 +23,10 @@ export default function Reportory() {
     let today = new Date();
     let [city, setCity] = useState("Krakow");
 
-
     const cinemaId = useLocation();
+
     const { cinek } = cinemaId.state;
+
     const defaultCinemaID = cinek;
     
     const handleRedirect = (seansID) => {
@@ -142,7 +144,7 @@ export default function Reportory() {
               moviesWithShowsOnDate.map((movie, movieIndex) => (
                 <div className='repertory-item' key={movie.movieId}>
                   <div className='repertory-image-container'>
-                    <img className='repertory-image' src={movie.poster_url}></img>
+                    <Link to={`/film/${movie.movieId}`} state={{ movie_ID: movie.movieId }}><img className='repertory-image' src={movie.poster_url}></img></Link>
                   </div>
                   <div className='repertory-information-container'>
                     <div className='movie-title-conatiner'>

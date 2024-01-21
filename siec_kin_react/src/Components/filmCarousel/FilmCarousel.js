@@ -15,7 +15,7 @@ export default function FilmCarousel() {
 
     useEffect(() => {
         const getMovies = () => {
-            axios.get('http://localhost:8090/api/v1/film').then(
+            axios.get('http://localhost:8090/api/v1/slider-movies').then(
                 response => {
                     setMovies(response.data)
                 }

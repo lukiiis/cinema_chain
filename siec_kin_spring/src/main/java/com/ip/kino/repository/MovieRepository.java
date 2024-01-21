@@ -25,4 +25,6 @@ public interface MovieRepository extends JpaRepository<Movie, Long> {
     @Query(value = "SELECT f.* FROM FILM f WHERE f.id_filmu = :movieId", nativeQuery = true)
     Optional<Movie> findMovieByMovieId(Long movieId);
 
+    @Query(value = "SELECT f.* FROM film f ORDER BY f.data_premiery DESC FETCH FIRST 5 ROWS ONLY", nativeQuery = true)
+    List<Movie> findSliderMovies();
 }

@@ -34,7 +34,7 @@ export default function Reservation() {
   const token = localStorage.getItem('token');
 
   useEffect(() => {
-    if (token) {
+    if (token && localStorage.getItem('role') !== "ADMIN" && localStorage.getItem('role') !== "WORKER") {
       fetchUserData();
     }
   }, [])

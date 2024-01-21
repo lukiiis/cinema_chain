@@ -16,7 +16,6 @@ export default function Datepicker({onDataReceived, onDateSend}){
           if (onDateSend && shouldUpdateDate) {
             setSelectedDate(onDateSend());
             setShouldUpdateDate(true); // set flag to false
-            console.log("2");
           }
         }, [onDateSend, shouldUpdateDate]);
 
