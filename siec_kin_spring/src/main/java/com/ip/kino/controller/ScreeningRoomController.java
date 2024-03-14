@@ -13,16 +13,16 @@ import java.util.List;
 @RestController
 @RequestMapping("api/v1")
 public class ScreeningRoomController {
-    private final ScreeningRoomService salaService;
+    private final ScreeningRoomService screeningRoomService;
 
     @Autowired
-    public ScreeningRoomController(ScreeningRoomService salaService){this.salaService = salaService;}
+    public ScreeningRoomController(ScreeningRoomService salaService){this.screeningRoomService = salaService;}
 
-    @GetMapping("/sala")
-    public List<ScreeningRoom> getAllSale(){
-        return salaService.getAllSale();
+    @GetMapping("/screeningRoom")
+    public List<ScreeningRoom> getAllScreeningRooms(){
+        return screeningRoomService.getAllScreeningRooms();
     }
 
-    @GetMapping("/sala/{id}")
-    public ScreeningRoom getSalaById(@PathVariable Long id){return salaService.getSalaById(id);}
+    @GetMapping("/screeningRoom/{id}")
+    public ScreeningRoom getScreeningRoomById(@PathVariable Long id){return screeningRoomService.getScreeningRoomById(id);}
 }

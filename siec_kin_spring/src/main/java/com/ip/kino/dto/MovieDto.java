@@ -11,12 +11,12 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 public class MovieDto {
-    private String tytul;
-    private String opis;
-    private String rezyser;
-    private String obraz_url;
-    private String plakat_url;
-    private LocalDate data_premiery;
-    private Long czas_trwania;
-    private Long id_kategorii;
+    private String title;
+    private String description;
+    private String director;
+    private String picture_url;
+    private String poster_url;
+    private LocalDate release_date;
+    private Long duration;
+    private Long categoryId;
 }

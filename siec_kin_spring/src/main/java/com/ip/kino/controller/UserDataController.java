@@ -44,6 +44,7 @@ public class UserDataController {
         return ResponseEntity.ok(userDataService.changePersonalData(changePersonalDataDto));
     }
 
+
     //admin panel
     @PostMapping("/block-unblock/{id}")
     ResponseEntity<String> blockOrUnblockAccount(@PathVariable Long id){
@@ -61,6 +62,10 @@ public class UserDataController {
         return ResponseEntity.ok(userDataService.getAllClients());
     }
 
+    @GetMapping("/cinemaId/{login}")
+    public ResponseEntity<Long> findCinemaIdByEmployeeId(@PathVariable String login){
+        return ResponseEntity.ok(userDataService.findCinemaIdByEmployeeId(login));
+    }
     @GetMapping("/admins")
     public ResponseEntity<List<Admin>> getAllAdmins(){
         return ResponseEntity.ok(userDataService.getAllAdmins());

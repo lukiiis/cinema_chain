@@ -13,13 +13,13 @@ import java.util.Optional;
 @Repository
 public interface MovieRepository extends JpaRepository<Movie, Long> {
     @Query(value="SELECT * FROM film f WHERE f.data_premiery > CURRENT_DATE", nativeQuery = true)
-    List<Movie> findZapowiedzi();
+    List<Movie> findAnnouncements();
 
     @Query(value = "SELECT MAX(u.id_filmu) FROM film u", nativeQuery = true)
-    Long findMaxIdFilmu();
+    Long findMaxMovieId();
 
     @Query("SELECT k FROM MovieCategory k WHERE k.categoryId = :id")
-    MovieCategory findKategoriaById(@Param("id") Long id);
+    MovieCategory findCategoryById(@Param("id") Long id);
 
 
     @Query(value = "SELECT f.* FROM FILM f WHERE f.id_filmu = :movieId", nativeQuery = true)

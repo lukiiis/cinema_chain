@@ -11,5 +11,5 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class MovieResponse {
     protected String status;
-    protected String tytul;
+    protected String title;
 }

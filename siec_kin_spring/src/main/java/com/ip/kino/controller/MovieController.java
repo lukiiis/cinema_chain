@@ -17,36 +17,36 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api/v1")
 public class MovieController {
-    private final MovieService filmService;
+    private final MovieService movieService;
 
     @Autowired
     public MovieController(MovieService filmService){
-        this.filmService = filmService;
+        this.movieService = filmService;
     }
 
-    @GetMapping("/film")
-    public List<Movie> getAllFilmy(){
-            return filmService.getLatestFilms();
+    @GetMapping("/movie")
+    public List<Movie> getAllMovies(){
+            return movieService.getLatestFilms();
     }
 
     @GetMapping("/slider-movies")
     public List<Movie> getSliderMovies(){
-        return filmService.getSliderMovies();
+        return movieService.getSliderMovies();
     }
 
-    @GetMapping("/zapowiedzi")
-    public List<Movie> getZapowiedzi() {
-        return filmService.getZapowiedzi();
+    @GetMapping("/announcements")
+    public List<Movie> getAnnouncements() {
+        return movieService.getAnnouncements();
     }
 
-    @GetMapping("film/{id}")
+    @GetMapping("movie/{id}")
     public Movie getFilmById(@PathVariable Long id){
-        return  filmService.getFilmByID(id);
+        return  movieService.getMovieByID(id);
     }
 
     @PostMapping("/addMovie")
     public ResponseEntity<MovieResponse> addMovie(@RequestBody MovieDto request){
-        MovieResponse status = filmService.addMovie(request);
+        MovieResponse status = movieService.addMovie(request);
         return ResponseEntity.ok(status);
     }
 }

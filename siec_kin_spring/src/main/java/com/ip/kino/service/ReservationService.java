@@ -19,7 +19,7 @@ public class ReservationService {
     private final ReservedSeatsRepository reservedSeatsRepository;
 
     public List<ReservedSeats> findAllReservedSeatsByIdSeansu(Long seansID){
-        return reservedSeatsRepository.findAllReservedSeatsByIdSeansu(seansID);
+        return reservedSeatsRepository.findAllReservedSeatsByShowId(seansID);
     }
 
     public List<Reservation> getAllReservationsByClientId(Long clientId){
@@ -63,7 +63,7 @@ public class ReservationService {
         reservedSeatsRepository.save(reservedSeats);
 
         return ReservationResponse.builder()
-                .status("Rezerwacja zostal dodany.")
+                .status("Rezerwacja zostala dodana.")
                 .firstName(reservation.getFirstName())
                 .price(reservation.getPrice())
                 .Id(request.getSeatID())

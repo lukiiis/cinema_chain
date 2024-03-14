@@ -14,5 +14,5 @@ import java.time.LocalDate;
 public class ShowResponse {
     protected String status;
     protected LocalDate data;
-    protected String godzina;
+    protected String time;
 }

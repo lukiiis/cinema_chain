@@ -75,6 +75,8 @@ public class UserDataService {
         return adminRepository.findAll();
     }
 
+    public Long findCinemaIdByEmployeeId(String login){return employeeRepository.findCinemaIdByEmployeeId(login);}
+
     public String blockOrUnblockAccount(Long id) {
         User user = userRepository.findByUserId(id).orElseThrow();
         if(user.getBlockade()){
@@ -184,6 +186,8 @@ public class UserDataService {
 
         return "Employee registered succesfully";
     }
+
+
 
 //    public String changeRole(Long id, String role) {
 //        Uzytkownik user = uzytkownikRepository.findByIdUzytkownika(id).orElseThrow();

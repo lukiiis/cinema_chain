@@ -11,39 +11,39 @@ import java.time.LocalDate;
 import java.util.List;
 @Service
 public class ShowService {
-    private final ShowRepository seansRepository;
+    private final ShowRepository showRepository;
 
     @Autowired
-    public ShowService(ShowRepository seansRepository){
-        this.seansRepository = seansRepository;
+    public ShowService(ShowRepository showRepository){
+        this.showRepository = showRepository;
     }
-    public List<Show> getAllSeans(){
-        return seansRepository.findAll();
+    public List<Show> getAllShows(){
+        return showRepository.findAll();
     }
-    public Show getSeansById(Long id){
-        return seansRepository.findById(id).orElse(null);
+    public Show getShowById(Long id){
+        return showRepository.findById(id).orElse(null);
     }
-    public List<Show> findAllByKinoAndFilm(Long id, Long filmId){
-        return seansRepository.findAllByKinoAndFilm(id, filmId);
-    }
-
-    public List<Show> findAllByIdKina(Long KinoId){
-        return seansRepository.findAllByIdKIna(KinoId);
+    public List<Show> findAllByCinemaAndMovie(Long id, Long movieId){
+        return showRepository.findAllByCinemaAndMovie(id, movieId);
     }
 
-    public List<Show> findAllByDataKinoSala(Long kinoId, Long salaId, LocalDate data){
-        return seansRepository.findAllByDataKinoSala(kinoId,salaId,data);
+    public List<Show> findAllByCinemaId(Long cinemaId){
+        return showRepository.findAllByCinemaId(cinemaId);
+    }
+
+    public List<Show> findAllByDataCinemaScreeningRoom(Long cinemaId, Long screeningRoomId, LocalDate data){
+        return showRepository.findAllByDataCinemaScreeningRoom(cinemaId,screeningRoomId,data);
     }
 
 
     public ShowResponse addShow(ShowDto request) {
         //Sprawdzacz, czy istnieje w bazie uzytkownik o takim samym loginie lub emailu jak uzytkownik probujacy sie zarejestrowac
-        List<Show> showList = seansRepository.findAll();
+        List<Show> showList = showRepository.findAll();
         for (Show addedShows : showList) {
-            if (request.getLektor().equals("") || request.getData_seansu() == null ||
-                    request.getId_sali() == null || request.getTyp_obrazu().equals("") ||
-                    request.getId_kina() == null|| request.getId_filmu() == null ||
-                    request.getGodzina_rozpoczecia().equals("")) {
+            if (request.getLector().equals("") || request.getShowDate() == null ||
+                    request.getScreeningRoomId() == null || request.getMovieFormat().equals("") ||
+                    request.getCinemaId() == null|| request.getMovieId() == null ||
+                    request.getStartTime().equals("")) {
                 return ShowResponse.builder()
                         .status("Pole w formularzu jest puste.")
                         .build();
@@ -51,22 +51,22 @@ public class ShowService {
         }
 
         //ustawia id uzytkownika na najwyzsze w bazie + 1
-        Long id_seansu = seansRepository.findMaxIdSeansu();
-        if (id_seansu == null)
-            id_seansu = 1L;
+        Long showId = showRepository.findMaxShowId();
+        if (showId == null)
+            showId = 1L;
         else
-            id_seansu += 1;
+            showId += 1;
 
-        var film = seansRepository.findFilmById(request.getId_filmu());
-        var kino = seansRepository.findKinoById(request.getId_kina());
+        var movie = showRepository.findMovieById(request.getMovieId());
+        var cinema = showRepository.findCinemaById(request.getCinemaId());
 
-        Show seans = new Show(id_seansu, request.getGodzina_rozpoczecia(), request.getData_seansu(), request.getLektor(),request.getTyp_obrazu(),request.getId_sali(), film, kino);
-        seansRepository.save(seans);
+        Show show = new Show(showId, request.getStartTime(), request.getShowDate(), request.getLector(),request.getMovieFormat(),request.getScreeningRoomId(), movie, cinema);
+        showRepository.save(show);
 
         return ShowResponse.builder()
                 .status("Seans zostal dodany.")
-                .data(seans.getShowDate())
-                .godzina(seans.getStartTime())
+                .data(show.getShowDate())
+                .time(show.getStartTime())
                 .build();
 
     }

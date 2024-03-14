@@ -14,39 +14,39 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/v1")
 public class ShowController {
-    private final ShowService seansService;
+    private final ShowService showService;
     @Autowired
-    public ShowController(ShowService seansService){
-        this.seansService = seansService;
+    public ShowController(ShowService showService){
+        this.showService = showService;
     }
 
-    @GetMapping("/seans")
-    public List<Show> getAllSeans(){
-        return seansService.getAllSeans();
+    @GetMapping("/show")
+    public List<Show> getAllShows(){
+        return showService.getAllShows();
     }
 
-    @GetMapping("/seans/{id}")
-    public Show getSeansById(@PathVariable Long id){
-        return seansService.getSeansById(id);
+    @GetMapping("/show/{id}")
+    public Show getShowById(@PathVariable Long id){
+        return showService.getShowById(id);
     }
 
-    @GetMapping("/seans/kino/{idKina}")
-    public List<Show> getSeansByIdKina(@PathVariable Long idKina) {return seansService.findAllByIdKina(idKina);}
+    @GetMapping("/show/cinema/{cinemaId}")
+    public List<Show> getSeansByIdKina(@PathVariable Long cinemaId) {return showService.findAllByCinemaId(cinemaId);}
 
 
-    @GetMapping("/seans/{idKina}/{idFilmu}")
-    public List<Show> findAllByKinoAndFilm(@PathVariable Long idKina, @PathVariable Long idFilmu){
-        return seansService.findAllByKinoAndFilm(idKina, idFilmu);
+    @GetMapping("/show/{cinemaId}/{movieId}")
+    public List<Show> findAllByCinemaAndMovie(@PathVariable Long cinemaId, @PathVariable Long movieId){
+        return showService.findAllByCinemaAndMovie(cinemaId, movieId);
     }
 
-    @GetMapping("/seans/{idKina}/{idSali}/{data}")
-    public List<Show> findAllByDataKinoSala(@PathVariable Long idKina, @PathVariable Long idSali, @PathVariable LocalDate data){
-        return seansService.findAllByDataKinoSala(idKina, idSali, data);
+    @GetMapping("/show/{cinemaId}/{hallId}/{data}")
+    public List<Show> findAllByDataKinoSala(@PathVariable Long cinemaId, @PathVariable Long hallId, @PathVariable LocalDate data){
+        return showService.findAllByDataCinemaScreeningRoom(cinemaId, hallId, data);
     }
 
     @PostMapping("/addShow")
     public ResponseEntity<ShowResponse> addShow(@RequestBody ShowDto request){
-        ShowResponse status = seansService.addShow(request);
+        ShowResponse status = showService.addShow(request);
         return ResponseEntity.ok(status);
     }
 }

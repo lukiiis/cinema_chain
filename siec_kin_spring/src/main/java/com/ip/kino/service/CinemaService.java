@@ -13,46 +13,46 @@ import java.util.List;
 
 @Service
 public class CinemaService {
-    private final CinemaRepository kinoRepository;
+    private final CinemaRepository cinemaRepository;
     @Autowired
-    public CinemaService(CinemaRepository kinoRepository){
-        this.kinoRepository = kinoRepository;
+    public CinemaService(CinemaRepository cinemaRepository){
+        this.cinemaRepository = cinemaRepository;
     }
-    public List<Cinema> getAllKino(){
-        return kinoRepository.findAll();
+    public List<Cinema> getAllCinema(){
+        return cinemaRepository.findAll();
     }
 
-    public List<CinemaDto> getKinoWithoutSeats(){
-        List<Cinema> kinoList = kinoRepository.findAll();
-        List<CinemaDto> kinoDtoList = new ArrayList<>();
+    public List<CinemaDto> getCinemaWithoutSeats(){
+        List<Cinema> cinemaList = cinemaRepository.findAll();
+        List<CinemaDto> cinemaDtoList = new ArrayList<>();
 
-        for (Cinema kino : kinoList) {
-            CinemaDto kinoDto = convertToDto(kino);
-            kinoDtoList.add(kinoDto);
+        for (Cinema cinema : cinemaList) {
+            CinemaDto cinemaDto = convertToDto(cinema);
+            cinemaDtoList.add(cinemaDto);
         }
-        return kinoDtoList;
+        return cinemaDtoList;
     }
-    private CinemaDto convertToDto(Cinema kino) {
-        CinemaDto kinoDto = new CinemaDto();
-        kinoDto.setCinemaId(kino.getCinemaId());
-        kinoDto.setCity(kino.getCity());
-        kinoDto.setStreet(kino.getStreet());
-        kinoDto.setBuilding_number(kino.getBuilding_number());
-        kinoDto.setZip_code(kino.getZip_code());
-         kinoDto.setScreeningrooms(konwertujSale(kino.getScreeningRooms()));
+    private CinemaDto convertToDto(Cinema cinema) {
+        CinemaDto cinemaDto = new CinemaDto();
+        cinemaDto.setCinemaId(cinema.getCinemaId());
+        cinemaDto.setCity(cinema.getCity());
+        cinemaDto.setStreet(cinema.getStreet());
+        cinemaDto.setBuilding_number(cinema.getBuilding_number());
+        cinemaDto.setZip_code(cinema.getZip_code());
+        cinemaDto.setScreeningrooms(convertScreeningRoom(cinema.getScreeningRooms()));
 
-        return kinoDto;
+        return cinemaDto;
     }
-    private List<ScreeningRoomDto> konwertujSale(List<ScreeningRoom> sale) {
+    private List<ScreeningRoomDto> convertScreeningRoom(List<ScreeningRoom> screeningRooms) {
         List<ScreeningRoomDto> salaDtoList = new ArrayList<>();
 
-        for (ScreeningRoom screeningRoom : sale) {
-            ScreeningRoomDto salaDto = new ScreeningRoomDto();
-            salaDto.setId_sali(screeningRoom.getScreeningRoomId());
-            salaDto.setId_kina(screeningRoom.getCinemaId());
-            salaDto.setNazwa(screeningRoom.getName());
-            salaDto.setIlosc_miejsc(screeningRoom.getNumberOfSeats());
-            salaDtoList.add(salaDto);
+        for (ScreeningRoom screeningRoom : screeningRooms) {
+            ScreeningRoomDto screeningRoomDto = new ScreeningRoomDto();
+            screeningRoomDto.setScreeningRoomId(screeningRoom.getScreeningRoomId());
+            screeningRoomDto.setCinemaId(screeningRoom.getCinemaId());
+            screeningRoomDto.setName(screeningRoom.getName());
+            screeningRoomDto.setNumberOfSeats(screeningRoom.getNumberOfSeats());
+            salaDtoList.add(screeningRoomDto);
         }
         return salaDtoList;
     }

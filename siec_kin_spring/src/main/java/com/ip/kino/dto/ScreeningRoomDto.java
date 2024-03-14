@@ -10,8 +10,8 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ScreeningRoomDto {
-    private Long id_sali;
-    private Long id_kina;
-    private String nazwa;
-    private Long ilosc_miejsc;
+    private Long screeningRoomId;
+    private Long cinemaId;
+    private String name;
+    private Long numberOfSeats;
 }

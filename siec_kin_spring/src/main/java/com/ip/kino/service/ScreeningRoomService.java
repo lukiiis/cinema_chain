@@ -8,19 +8,19 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 @Service
 public class ScreeningRoomService {
-    private final ScreeningRoomRepository salaRepository;
+    private final ScreeningRoomRepository screeningRoomRepository;
 
     @Autowired
-    public ScreeningRoomService(ScreeningRoomRepository salaRepository){
-        this.salaRepository = salaRepository;
+    public ScreeningRoomService(ScreeningRoomRepository screeningRoomRepository){
+        this.screeningRoomRepository = screeningRoomRepository;
     }
 
-    public List<ScreeningRoom> getAllSale(){return salaRepository.findAll();}
+    public List<ScreeningRoom> getAllScreeningRooms(){return screeningRoomRepository.findAll();}
 //    public Sala getSalaById(Long id){
 //        return salaRepository.findSalaById(id);
 //    }
 
-    public ScreeningRoom getSalaById(Long id){
-        return salaRepository.findById(id).orElse(null);
+    public ScreeningRoom getScreeningRoomById(Long id){
+        return screeningRoomRepository.findById(id).orElse(null);
     }
 }

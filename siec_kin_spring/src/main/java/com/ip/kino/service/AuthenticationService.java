@@ -72,13 +72,13 @@ public class AuthenticationService {
 
         userRepository.save(user);
 
-        Long id_klienta = clientRepository.findMaxClientId();
-        if(id_klienta == null)
-            id_klienta = 1L;
+        Long clientId = clientRepository.findMaxClientId();
+        if(clientId == null)
+            clientId = 1L;
         else
-            id_klienta += 1;
+            clientId += 1;
 
-        Client client = new Client(id_klienta,0L, 0.0, user); // Utwórz obiekt Klienta
+        Client client = new Client(clientId,0L, 0.0, user); // Utwórz obiekt Klienta
         clientRepository.save(client); // Zapisz Klienta
         user.setClient(client);   //Ustawienie uzytkownikowi klienta
 

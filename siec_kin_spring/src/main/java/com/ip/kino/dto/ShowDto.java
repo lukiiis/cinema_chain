@@ -11,11 +11,11 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ShowDto {
-    private String godzina_rozpoczecia;
-    private LocalDate data_seansu;
-    private Long id_sali;
-    private Long id_kina;
-    private Long id_filmu;
-    private String lektor;
-    private String typ_obrazu;
+    private String startTime;
+    private LocalDate showDate;
+    private Long screeningRoomId;
+    private Long cinemaId;
+    private Long movieId;
+    private String lector;
+    private String movieFormat;
 }

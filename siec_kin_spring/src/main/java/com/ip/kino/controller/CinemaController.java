@@ -20,16 +20,16 @@ public class CinemaController {
         this.kinoService = kinoService;
     }
 
-    @GetMapping("/kino")
+    @GetMapping("/cinema")
     public List<CinemaDto> getAllKinoWithoutSeats(){
-        return kinoService.getKinoWithoutSeats();
+        return kinoService.getCinemaWithoutSeats();
     }
 
-    @GetMapping("/kinoWithSeats")
-    public List<Cinema> getAllKino(){return  kinoService.getAllKino();}
+    @GetMapping("/cinemaWithSeats")
+    public List<Cinema> getAllKino(){return  kinoService.getAllCinema();}
 
     @GetMapping("/private/cinemas")
     public List<Cinema> getAllCinemas(){
-        return kinoService.getAllKino();
+        return kinoService.getAllCinema();
     }
 }
