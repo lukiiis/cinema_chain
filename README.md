@@ -13,7 +13,7 @@ Web application used for managing and supporting the operations of a cinema chai
 
 ## Description
 
-This web application is designed to ???????????????? kurwa no co. This app is used as a website of some cinema network, and allows users to perform various of activities, such as buying tickets for a movie shown in cinema chosen by a client, managing user's accounts by an admin or adding new screenings at specific times by a employee. Below is a short list of the most useful and important features website offers:
+This web application is designed to ????????????????  no co. This app is used as a website of some cinema network, and allows users to perform various of activities, such as buying tickets for a movie shown in cinema chosen by a client, managing user's accounts by an admin or adding new screenings at specific times by a employee. Below is a short list of the most useful and important features website offers:
 
 #### For Customers
 
