@@ -12,7 +12,7 @@ export default function CinemaSelection() {
 
   useEffect(() => {
     const getCinema = () => {
-      axios.get('http://localhost:8090/api/v1/kino').then(
+      axios.get('http://localhost:8090/api/v1/cinema').then(
         response => {
           setCinema(response.data)
         }

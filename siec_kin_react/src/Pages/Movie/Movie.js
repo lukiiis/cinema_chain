@@ -24,7 +24,7 @@ const Movie = (() => {
 
     //pobieranie danych filmu
     useEffect(() => {
-        const url = 'http://localhost:8090/api/v1/film/' + movie_ID;
+        const url = 'http://localhost:8090/api/v1/movie/' + movie_ID;
         const getMovie = () => {
             axios.get(url).then(
                 response => {

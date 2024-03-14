@@ -15,7 +15,7 @@ const SearchItem = ({ movieSetter }) => {
 
   useEffect(() => {
     const getMovies = () => {
-      axios.get('http://localhost:8090/api/v1/film')
+      axios.get('http://localhost:8090/api/v1/movie')
         .then(response => {
           setMovies(response.data);
         })

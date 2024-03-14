@@ -20,7 +20,7 @@ export default function Shows({ filmID }) {
     };
     useEffect(() => {
       const getCinema = () => {
-        axios.get('http://localhost:8090/api/v1/kino').then(
+        axios.get('http://localhost:8090/api/v1/cinema').then(
           response => {
             setCinema(response.data)
           }
@@ -36,7 +36,7 @@ export default function Shows({ filmID }) {
     }, []);
 
     const handleShow = async (kinoID) => {
-      const url = 'http://localhost:8090/api/v1/seans/' + kinoID + '/' + filmID;
+      const url = 'http://localhost:8090/api/v1/show/' + kinoID + '/' + filmID;
       const getShow = () => {
         axios.get(url).then(
           response => {

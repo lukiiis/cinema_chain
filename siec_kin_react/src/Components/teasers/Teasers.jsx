@@ -11,7 +11,7 @@ const Teasers = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get("http://localhost:8090/api/v1/zapowiedzi");
+                const response = await axios.get("http://localhost:8090/api/v1/announcements");
                 setTeasers(response.data);
             }
             catch (error) {

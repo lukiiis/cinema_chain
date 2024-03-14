@@ -89,7 +89,7 @@ export default function Reservation() {
 
 
   useEffect(() => {
-    const url = 'http://localhost:8090/api/v1/seans/' + seansID;
+    const url = 'http://localhost:8090/api/v1/show/' + seansID;
     const getShow = async () => {
       axios.get(url).then(
         response => {

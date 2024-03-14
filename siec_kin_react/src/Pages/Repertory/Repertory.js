@@ -37,7 +37,7 @@ export default function Reportory() {
 
   useEffect(() => {
     const getCinema = () => {
-      axios.get('http://localhost:8090/api/v1/kino').then(
+      axios.get('http://localhost:8090/api/v1/cinema').then(
         response => {
           setCinema(response.data)
         }
@@ -59,7 +59,7 @@ export default function Reportory() {
   }, [cinema])
 
   useEffect(() => {
-    const url = 'http://localhost:8090/api/v1/film';
+    const url = 'http://localhost:8090/api/v1/movie';
     const getMovie = () => {
       axios.get(url).then(
         response => {
@@ -78,7 +78,7 @@ export default function Reportory() {
 
 
   const handleShow = async (kinoID) => {
-    const url = 'http://localhost:8090/api/v1/seans/kino/' + kinoID;
+    const url = 'http://localhost:8090/api/v1/show/cinema/' + kinoID;
     const getShow = () => {
       axios.get(url).then(
         response => {

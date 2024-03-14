@@ -7,9 +7,10 @@ import DatePicker from 'react-datepicker';
 import { useNavigate } from "react-router-dom";
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
+import { jwtDecode } from "jwt-decode";
 
 const EmployeeDashboard = () => {
+
     const token = localStorage.getItem('token');
     const navigate = useNavigate()
     const [selectedMenuItem, setSelectedMenuItem] = useState("movies")
@@ -23,6 +24,8 @@ const EmployeeDashboard = () => {
     const [date, setDate] = useState(new Date().toISOString().split('T')[0])
     const [errors, setErrors] = useState({})
     const [res, setRes] = useState({});
+    const [cinemaID, setCinemaID] = useState();
+    const [hallName, setHallName] = useState();
 
 
     const [searchTerm, setSearchTerm] = useState(''); // wybrany wynik z wyszukiwarki
@@ -30,31 +33,70 @@ const EmployeeDashboard = () => {
     const [isListVisible, setListVisible] = useState(true); // stan do śledzenia widoczności listy
 
     let today = new Date();
+    
 
-    let cinemaID = 1; // tu bedzie id kina pobrane od pracownika
+    const fetchCinemaId = async () => {
+        try {
+            const token = localStorage.getItem('token');
+            const decodedToken = jwtDecode(token);
+            const login = decodedToken.sub;
+
+            const url = `http://localhost:8090/api/v1/private/cinemaId/${login}`;
+            console.log(url)
+            const response = await axios.get(url, {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            })
+            if (response.status === 200) {
+                setCinemaID(response.data);
+                console.log(cinemaID)
+            }
+            else {
+                console.log("unexpected error", response.status);
+            }
+        }
+        catch (error) {
+            console.error("Error while fetching data", error);
+            if (error.response.status === 403) {
+                console.log("Access denied.");
+                localStorage.clear();
+                navigate("/login");
+            }
+        }
+    }
+
+    useEffect(() =>{
+        fetchCinemaId();
+    })
+
+  
+
+
+
 
     const [availableHours, setAvailableHours] = useState(['9:00', '12:30', '16:00', '19:30', '23:00']); // możliwe godziny seansow
     const [filteredHours, setFilteredHours] = useState(null); // dostępne godziny seansow
 
     const [formData, setFormData] = useState({
-        tytul: '',
-        opis: '',
-        rezyser: '',
-        data_premiery: '',
-        czas_trwania: '',
-        id_kategorii: '',
-        obraz_url: '',
-        plakat_url: ''
+        title: '',
+        description: '',
+        director: '',
+        release_date: '',
+        duration: '',
+        categoryId: '',
+        picture_url: '',
+        poster_url: ''
     })
     const [formDataShow, setFormDataShow] = useState({
-        godzina_rozpoczecia: null,
-        data_seansu: today.toISOString().split('T')[0],
-        id_sali: null,
-        id_kina: 1,
-        id_filmu: null,
-        lektor: null,
-        typ_obrazu: null
-    })
+        startTime: null,
+        showDate: today.toISOString().split('T')[0],
+        screeningRoomId: null,
+        cinemaId: cinemaID,
+        movieId: null,
+        lector: null,
+        movieFormat: null
+    }, [cinemaID])
 
     const handleMenuItemClick = (menuItem) => {
         setSelectedMenuItem(menuItem);
@@ -81,6 +123,13 @@ const EmployeeDashboard = () => {
         });
     };
 
+    useEffect(() =>{
+        setFormDataShow({
+            ...formDataShow,
+            cinemaId: cinemaID
+        });
+    }, [cinemaID])
+
 
     useEffect(() => {
         if(!token){
@@ -90,7 +139,7 @@ const EmployeeDashboard = () => {
             navigate("/");
         }
         const getMovies = async () => {
-            axios.get('http://localhost:8090/api/v1/film').then(
+            axios.get('http://localhost:8090/api/v1/movie').then(
                 response => {
                     setMovies(response.data)
                 }
@@ -103,7 +152,7 @@ const EmployeeDashboard = () => {
 
     useEffect(() => {
         const getCinema = async () => {
-            axios.get('http://localhost:8090/api/v1/kino').then(
+            axios.get('http://localhost:8090/api/v1/cinema').then(
                 response => {
                     setCinema(response.data)
                 }
@@ -117,12 +166,12 @@ const EmployeeDashboard = () => {
     useEffect(() => {
         const fetchData = async () => {
           try {
-            if (cinemaID !== null && formDataShow.id_sali !== null && formDataShow.data_seansu !== null) {
-              const url = `http://localhost:8090/api/v1/seans/${cinemaID}/${formDataShow.id_sali}/${formDataShow.data_seansu}`;
+            if (cinemaID !== null && formDataShow.screeningRoomId !== null && formDataShow.showDate !== null) {
+              const url = `http://localhost:8090/api/v1/show/${cinemaID}/${formDataShow.screeningRoomId}/${formDataShow.showDate}`;
               const response = await axios.get(url);
               setShows(response.data);
               if (response.data != null) {
-                const unavailableHours = response.data.map(seans => seans.startTime);
+                const unavailableHours = response.data.map(show => show.startTime);
                 const filtered = availableHours.filter(hour => !unavailableHours.includes(hour));
                 setFilteredHours(filtered);
               }
@@ -134,20 +183,21 @@ const EmployeeDashboard = () => {
         };
 
         fetchData();
-    }, [cinemaID, formDataShow.id_sali, formDataShow.data_seansu, availableHours]);
+    }, [cinemaID, formDataShow.screeningRoomId, formDataShow.showDate, availableHours]);
 
     useEffect(() => {
         if (cinema) {
           cinema.forEach((cinemaItem) => {
             if (cinemaID === cinemaItem.cinemaId) {
               setCinemaHalls(cinemaItem.screeningrooms);
+              console.log(cinemaHalls)
             }
           });
         }
     }, [cinema, cinemaID]);
     const handleSubmit = async (e) => {
         e.preventDefault();
-
+        
         if (Object.keys(errors).length === 0) {
             try {
                 const response = await axios.post("http://localhost:8090/api/v1/addMovie", formData);
@@ -164,7 +214,8 @@ const EmployeeDashboard = () => {
 
     const handleSubmitShow = async (e) => {
         e.preventDefault();
-
+        console.log(formDataShow)
+    
         if (Object.keys(errors).length === 0) {
             try {
                 const response = await axios.post("http://localhost:8090/api/v1/addShow", formDataShow);
@@ -178,13 +229,13 @@ const EmployeeDashboard = () => {
             console.log('Form has errors, cannot submit.');
         }
         setFormDataShow({
-            godzina_rozpoczecia: null,
-            data_seansu: today.toISOString().split('T')[0],
-            id_sali: null,
-            id_kina: cinemaID,
-            id_filmu: null,
-            lektor: null,
-            typ_obrazu: null
+            startTime: null,
+            showDate: today.toISOString().split('T')[0],
+            screeningRoomId: null,
+            cinemaId: cinemaID,
+            movieId: null,
+            lector: null,
+            movieFormat: null
         });
         setDate(today.toISOString().split('T')[0])
         setSearchTerm('');
@@ -217,35 +268,35 @@ const EmployeeDashboard = () => {
                             <div className="formInputs empInputs">
                                 <label>
                                     Tytuł
-                                    <input type="text" name="tytul" value={formData.tytul} onChange={handleChange} />
+                                    <input type="text" name="title" value={formData.title} onChange={handleChange} />
                                 </label>
                                 <label>
                                     Opis
-                                    <input type="text" name="opis" value={formData.opis} onChange={handleChange} />
+                                    <input type="text" name="description" value={formData.description} onChange={handleChange} />
                                 </label>
                                 <label>
                                     Data Premiery
-                                    <input type="date" name="data_premiery" value={formData.data_premiery} onChange={handleChange} />
+                                    <input type="date" name="release_date" value={formData.release_date} onChange={handleChange} />
                                 </label>
                                 <label>
                                     Kategoria
-                                    <input type="text" name="id_kategorii" value={formData.id_kategorii} onChange={handleChange} />
+                                    <input type="text" name="categoryId" value={formData.categoryId} onChange={handleChange} />
                                 </label>
                                 <label>
                                     Obraz
-                                    <input type="text" name="obraz_url" value={formData.obraz_url} onChange={handleChange} />
+                                    <input type="text" name="picture_url" value={formData.picture_url} onChange={handleChange} />
                                 </label>
                                 <label>
                                     Plakat
-                                    <input type="text" name="plakat_url" value={formData.plakat_url} onChange={handleChange} />
+                                    <input type="text" name="poster_url" value={formData.poster_url} onChange={handleChange} />
                                 </label>
                                 <label>
                                     Czas trwania
-                                    <input type="text" name="czas_trwania" value={formData.czas_trwania} onChange={handleChange} />
+                                    <input type="text" name="duration" value={formData.duration} onChange={handleChange} />
                                 </label>
                                 <label>
                                     Reżyser
-                                    <input type="text" name="rezyser" value={formData.rezyser} onChange={handleChange} />
+                                    <input type="text" name="director" value={formData.director} onChange={handleChange} />
                                 </label>
                             </div>
                             <div className="formButton">
@@ -324,7 +375,7 @@ const EmployeeDashboard = () => {
                                     <ul className="search-results-list">
                                         {searchResults.map((movie, index) => (
                                             <li className="search-movie-link" key={index}
-                                            onClick={() => {handleResultClick(movie.title); handleChangeShow('id_filmu', movie.movieId)}}>
+                                            onClick={() => {handleResultClick(movie.title); handleChangeShow('movieId', movie.movieId)}}>
                                                 <img className="search-item-icon" src={movie.poster_url} />
                                                 <p className="show-movie-title-list">{movie.title}</p>
                                             </li>))}
@@ -341,20 +392,20 @@ const EmployeeDashboard = () => {
 
                                 setFormDataShow(prevFormData => ({
                                     ...prevFormData,
-                                    data_seansu: date.toISOString().split('T')[0]
+                                    showDate: date.toISOString().split('T')[0]
                                 }));
                             }}
                             customInput={<ExampleCustomInput />} showPreviousDays showNextMonths />
 
                         <div className="dropdown custom-dropdown">
                             <button className="btn btn-secondary dropdown-toggle custom-button" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                                {formDataShow.id_sali || 'wybierz sale'}
+                                {hallName || 'wybierz sale'}
                             </button>
                             <div className="dropdown-menu custom-menu" aria-labelledby="dropdownMenuButton">
                                 {cinemaHalls ? (
                                     cinemaHalls.map((cinemaHall, index) => (
-                                        <a key={cinemaHall.id_sali} className="dropdown-item custom-item" onClick={() => { handleChangeShow('id_sali', cinemaHall.id_sali); }}>
-                                            {cinemaHall.nazwa}
+                                        <a key={cinemaHall.screeningRoomId} className="dropdown-item custom-item" onClick={() => { handleChangeShow('screeningRoomId', cinemaHall.screeningRoomId); setHallName(cinemaHall.name) }}>
+                                            {cinemaHall.name}
                                         </a>))) : null}
                             </div>
                         </div>
@@ -363,12 +414,12 @@ const EmployeeDashboard = () => {
 
                         <div className="dropdown custom-dropdown">
                             <button className="btn btn-secondary dropdown-toggle custom-button" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                                {formDataShow.godzina_rozpoczecia || 'Wybierz godzinę'}
+                                {formDataShow.startTime || 'Wybierz godzinę'}
                             </button>
                             <div className="dropdown-menu custom-menu" aria-labelledby="dropdownMenuButton">
                                 {filteredHours ? (
-                                    filteredHours.map(godzina => (
-                                        <a key={godzina} className="dropdown-item custom-item" onClick={() => { handleChangeShow('godzina_rozpoczecia', godzina); }}>{godzina}</a>
+                                    filteredHours.map(hour => (
+                                        <a key={hour} className="dropdown-item custom-item" onClick={() => { handleChangeShow('startTime', hour); }}>{hour}</a>
                                     ))) : null}
                             </div>
                         </div>
@@ -377,24 +428,24 @@ const EmployeeDashboard = () => {
 
                         <div className="dropdown custom-dropdown">
                             <button className="btn btn-secondary dropdown-toggle custom-button" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                                {formDataShow.lektor || 'Wybierz lektora'}
+                                {formDataShow.lector || 'Wybierz lektora'}
                             </button>
                             <div className="dropdown-menu custom-menu" aria-labelledby="dropdownMenuButton">
-                                <a className="dropdown-item custom-item" onClick={() => { handleChangeShow('lektor', 'Lektor'); }}>Lektor</a>
-                                <a className="dropdown-item custom-item" onClick={() => { handleChangeShow('lektor', 'Dubbing'); }}>Dubbing</a>
-                                <a className="dropdown-item custom-item" onClick={() => { handleChangeShow('lektor', 'Napisy'); }}>Napisy</a>
+                                <a className="dropdown-item custom-item" onClick={() => { handleChangeShow('lector', 'Lektor'); }}>Lektor</a>
+                                <a className="dropdown-item custom-item" onClick={() => { handleChangeShow('lector', 'Dubbing'); }}>Dubbing</a>
+                                <a className="dropdown-item custom-item" onClick={() => { handleChangeShow('lector', 'Napisy'); }}>Napisy</a>
                             </div>
                         </div>
 
 
                         <div className="dropdown custom-dropdown">
                             <button className="btn btn-secondary dropdown-toggle custom-button" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                                {formDataShow.typ_obrazu || 'Wybierz typ obrazu'}
+                                {formDataShow.movieFormat || 'Wybierz typ obrazu'}
                             </button>
                             <div className="dropdown-menu custom-menu" aria-labelledby="dropdownMenuButton">
-                                <a className="dropdown-item custom-item" onClick={() => { handleChangeShow('typ_obrazu', '2D'); }}>2D</a>
-                                <a className="dropdown-item custom-item" onClick={() => { handleChangeShow('typ_obrazu', '3D'); }}>3D</a>
-                                <a className="dropdown-item custom-item" onClick={() => { handleChangeShow('typ_obrazu', '4D'); }}>4D</a>
+                                <a className="dropdown-item custom-item" onClick={() => { handleChangeShow('movieFormat', '2D'); }}>2D</a>
+                                <a className="dropdown-item custom-item" onClick={() => { handleChangeShow('movieFormat', '3D'); }}>3D</a>
+                                <a className="dropdown-item custom-item" onClick={() => { handleChangeShow('movieFormat', '4D'); }}>4D</a>
                             </div>
                         </div>
 

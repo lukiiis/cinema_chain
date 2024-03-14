@@ -13,7 +13,7 @@ const Footer = () => {
 
     const fetchData = async () => {
         try {
-            const response = await axios.get("http://localhost:8090/api/v1/kino");
+            const response = await axios.get("http://localhost:8090/api/v1/cinema");
             setCinemas(response.data);
         } catch (error) {
             console.error("Error while fetching data: ", error);
