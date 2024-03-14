@@ -1,2 +1,0 @@
-# siec_kin
-siemanko
