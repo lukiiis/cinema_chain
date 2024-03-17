@@ -7,13 +7,13 @@ Web application used for managing and supporting the operations of a cinema chai
 - [Description](#description)
 - [Technologies](#technologies)
 - [Setup](#setup)
-- [Tu zdjencia i opis, jakis wstep, ze tera beda zdjencia](#tu-zdjencia-i-opis-jakis-wstep-ze-tera-beda-zdjencia)
+- [Screenshots](#Screenshots)
 - [Credits](#credits)
 - [License](#license)
 
 ## Description
 
-This web application is designed to ????????????????  no co. This app is used as a website of some cinema network, and allows users to perform various of activities, such as buying tickets for a movie shown in cinema chosen by a client, managing user's accounts by an admin or adding new screenings at specific times by a employee. Below is a short list of the most useful and important features website offers:
+This web application is designed to serve as a comprehensive platform for a cinema network. This app is used as a website for cinema network, and allows users to perform various of activities, such as buying tickets for a movie shown in cinema chosen by a client, managing user's accounts by an admin or adding new screenings at specific times by a employee. Below is a short list of the most useful and important features website offers:
 
 #### For Customers
 
@@ -22,8 +22,7 @@ Customers can enjoy a seamless experience using this web app thanks to its quali
 - Easily browse movie listings, select showtimes and purchase tickets online for a movie at the cinema of their choice
 - Register, login, manage personal data, history of bought tickets, personal "To watch list", which contains movies that customer wants to see
 - Movie page, that contains all the information about the movie, all screenings, ratings and space for customer's own rating of that movie
-- Promotions and news sites containing all of the useful information about discounts and news ?????????????
-- moze cos jeszcze ?????????????????
+- Promotions and news sites containing all of the useful information about promos and news
 
 #### For Administrators
 
@@ -72,10 +71,42 @@ To set up the Cinema Chain Support and Management System locally, follow these s
 
 The frontend server will start running at http://localhost:3000. You can access the website by visiting this URL in your web browser.
 
-## Tu zdjencia i opis, jakis wstep, ze tera beda zdjencia
+## Screenshots
+
+Couple of screenshots of the website:
+
+#### Home Page
+
+![alt text](images/homePage_1.png)
+![alt text](images/homePage_2.png)
+![alt text](images/homePage_3.png)
+
+#### Repertory page
+
+![alt text](images/reportory.png)
+
+#### Movie page
+
+![alt text](images/movie.png)
+![alt text](images/movie_2.png)
+
+#### Reservations page
+
+![alt text](images/reseravtions_2.png)
+
+#### User dashboard
+
+![alt text](images/userDashboard.png)
+![alt text](images/userDashboard_2.png)
 
 ## Credits
 
-(tutaj lista ludzi, ktorzy robili ten projekt itp.)
+The cinema chain project was created in collaboration with the following individuals:
+
+[@lukiiis](https://www.github.com/lukiiis)
+
+[@zysio](https://www.github.com/zysio)
 
 ## License
+
+This project is licensed under the Apache License
