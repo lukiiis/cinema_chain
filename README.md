@@ -7,8 +7,8 @@ Web application used for managing and supporting the operations of a cinema chai
 - [Description](#description)
 - [Technologies](#technologies)
 - [Setup](#setup)
-- [Screenshots](#Screenshots)
-- [Credits](#credits)
+- [Screenshots](#screenshots)
+- [Authors](#authors)
 - [License](#license)
 
 ## Description
@@ -99,13 +99,11 @@ Couple of screenshots of the website:
 ![alt text](images/userDashboard.png)
 ![alt text](images/userDashboard_2.png)
 
-## Credits
+## Authors
 
-The cinema chain project was created in collaboration with the following individuals:
+[@Łukasz Czyszczoń](https://www.github.com/lukiiis)
 
-[@lukiiis](https://www.github.com/lukiiis)
-
-[@zysio](https://www.github.com/zysio)
+[@Krzysztof Cybulski](https://www.github.com/zysio)
 
 ## License
 
