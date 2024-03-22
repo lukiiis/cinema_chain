@@ -104,7 +104,3 @@ Couple of screenshots of the website:
 [@Łukasz Czyszczoń](https://www.github.com/lukiiis)
 
 [@Krzysztof Cybulski](https://www.github.com/zysio)
-
-## License
-
-This project is licensed under the Apache License
